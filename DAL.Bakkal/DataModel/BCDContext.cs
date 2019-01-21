@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 //using bakkalOtomasyon.Migrations;
 using System.Data.Entity;
 
-namespace bakkalOtomasyon.DataModel
+namespace DAL.Bakkal.DataModel
 {
-   public class BCDContext : DbContext
+    public class BCDContext : DbContext
     {
         //public BCDContext() : base("BCDContext")
         //{

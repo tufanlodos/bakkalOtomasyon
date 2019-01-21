@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bakkalOtomasyon.DataModel
+namespace DAL.Bakkal.DataModel
 {
     [Table("Tedarikci")]
     public  class Tedarikci

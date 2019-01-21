@@ -53,25 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModel\BCDContext.cs" />
-    <Compile Include="DataModel\Masraf.cs" />
-    <Compile Include="DataModel\Satis.cs" />
-    <Compile Include="DataModel\Kategoriler.cs" />
-    <Compile Include="DataModel\SatisDetay.cs" />
-    <Compile Include="DataModel\Siparis.cs" />
-    <Compile Include="DataModel\Tedarikci.cs" />
-    <Compile Include="DataModel\TedarikDetay.cs" />
-    <Compile Include="DataModel\Urunler.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Anasayfa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Anasayfa.Designer.cs">
+      <DependentUpon>Anasayfa.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Anasayfa.resx">
+      <DependentUpon>Anasayfa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -97,6 +88,16 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL.Bakkal\BLL.Bakkal.csproj">
+      <Project>{2b1d1dd2-7f85-4434-9367-acaa8bf8dde6}</Project>
+      <Name>BLL.Bakkal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.Bakkal\DAL.Bakkal.csproj">
+      <Project>{72a2a2d9-925b-436f-aba6-4e8723bfc5ac}</Project>
+      <Name>DAL.Bakkal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

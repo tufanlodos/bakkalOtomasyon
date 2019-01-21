@@ -1,6 +1,6 @@
 ﻿namespace bakkalOtomasyon
 {
-    partial class Form1
+    partial class Anasayfa
     {
         /// <summary>
         /// Required designer variable.

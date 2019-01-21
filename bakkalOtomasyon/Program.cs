@@ -1,10 +1,12 @@
-﻿using System;
+﻿using bakkalOtomasyon;
+using DAL.Bakkal.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace bakkalOtomasyon
+namespace PL.Bakkal
 {
     static class Program
     {
@@ -14,9 +16,13 @@ namespace bakkalOtomasyon
         [STAThread]
         static void Main()
         {
+            using (BCDContext ent = new BCDContext())
+            {
+                ent.Database.CreateIfNotExists();
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Anasayfa());
         }
     }
 }
