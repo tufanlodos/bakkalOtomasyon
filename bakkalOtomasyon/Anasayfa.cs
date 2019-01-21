@@ -1,4 +1,4 @@
-﻿using bakkalOtomasyon.DataModel;
+﻿using DAL.Bakkal.DataModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
