@@ -15,6 +15,7 @@ namespace bakkalOtomasyon.DataModel
         public int UrunId { get; set; }
         public int Adet { get; set; }
         public decimal ToplamTutar { get; set; }
+        public decimal BirimFiyat { get; set; }
 
         //Relations
         [ForeignKey("UrunId")]
