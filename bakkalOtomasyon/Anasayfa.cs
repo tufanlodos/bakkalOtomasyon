@@ -25,5 +25,10 @@ namespace bakkalOtomasyon
 
 
         }
+
+        private void btnArkaPlanaAl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
