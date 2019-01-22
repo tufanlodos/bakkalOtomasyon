@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EA2AE9CD-7313-4A55-B030-4467B3D21D4D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>bakkalOtomasyon</RootNamespace>
-    <AssemblyName>bakkalOtomasyon</AssemblyName>
+    <RootNamespace>PL.Bakkal</RootNamespace>
+    <AssemblyName>PL.Bakkal</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -72,6 +72,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
