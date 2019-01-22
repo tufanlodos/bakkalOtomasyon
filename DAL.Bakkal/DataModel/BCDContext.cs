@@ -12,10 +12,10 @@ namespace DAL.Bakkal.DataModel
     {
         //public BCDContext() : base("BCDContext")
         //{
-        //   // Migration işlemleri için DbContext (PIContext) ile Migration eşleştirilmelidir
-        //    Database.SetInitializer(new
-        //       MigrateDatabaseToLatestVersion<BCDContext,
-        //      Configuration>("BCDContext"));
+        //    //   // Migration işlemleri için DbContext (PIContext) ile Migration eşleştirilmelidir
+        //    //    Database.SetInitializer(new
+        //    //       MigrateDatabaseToLatestVersion<BCDContext,
+        //    //      Configuration>("BCDContext"));
         //}
         // veritabanında oluşmasını istediğimiz tablolara karşılık gelen sınıflarımızı DbSet koleksiyonları şeklinde tanımlıyoruz.
         public virtual DbSet<Urunler> Urunlers { get; set; }
