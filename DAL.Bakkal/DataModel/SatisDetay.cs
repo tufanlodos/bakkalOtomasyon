@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bakkalOtomasyon.DataModel
+namespace DAL.Bakkal.DataModel
 {
     [Table("SatisDetay")]
     public  class SatisDetay
@@ -15,6 +15,7 @@ namespace bakkalOtomasyon.DataModel
         public int UrunId { get; set; }
         public int Adet { get; set; }
         public decimal ToplamTutar { get; set; }
+        public decimal BirimFiyat { get; set; }
 
         //Relations
         [ForeignKey("UrunId")]

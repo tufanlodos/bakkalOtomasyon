@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bakkalOtomasyon.DataModel
+namespace DAL.Bakkal.DataModel
 {
     [Table("Urunler")]
     public class Urunler
@@ -16,6 +16,7 @@ namespace bakkalOtomasyon.DataModel
         public string UrunMarka { get; set; }
         public string UrunAdi { get; set; }
         public decimal SatisFiyat { get; set; }
+        public decimal AlisFiyat { get; set; }
         public int KategoriId { get; set; }
         public int StokMiktari { get; set; }
 

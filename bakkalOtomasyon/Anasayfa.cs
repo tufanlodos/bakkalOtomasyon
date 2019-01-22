@@ -1,4 +1,4 @@
-﻿using bakkalOtomasyon.DataModel;
+﻿using DAL.Bakkal.DataModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,23 +11,23 @@ using System.Windows.Forms;
 
 namespace bakkalOtomasyon
 {
-    public partial class Form1 : Form
+    public partial class Anasayfa : Form
     {
-        public Form1()
+        public Anasayfa()
         {
             InitializeComponent();
         }
         BCDContext ent = new BCDContext();
 
-        private void btnGetir_Click(object sender, EventArgs e)
-        {
-            dgvKategoriler.DataSource = ent.Kategorilers.ToList();
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ent.Database.CreateIfNotExists();
 
+
+        }
+
+        private void btnArkaPlanaAl_Click(object sender, EventArgs e)
+        {
 
         }
     }
