@@ -5,18 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 //using bakkalOtomasyon.Migrations;
 using System.Data.Entity;
+using DAL.Bakkal.Migrations;
 
 namespace DAL.Bakkal.DataModel
 {
     public class BCDContext : DbContext
     {
-        //public BCDContext() : base("BCDContext")
-        //{
-        //    //   // Migration işlemleri için DbContext (PIContext) ile Migration eşleştirilmelidir
-        //    //    Database.SetInitializer(new
-        //    //       MigrateDatabaseToLatestVersion<BCDContext,
-        //    //      Configuration>("BCDContext"));
-        //}
+        public BCDContext() : base("BCDContext")
+        {
+            // Migration işlemleri için DbContext (PIContext) ile Migration eşleştirilmelidir
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BCDContext,
+              Configuration>("BCDContext"));
+        }
         // veritabanında oluşmasını istediğimiz tablolara karşılık gelen sınıflarımızı DbSet koleksiyonları şeklinde tanımlıyoruz.
         public virtual DbSet<Urunler> Urunlers { get; set; }
         public virtual DbSet<Kategoriler> Kategorilers { get; set; }

@@ -57,6 +57,7 @@
     <Compile Include="DataModel\Tedarikci.cs" />
     <Compile Include="DataModel\TedarikDetay.cs" />
     <Compile Include="DataModel\Urunler.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

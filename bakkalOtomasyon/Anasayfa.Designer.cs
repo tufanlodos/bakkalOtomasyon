@@ -53,12 +53,13 @@
             this.lvAlisveris = new System.Windows.Forms.ListView();
             this.btnKapat = new System.Windows.Forms.Button();
             this.btnArkaPlanaAl = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnIade
             // 
             this.btnIade.Location = new System.Drawing.Point(439, 125);
-            this.btnIade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnIade.Margin = new System.Windows.Forms.Padding(2);
             this.btnIade.Name = "btnIade";
             this.btnIade.Size = new System.Drawing.Size(38, 19);
             this.btnIade.TabIndex = 45;
@@ -68,7 +69,7 @@
             // txtParaUstu
             // 
             this.txtParaUstu.Location = new System.Drawing.Point(356, 184);
-            this.txtParaUstu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtParaUstu.Margin = new System.Windows.Forms.Padding(2);
             this.txtParaUstu.Name = "txtParaUstu";
             this.txtParaUstu.ReadOnly = true;
             this.txtParaUstu.Size = new System.Drawing.Size(72, 20);
@@ -88,7 +89,7 @@
             // 
             this.rbtnKrediKarti.AutoSize = true;
             this.rbtnKrediKarti.Location = new System.Drawing.Point(351, 125);
-            this.rbtnKrediKarti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnKrediKarti.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnKrediKarti.Name = "rbtnKrediKarti";
             this.rbtnKrediKarti.Size = new System.Drawing.Size(73, 17);
             this.rbtnKrediKarti.TabIndex = 42;
@@ -100,7 +101,7 @@
             // 
             this.rbtnNakit.AutoSize = true;
             this.rbtnNakit.Location = new System.Drawing.Point(286, 125);
-            this.rbtnNakit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnNakit.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnNakit.Name = "rbtnNakit";
             this.rbtnNakit.Size = new System.Drawing.Size(50, 17);
             this.rbtnNakit.TabIndex = 41;
@@ -111,7 +112,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(356, 156);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(72, 20);
             this.textBox2.TabIndex = 40;
@@ -129,7 +130,7 @@
             // txtToplamTutar
             // 
             this.txtToplamTutar.Location = new System.Drawing.Point(356, 43);
-            this.txtToplamTutar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtToplamTutar.Margin = new System.Windows.Forms.Padding(2);
             this.txtToplamTutar.Multiline = true;
             this.txtToplamTutar.Name = "txtToplamTutar";
             this.txtToplamTutar.ReadOnly = true;
@@ -149,7 +150,7 @@
             // txtTutar
             // 
             this.txtTutar.Location = new System.Drawing.Point(120, 284);
-            this.txtTutar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTutar.Margin = new System.Windows.Forms.Padding(2);
             this.txtTutar.Name = "txtTutar";
             this.txtTutar.ReadOnly = true;
             this.txtTutar.Size = new System.Drawing.Size(72, 20);
@@ -158,7 +159,7 @@
             // txtFiyat
             // 
             this.txtFiyat.Location = new System.Drawing.Point(120, 259);
-            this.txtFiyat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFiyat.Margin = new System.Windows.Forms.Padding(2);
             this.txtFiyat.Name = "txtFiyat";
             this.txtFiyat.ReadOnly = true;
             this.txtFiyat.Size = new System.Drawing.Size(72, 20);
@@ -167,7 +168,7 @@
             // txtMiktar
             // 
             this.txtMiktar.Location = new System.Drawing.Point(120, 233);
-            this.txtMiktar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMiktar.Margin = new System.Windows.Forms.Padding(2);
             this.txtMiktar.Name = "txtMiktar";
             this.txtMiktar.Size = new System.Drawing.Size(72, 20);
             this.txtMiktar.TabIndex = 34;
@@ -176,7 +177,7 @@
             // btnArttır
             // 
             this.btnArttır.Location = new System.Drawing.Point(200, 233);
-            this.btnArttır.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnArttır.Margin = new System.Windows.Forms.Padding(2);
             this.btnArttır.Name = "btnArttır";
             this.btnArttır.Size = new System.Drawing.Size(22, 18);
             this.btnArttır.TabIndex = 33;
@@ -186,7 +187,7 @@
             // btnEksilt
             // 
             this.btnEksilt.Location = new System.Drawing.Point(94, 233);
-            this.btnEksilt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEksilt.Margin = new System.Windows.Forms.Padding(2);
             this.btnEksilt.Name = "btnEksilt";
             this.btnEksilt.Size = new System.Drawing.Size(21, 18);
             this.btnEksilt.TabIndex = 32;
@@ -226,7 +227,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(107, 58);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(96, 20);
             this.textBox1.TabIndex = 27;
@@ -244,7 +245,7 @@
             // txtBarkod
             // 
             this.txtBarkod.Location = new System.Drawing.Point(107, 33);
-            this.txtBarkod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBarkod.Margin = new System.Windows.Forms.Padding(2);
             this.txtBarkod.Name = "txtBarkod";
             this.txtBarkod.Size = new System.Drawing.Size(96, 20);
             this.txtBarkod.TabIndex = 25;
@@ -262,7 +263,7 @@
             // btnIslemBitti
             // 
             this.btnIslemBitti.Location = new System.Drawing.Point(358, 223);
-            this.btnIslemBitti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnIslemBitti.Margin = new System.Windows.Forms.Padding(2);
             this.btnIslemBitti.Name = "btnIslemBitti";
             this.btnIslemBitti.Size = new System.Drawing.Size(66, 24);
             this.btnIslemBitti.TabIndex = 46;
@@ -272,7 +273,7 @@
             // lvAlisveris
             // 
             this.lvAlisveris.Location = new System.Drawing.Point(49, 96);
-            this.lvAlisveris.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvAlisveris.Margin = new System.Windows.Forms.Padding(2);
             this.lvAlisveris.Name = "lvAlisveris";
             this.lvAlisveris.Size = new System.Drawing.Size(174, 125);
             this.lvAlisveris.TabIndex = 47;
@@ -280,8 +281,8 @@
             // 
             // btnKapat
             // 
-            this.btnKapat.Location = new System.Drawing.Point(748, 10);
-            this.btnKapat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKapat.Location = new System.Drawing.Point(449, 10);
+            this.btnKapat.Margin = new System.Windows.Forms.Padding(2);
             this.btnKapat.Name = "btnKapat";
             this.btnKapat.Size = new System.Drawing.Size(28, 19);
             this.btnKapat.TabIndex = 48;
@@ -290,8 +291,8 @@
             // 
             // btnArkaPlanaAl
             // 
-            this.btnArkaPlanaAl.Location = new System.Drawing.Point(721, 10);
-            this.btnArkaPlanaAl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnArkaPlanaAl.Location = new System.Drawing.Point(405, 10);
+            this.btnArkaPlanaAl.Margin = new System.Windows.Forms.Padding(2);
             this.btnArkaPlanaAl.Name = "btnArkaPlanaAl";
             this.btnArkaPlanaAl.Size = new System.Drawing.Size(23, 19);
             this.btnArkaPlanaAl.TabIndex = 49;
@@ -299,11 +300,21 @@
             this.btnArkaPlanaAl.UseVisualStyleBackColor = true;
             this.btnArkaPlanaAl.Click += new System.EventHandler(this.btnArkaPlanaAl_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(376, 308);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "label1";
+            // 
             // Anasayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(504, 358);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnArkaPlanaAl);
             this.Controls.Add(this.btnKapat);
             this.Controls.Add(this.lvAlisveris);
@@ -366,6 +377,7 @@
         private System.Windows.Forms.ListView lvAlisveris;
         private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Button btnArkaPlanaAl;
+        private System.Windows.Forms.Label label1;
     }
 }
 
