@@ -39,6 +39,8 @@
             this.dgvUrunler = new System.Windows.Forms.DataGridView();
             this.lblUrunSecin = new System.Windows.Forms.Label();
             this.cbUrunSecin = new System.Windows.Forms.ComboBox();
+            this.txtArama = new System.Windows.Forms.TextBox();
+            this.lblUrunAdiGiriniz = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,26 +127,44 @@
             // lblUrunSecin
             // 
             this.lblUrunSecin.AutoSize = true;
-            this.lblUrunSecin.Location = new System.Drawing.Point(149, 9);
+            this.lblUrunSecin.Location = new System.Drawing.Point(20, 45);
             this.lblUrunSecin.Name = "lblUrunSecin";
-            this.lblUrunSecin.Size = new System.Drawing.Size(60, 13);
+            this.lblUrunSecin.Size = new System.Drawing.Size(76, 13);
             this.lblUrunSecin.TabIndex = 43;
-            this.lblUrunSecin.Text = "Ürün Seçin";
+            this.lblUrunSecin.Text = "Kategori Seçin";
             // 
             // cbUrunSecin
             // 
             this.cbUrunSecin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUrunSecin.FormattingEnabled = true;
-            this.cbUrunSecin.Location = new System.Drawing.Point(152, 38);
+            this.cbUrunSecin.Location = new System.Drawing.Point(102, 37);
             this.cbUrunSecin.Name = "cbUrunSecin";
-            this.cbUrunSecin.Size = new System.Drawing.Size(162, 21);
+            this.cbUrunSecin.Size = new System.Drawing.Size(122, 21);
             this.cbUrunSecin.TabIndex = 42;
+            // 
+            // txtArama
+            // 
+            this.txtArama.Location = new System.Drawing.Point(413, 42);
+            this.txtArama.Name = "txtArama";
+            this.txtArama.Size = new System.Drawing.Size(112, 20);
+            this.txtArama.TabIndex = 54;
+            // 
+            // lblUrunAdiGiriniz
+            // 
+            this.lblUrunAdiGiriniz.AutoSize = true;
+            this.lblUrunAdiGiriniz.Location = new System.Drawing.Point(328, 45);
+            this.lblUrunAdiGiriniz.Name = "lblUrunAdiGiriniz";
+            this.lblUrunAdiGiriniz.Size = new System.Drawing.Size(79, 13);
+            this.lblUrunAdiGiriniz.TabIndex = 53;
+            this.lblUrunAdiGiriniz.Text = "Ürün Adı Giriniz";
             // 
             // UrunIslemleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 390);
+            this.ClientSize = new System.Drawing.Size(544, 431);
+            this.Controls.Add(this.txtArama);
+            this.Controls.Add(this.lblUrunAdiGiriniz);
             this.Controls.Add(this.btnYeni);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnDegistir);
@@ -177,5 +197,7 @@
         private System.Windows.Forms.DataGridView dgvUrunler;
         private System.Windows.Forms.Label lblUrunSecin;
         private System.Windows.Forms.ComboBox cbUrunSecin;
+        private System.Windows.Forms.TextBox txtArama;
+        private System.Windows.Forms.Label lblUrunAdiGiriniz;
     }
 }

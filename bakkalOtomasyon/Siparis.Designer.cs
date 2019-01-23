@@ -49,7 +49,7 @@
             // btnGuncelle
             // 
             this.btnGuncelle.Enabled = false;
-            this.btnGuncelle.Location = new System.Drawing.Point(25, 380);
+            this.btnGuncelle.Location = new System.Drawing.Point(105, 380);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(81, 29);
             this.btnGuncelle.TabIndex = 125;
@@ -77,7 +77,7 @@
             // btnSil
             // 
             this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(201, 380);
+            this.btnSil.Location = new System.Drawing.Point(192, 380);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(81, 29);
             this.btnSil.TabIndex = 122;
@@ -87,7 +87,7 @@
             // btnKaydet
             // 
             this.btnKaydet.Enabled = false;
-            this.btnKaydet.Location = new System.Drawing.Point(112, 380);
+            this.btnKaydet.Location = new System.Drawing.Point(281, 380);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(81, 29);
             this.btnKaydet.TabIndex = 121;
@@ -99,9 +99,9 @@
             this.lblTedarikIcinUrunSecin.AutoSize = true;
             this.lblTedarikIcinUrunSecin.Location = new System.Drawing.Point(20, 64);
             this.lblTedarikIcinUrunSecin.Name = "lblTedarikIcinUrunSecin";
-            this.lblTedarikIcinUrunSecin.Size = new System.Drawing.Size(119, 13);
+            this.lblTedarikIcinUrunSecin.Size = new System.Drawing.Size(60, 13);
             this.lblTedarikIcinUrunSecin.TabIndex = 120;
-            this.lblTedarikIcinUrunSecin.Text = "Tedarik İçin Ürün Seçin";
+            this.lblTedarikIcinUrunSecin.Text = "Ürün Seçin";
             // 
             // cbTedarikIcinUrunSecin
             // 
@@ -114,10 +114,10 @@
             // 
             // txtToplamTutar
             // 
-            this.txtToplamTutar.Location = new System.Drawing.Point(134, 340);
+            this.txtToplamTutar.Location = new System.Drawing.Point(105, 343);
             this.txtToplamTutar.Name = "txtToplamTutar";
             this.txtToplamTutar.ReadOnly = true;
-            this.txtToplamTutar.Size = new System.Drawing.Size(202, 20);
+            this.txtToplamTutar.Size = new System.Drawing.Size(257, 20);
             this.txtToplamTutar.TabIndex = 118;
             // 
             // lblToplamTutar
@@ -139,10 +139,10 @@
             // 
             // txtBirimAlisFiyati
             // 
-            this.txtBirimAlisFiyati.Location = new System.Drawing.Point(147, 180);
+            this.txtBirimAlisFiyati.Location = new System.Drawing.Point(201, 180);
             this.txtBirimAlisFiyati.Name = "txtBirimAlisFiyati";
             this.txtBirimAlisFiyati.ReadOnly = true;
-            this.txtBirimAlisFiyati.Size = new System.Drawing.Size(202, 20);
+            this.txtBirimAlisFiyati.Size = new System.Drawing.Size(161, 20);
             this.txtBirimAlisFiyati.TabIndex = 115;
             // 
             // lblBirimAlisFiyati
@@ -156,9 +156,9 @@
             // 
             // txtAdet
             // 
-            this.txtAdet.Location = new System.Drawing.Point(147, 144);
+            this.txtAdet.Location = new System.Drawing.Point(201, 144);
             this.txtAdet.Name = "txtAdet";
-            this.txtAdet.Size = new System.Drawing.Size(202, 20);
+            this.txtAdet.Size = new System.Drawing.Size(161, 20);
             this.txtAdet.TabIndex = 113;
             // 
             // lblAdet
@@ -173,7 +173,7 @@
             // lblKategoriSecin
             // 
             this.lblKategoriSecin.AutoSize = true;
-            this.lblKategoriSecin.Location = new System.Drawing.Point(20, 12);
+            this.lblKategoriSecin.Location = new System.Drawing.Point(20, 23);
             this.lblKategoriSecin.Name = "lblKategoriSecin";
             this.lblKategoriSecin.Size = new System.Drawing.Size(76, 13);
             this.lblKategoriSecin.TabIndex = 111;
@@ -183,7 +183,7 @@
             // 
             this.cbKategoriSecin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKategoriSecin.FormattingEnabled = true;
-            this.cbKategoriSecin.Location = new System.Drawing.Point(201, 12);
+            this.cbKategoriSecin.Location = new System.Drawing.Point(201, 18);
             this.cbKategoriSecin.Name = "cbKategoriSecin";
             this.cbKategoriSecin.Size = new System.Drawing.Size(162, 21);
             this.cbKategoriSecin.TabIndex = 110;

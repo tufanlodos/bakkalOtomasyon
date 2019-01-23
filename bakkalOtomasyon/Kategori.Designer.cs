@@ -37,12 +37,14 @@
             this.lblAciklama = new System.Windows.Forms.Label();
             this.txtKategoriAdi = new System.Windows.Forms.TextBox();
             this.lblKategoriAdi = new System.Windows.Forms.Label();
+            this.txtArama = new System.Windows.Forms.TextBox();
+            this.lblKategoriAdiGiriniz = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKategori)).BeginInit();
             this.SuspendLayout();
             // 
             // btnYeni
             // 
-            this.btnYeni.Location = new System.Drawing.Point(69, 313);
+            this.btnYeni.Location = new System.Drawing.Point(69, 351);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(81, 29);
             this.btnYeni.TabIndex = 34;
@@ -54,7 +56,7 @@
             this.dgvKategori.AllowUserToAddRows = false;
             this.dgvKategori.AllowUserToDeleteRows = false;
             this.dgvKategori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKategori.Location = new System.Drawing.Point(12, 12);
+            this.dgvKategori.Location = new System.Drawing.Point(12, 50);
             this.dgvKategori.Name = "dgvKategori";
             this.dgvKategori.ReadOnly = true;
             this.dgvKategori.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -64,7 +66,7 @@
             // btnSil
             // 
             this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(330, 313);
+            this.btnSil.Location = new System.Drawing.Point(330, 351);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(81, 29);
             this.btnSil.TabIndex = 32;
@@ -74,7 +76,7 @@
             // btnDegistir
             // 
             this.btnDegistir.Enabled = false;
-            this.btnDegistir.Location = new System.Drawing.Point(243, 313);
+            this.btnDegistir.Location = new System.Drawing.Point(243, 351);
             this.btnDegistir.Name = "btnDegistir";
             this.btnDegistir.Size = new System.Drawing.Size(81, 29);
             this.btnDegistir.TabIndex = 31;
@@ -84,7 +86,7 @@
             // btnKaydet
             // 
             this.btnKaydet.Enabled = false;
-            this.btnKaydet.Location = new System.Drawing.Point(156, 313);
+            this.btnKaydet.Location = new System.Drawing.Point(156, 351);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(81, 29);
             this.btnKaydet.TabIndex = 30;
@@ -93,7 +95,7 @@
             // 
             // txtAciklama
             // 
-            this.txtAciklama.Location = new System.Drawing.Point(189, 224);
+            this.txtAciklama.Location = new System.Drawing.Point(189, 262);
             this.txtAciklama.Multiline = true;
             this.txtAciklama.Name = "txtAciklama";
             this.txtAciklama.Size = new System.Drawing.Size(202, 72);
@@ -102,7 +104,7 @@
             // lblAciklama
             // 
             this.lblAciklama.AutoSize = true;
-            this.lblAciklama.Location = new System.Drawing.Point(64, 227);
+            this.lblAciklama.Location = new System.Drawing.Point(64, 265);
             this.lblAciklama.Name = "lblAciklama";
             this.lblAciklama.Size = new System.Drawing.Size(50, 13);
             this.lblAciklama.TabIndex = 28;
@@ -110,7 +112,7 @@
             // 
             // txtKategoriAdi
             // 
-            this.txtKategoriAdi.Location = new System.Drawing.Point(189, 195);
+            this.txtKategoriAdi.Location = new System.Drawing.Point(189, 233);
             this.txtKategoriAdi.Name = "txtKategoriAdi";
             this.txtKategoriAdi.Size = new System.Drawing.Size(202, 20);
             this.txtKategoriAdi.TabIndex = 27;
@@ -118,17 +120,35 @@
             // lblKategoriAdi
             // 
             this.lblKategoriAdi.AutoSize = true;
-            this.lblKategoriAdi.Location = new System.Drawing.Point(64, 195);
+            this.lblKategoriAdi.Location = new System.Drawing.Point(64, 233);
             this.lblKategoriAdi.Name = "lblKategoriAdi";
             this.lblKategoriAdi.Size = new System.Drawing.Size(67, 13);
             this.lblKategoriAdi.TabIndex = 26;
             this.lblKategoriAdi.Text = "Kategori Adı ";
             // 
+            // txtArama
+            // 
+            this.txtArama.Location = new System.Drawing.Point(126, 12);
+            this.txtArama.Name = "txtArama";
+            this.txtArama.Size = new System.Drawing.Size(112, 20);
+            this.txtArama.TabIndex = 56;
+            // 
+            // lblKategoriAdiGiriniz
+            // 
+            this.lblKategoriAdiGiriniz.AutoSize = true;
+            this.lblKategoriAdiGiriniz.Location = new System.Drawing.Point(18, 15);
+            this.lblKategoriAdiGiriniz.Name = "lblKategoriAdiGiriniz";
+            this.lblKategoriAdiGiriniz.Size = new System.Drawing.Size(95, 13);
+            this.lblKategoriAdiGiriniz.TabIndex = 55;
+            this.lblKategoriAdiGiriniz.Text = "Kategori Adı Giriniz";
+            // 
             // Kategori
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 356);
+            this.ClientSize = new System.Drawing.Size(464, 381);
+            this.Controls.Add(this.txtArama);
+            this.Controls.Add(this.lblKategoriAdiGiriniz);
             this.Controls.Add(this.btnYeni);
             this.Controls.Add(this.dgvKategori);
             this.Controls.Add(this.btnSil);
@@ -157,5 +177,7 @@
         private System.Windows.Forms.Label lblAciklama;
         private System.Windows.Forms.TextBox txtKategoriAdi;
         private System.Windows.Forms.Label lblKategoriAdi;
+        private System.Windows.Forms.TextBox txtArama;
+        private System.Windows.Forms.Label lblKategoriAdiGiriniz;
     }
 }

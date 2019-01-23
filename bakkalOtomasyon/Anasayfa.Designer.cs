@@ -76,13 +76,13 @@
             this.txtParaUstu.Margin = new System.Windows.Forms.Padding(2);
             this.txtParaUstu.Name = "txtParaUstu";
             this.txtParaUstu.ReadOnly = true;
-            this.txtParaUstu.Size = new System.Drawing.Size(72, 20);
+            this.txtParaUstu.Size = new System.Drawing.Size(122, 20);
             this.txtParaUstu.TabIndex = 44;
             // 
             // lblParaUstu
             // 
             this.lblParaUstu.AutoSize = true;
-            this.lblParaUstu.Location = new System.Drawing.Point(691, 209);
+            this.lblParaUstu.Location = new System.Drawing.Point(691, 214);
             this.lblParaUstu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblParaUstu.Name = "lblParaUstu";
             this.lblParaUstu.Size = new System.Drawing.Size(54, 13);
@@ -118,13 +118,13 @@
             this.textBox2.Location = new System.Drawing.Point(763, 181);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(72, 20);
+            this.textBox2.Size = new System.Drawing.Size(121, 20);
             this.textBox2.TabIndex = 40;
             // 
             // lblNakitGiris
             // 
             this.lblNakitGiris.AutoSize = true;
-            this.lblNakitGiris.Location = new System.Drawing.Point(691, 181);
+            this.lblNakitGiris.Location = new System.Drawing.Point(691, 186);
             this.lblNakitGiris.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNakitGiris.Name = "lblNakitGiris";
             this.lblNakitGiris.Size = new System.Drawing.Size(55, 13);
@@ -258,7 +258,7 @@
             // 
             // btnIslemKaydet
             // 
-            this.btnIslemKaydet.Location = new System.Drawing.Point(744, 245);
+            this.btnIslemKaydet.Location = new System.Drawing.Point(778, 245);
             this.btnIslemKaydet.Margin = new System.Windows.Forms.Padding(2);
             this.btnIslemKaydet.Name = "btnIslemKaydet";
             this.btnIslemKaydet.Size = new System.Drawing.Size(106, 24);
@@ -279,7 +279,7 @@
             // btnKapat
             // 
             this.btnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKapat.Location = new System.Drawing.Point(892, 11);
+            this.btnKapat.Location = new System.Drawing.Point(852, 11);
             this.btnKapat.Margin = new System.Windows.Forms.Padding(2);
             this.btnKapat.Name = "btnKapat";
             this.btnKapat.Size = new System.Drawing.Size(28, 19);
@@ -290,7 +290,7 @@
             // btnArkaPlanaAl
             // 
             this.btnArkaPlanaAl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnArkaPlanaAl.Location = new System.Drawing.Point(861, 11);
+            this.btnArkaPlanaAl.Location = new System.Drawing.Point(821, 11);
             this.btnArkaPlanaAl.Margin = new System.Windows.Forms.Padding(2);
             this.btnArkaPlanaAl.Name = "btnArkaPlanaAl";
             this.btnArkaPlanaAl.Size = new System.Drawing.Size(23, 19);
@@ -310,9 +310,9 @@
             // 
             // btnUrunSec
             // 
-            this.btnUrunSec.Location = new System.Drawing.Point(80, 79);
+            this.btnUrunSec.Location = new System.Drawing.Point(103, 79);
             this.btnUrunSec.Name = "btnUrunSec";
-            this.btnUrunSec.Size = new System.Drawing.Size(75, 23);
+            this.btnUrunSec.Size = new System.Drawing.Size(92, 23);
             this.btnUrunSec.TabIndex = 50;
             this.btnUrunSec.Text = "Ürün Bul";
             this.btnUrunSec.UseVisualStyleBackColor = true;
@@ -360,7 +360,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 450);
+            this.ClientSize = new System.Drawing.Size(905, 347);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSKaldir);
