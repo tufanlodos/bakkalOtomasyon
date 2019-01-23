@@ -16,6 +16,7 @@ namespace DAL.Bakkal.DataModel
         public string UrunMarka { get; set; }
         public string UrunAdi { get; set; }
         public decimal SatisFiyat { get; set; }
+        public decimal AlisFiyat { get; set; }
         public int KategoriId { get; set; }
         public int StokMiktari { get; set; }
 
