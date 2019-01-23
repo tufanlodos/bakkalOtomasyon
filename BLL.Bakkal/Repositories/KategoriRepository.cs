@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Bakkal.Repositories
 {
-   public class KategoriRepository : IKategoriRepository
+    public class KategoriRepository : IKategoriRepository
     {
 
     }

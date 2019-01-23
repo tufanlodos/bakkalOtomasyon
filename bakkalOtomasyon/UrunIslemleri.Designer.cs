@@ -127,7 +127,7 @@
             // lblUrunSecin
             // 
             this.lblUrunSecin.AutoSize = true;
-            this.lblUrunSecin.Location = new System.Drawing.Point(20, 45);
+            this.lblUrunSecin.Location = new System.Drawing.Point(20, 49);
             this.lblUrunSecin.Name = "lblUrunSecin";
             this.lblUrunSecin.Size = new System.Drawing.Size(76, 13);
             this.lblUrunSecin.TabIndex = 43;
@@ -137,14 +137,14 @@
             // 
             this.cbUrunSecin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUrunSecin.FormattingEnabled = true;
-            this.cbUrunSecin.Location = new System.Drawing.Point(102, 37);
+            this.cbUrunSecin.Location = new System.Drawing.Point(102, 45);
             this.cbUrunSecin.Name = "cbUrunSecin";
             this.cbUrunSecin.Size = new System.Drawing.Size(122, 21);
             this.cbUrunSecin.TabIndex = 42;
             // 
             // txtArama
             // 
-            this.txtArama.Location = new System.Drawing.Point(413, 42);
+            this.txtArama.Location = new System.Drawing.Point(413, 46);
             this.txtArama.Name = "txtArama";
             this.txtArama.Size = new System.Drawing.Size(112, 20);
             this.txtArama.TabIndex = 54;
@@ -152,7 +152,7 @@
             // lblUrunAdiGiriniz
             // 
             this.lblUrunAdiGiriniz.AutoSize = true;
-            this.lblUrunAdiGiriniz.Location = new System.Drawing.Point(328, 45);
+            this.lblUrunAdiGiriniz.Location = new System.Drawing.Point(328, 49);
             this.lblUrunAdiGiriniz.Name = "lblUrunAdiGiriniz";
             this.lblUrunAdiGiriniz.Size = new System.Drawing.Size(79, 13);
             this.lblUrunAdiGiriniz.TabIndex = 53;

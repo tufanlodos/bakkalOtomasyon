@@ -8,6 +8,6 @@ namespace BLL.Bakkal.Repositories
 {
     public interface IKategoriRepository
     {
-
+        
     }
 }
