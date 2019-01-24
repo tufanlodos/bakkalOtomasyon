@@ -95,7 +95,7 @@ namespace PL.Bakkal
                     {
                         MessageBox.Show("Yeni kategori eklendi.", "Kayıt gerçekleşti.");
                         dgvKategori.DataSource = Kr.KategoriListele();
-                        btnEkle.Enabled = false;
+                      
                         Temizle();
                     }
                 }
