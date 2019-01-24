@@ -12,7 +12,7 @@ namespace DAL.Bakkal.DataModel
     {
         public BCDContext() : base("BCDContext")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BCDContext, Configuration>(" BCDContext"));
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BCDContext, Configuration>("BCDContext"));
         }
         public virtual DbSet<Urunler> Urunlers { get; set; }
         public virtual DbSet<Kategoriler> Kategorilers { get; set; }
