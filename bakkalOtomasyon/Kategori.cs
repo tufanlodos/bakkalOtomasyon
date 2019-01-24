@@ -18,24 +18,67 @@ namespace PL.Bakkal
         {
             InitializeComponent();
         }
+
         KategoriRepository Kr= new KategoriRepository();
         BCDContext ent = new BCDContext();
         int ID;
 
         private void Kategori_Load(object sender, EventArgs e)
         {
-            
+            DgvDoldurDuzenle();
+        }
+        private void DgvDoldurDuzenle()
+        {
+            dgvKategori.DataSource = Kr.KategoriListele();
+            dgvKategori.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvKategori.AllowUserToAddRows = false;
+            dgvKategori.AllowUserToDeleteRows = false;
+            dgvKategori.AllowUserToResizeColumns = false;
+            dgvKategori.AllowUserToResizeRows = false;
+            dgvKategori.RowHeadersVisible = false;
+            dgvKategori.BorderStyle = BorderStyle.None;
+            dgvKategori.BackgroundColor = this.BackColor;
+        }
+        private void Temizle()
+        {
+            txtKategoriAdi.Clear();
+            txtAciklama.Clear();
+        }
+       
+        private void btnSil_Click(object sender, EventArgs e)
+        {  
+            if (MessageBox.Show("Silmek İstiyor musunuz?", "SİLİNSİN Mİ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (Kr.KategoriSil(ID))
+                {
+                    MessageBox.Show("Kategori bilgileri silindi.", "Silme gerçekleşti.");
+                    dgvKategori.DataSource = Kr.KategoriListele();
+                 
+                    btnSil.Enabled = false;
+                    Temizle();
+                    txtKategoriAdi.ReadOnly = false;
+                    txtAciklama.ReadOnly = false;
+                    btnEkle.Enabled = true;
+                }
+            }
         }
 
-        private void btnYeni_Click(object sender, EventArgs e)
+        private void dgvKategori_DoubleClick(object sender, EventArgs e)
         {
-            btnKaydet.Enabled = true;
-            btnDegistir.Enabled = false;
-            btnSil.Enabled = false;
+            ID = Convert.ToInt32(dgvKategori.SelectedRows[0].Cells[0].Value);
+            txtKategoriAdi.Text = dgvKategori.SelectedRows[0].Cells[1].Value.ToString();
+            txtAciklama.Text = dgvKategori.SelectedRows[0].Cells[2].Value == null ? "" : dgvKategori.SelectedRows[0].Cells[2].Value.ToString();
+            txtKategoriAdi.ReadOnly = true;
+            txtAciklama.ReadOnly = true;
+            btnSil.Enabled = true;
+            btnEkle.Enabled = false;
+            
+
+            
             txtKategoriAdi.Focus();
         }
 
-        private void btnKaydet_Click(object sender, EventArgs e)
+        private void btnEkle_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtKategoriAdi.Text))
             {
@@ -52,52 +95,7 @@ namespace PL.Bakkal
                     {
                         MessageBox.Show("Yeni kategori eklendi.", "Kayıt gerçekleşti.");
                         dgvKategori.DataSource = Kr.KategoriListele();
-                        btnKaydet.Enabled = false;
-                        Temizle();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Kategori ismi girilmelidir!", "Dikkat! Eksik Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            txtKategoriAdi.Focus();
-        }
-        private void Temizle()
-        {
-            txtKategoriAdi.Clear();
-            txtAciklama.Clear();
-        }
-        private void dgvKategoriler_DoubleClick(object sender, EventArgs e)
-        {
-            ID = Convert.ToInt32(dgvKategori.SelectedRows[0].Cells[0].Value);
-            txtKategoriAdi.Text = dgvKategori.SelectedRows[0].Cells[1].Value.ToString();
-            txtAciklama.Text = dgvKategori.SelectedRows[0].Cells[2].Value == null ? "" : dgvKategori.SelectedRows[0].Cells[2].Value.ToString();
-            btnDegistir.Enabled = true;
-            btnSil.Enabled = true;
-            btnKaydet.Enabled = false;
-            txtKategoriAdi.Focus();
-        }
-
-        private void btnDegistir_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtKategoriAdi.Text))
-            {
-                Kategoriler degisen = Kr.KategoriGetirByID(ID);
-                degisen.KategoriAdi = txtKategoriAdi.Text;
-                degisen.Aciklama = txtAciklama.Text;
-                if (Kr.KategoriKontrolFromDegistir(degisen))
-                {
-                    MessageBox.Show("Bu kategori kayıtlı!", "Aynı kategori zaten var!");
-                }
-                else
-                {
-                    if (Kr.KategoriGuncelle())
-                    {
-                        MessageBox.Show("Kategori bilgileri değiştirildi.", "Update gerçekleşti.");
-                        dgvKategori.DataSource = Kr.KategoriListele();
-                        btnDegistir.Enabled = false;
-                        btnSil.Enabled = false;
+                        btnEkle.Enabled = false;
                         Temizle();
                     }
                 }
@@ -109,19 +107,26 @@ namespace PL.Bakkal
             txtKategoriAdi.Focus();
         }
 
-        private void btnSil_Click(object sender, EventArgs e)
+        private void btnVazgec_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Silmek İstiyor musunuz?", "SİLİNSİN Mİ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            Temizle();
+            btnSil.Enabled = false;
+            txtKategoriAdi.ReadOnly = false;
+            txtAciklama.ReadOnly = false;
+            btnEkle.Enabled = true;
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            if (Kr.KategoriGuncelle())
             {
-                if (Kr.KategoriSil(ID))
-                {
-                    MessageBox.Show("Kategori bilgileri silindi.", "Silme gerçekleşti.");
-                    dgvKategori.DataSource = Kr.KategoriListele();
-                    btnDegistir.Enabled = false;
-                    btnSil.Enabled = false;
-                    Temizle();
-                }
+                MessageBox.Show("Kategori kayıtları üzerindeki güncellemeler kaydedildi.", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DgvDoldurDuzenle();
+                Temizle();
+                btnGuncelle.Enabled = false;
             }
+            else
+                MessageBox.Show("Masraf kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

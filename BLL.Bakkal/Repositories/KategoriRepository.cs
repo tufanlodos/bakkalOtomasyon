@@ -84,7 +84,7 @@ namespace BLL.Bakkal.Repositories
             Kategoriler silinen = (from c in ent.Kategorilers
                                 where c.Id == ID
                                 select c).FirstOrDefault();
-            //silinen.Silindi = true;
+            silinen.Silindi = true;
             try
             {
                 ent.SaveChanges();
