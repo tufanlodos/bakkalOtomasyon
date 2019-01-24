@@ -11,7 +11,7 @@ namespace BLL.Bakkal.Repositories
     {
         List<Masraf> MasraflariGetir();
         bool MasrafEkle(Masraf masraf);
-        bool MasrafDegistir(int Id);
+        bool MasrafDegistir();
         bool MasrafSil(int Id);
     }
 }

@@ -9,24 +9,60 @@ namespace BLL.Bakkal.Repositories
 {
     public class MasrafRepository : IMasrafRepository
     {
+        BCDContext ent = new BCDContext();
         public List<Masraf> MasraflariGetir()
         {
-            throw new NotImplementedException();
+            return ent.Masraf.ToList();
         }
 
         public bool MasrafEkle(Masraf masraf)
         {
-            throw new NotImplementedException();
+            bool Sonuc = false;
+            ent.Masraf.Add(masraf);
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
+            return Sonuc;
         }
 
-        public bool MasrafDegistir(int Id)
+        public bool MasrafDegistir()
         {
-            throw new NotImplementedException();
+            bool Sonuc = false;
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string mesaj = ex.Message;
+            }
+            return Sonuc;
         }
 
         public bool MasrafSil(int Id)
         {
-            throw new NotImplementedException();
+            bool Sonuc = false;
+            Masraf silinen = (from m in ent.Masraf
+                                where m.Id == Id
+                                select m).FirstOrDefault();
+            ent.Masraf.Remove(silinen);
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
+            return Sonuc;
         }
     }
 }
