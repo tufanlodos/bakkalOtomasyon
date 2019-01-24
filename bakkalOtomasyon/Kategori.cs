@@ -104,6 +104,7 @@ namespace PL.Bakkal
             {
                 MessageBox.Show("Kategori ismi girilmelidir!", "Dikkat! Eksik Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            Temizle();
             txtKategoriAdi.Focus();
         }
 
