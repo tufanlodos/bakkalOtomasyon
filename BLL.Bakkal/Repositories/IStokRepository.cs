@@ -11,8 +11,10 @@ namespace BLL.Bakkal.Repositories
     {
         List<Kategoriler> KategoriGetir();
         
-        
         List<Urunler> UrunGetirByKategoriID(int ID);
-       
+        List<Urunler> UrunleriGetir();
+        List<Urunler> UrunGetirByUrunID(int ID);
+
+
     }
 }

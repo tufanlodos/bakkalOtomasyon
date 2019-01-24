@@ -13,9 +13,7 @@ namespace BLL.Bakkal.Repositories
 
         public List<Urunler> UrunleriGetir()
         {
-            List<Urunler> liste = (from p in ent.Urunlers
-                                        select new Urunler { Id = p.Id, UrunKodu=p.UrunKodu,UrunMarka=p.UrunMarka, SatisFiyat=p.SatisFiyat, UrunAdi = p.UrunAdi, AlisFiyat = p.AlisFiyat, KategoriId=p.KategoriId, StokMiktari=p.StokMiktari }).ToList();
-            return liste;
+            return ent.Urunlers.ToList();
         }
         public bool UrunKontrol(Urunler yeni)
         {
