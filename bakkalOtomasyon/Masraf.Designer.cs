@@ -35,9 +35,10 @@
             this.lblMasrafTutari = new System.Windows.Forms.Label();
             this.txtMasrafAdi = new System.Windows.Forms.TextBox();
             this.lblMasrafAdi = new System.Windows.Forms.Label();
-            this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.dgvMasraflar = new System.Windows.Forms.DataGridView();
+            this.btnVazgec = new System.Windows.Forms.Button();
+            this.btnDegistir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasraflar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,12 +61,13 @@
             // 
             // btnKaydet
             // 
-            this.btnKaydet.Location = new System.Drawing.Point(24, 267);
+            this.btnKaydet.Location = new System.Drawing.Point(12, 267);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(81, 29);
             this.btnKaydet.TabIndex = 113;
             this.btnKaydet.Text = "Ekle";
             this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // txtMasrafTutari
             // 
@@ -99,21 +101,10 @@
             this.lblMasrafAdi.TabIndex = 109;
             this.lblMasrafAdi.Text = "Masraf Adı";
             // 
-            // btnGuncelle
-            // 
-            this.btnGuncelle.Enabled = false;
-            this.btnGuncelle.Location = new System.Drawing.Point(125, 267);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(139, 29);
-            this.btnGuncelle.TabIndex = 119;
-            this.btnGuncelle.Text = "Güncellemeleri Kaydet";
-            this.btnGuncelle.UseVisualStyleBackColor = true;
-            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
-            // 
             // btnSil
             // 
             this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(281, 267);
+            this.btnSil.Location = new System.Drawing.Point(99, 267);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(81, 29);
             this.btnSil.TabIndex = 118;
@@ -133,13 +124,35 @@
             this.dgvMasraflar.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMasraflar_CellValueChanged);
             this.dgvMasraflar.DoubleClick += new System.EventHandler(this.dgvMasraflar_DoubleClick);
             // 
+            // btnVazgec
+            // 
+            this.btnVazgec.Location = new System.Drawing.Point(286, 267);
+            this.btnVazgec.Name = "btnVazgec";
+            this.btnVazgec.Size = new System.Drawing.Size(80, 29);
+            this.btnVazgec.TabIndex = 119;
+            this.btnVazgec.Text = "Vazgeç";
+            this.btnVazgec.UseVisualStyleBackColor = true;
+            this.btnVazgec.Visible = false;
+            this.btnVazgec.Click += new System.EventHandler(this.btnVazgec_Click);
+            // 
+            // btnDegistir
+            // 
+            this.btnDegistir.Location = new System.Drawing.Point(186, 267);
+            this.btnDegistir.Name = "btnDegistir";
+            this.btnDegistir.Size = new System.Drawing.Size(92, 38);
+            this.btnDegistir.TabIndex = 120;
+            this.btnDegistir.Text = "Değişiklikleri Kaydet";
+            this.btnDegistir.UseVisualStyleBackColor = true;
+            this.btnDegistir.Click += new System.EventHandler(this.btnDegistir_Click);
+            // 
             // Masraf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(378, 317);
+            this.Controls.Add(this.btnDegistir);
+            this.Controls.Add(this.btnVazgec);
             this.Controls.Add(this.dgvMasraflar);
-            this.Controls.Add(this.btnGuncelle);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.lblSiralamaOlcutu);
             this.Controls.Add(this.cbSiralama);
@@ -165,8 +178,9 @@
         private System.Windows.Forms.Label lblMasrafTutari;
         private System.Windows.Forms.TextBox txtMasrafAdi;
         private System.Windows.Forms.Label lblMasrafAdi;
-        private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.DataGridView dgvMasraflar;
+        private System.Windows.Forms.Button btnVazgec;
+        private System.Windows.Forms.Button btnDegistir;
     }
 }

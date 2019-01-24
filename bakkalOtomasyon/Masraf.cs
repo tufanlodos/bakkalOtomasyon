@@ -20,11 +20,15 @@ namespace PL.Bakkal
         MasrafRepository mr = new MasrafRepository();
         private void Masraf_Load(object sender, EventArgs e)
         {
-            DgvDoldurDuzenle();   
+            DgvDoldurDuzenle();  
+            btnDegistir.Enabled = false;
+            txtMasrafAdi.Focus();
         }
         private void DgvDoldurDuzenle()
         {
-            dgvMasraflar.DataSource = mr.MasraflariGetir();
+            //List<Masraf> liste = new List<Masraf>();
+            //dgvMasraflar.DataSource = liste;
+            dgvMasraflar.DataSource=mr.MasraflariGetir();
             dgvMasraflar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMasraflar.AllowUserToAddRows = false;
             dgvMasraflar.AllowUserToDeleteRows = false;
@@ -34,41 +38,17 @@ namespace PL.Bakkal
             dgvMasraflar.BorderStyle = BorderStyle.None;
             dgvMasraflar.BackgroundColor = this.BackColor;
             dgvMasraflar.Columns[0].Visible = false;
+            dgvMasraflar.Columns[1].HeaderText = "Masraf Adı";
             dgvMasraflar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvMasraflar.Columns[2].HeaderText = "Tutar";
             dgvMasraflar.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvMasraflar.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvMasraflar.Columns[3].HeaderText = "Kayıt Tarihi";
             dgvMasraflar.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            
         }
-
-        private void btnGuncelle_Click(object sender, EventArgs e)
-        {
-            if (mr.MasrafDegistir())
-            { 
-                MessageBox.Show("Masraf kayıtları üzerindeki güncellemeler kaydedildi.", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DgvDoldurDuzenle();
-                Temizle();
-                btnGuncelle.Enabled = false;
-            }
-            else
-                MessageBox.Show("Masraf kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
         private void dgvMasraflar_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            btnGuncelle.Enabled = true;
-            Temizle();
-        }
-
-        private void Temizle()
-        {
-            foreach (Control knt in this.Controls)
-            {
-                if (knt is TextBox)
-                {
-                    knt.Text = string.Empty;
-                }
-            }
+            btnDegistir.Enabled = true;
         }
         int Id;
         private void dgvMasraflar_DoubleClick(object sender, EventArgs e)
@@ -79,23 +59,112 @@ namespace PL.Bakkal
             btnSil.Enabled = true;
             txtMasrafAdi.ReadOnly = true;
             txtMasrafTutari.ReadOnly = true;
-
+            btnVazgec.Visible = true;
+            btnKaydet.Enabled=false;
         }
-
+        private void btnDegistir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bu değişikliği kaydetmek istiyor musunuz ?", "Kayıt işlemini onaylıyor musunuz ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (mr.MasrafDegistir())
+                {
+                    MessageBox.Show("Masraf kayıtları üzerindeki güncellemeler kaydedildi.", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DgvDoldurDuzenle();
+                    Temizle();
+                    txtMasrafAdi.ReadOnly = false;
+                    txtMasrafTutari.ReadOnly = false;
+                    btnSil.Enabled = false;
+                    btnVazgec.Visible = false;
+                    btnKaydet.Enabled = true;
+                    btnDegistir.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Masraf kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DgvDoldurDuzenle();
+                    Temizle();
+                    txtMasrafAdi.ReadOnly = false;
+                    txtMasrafTutari.ReadOnly = false;
+                    btnSil.Enabled = false;
+                    btnVazgec.Visible = false;
+                    btnKaydet.Enabled = true;
+                }
+            }
+            else
+            {
+                Temizle();
+                DgvDoldurDuzenle();
+                txtMasrafAdi.ReadOnly = false;
+                txtMasrafTutari.ReadOnly = false;
+                btnSil.Enabled = false;
+                btnVazgec.Visible = false;
+                btnKaydet.Enabled = true;
+                btnDegistir.Enabled = false;
+            }
+        }
         private void btnSil_Click(object sender, EventArgs e)
         {
-                if(MessageBox.Show("Seçilen masrafın silinmesini istiyor musunuz ?","Silme işlemini onaylıyor musunuz ?",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Seçilen masrafın silinmesini istiyor musunuz ?", "Silme işlemini onaylıyor musunuz ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (mr.MasrafSil(Id))
                 {
-                    if (mr.MasrafSil(Id))
-                    {
-                        MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        DgvDoldurDuzenle();
-                        Temizle();
-                        btnSil.Enabled = false;
-                    }
-                    else
-                        MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DgvDoldurDuzenle();
+                    Temizle();
+                    txtMasrafAdi.ReadOnly = false;
+                    txtMasrafTutari.ReadOnly = false;
+                    btnSil.Enabled = false;
+                    btnVazgec.Visible = false;
+                    btnKaydet.Enabled = true;
                 }
+                else
+                {
+                    MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DgvDoldurDuzenle();
+                    Temizle();
+                    txtMasrafAdi.ReadOnly = false;
+                    txtMasrafTutari.ReadOnly = false;
+                    btnSil.Enabled = false;
+                    btnVazgec.Visible = false;
+                    btnKaydet.Enabled=true;
+                }
+            }
+            else
+            {
+                DgvDoldurDuzenle();
+                Temizle();
+                txtMasrafAdi.ReadOnly = false;
+                txtMasrafTutari.ReadOnly = false;
+                btnSil.Enabled = false;
+                btnVazgec.Visible = false;
+                btnKaydet.Enabled=true;
+            }
+        }
+        
+        private void btnVazgec_Click(object sender, EventArgs e)
+        {
+            DgvDoldurDuzenle();
+            Temizle();
+            txtMasrafAdi.ReadOnly = false;
+            txtMasrafTutari.ReadOnly = false;
+            btnSil.Enabled = false;
+            btnVazgec.Visible = false;
+            btnKaydet.Enabled=true;
+        }
+        private void Temizle()
+        {
+            foreach (Control knt in this.Controls)
+            {
+                if (knt is TextBox)
+                {
+                    knt.Text = string.Empty;
+                }
+            }
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
