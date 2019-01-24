@@ -50,6 +50,7 @@
             this.btnYeni.TabIndex = 34;
             this.btnYeni.Text = "Yeni";
             this.btnYeni.UseVisualStyleBackColor = true;
+            this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
             // 
             // dgvKategori
             // 
@@ -72,6 +73,7 @@
             this.btnSil.TabIndex = 32;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnDegistir
             // 
@@ -82,6 +84,7 @@
             this.btnDegistir.TabIndex = 31;
             this.btnDegistir.Text = "Değiştir";
             this.btnDegistir.UseVisualStyleBackColor = true;
+            this.btnDegistir.Click += new System.EventHandler(this.btnDegistir_Click);
             // 
             // btnKaydet
             // 
@@ -92,6 +95,7 @@
             this.btnKaydet.TabIndex = 30;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // txtAciklama
             // 
@@ -160,6 +164,7 @@
             this.Controls.Add(this.lblKategoriAdi);
             this.Name = "Kategori";
             this.Text = "Kategori";
+            this.Load += new System.EventHandler(this.Kategori_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKategori)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
