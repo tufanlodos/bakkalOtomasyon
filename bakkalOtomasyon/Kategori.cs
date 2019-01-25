@@ -127,7 +127,13 @@ namespace PL.Bakkal
                 btnGuncelle.Enabled = false;
             }
             else
-                MessageBox.Show("Masraf kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Masraf kayıtları üzerindeki güncelleme    //private void txtArama_TextChanged(object sender, EventArgs e)
+        //{
+        //    txtArama.Text = (from c in ent.Kategorilers
+        //                     where KategoriAdi == '%%'
+        //}ler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+    
     }
 }
