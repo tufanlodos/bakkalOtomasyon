@@ -71,11 +71,11 @@
     <Compile Include="Kategori.Designer.cs">
       <DependentUpon>Kategori.cs</DependentUpon>
     </Compile>
-    <Compile Include="Masraf.cs">
+    <Compile Include="MasrafKayit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Masraf.Designer.cs">
-      <DependentUpon>Masraf.cs</DependentUpon>
+    <Compile Include="MasrafKayit.Designer.cs">
+      <DependentUpon>MasrafKayit.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,8 +112,8 @@
     <EmbeddedResource Include="Kategori.resx">
       <DependentUpon>Kategori.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Masraf.resx">
-      <DependentUpon>Masraf.cs</DependentUpon>
+    <EmbeddedResource Include="MasrafKayit.resx">
+      <DependentUpon>MasrafKayit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace PL.Bakkal
 {
-    public partial class Masraf : Form
+    public partial class MasrafKayit : Form
     {
-        public Masraf()
+        public MasrafKayit()
         {
             InitializeComponent();
         }

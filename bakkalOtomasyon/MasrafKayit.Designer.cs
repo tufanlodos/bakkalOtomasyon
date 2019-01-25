@@ -1,6 +1,6 @@
 ﻿namespace PL.Bakkal
 {
-    partial class Masraf
+    partial class MasrafKayit
     {
         /// <summary>
         /// Required designer variable.
