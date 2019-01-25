@@ -75,6 +75,7 @@
             this.txtMasrafTutari.Name = "txtMasrafTutari";
             this.txtMasrafTutari.Size = new System.Drawing.Size(216, 20);
             this.txtMasrafTutari.TabIndex = 112;
+            this.txtMasrafTutari.TextChanged += new System.EventHandler(this.txtMasrafTutari_TextChanged);
             // 
             // lblMasrafTutari
             // 
@@ -91,6 +92,7 @@
             this.txtMasrafAdi.Name = "txtMasrafAdi";
             this.txtMasrafAdi.Size = new System.Drawing.Size(216, 20);
             this.txtMasrafAdi.TabIndex = 110;
+            this.txtMasrafAdi.TextChanged += new System.EventHandler(this.txtMasrafAdi_TextChanged);
             // 
             // lblMasrafAdi
             // 
@@ -145,7 +147,7 @@
             this.btnDegistir.UseVisualStyleBackColor = true;
             this.btnDegistir.Click += new System.EventHandler(this.btnDegistir_Click);
             // 
-            // Masraf
+            // MasrafKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,7 +163,7 @@
             this.Controls.Add(this.lblMasrafTutari);
             this.Controls.Add(this.txtMasrafAdi);
             this.Controls.Add(this.lblMasrafAdi);
-            this.Name = "Masraf";
+            this.Name = "MasrafKayit";
             this.Text = "Masraf";
             this.Load += new System.EventHandler(this.Masraf_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasraflar)).EndInit();

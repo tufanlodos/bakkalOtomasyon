@@ -14,6 +14,10 @@ namespace DAL.Bakkal.DataModel
         public string MasrafAdi { get; set; }
         public decimal Tutar { get; set; }
         public DateTime IslemTarihi { get; set; }
+        public Masraf()
+        {
+            IslemTarihi = DateTime.Now;
+        }
 
     }
 }
