@@ -114,7 +114,7 @@
             this.txtArama.Name = "txtArama";
             this.txtArama.Size = new System.Drawing.Size(112, 20);
             this.txtArama.TabIndex = 56;
-            this.txtArama.TextChanged += new System.EventHandler(this.txtArama_TextChanged);
+          
             // 
             // lblKategoriAdiGiriniz
             // 

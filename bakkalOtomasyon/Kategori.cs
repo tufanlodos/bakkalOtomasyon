@@ -19,7 +19,7 @@ namespace PL.Bakkal
             InitializeComponent();
         }
 
-        KategoriRepository Kr= new KategoriRepository();
+        KategoriRepository Kr = new KategoriRepository();
         BCDContext ent = new BCDContext();
         int ID;
 
@@ -44,16 +44,16 @@ namespace PL.Bakkal
             txtKategoriAdi.Clear();
             txtAciklama.Clear();
         }
-       
+
         private void btnSil_Click(object sender, EventArgs e)
-        {  
+        {
             if (MessageBox.Show("Silmek İstiyor musunuz?", "SİLİNSİN Mİ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (Kr.KategoriSil(ID))
                 {
                     MessageBox.Show("Kategori bilgileri silindi.", "Silme gerçekleşti.");
                     dgvKategori.DataSource = Kr.KategoriListele();
-                 
+
                     btnSil.Enabled = false;
                     Temizle();
                     txtKategoriAdi.ReadOnly = false;
@@ -72,9 +72,9 @@ namespace PL.Bakkal
             txtAciklama.ReadOnly = true;
             btnSil.Enabled = true;
             btnEkle.Enabled = false;
-            
 
-            
+
+
             txtKategoriAdi.Focus();
         }
 
@@ -95,7 +95,7 @@ namespace PL.Bakkal
                     {
                         MessageBox.Show("Yeni kategori eklendi.", "Kayıt gerçekleşti.");
                         dgvKategori.DataSource = Kr.KategoriListele();
-                      
+
                         Temizle();
                     }
                 }
@@ -127,13 +127,15 @@ namespace PL.Bakkal
                 btnGuncelle.Enabled = false;
             }
             else
-                MessageBox.Show("Masraf kayıtları üzerindeki güncelleme    //private void txtArama_TextChanged(object sender, EventArgs e)
-        //{
-        //    txtArama.Text = (from c in ent.Kategorilers
-        //                     where KategoriAdi == '%%'
-        //}ler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+            {
+                MessageBox.Show("Kategori kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DgvDoldurDuzenle();
+                Temizle();
 
-    
+            }
+
+
+        }
     }
 }
+
