@@ -10,11 +10,10 @@ namespace BLL.Bakkal.Repositories
     public interface IStokRepository
     {
         List<Kategoriler> KategoriGetir();
-        
         List<Urunler> UrunGetirByKategoriID(int ID);
         List<Urunler> UrunleriGetir();
         List<Urunler> UrunGetirByUrunID(int ID);
-
+        List<Kategoriler> KategoriGetirByArama(string Arama);
 
     }
 }
