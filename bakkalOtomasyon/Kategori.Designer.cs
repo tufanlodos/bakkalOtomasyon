@@ -114,7 +114,7 @@
             this.txtArama.Name = "txtArama";
             this.txtArama.Size = new System.Drawing.Size(112, 20);
             this.txtArama.TabIndex = 56;
-          
+            this.txtArama.TextChanged += new System.EventHandler(this.txtArama_TextChanged);
             // 
             // lblKategoriAdiGiriniz
             // 
@@ -133,6 +133,7 @@
             this.btnVazgec.TabIndex = 57;
             this.btnVazgec.Text = "Vazgeç";
             this.btnVazgec.UseVisualStyleBackColor = true;
+            this.btnVazgec.Visible = false;
             this.btnVazgec.Click += new System.EventHandler(this.btnVazgec_Click);
             // 
             // btnGuncelle

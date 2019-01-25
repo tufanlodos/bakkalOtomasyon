@@ -14,6 +14,8 @@ namespace BLL.Bakkal.Repositories
         bool KategoriSil(Kategoriler k);
         bool KategoriSil(int ID);
         List<Kategoriler> KategoriListele();
-      
+        List<Kategoriler> KategoriGetirByArama(string Arama);
+
+
     }
 }

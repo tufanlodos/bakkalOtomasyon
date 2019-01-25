@@ -101,5 +101,12 @@ namespace BLL.Bakkal.Repositories
         {
             return ent.Kategorilers.Where(k => k.Silindi == false).ToList();
         }
+        public List<Kategoriler> KategoriGetirByArama(string Arama)
+        {
+            List<Kategoriler> liste = (from k in ent.Kategorilers
+                                       where k.KategoriAdi.Contains(Arama) && k.Silindi==false
+                                       select k).ToList();
+            return liste;
+        }
     }
 }

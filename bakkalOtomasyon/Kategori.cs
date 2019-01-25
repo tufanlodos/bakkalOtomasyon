@@ -38,6 +38,9 @@ namespace PL.Bakkal
             dgvKategori.RowHeadersVisible = false;
             dgvKategori.BorderStyle = BorderStyle.None;
             dgvKategori.BackgroundColor = this.BackColor;
+            btnGuncelle.Enabled = false;
+            btnSil.Enabled = false;
+
         }
         private void Temizle()
         {
@@ -72,7 +75,8 @@ namespace PL.Bakkal
             txtAciklama.ReadOnly = true;
             btnSil.Enabled = true;
             btnEkle.Enabled = false;
-
+            btnGuncelle.Enabled = true;
+            btnVazgec.Visible = true;
 
 
             txtKategoriAdi.Focus();
@@ -115,6 +119,8 @@ namespace PL.Bakkal
             txtKategoriAdi.ReadOnly = false;
             txtAciklama.ReadOnly = false;
             btnEkle.Enabled = true;
+            btnGuncelle.Enabled = false;
+            btnVazgec.Visible = false;
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
@@ -135,6 +141,11 @@ namespace PL.Bakkal
             }
 
 
+        }
+
+        private void txtArama_TextChanged(object sender, EventArgs e)
+        {
+            dgvKategori.DataSource = Kr.KategoriGetirByArama(txtArama.Text);
         }
     }
 }
