@@ -20,9 +20,7 @@ namespace PL.Bakkal
         MasrafRepository mr = new MasrafRepository();
         private void Masraf_Load(object sender, EventArgs e)
         {
-            DgvDoldurDuzenle();  
-            btnDegistir.Enabled = false;
-            txtMasrafAdi.Focus();
+            BaslangicHalineDon();
         }
         private void DgvDoldurDuzenle()
         {
@@ -49,6 +47,10 @@ namespace PL.Bakkal
         private void dgvMasraflar_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             btnDegistir.Enabled = true;
+            btnSil.Enabled = false;
+            txtMasrafAdi.ReadOnly = false;
+            txtMasrafTutari.ReadOnly = false;
+            Temizle();
         }
         int Id;
         private void dgvMasraflar_DoubleClick(object sender, EventArgs e)
@@ -64,42 +66,22 @@ namespace PL.Bakkal
         }
         private void btnDegistir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bu değişikliği kaydetmek istiyor musunuz ?", "Kayıt işlemini onaylıyor musunuz ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Yapılan değişiklikleri kaydetmek istiyor musunuz ?", "Kayıt işlemini onaylıyor musunuz ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (mr.MasrafDegistir())
                 {
                     MessageBox.Show("Masraf kayıtları üzerindeki güncellemeler kaydedildi.", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DgvDoldurDuzenle();
-                    Temizle();
-                    txtMasrafAdi.ReadOnly = false;
-                    txtMasrafTutari.ReadOnly = false;
-                    btnSil.Enabled = false;
-                    btnVazgec.Visible = false;
-                    btnKaydet.Enabled = true;
-                    btnDegistir.Enabled = false;
+                    BaslangicHalineDon();
                 }
                 else
                 {
                     MessageBox.Show("Masraf kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    DgvDoldurDuzenle();
-                    Temizle();
-                    txtMasrafAdi.ReadOnly = false;
-                    txtMasrafTutari.ReadOnly = false;
-                    btnSil.Enabled = false;
-                    btnVazgec.Visible = false;
-                    btnKaydet.Enabled = true;
+                    BaslangicHalineDon();
                 }
             }
             else
             {
-                Temizle();
-                DgvDoldurDuzenle();
-                txtMasrafAdi.ReadOnly = false;
-                txtMasrafTutari.ReadOnly = false;
-                btnSil.Enabled = false;
-                btnVazgec.Visible = false;
-                btnKaydet.Enabled = true;
-                btnDegistir.Enabled = false;
+                BaslangicHalineDon();
             }
         }
         private void btnSil_Click(object sender, EventArgs e)
@@ -109,47 +91,25 @@ namespace PL.Bakkal
                 if (mr.MasrafSil(Id))
                 {
                     MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DgvDoldurDuzenle();
-                    Temizle();
-                    txtMasrafAdi.ReadOnly = false;
-                    txtMasrafTutari.ReadOnly = false;
-                    btnSil.Enabled = false;
-                    btnVazgec.Visible = false;
-                    btnKaydet.Enabled = true;
+                    BaslangicHalineDon();
+
                 }
                 else
                 {
                     MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    DgvDoldurDuzenle();
-                    Temizle();
-                    txtMasrafAdi.ReadOnly = false;
-                    txtMasrafTutari.ReadOnly = false;
-                    btnSil.Enabled = false;
-                    btnVazgec.Visible = false;
-                    btnKaydet.Enabled=true;
+                    BaslangicHalineDon();
+
                 }
             }
             else
             {
-                DgvDoldurDuzenle();
-                Temizle();
-                txtMasrafAdi.ReadOnly = false;
-                txtMasrafTutari.ReadOnly = false;
-                btnSil.Enabled = false;
-                btnVazgec.Visible = false;
-                btnKaydet.Enabled=true;
+                BaslangicHalineDon();
             }
         }
         
         private void btnVazgec_Click(object sender, EventArgs e)
         {
-            DgvDoldurDuzenle();
-            Temizle();
-            txtMasrafAdi.ReadOnly = false;
-            txtMasrafTutari.ReadOnly = false;
-            btnSil.Enabled = false;
-            btnVazgec.Visible = false;
-            btnKaydet.Enabled=true;
+            BaslangicHalineDon();
         }
         private void Temizle()
         {
@@ -165,6 +125,18 @@ namespace PL.Bakkal
         private void btnKaydet_Click(object sender, EventArgs e)
         {
 
+        }
+        private void BaslangicHalineDon()
+        {
+            DgvDoldurDuzenle();
+            Temizle();
+            txtMasrafAdi.ReadOnly = false;
+            txtMasrafTutari.ReadOnly = false;
+            btnSil.Enabled = false;
+            btnVazgec.Visible = false;
+            btnKaydet.Enabled = true;
+            btnDegistir.Enabled = false;
+            txtMasrafAdi.Focus();
         }
     }
 }
