@@ -37,6 +37,7 @@ namespace PL.Bakkal
             dgvMasraflar.RowHeadersVisible = false;
             dgvMasraflar.BorderStyle = BorderStyle.None;
             dgvMasraflar.BackgroundColor = this.BackColor;
+            dgvMasraflar.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dgvMasraflar.Columns[0].Visible = false;
             dgvMasraflar.Columns[1].HeaderText = "Masraf Adı";
             dgvMasraflar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
