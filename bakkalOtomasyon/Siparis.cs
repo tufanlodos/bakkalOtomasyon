@@ -48,12 +48,14 @@ namespace PL.Bakkal
             cbUrunler.DataSource = srepo.UrunleriGetirByKategoriId(KatId);
             cbUrunler.DisplayMember = "UrunAdi";
             cbUrunler.ValueMember = "Id";
+            txtAdet.Focus();
         }
         private void cbUrunler_SelectedIndexChanged(object sender, EventArgs e)
         {
             Urunler secilen = cbUrunler.SelectedItem as Urunler;
             UrId = secilen.Id;
             txtBirimAlisFiyati.Text = srepo.UrunFiyatiGetirById(UrId).ToString();
+            txtAdet.Focus();
 
         }
         private void Temizle()
@@ -65,6 +67,11 @@ namespace PL.Bakkal
                     knt.Text = string.Empty;
                 }
             }
+        }
+
+        private void cbTedarikciler_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtAdet.Focus();
         }
 
         private void txtAdet_TextChanged(object sender, EventArgs e)

@@ -77,6 +77,7 @@
             this.cbTedarikciler.Name = "cbTedarikciler";
             this.cbTedarikciler.Size = new System.Drawing.Size(205, 21);
             this.cbTedarikciler.TabIndex = 123;
+            this.cbTedarikciler.SelectedIndexChanged += new System.EventHandler(this.cbTedarikciler_SelectedIndexChanged);
             // 
             // btnSil
             // 
@@ -146,7 +147,7 @@
             this.txtAdet.Location = new System.Drawing.Point(158, 144);
             this.txtAdet.Name = "txtAdet";
             this.txtAdet.Size = new System.Drawing.Size(204, 20);
-            this.txtAdet.TabIndex = 113;
+            this.txtAdet.TabIndex = 0;
             this.txtAdet.TextChanged += new System.EventHandler(this.txtAdet_TextChanged);
             // 
             // lblAdet
@@ -230,6 +231,7 @@
             // 
             // Siparis
             // 
+            this.AcceptButton = this.btnEkle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 361);
