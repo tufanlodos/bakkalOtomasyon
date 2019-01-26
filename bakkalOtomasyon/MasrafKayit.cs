@@ -20,6 +20,8 @@ namespace PL.Bakkal
         }
         MasrafRepository mr = new MasrafRepository();
         BCDContext ent = new BCDContext();
+        List<Masraf> liste = new List<Masraf>();
+        int HeaderText=0;
         private void Masraf_Load(object sender, EventArgs e)
         {
             BaslangicHalineDon();
@@ -36,23 +38,27 @@ namespace PL.Bakkal
             dgvMasraflar.BorderStyle = BorderStyle.None;
             dgvMasraflar.BackgroundColor = this.BackColor;
             dgvMasraflar.Columns[0].Visible = false;
-            //dgvMasraflar.Columns[1].HeaderText = "Masraf Adı";
+            dgvMasraflar.Columns[1].HeaderText = "Masraf Adı";
             dgvMasraflar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            //dgvMasraflar.Columns[2].HeaderText = "Tutar";
+            dgvMasraflar.Columns[2].HeaderText = "Tutar";
             dgvMasraflar.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvMasraflar.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //dgvMasraflar.Columns[3].HeaderText = "Kayıt Tarihi";
+            dgvMasraflar.Columns[3].HeaderText = "Kayıt Tarihi";
             dgvMasraflar.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            HeaderText++;
         }
         private void dgvMasraflar_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            dgvMasraflar.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
             btnDegistir.Enabled = true;
             btnSil.Enabled = false;
             txtMasrafAdi.ReadOnly = false;
             txtMasrafTutari.ReadOnly = false;
             btnVazgec.Visible = true;
             Temizle();
+            if (HeaderText >= 1)
+            {
+                dgvMasraflar.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
+            }
         }
         int Id;
         private void dgvMasraflar_DoubleClick(object sender, EventArgs e)
