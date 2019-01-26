@@ -28,7 +28,7 @@ namespace BLL.Bakkal.Repositories
         }
         public decimal UrunFiyatiGetirById(int UrunId)
         {
-            return Convert.ToDecimal(ent.Urunlers.Where(u => u.Id == UrunId).Select(u => u.AlisFiyat));
+            return Convert.ToDecimal(ent.Urunlers.Where(u => u.Id == UrunId).Select(u => u.AlisFiyat).FirstOrDefault());
         }
         public bool SiparisEkle()
         {
