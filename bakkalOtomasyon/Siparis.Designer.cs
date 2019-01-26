@@ -30,10 +30,10 @@
         {
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.lblTedarikciSecin = new System.Windows.Forms.Label();
-            this.cbTedarikciSecin = new System.Windows.Forms.ComboBox();
+            this.cbTedarikciler = new System.Windows.Forms.ComboBox();
             this.btnSil = new System.Windows.Forms.Button();
             this.lblTedarikIcinUrunSecin = new System.Windows.Forms.Label();
-            this.cbTedarikIcinUrunSecin = new System.Windows.Forms.ComboBox();
+            this.cbUrunler = new System.Windows.Forms.ComboBox();
             this.txtToplamTutar = new System.Windows.Forms.TextBox();
             this.lblToplamTutar = new System.Windows.Forms.Label();
             this.txtBirimAlisFiyati = new System.Windows.Forms.TextBox();
@@ -41,10 +41,9 @@
             this.txtAdet = new System.Windows.Forms.TextBox();
             this.lblAdet = new System.Windows.Forms.Label();
             this.lblKategoriSecin = new System.Windows.Forms.Label();
-            this.cbKategoriSecin = new System.Windows.Forms.ComboBox();
+            this.cbKategoriler = new System.Windows.Forms.ComboBox();
             this.dgvSiparisler = new System.Windows.Forms.DataGridView();
             this.btnEkle = new System.Windows.Forms.Button();
-            this.btnVazgec = new System.Windows.Forms.Button();
             this.lblSiralamaOlcutu = new System.Windows.Forms.Label();
             this.cbSiralama = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,21 +69,21 @@
             this.lblTedarikciSecin.TabIndex = 124;
             this.lblTedarikciSecin.Text = "Tedarikçi Seçin";
             // 
-            // cbTedarikciSecin
+            // cbTedarikciler
             // 
-            this.cbTedarikciSecin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTedarikciSecin.FormattingEnabled = true;
-            this.cbTedarikciSecin.Location = new System.Drawing.Point(158, 97);
-            this.cbTedarikciSecin.Name = "cbTedarikciSecin";
-            this.cbTedarikciSecin.Size = new System.Drawing.Size(205, 21);
-            this.cbTedarikciSecin.TabIndex = 123;
+            this.cbTedarikciler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTedarikciler.FormattingEnabled = true;
+            this.cbTedarikciler.Location = new System.Drawing.Point(158, 97);
+            this.cbTedarikciler.Name = "cbTedarikciler";
+            this.cbTedarikciler.Size = new System.Drawing.Size(205, 21);
+            this.cbTedarikciler.TabIndex = 123;
             // 
             // btnSil
             // 
             this.btnSil.Enabled = false;
             this.btnSil.Location = new System.Drawing.Point(477, 200);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(81, 29);
+            this.btnSil.Size = new System.Drawing.Size(128, 29);
             this.btnSil.TabIndex = 122;
             this.btnSil.Text = "Kaydı Sil";
             this.btnSil.UseVisualStyleBackColor = true;
@@ -98,14 +97,15 @@
             this.lblTedarikIcinUrunSecin.TabIndex = 120;
             this.lblTedarikIcinUrunSecin.Text = "Ürün Seçin";
             // 
-            // cbTedarikIcinUrunSecin
+            // cbUrunler
             // 
-            this.cbTedarikIcinUrunSecin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTedarikIcinUrunSecin.FormattingEnabled = true;
-            this.cbTedarikIcinUrunSecin.Location = new System.Drawing.Point(158, 56);
-            this.cbTedarikIcinUrunSecin.Name = "cbTedarikIcinUrunSecin";
-            this.cbTedarikIcinUrunSecin.Size = new System.Drawing.Size(205, 21);
-            this.cbTedarikIcinUrunSecin.TabIndex = 119;
+            this.cbUrunler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUrunler.FormattingEnabled = true;
+            this.cbUrunler.Location = new System.Drawing.Point(158, 56);
+            this.cbUrunler.Name = "cbUrunler";
+            this.cbUrunler.Size = new System.Drawing.Size(205, 21);
+            this.cbUrunler.TabIndex = 119;
+            this.cbUrunler.SelectedIndexChanged += new System.EventHandler(this.cbUrunler_SelectedIndexChanged);
             // 
             // txtToplamTutar
             // 
@@ -147,6 +147,7 @@
             this.txtAdet.Name = "txtAdet";
             this.txtAdet.Size = new System.Drawing.Size(204, 20);
             this.txtAdet.TabIndex = 113;
+            this.txtAdet.TextChanged += new System.EventHandler(this.txtAdet_TextChanged);
             // 
             // lblAdet
             // 
@@ -166,14 +167,15 @@
             this.lblKategoriSecin.TabIndex = 111;
             this.lblKategoriSecin.Text = "Kategori Seçin";
             // 
-            // cbKategoriSecin
+            // cbKategoriler
             // 
-            this.cbKategoriSecin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbKategoriSecin.FormattingEnabled = true;
-            this.cbKategoriSecin.Location = new System.Drawing.Point(158, 18);
-            this.cbKategoriSecin.Name = "cbKategoriSecin";
-            this.cbKategoriSecin.Size = new System.Drawing.Size(205, 21);
-            this.cbKategoriSecin.TabIndex = 110;
+            this.cbKategoriler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKategoriler.FormattingEnabled = true;
+            this.cbKategoriler.Location = new System.Drawing.Point(158, 18);
+            this.cbKategoriler.Name = "cbKategoriler";
+            this.cbKategoriler.Size = new System.Drawing.Size(205, 21);
+            this.cbKategoriler.TabIndex = 110;
+            this.cbKategoriler.SelectedIndexChanged += new System.EventHandler(this.cbKategoriler_SelectedIndexChanged);
             // 
             // dgvSiparisler
             // 
@@ -187,23 +189,12 @@
             // 
             // btnEkle
             // 
-            this.btnEkle.Enabled = false;
-            this.btnEkle.Location = new System.Drawing.Point(105, 209);
+            this.btnEkle.Location = new System.Drawing.Point(158, 218);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(81, 29);
             this.btnEkle.TabIndex = 127;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
-            // 
-            // btnVazgec
-            // 
-            this.btnVazgec.Enabled = false;
-            this.btnVazgec.Location = new System.Drawing.Point(216, 209);
-            this.btnVazgec.Name = "btnVazgec";
-            this.btnVazgec.Size = new System.Drawing.Size(81, 29);
-            this.btnVazgec.TabIndex = 128;
-            this.btnVazgec.Text = "Vazgeç";
-            this.btnVazgec.UseVisualStyleBackColor = true;
             // 
             // lblSiralamaOlcutu
             // 
@@ -245,15 +236,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblSiralamaOlcutu);
             this.Controls.Add(this.cbSiralama);
-            this.Controls.Add(this.btnVazgec);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.dgvSiparisler);
             this.Controls.Add(this.btnGuncelle);
             this.Controls.Add(this.lblTedarikciSecin);
-            this.Controls.Add(this.cbTedarikciSecin);
+            this.Controls.Add(this.cbTedarikciler);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.lblTedarikIcinUrunSecin);
-            this.Controls.Add(this.cbTedarikIcinUrunSecin);
+            this.Controls.Add(this.cbUrunler);
             this.Controls.Add(this.txtToplamTutar);
             this.Controls.Add(this.lblToplamTutar);
             this.Controls.Add(this.txtBirimAlisFiyati);
@@ -261,9 +251,10 @@
             this.Controls.Add(this.txtAdet);
             this.Controls.Add(this.lblAdet);
             this.Controls.Add(this.lblKategoriSecin);
-            this.Controls.Add(this.cbKategoriSecin);
+            this.Controls.Add(this.cbKategoriler);
             this.Name = "Siparis";
             this.Text = "Siparis";
+            this.Load += new System.EventHandler(this.Siparis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisler)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -274,10 +265,10 @@
 
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Label lblTedarikciSecin;
-        private System.Windows.Forms.ComboBox cbTedarikciSecin;
+        private System.Windows.Forms.ComboBox cbTedarikciler;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Label lblTedarikIcinUrunSecin;
-        private System.Windows.Forms.ComboBox cbTedarikIcinUrunSecin;
+        private System.Windows.Forms.ComboBox cbUrunler;
         private System.Windows.Forms.TextBox txtToplamTutar;
         private System.Windows.Forms.Label lblToplamTutar;
         private System.Windows.Forms.TextBox txtBirimAlisFiyati;
@@ -285,10 +276,9 @@
         private System.Windows.Forms.TextBox txtAdet;
         private System.Windows.Forms.Label lblAdet;
         private System.Windows.Forms.Label lblKategoriSecin;
-        private System.Windows.Forms.ComboBox cbKategoriSecin;
+        private System.Windows.Forms.ComboBox cbKategoriler;
         private System.Windows.Forms.DataGridView dgvSiparisler;
         private System.Windows.Forms.Button btnEkle;
-        private System.Windows.Forms.Button btnVazgec;
         private System.Windows.Forms.Label lblSiralamaOlcutu;
         private System.Windows.Forms.ComboBox cbSiralama;
         private System.Windows.Forms.Label label1;
