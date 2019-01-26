@@ -15,9 +15,12 @@ namespace BLL.Bakkal.Repositories
         {
             return ent.Kategorilers.ToList();
         }
-        public List<Urunler> UrunleriGetir()
+        public List<Urunler> UrunleriGetirByKategoriId(int KatId)
         {
-            return ent.Urunlers.ToList();
+            List<Urunler> liste = (from u in ent.Urunlers
+                                   where u.KategoriId == KatId
+                                   select u).ToList();
+            return liste;
         }
         public List<Tedarikci> TedarikcileriGetir()
         {

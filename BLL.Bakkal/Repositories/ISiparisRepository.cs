@@ -9,8 +9,8 @@ namespace BLL.Bakkal.Repositories
 {
     public interface ISiparisRepository
     {
-        List<Urunler> UrunleriGetir();
         List<Kategoriler> KategorileriGetir();
+        List<Urunler> UrunleriGetirByKategoriId(int KatId);
         List<Tedarikci> TedarikcileriGetir();
         decimal UrunFiyatiGetirById(int UrunId);
         int ToplamTutarHesapla();
