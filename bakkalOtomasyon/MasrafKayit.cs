@@ -51,7 +51,7 @@ namespace PL.Bakkal
             btnSil.Enabled = false;
             txtMasrafAdi.ReadOnly = false;
             txtMasrafTutari.ReadOnly = false;
-            btnVazgec.Visible = false;
+            btnVazgec.Visible = true;
             Temizle();
         }
         int Id;
@@ -141,13 +141,14 @@ namespace PL.Bakkal
         {
             DgvDoldurDuzenle();
             Temizle();
+            txtMasrafAdi.Focus();
             txtMasrafAdi.ReadOnly = false;
             txtMasrafTutari.ReadOnly = false;
             btnSil.Enabled = false;
             btnVazgec.Visible = false;
             btnKaydet.Enabled = true;
             btnDegistir.Enabled = false;
-            txtMasrafAdi.Focus();
+            cbSiralama.SelectedIndex = 0;
         }
 
         private void txtMasrafAdi_TextChanged(object sender, EventArgs e)
@@ -204,6 +205,26 @@ namespace PL.Bakkal
                     }
                 }
 
+            }
+        }
+
+        private void cbSiralama_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSiralama.SelectedIndex == 0)
+            {
+                dgvMasraflar.DataSource = mr.TariheGoreMasrafSirala("desc");
+            }
+            if (cbSiralama.SelectedIndex == 1)
+            {
+                dgvMasraflar.DataSource = mr.TariheGoreMasrafSirala("asc");
+            }
+            if (cbSiralama.SelectedIndex == 2)
+            {
+                dgvMasraflar.DataSource = mr.TutaraGoreMasrafSirala("desc");
+            }
+            if (cbSiralama.SelectedIndex == 3)
+            {
+                dgvMasraflar.DataSource = mr.TutaraGoreMasrafSirala("asc");
             }
         }
     }

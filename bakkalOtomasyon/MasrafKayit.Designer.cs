@@ -53,11 +53,18 @@
             // 
             // cbSiralama
             // 
+            this.cbSiralama.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSiralama.FormattingEnabled = true;
+            this.cbSiralama.Items.AddRange(new object[] {
+            "Önce en yeniler",
+            "Önce en eskiler",
+            "Tutara göre azalan",
+            "Tutara göre artan"});
             this.cbSiralama.Location = new System.Drawing.Point(157, 11);
             this.cbSiralama.Name = "cbSiralama";
             this.cbSiralama.Size = new System.Drawing.Size(121, 21);
             this.cbSiralama.TabIndex = 114;
+            this.cbSiralama.SelectedIndexChanged += new System.EventHandler(this.cbSiralama_SelectedIndexChanged);
             // 
             // btnKaydet
             // 
