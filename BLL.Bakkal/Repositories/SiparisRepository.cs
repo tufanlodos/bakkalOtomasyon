@@ -13,14 +13,20 @@ namespace BLL.Bakkal.Repositories
 
         public List<Kategoriler> KategorileriGetir()
         {
-            throw new NotImplementedException();
+            return ent.Kategorilers.ToList();
         }
-
-        public List<Kategoriler> KategorileriGetirByUrunId(int UrunId)
+        public List<Urunler> UrunleriGetir()
         {
-            throw new NotImplementedException();
+            return ent.Urunlers.ToList();
         }
-
+        public List<Tedarikci> TedarikcileriGetir()
+        {
+            return ent.Tedarikci.ToList();
+        }
+        public decimal UrunFiyatiGetirById(int UrunId)
+        {
+            return Convert.ToDecimal(ent.Urunlers.Where(u => u.Id == UrunId).Select(u => u.AlisFiyat));
+        }
         public bool SiparisEkle()
         {
             throw new NotImplementedException();
@@ -36,27 +42,8 @@ namespace BLL.Bakkal.Repositories
             throw new NotImplementedException();
         }
 
-        public List<Tedarikci> TedarikcileriGetir()
-        {
-            throw new NotImplementedException();
-        }
 
         public int ToplamTutarHesapla()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int UrunFiyatiGetirById(int UrunId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Urunler> UrunleriGetir()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Urunler> UrunleriGetirByKategoriId(int KategoriId)
         {
             throw new NotImplementedException();
         }

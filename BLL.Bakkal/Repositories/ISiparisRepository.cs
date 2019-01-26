@@ -10,11 +10,9 @@ namespace BLL.Bakkal.Repositories
     public interface ISiparisRepository
     {
         List<Urunler> UrunleriGetir();
-        List<Urunler> UrunleriGetirByKategoriId(int KategoriId);
         List<Kategoriler> KategorileriGetir();
-        List<Kategoriler> KategorileriGetirByUrunId(int UrunId);
         List<Tedarikci> TedarikcileriGetir();
-        int UrunFiyatiGetirById(int UrunId);
+        decimal UrunFiyatiGetirById(int UrunId);
         int ToplamTutarHesapla();
         bool SiparisEkle();
         bool SiparisGuncelle();
