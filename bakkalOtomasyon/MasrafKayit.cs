@@ -156,14 +156,20 @@ namespace PL.Bakkal
             {
                 if (!char.IsLetter(harf))
                 {
+                    if (harf == ' ')
+                    {
+                        return;
+                    }
+                    else
+                    { 
                     MessageBox.Show("Bu alana sadece harf girişi yapılabilir.");
                     txtMasrafAdi.Text = txtMasrafAdi.Text.Substring(0, txtMasrafAdi.Text.Length - 1);
                     txtMasrafAdi.Select(txtMasrafAdi.Text.Length, 0);    
                     return;
+                    }
                 }
             }
         }
-
         private void txtMasrafTutari_TextChanged(object sender, EventArgs e)
         {
             foreach (char sayi in txtMasrafTutari.Text)
@@ -172,16 +178,32 @@ namespace PL.Bakkal
                 {
                     if (sayi == ',')
                     {
-                        return;
+                        break;
                     }
                     else
-                    { 
+                    {
                         MessageBox.Show("Bu alana sadece rakam girişi yapılabilir.");
                         txtMasrafTutari.Text = txtMasrafTutari.Text.Substring(0, txtMasrafTutari.Text.Length - 1);
                         txtMasrafTutari.Select(txtMasrafTutari.Text.Length, 0);
                         return;
                     }
                 }
+            }
+            int Sayac = 0;
+            for (int i = 0; i < txtMasrafTutari.Text.Length; i++)
+            {
+                if (txtMasrafTutari.Text[i] == ',')
+                {
+                    Sayac++;
+                    if (Sayac > 1)
+                    {
+                        MessageBox.Show("Bu alana sadece bir adet virgül girilebilir.");
+                        txtMasrafTutari.Text = txtMasrafTutari.Text.Substring(0, txtMasrafTutari.Text.Length - 1);
+                        txtMasrafTutari.Select(txtMasrafTutari.Text.Length, 0);
+                        return;
+                    }
+                }
+
             }
         }
     }
