@@ -19,10 +19,11 @@ namespace PL.Bakkal
             InitializeComponent();
         }
         SiparisRepository srepo = new SiparisRepository();
-        int KatId, UrId;
+        int KatId, UrId,HeaderText = 0, SilinecekId;
         private void Siparis_Load(object sender, EventArgs e)
         {
             ComboboxlariDoldur();
+            DgvDoldurDuzenle();
         }
         private void ComboboxlariDoldur()
         {
@@ -40,6 +41,35 @@ namespace PL.Bakkal
             cbTedarikciler.ValueMember = "Id";
             cbTedarikciler.DataSource = srepo.TedarikcileriGetir();
             cbTedarikciler.SelectedIndex = 0;
+            cbSiralama.SelectedIndex = 0;
+        }
+        private void DgvDoldurDuzenle()
+        {
+            dgvSiparisler.DataSource = srepo.SiparisleriGetir();
+            dgvSiparisler.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSiparisler.AllowUserToAddRows = false;
+            dgvSiparisler.AllowUserToDeleteRows = false;
+            dgvSiparisler.AllowUserToResizeColumns = false;
+            dgvSiparisler.AllowUserToResizeRows = false;
+            dgvSiparisler.RowHeadersVisible = false;
+            dgvSiparisler.BorderStyle = BorderStyle.None;
+            dgvSiparisler.BackgroundColor = this.BackColor;
+            dgvSiparisler.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma",9, FontStyle.Bold);
+            dgvSiparisler.MultiSelect = false;
+            dgvSiparisler.Columns[0].Visible = false;
+            dgvSiparisler.Columns[1].HeaderText = "Tedarikçi Adı";
+            dgvSiparisler.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvSiparisler.Columns[2].HeaderText = "Ürün Adı";
+            dgvSiparisler.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvSiparisler.Columns[3].HeaderText = "Miktar";
+            dgvSiparisler.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvSiparisler.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvSiparisler.Columns[4].HeaderText = "Tutar";
+            dgvSiparisler.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvSiparisler.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvSiparisler.Columns[5].HeaderText = "Kayıt Tarihi";
+            dgvSiparisler.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            HeaderText++;
         }
         private void cbKategoriler_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -56,22 +86,68 @@ namespace PL.Bakkal
             UrId = secilen.Id;
             txtBirimAlisFiyati.Text = srepo.UrunFiyatiGetirById(UrId).ToString();
             txtAdet.Focus();
-
         }
-        private void Temizle()
-        {
-            foreach (Control knt in this.Controls)
-            {
-                if (knt is TextBox)
-                {
-                    knt.Text = string.Empty;
-                }
-            }
-        }
-
         private void cbTedarikciler_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtAdet.Focus();
+        }
+        int SecilenSatir;
+        private void dgvSiparisler_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SecilenSatir = e.RowIndex;
+        }
+        private void dgvSiparisler_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                SilinecekId = Convert.ToInt32(dgvSiparisler.SelectedRows[0].Cells[0].Value);
+            }
+            catch (Exception)
+            {
+                return; 
+            }
+            if (SilinecekId>=0)
+            {
+                if (!btnGuncelle.Enabled)
+                {
+                    btnSil.Enabled = true;
+                }
+                btnVazgec.Visible = true;
+                this.AcceptButton = btnSil;
+            }
+            if (SecilenSatir >= 0)
+            {
+                dgvSiparisler.Rows[SecilenSatir].DefaultCellStyle.BackColor = Color.White;
+            }
+            if (!btnGuncelle.Enabled)
+            {
+                dgvSiparisler.SelectedRows[0].DefaultCellStyle.BackColor = Color.Red;
+            }
+
+        }
+
+        private void btnVazgec_Click(object sender, EventArgs e)
+        {
+            btnSil.Enabled = false;
+            btnGuncelle.Enabled = false;
+            btnVazgec.Visible = false;
+            DgvDoldurDuzenle();
+            cbSiralama.SelectedIndex = 0;
+            dgvSiparisler.ClearSelection();
+            this.AcceptButton = btnEkle;
+        }
+
+        private void dgvSiparisler_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (HeaderText >= 1)
+            {
+                dgvSiparisler.SelectedRows[0].DefaultCellStyle.BackColor = Color.White;
+                dgvSiparisler.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
+                btnVazgec.Visible = true;
+                btnGuncelle.Enabled = true;
+                this.AcceptButton = btnGuncelle;
+                btnSil.Enabled = false;
+            }
         }
 
         private void txtAdet_TextChanged(object sender, EventArgs e)

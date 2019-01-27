@@ -47,13 +47,14 @@
             this.lblSiralamaOlcutu = new System.Windows.Forms.Label();
             this.cbSiralama = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnVazgec = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisler)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuncelle
             // 
             this.btnGuncelle.Enabled = false;
-            this.btnGuncelle.Location = new System.Drawing.Point(636, 200);
+            this.btnGuncelle.Location = new System.Drawing.Point(624, 200);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(119, 29);
             this.btnGuncelle.TabIndex = 125;
@@ -185,8 +186,11 @@
             this.dgvSiparisler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSiparisler.Location = new System.Drawing.Point(420, 50);
             this.dgvSiparisler.Name = "dgvSiparisler";
-            this.dgvSiparisler.Size = new System.Drawing.Size(386, 144);
+            this.dgvSiparisler.Size = new System.Drawing.Size(477, 144);
             this.dgvSiparisler.TabIndex = 126;
+            this.dgvSiparisler.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSiparisler_CellDoubleClick);
+            this.dgvSiparisler.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSiparisler_CellValueChanged);
+            this.dgvSiparisler.DoubleClick += new System.EventHandler(this.dgvSiparisler_DoubleClick);
             // 
             // btnEkle
             // 
@@ -214,7 +218,9 @@
             "Önce en yeniler",
             "Önce en eskiler",
             "Tutara göre azalan",
-            "Tutara göre artan"});
+            "Tutara göre artan",
+            "Miktara göre azalan",
+            "Miktara göre artan"});
             this.cbSiralama.Location = new System.Drawing.Point(591, 4);
             this.cbSiralama.Name = "cbSiralama";
             this.cbSiralama.Size = new System.Drawing.Size(121, 21);
@@ -229,12 +235,24 @@
             this.label1.TabIndex = 131;
             this.label1.Text = "Kayıtlı Siparişler";
             // 
+            // btnVazgec
+            // 
+            this.btnVazgec.Location = new System.Drawing.Point(761, 200);
+            this.btnVazgec.Name = "btnVazgec";
+            this.btnVazgec.Size = new System.Drawing.Size(128, 29);
+            this.btnVazgec.TabIndex = 132;
+            this.btnVazgec.Text = "Vazgeç";
+            this.btnVazgec.UseVisualStyleBackColor = true;
+            this.btnVazgec.Visible = false;
+            this.btnVazgec.Click += new System.EventHandler(this.btnVazgec_Click);
+            // 
             // Siparis
             // 
             this.AcceptButton = this.btnEkle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 361);
+            this.Controls.Add(this.btnVazgec);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblSiralamaOlcutu);
             this.Controls.Add(this.cbSiralama);
@@ -284,5 +302,6 @@
         private System.Windows.Forms.Label lblSiralamaOlcutu;
         private System.Windows.Forms.ComboBox cbSiralama;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnVazgec;
     }
 }
