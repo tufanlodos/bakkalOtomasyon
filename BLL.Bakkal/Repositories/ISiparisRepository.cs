@@ -18,6 +18,6 @@ namespace BLL.Bakkal.Repositories
         int ToplamTutarHesapla();
         bool SiparisEkle(Siparis s);
         bool SiparisGuncelle();
-        bool SiparisSil();
+        bool SiparisSil(int Id);
     }
 }

@@ -22,7 +22,7 @@ namespace PL.Bakkal
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Siparis());
+            Application.Run(new frmSiparis());
         }
     }
 }

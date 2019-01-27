@@ -1,6 +1,6 @@
 ﻿namespace PL.Bakkal
 {
-    partial class Siparis
+    partial class frmSiparis
     {
         /// <summary>
         /// Required designer variable.
@@ -89,6 +89,7 @@
             this.btnSil.TabIndex = 122;
             this.btnSil.Text = "Kaydı Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // lblTedarikIcinUrunSecin
             // 
@@ -200,6 +201,7 @@
             this.btnEkle.TabIndex = 127;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // lblSiralamaOlcutu
             // 
@@ -246,7 +248,7 @@
             this.btnVazgec.Visible = false;
             this.btnVazgec.Click += new System.EventHandler(this.btnVazgec_Click);
             // 
-            // Siparis
+            // frmSiparis
             // 
             this.AcceptButton = this.btnEkle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,7 +274,7 @@
             this.Controls.Add(this.lblAdet);
             this.Controls.Add(this.lblKategoriSecin);
             this.Controls.Add(this.cbKategoriler);
-            this.Name = "Siparis";
+            this.Name = "frmSiparis";
             this.Text = "Siparis";
             this.Load += new System.EventHandler(this.Siparis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisler)).EndInit();

@@ -34,7 +34,16 @@ namespace BLL.Bakkal.Repositories
         public bool SiparisEkle(Siparis s)
         {
             bool Sonuc = false;
-
+            ent.Siparis.Add(s);
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
             return Sonuc;
         }
         public List<SiparisModel> SiparisleriGetir ()
@@ -47,9 +56,21 @@ namespace BLL.Bakkal.Repositories
             throw new NotImplementedException();
         }
 
-        public bool SiparisSil()
+        public bool SiparisSil(int Id)
         {
-            throw new NotImplementedException();
+            bool Sonuc = false;
+            Siparis silinen = ent.Siparis.Where(s=>s.Id == Id).FirstOrDefault();
+            ent.Siparis.Remove(silinen);
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
+            return Sonuc;
         }
 
 

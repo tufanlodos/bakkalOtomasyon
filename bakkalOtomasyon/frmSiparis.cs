@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace PL.Bakkal
 {
-    public partial class Siparis : Form
+    public partial class frmSiparis : Form
     {
-        public Siparis()
+        public frmSiparis()
         {
             InitializeComponent();
         }
         SiparisRepository srepo = new SiparisRepository();
-        int KatId, UrId,HeaderText = 0, SilinecekId;
+        int KatId, UrId,TedId,HeaderText = 0, SilinecekId;
         private void Siparis_Load(object sender, EventArgs e)
         {
             ComboboxlariDoldur();
@@ -90,6 +90,8 @@ namespace PL.Bakkal
         private void cbTedarikciler_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtAdet.Focus();
+            Tedarikci secilen = cbTedarikciler.SelectedItem as Tedarikci;
+            TedId = secilen.Id;
         }
         int SecilenSatir;
         private void dgvSiparisler_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -98,6 +100,7 @@ namespace PL.Bakkal
         }
         private void dgvSiparisler_DoubleClick(object sender, EventArgs e)
         {
+            txtAdet.Text = string.Empty;
             try
             {
                 SilinecekId = Convert.ToInt32(dgvSiparisler.SelectedRows[0].Cells[0].Value);
@@ -126,6 +129,80 @@ namespace PL.Bakkal
 
         }
 
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seçilen sipariş kaydının silinmesini istiyor musunuz ?", "Silme işlemini onaylıyor musunuz ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (srepo.SiparisSil(SilinecekId))
+                {
+                    MessageBox.Show("Sipariş kayıtları üzerindeki silme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DgvDoldurDuzenle();
+                    dgvSiparisler.ClearSelection();
+                    btnSil.Enabled = false;
+                    txtAdet.Focus();
+                    this.AcceptButton = btnEkle;
+                }
+                else
+                {
+                    MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dgvSiparisler.ClearSelection();
+                    btnSil.Enabled = false;
+                    txtAdet.Focus();
+                    this.AcceptButton = btnEkle;
+                }
+            }
+            else
+            {
+                btnSil.Enabled = false;
+                DgvDoldurDuzenle();
+                dgvSiparisler.ClearSelection();
+                txtAdet.Focus();
+                this.AcceptButton = btnEkle;
+            }
+        }
+
+        private void btnEkle_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtAdet.Text))
+            {
+                Siparis s = new Siparis();
+                s.UrunId = UrId;
+                s.TedarikciId = TedId;
+                int Miktar = Convert.ToInt32(txtAdet.Text);
+                decimal AlisFiyat = Convert.ToDecimal(txtBirimAlisFiyati.Text);
+                s.Miktar = Miktar;
+                s.Tutar = Convert.ToDecimal(Miktar*AlisFiyat);
+                if (srepo.SiparisEkle(s))
+                {
+                    MessageBox.Show("Sipariş kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DgvDoldurDuzenle();
+                    txtAdet.Text = string.Empty;
+                    btnSil.Enabled = false;
+                    btnGuncelle.Enabled = false;
+                    btnVazgec.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Sipariş kayıtlarına yeni kayıt ekleme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DgvDoldurDuzenle();
+                    txtAdet.Text = string.Empty;
+                    btnSil.Enabled = false;
+                    btnGuncelle.Enabled = false;
+                    btnVazgec.Visible = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sipariş kaydı oluşturmak için adet girişi yapmanız gerekmektedir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAdet.Focus();
+                DgvDoldurDuzenle();
+                txtAdet.Text = string.Empty;
+                btnSil.Enabled = false;
+                btnGuncelle.Enabled = false;
+                btnVazgec.Visible = false;
+            }
+        }
+
         private void btnVazgec_Click(object sender, EventArgs e)
         {
             btnSil.Enabled = false;
@@ -152,6 +229,7 @@ namespace PL.Bakkal
 
         private void txtAdet_TextChanged(object sender, EventArgs e)
         {
+            this.AcceptButton = btnEkle;
             foreach (char sayi in txtAdet.Text)
             {
                 if (!char.IsDigit(sayi))
