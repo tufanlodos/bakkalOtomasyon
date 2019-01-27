@@ -59,16 +59,20 @@ namespace PL.Bakkal
             dgvSiparisler.Columns[0].Visible = false;
             dgvSiparisler.Columns[1].HeaderText = "Tedarikçi Adı";
             dgvSiparisler.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvSiparisler.Columns[1].ReadOnly = true;
             dgvSiparisler.Columns[2].HeaderText = "Ürün Adı";
             dgvSiparisler.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvSiparisler.Columns[2].ReadOnly = true;
             dgvSiparisler.Columns[3].HeaderText = "Miktar";
             dgvSiparisler.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvSiparisler.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvSiparisler.Columns[4].HeaderText = "Tutar";
             dgvSiparisler.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvSiparisler.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvSiparisler.Columns[4].ReadOnly = true;
             dgvSiparisler.Columns[5].HeaderText = "Kayıt Tarihi";
             dgvSiparisler.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvSiparisler.Columns[5].ReadOnly = true;
             HeaderText++;
         }
         private void cbKategoriler_SelectedIndexChanged(object sender, EventArgs e)
