@@ -38,6 +38,7 @@ namespace PL.Bakkal
             dgvMasraflar.BorderStyle = BorderStyle.None;
             dgvMasraflar.BackgroundColor = this.BackColor;
             dgvMasraflar.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+            dgvMasraflar.MultiSelect = false;
             dgvMasraflar.Columns[0].Visible = false;
             dgvMasraflar.Columns[1].HeaderText = "Masraf Adı";
             dgvMasraflar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -64,14 +65,24 @@ namespace PL.Bakkal
         int Id;
         private void dgvMasraflar_DoubleClick(object sender, EventArgs e)
         {
+            try
+            {
             txtMasrafAdi.Text = dgvMasraflar.SelectedRows[0].Cells[1].Value.ToString();
             txtMasrafTutari.Text = dgvMasraflar.SelectedRows[0].Cells[2].Value.ToString();
             Id = Convert.ToInt32(dgvMasraflar.SelectedRows[0].Cells[0].Value);
+            }
+            catch(Exception)
+            {
+                return;
+            }
+            if(Id>0)
+            { 
             btnSil.Enabled = true;
             txtMasrafAdi.ReadOnly = true;
             txtMasrafTutari.ReadOnly = true;
             btnVazgec.Visible = true;
             btnKaydet.Enabled=false;
+            }
         }
         private void btnDegistir_Click(object sender, EventArgs e)
         {
@@ -112,6 +123,7 @@ namespace PL.Bakkal
         private void btnVazgec_Click(object sender, EventArgs e)
         {
             BaslangicHalineDon();
+            dgvMasraflar.ClearSelection();
         }
         private void Temizle()
         {
