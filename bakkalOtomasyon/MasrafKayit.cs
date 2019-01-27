@@ -51,15 +51,16 @@ namespace PL.Bakkal
         }
         private void dgvMasraflar_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            btnDegistir.Enabled = true;
-            btnSil.Enabled = false;
-            txtMasrafAdi.ReadOnly = false;
-            txtMasrafTutari.ReadOnly = false;
-            btnVazgec.Visible = true;
-            Temizle();
+            
             if (HeaderText >= 1)
             {
                 dgvMasraflar.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
+                btnDegistir.Enabled = true;
+                btnSil.Enabled = false;
+                txtMasrafAdi.ReadOnly = false;
+                txtMasrafTutari.ReadOnly = false;
+                btnVazgec.Visible = true;
+                Temizle();
             }
         }
         int Id;
@@ -123,7 +124,6 @@ namespace PL.Bakkal
         private void btnVazgec_Click(object sender, EventArgs e)
         {
             BaslangicHalineDon();
-            dgvMasraflar.ClearSelection();
         }
         private void Temizle()
         {
