@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Bakkal.DataModel;
+using DAL.Bakkal.Models;
 
 namespace BLL.Bakkal.Repositories
 {
@@ -30,11 +31,17 @@ namespace BLL.Bakkal.Repositories
         {
             return Convert.ToDecimal(ent.Urunlers.Where(u => u.Id == UrunId).Select(u => u.AlisFiyat).FirstOrDefault());
         }
-        public bool SiparisEkle()
+        public bool SiparisEkle(Siparis s)
         {
-            throw new NotImplementedException();
-        }
+            bool Sonuc = false;
 
+            return Sonuc;
+        }
+        public List<SiparisModel> SiparisleriGetir ()
+        {
+            List<SiparisModel> liste = ent.Siparis.Select(s=> new SiparisModel {Id = s.Id, UrunAdi = s.Urun.UrunAdi, TedarikciAdi = s.Tedarikci.TedarikciAdi.ToString(), Miktar = s.Miktar, Tutar = s.Tutar, IslemTarihi = s.IslemTarihi}).ToList();
+            return liste;
+        }
         public bool SiparisGuncelle()
         {
             throw new NotImplementedException();

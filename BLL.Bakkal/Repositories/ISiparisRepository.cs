@@ -1,4 +1,5 @@
 ﻿using DAL.Bakkal.DataModel;
+using DAL.Bakkal.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,9 @@ namespace BLL.Bakkal.Repositories
         List<Urunler> UrunleriGetirByKategoriId(int KatId);
         List<Tedarikci> TedarikcileriGetir();
         decimal UrunFiyatiGetirById(int UrunId);
+        List<SiparisModel> SiparisleriGetir();
         int ToplamTutarHesapla();
-        bool SiparisEkle();
+        bool SiparisEkle(Siparis s);
         bool SiparisGuncelle();
         bool SiparisSil();
     }
