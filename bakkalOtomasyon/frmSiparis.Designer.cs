@@ -60,6 +60,7 @@
             this.btnGuncelle.TabIndex = 125;
             this.btnGuncelle.Text = "Değişiklikleri Kaydet";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // lblTedarikciSecin
             // 
@@ -227,6 +228,7 @@
             this.cbSiralama.Name = "cbSiralama";
             this.cbSiralama.Size = new System.Drawing.Size(121, 21);
             this.cbSiralama.TabIndex = 129;
+            this.cbSiralama.SelectedIndexChanged += new System.EventHandler(this.cbSiralama_SelectedIndexChanged);
             // 
             // label1
             // 

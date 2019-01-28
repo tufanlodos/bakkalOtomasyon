@@ -1,5 +1,6 @@
 ﻿using BLL.Bakkal.Repositories;
 using DAL.Bakkal.DataModel;
+using DAL.Bakkal.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,7 @@ namespace PL.Bakkal
         private void Siparis_Load(object sender, EventArgs e)
         {
             ComboboxlariDoldur();
-            DgvDoldurDuzenle();
+            DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
         }
         private void ComboboxlariDoldur()
         {
@@ -43,9 +44,9 @@ namespace PL.Bakkal
             cbTedarikciler.SelectedIndex = 0;
             cbSiralama.SelectedIndex = 0;
         }
-        private void DgvDoldurDuzenle()
+        private void DgvDoldurDuzenle(List<SiparisModel> liste)
         {
-            dgvSiparisler.DataSource = srepo.SiparisleriGetir();
+            dgvSiparisler.DataSource = liste;
             dgvSiparisler.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSiparisler.AllowUserToAddRows = false;
             dgvSiparisler.AllowUserToDeleteRows = false;
@@ -142,7 +143,7 @@ namespace PL.Bakkal
                 if (srepo.SiparisSil(SilinecekId))
                 {
                     MessageBox.Show("Sipariş kayıtları üzerindeki silme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DgvDoldurDuzenle();
+                    DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
                     dgvSiparisler.ClearSelection();
                     btnSil.Enabled = false;
                     txtAdet.Focus();
@@ -150,7 +151,7 @@ namespace PL.Bakkal
                 }
                 else
                 {
-                    MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Siparis kayıtları üzerindeki silme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     dgvSiparisler.ClearSelection();
                     btnSil.Enabled = false;
                     txtAdet.Focus();
@@ -160,7 +161,7 @@ namespace PL.Bakkal
             else
             {
                 btnSil.Enabled = false;
-                DgvDoldurDuzenle();
+                DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
                 dgvSiparisler.ClearSelection();
                 txtAdet.Focus();
                 this.AcceptButton = btnEkle;
@@ -181,7 +182,7 @@ namespace PL.Bakkal
                 if (srepo.SiparisEkle(s))
                 {
                     MessageBox.Show("Sipariş kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DgvDoldurDuzenle();
+                    DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
                     txtAdet.Text = string.Empty;
                     btnSil.Enabled = false;
                     btnGuncelle.Enabled = false;
@@ -190,7 +191,7 @@ namespace PL.Bakkal
                 else
                 {
                     MessageBox.Show("Sipariş kayıtlarına yeni kayıt ekleme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    DgvDoldurDuzenle();
+                    DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
                     txtAdet.Text = string.Empty;
                     btnSil.Enabled = false;
                     btnGuncelle.Enabled = false;
@@ -201,7 +202,7 @@ namespace PL.Bakkal
             {
                 MessageBox.Show("Sipariş kaydı oluşturmak için adet girişi yapmanız gerekmektedir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAdet.Focus();
-                DgvDoldurDuzenle();
+                DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
                 txtAdet.Text = string.Empty;
                 btnSil.Enabled = false;
                 btnGuncelle.Enabled = false;
@@ -214,12 +215,64 @@ namespace PL.Bakkal
             btnSil.Enabled = false;
             btnGuncelle.Enabled = false;
             btnVazgec.Visible = false;
-            DgvDoldurDuzenle();
+            DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
             cbSiralama.SelectedIndex = 0;
             dgvSiparisler.ClearSelection();
             this.AcceptButton = btnEkle;
         }
-        int Adet = 0,RIndex,CIndex;
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            if (srepo.SiparisGuncelle())
+            {
+                MessageBox.Show("Sipariş kayıtları üzerindeki güncellemeler kaydedildi.", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtAdet.Focus();
+                DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
+                txtAdet.Text = string.Empty;
+                btnSil.Enabled = false;
+                btnGuncelle.Enabled = false;
+                btnVazgec.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Sipariş kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAdet.Focus();
+                DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
+                txtAdet.Text = string.Empty;
+                btnSil.Enabled = false;
+                btnGuncelle.Enabled = false;
+                btnVazgec.Visible = false;
+            }
+        }
+
+        private void cbSiralama_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSiralama.SelectedIndex == 0)
+            {
+                dgvSiparisler.DataSource = srepo.TariheGoreSiparisSirala("desc");
+            }
+            if (cbSiralama.SelectedIndex == 1)
+            {
+                dgvSiparisler.DataSource = srepo.TariheGoreSiparisSirala("asc");
+            }
+            if (cbSiralama.SelectedIndex == 2)
+            {
+                dgvSiparisler.DataSource = srepo.TutaraGoreSiparisSirala("desc");
+            }
+            if (cbSiralama.SelectedIndex == 3)
+            {
+                dgvSiparisler.DataSource = srepo.TutaraGoreSiparisSirala("asc");
+            }
+            if (cbSiralama.SelectedIndex == 4)
+            {
+                dgvSiparisler.DataSource = srepo.MiktaraGoreSiparisSirala("desc");
+            }
+            if (cbSiralama.SelectedIndex == 5)
+            {
+                dgvSiparisler.DataSource = srepo.MiktaraGoreSiparisSirala("asc");
+            }
+        }
+        int Adet = 0, RIndex, CIndex;
         decimal ToplamTutar = 0;
         bool Etkile = true;
         private void dgvSiparisler_CellValueChanged(object sender, DataGridViewCellEventArgs e)

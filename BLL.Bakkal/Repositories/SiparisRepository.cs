@@ -53,7 +53,17 @@ namespace BLL.Bakkal.Repositories
         }
         public bool SiparisGuncelle()
         {
-            throw new NotImplementedException();
+            bool Sonuc = false;
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string mesaj = ex.Message;
+            }
+            return Sonuc;
         }
 
         public bool SiparisSil(int Id)
@@ -88,6 +98,45 @@ namespace BLL.Bakkal.Repositories
         public int UrunIdBul(string UrunAdi)
         {
             return Convert.ToInt32(ent.Urunlers.Where(u => u.UrunAdi == UrunAdi).Select(u => u.Id).FirstOrDefault());
+        }
+        public List<SiparisModel> TariheGoreSiparisSirala(string nece)
+        {
+            List<SiparisModel> liste = new List<SiparisModel>();
+            if (nece == "asc")
+            {
+                liste = ent.Siparis.Select(s => new SiparisModel { Id = s.Id, UrunAdi = s.Urun.UrunAdi, TedarikciAdi = s.Tedarikci.TedarikciAdi.ToString(), Miktar = s.Miktar, Tutar = s.Tutar, IslemTarihi = s.IslemTarihi }).OrderBy(s => s.IslemTarihi).ToList();
+            }
+            if (nece == "desc")
+            {
+                liste = ent.Siparis.Select(s => new SiparisModel { Id = s.Id, UrunAdi = s.Urun.UrunAdi, TedarikciAdi = s.Tedarikci.TedarikciAdi.ToString(), Miktar = s.Miktar, Tutar = s.Tutar, IslemTarihi = s.IslemTarihi }).OrderByDescending(s => s.IslemTarihi).ToList();
+            }
+            return liste;
+        }
+        public List<SiparisModel> TutaraGoreSiparisSirala(string nece)
+        {
+            List<SiparisModel> liste = new List<SiparisModel>();
+            if (nece == "asc")
+            {
+                liste = ent.Siparis.Select(s => new SiparisModel { Id = s.Id, UrunAdi = s.Urun.UrunAdi, TedarikciAdi = s.Tedarikci.TedarikciAdi.ToString(), Miktar = s.Miktar, Tutar = s.Tutar, IslemTarihi = s.IslemTarihi }).OrderBy(s => s.Tutar).ToList();
+            }
+            if (nece == "desc")
+            {
+                liste = ent.Siparis.Select(s => new SiparisModel { Id = s.Id, UrunAdi = s.Urun.UrunAdi, TedarikciAdi = s.Tedarikci.TedarikciAdi.ToString(), Miktar = s.Miktar, Tutar = s.Tutar, IslemTarihi = s.IslemTarihi }).OrderByDescending(s => s.Tutar).ToList();
+            }
+            return liste;
+        }
+        public List<SiparisModel> MiktaraGoreSiparisSirala(string nece)
+        {
+            List<SiparisModel> liste = new List<SiparisModel>();
+            if (nece == "asc")
+            {
+                liste = ent.Siparis.Select(s => new SiparisModel { Id = s.Id, UrunAdi = s.Urun.UrunAdi, TedarikciAdi = s.Tedarikci.TedarikciAdi.ToString(), Miktar = s.Miktar, Tutar = s.Tutar, IslemTarihi = s.IslemTarihi }).OrderBy(s => s.Miktar).ToList();
+            }
+            if (nece == "desc")
+            {
+                liste = ent.Siparis.Select(s => new SiparisModel { Id = s.Id, UrunAdi = s.Urun.UrunAdi, TedarikciAdi = s.Tedarikci.TedarikciAdi.ToString(), Miktar = s.Miktar, Tutar = s.Tutar, IslemTarihi = s.IslemTarihi }).OrderByDescending(s => s.Miktar).ToList();
+            }
+            return liste;
         }
     }
 }
