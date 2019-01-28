@@ -38,10 +38,9 @@ namespace PL.Bakkal
                 lvGoruntulenenListe.Items.Add("Bilanço");
                 lvGoruntulenenListe.Items[3].Font = new Font("Arial", 10, FontStyle.Bold);
                 lvGoruntulenenListe.Items[3].SubItems.Add((br.SatisTutar(x)-br.MasrafTutar(x)-br.TedarikTutar(x)).ToString("c"));
-                //lvGoruntulenenListe.Items
         }
 
-        private void Bilanco_Load(object sender, EventArgs e)
+        private void Bilanco_Load(object sender, EventArgs e)  
         {
             cbSiralama.SelectedIndex = 0;
         }
