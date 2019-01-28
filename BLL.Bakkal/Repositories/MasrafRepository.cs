@@ -64,5 +64,49 @@ namespace BLL.Bakkal.Repositories
             }
             return Sonuc;
         }
+        public bool MasrafSil(string MasrafAd)
+        {
+            bool Sonuc = false;
+            Masraf silinen = (from m in ent.Masraf
+                                where m.MasrafAdi == MasrafAd
+                                select m).FirstOrDefault();
+            ent.Masraf.Remove(silinen);
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
+            return Sonuc;
+        }
+        public List<Masraf> TariheGoreMasrafSirala(string nece)
+        {
+            List<Masraf> liste = new List<Masraf>();
+            if (nece == "asc")
+            {
+                liste = ent.Masraf.OrderBy(m=>m.IslemTarihi).ToList();
+            }
+            if (nece == "desc")
+            {
+                liste = ent.Masraf.OrderByDescending(m=>m.IslemTarihi).ToList();
+            }
+            return liste;
+        }
+        public List<Masraf> TutaraGoreMasrafSirala(string nece)
+        {
+            List<Masraf> liste = new List<Masraf>();
+            if (nece == "asc")
+            {
+                liste = ent.Masraf.OrderBy(m => m.Tutar).ToList();
+            }
+            if (nece == "desc")
+            {
+                liste = ent.Masraf.OrderByDescending(m => m.Tutar).ToList();
+            }
+            return liste;
+        }
     }
 }

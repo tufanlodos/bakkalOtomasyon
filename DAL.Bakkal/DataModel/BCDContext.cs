@@ -21,7 +21,6 @@ namespace DAL.Bakkal.DataModel
         public virtual DbSet<Masraf> Masraf { get; set; }
         public virtual DbSet<Tedarikci> Tedarikci { get; set; }
         public virtual DbSet<TedarikDetay> TedarikDetay { get; set; }
-
         public virtual DbSet<Siparis> Siparis{ get; set; }
 
 

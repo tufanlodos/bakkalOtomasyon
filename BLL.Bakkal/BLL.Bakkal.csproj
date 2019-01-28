@@ -49,13 +49,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IKategoriRepository.cs" />
-	<Compile Include="Repositories\IMasrafRepository.cs" />
-	<Compile Include="Repositories\IStokRepository.cs" />
-    <Compile Include="Repositories\IUrunRepository.cs" />
+    <Compile Include="Repositories\IMasrafRepository.cs" />
+    <Compile Include="Repositories\ISiparisRepository.cs" />
     <Compile Include="Repositories\KategoriRepository.cs" />
     <Compile Include="Repositories\MasrafRepository.cs" />
-	<Compile Include="Repositories\StokRepository.cs" />
-    <Compile Include="Repositories\UrunRepository.cs" />
+    <Compile Include="Repositories\SiparisRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL.Bakkal\DAL.Bakkal.csproj">
