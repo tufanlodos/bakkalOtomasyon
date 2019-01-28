@@ -74,9 +74,20 @@ namespace BLL.Bakkal.Repositories
         }
 
 
-        public int ToplamTutarHesapla()
+        public decimal ToplamTutarHesapla()
         {
-            throw new NotImplementedException();
+            return ent.Siparis.Sum(s => s.Tutar);
+        }
+        public decimal YeniToplamTutarHesapla(int UrunId,int Adet)
+        {
+            decimal YeniTutar = 0, AlisFiyat=0;
+            AlisFiyat = Convert.ToDecimal(ent.Urunlers.Where(u => u.Id == UrunId).Select(u => u.AlisFiyat).FirstOrDefault());
+            YeniTutar = AlisFiyat * Adet;
+            return YeniTutar;
+        }
+        public int UrunIdBul(string UrunAdi)
+        {
+            return Convert.ToInt32(ent.Urunlers.Where(u => u.UrunAdi == UrunAdi).Select(u => u.Id).FirstOrDefault());
         }
     }
 }

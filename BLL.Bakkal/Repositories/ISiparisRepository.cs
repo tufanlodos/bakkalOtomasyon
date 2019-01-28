@@ -15,7 +15,7 @@ namespace BLL.Bakkal.Repositories
         List<Tedarikci> TedarikcileriGetir();
         decimal UrunFiyatiGetirById(int UrunId);
         List<SiparisModel> SiparisleriGetir();
-        int ToplamTutarHesapla();
+        decimal ToplamTutarHesapla();
         bool SiparisEkle(Siparis s);
         bool SiparisGuncelle();
         bool SiparisSil(int Id);

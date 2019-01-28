@@ -19,7 +19,7 @@ namespace PL.Bakkal
             InitializeComponent();
         }
         SiparisRepository srepo = new SiparisRepository();
-        int KatId, UrId,TedId,HeaderText = 0, SilinecekId;
+        int KatId, UrId,TedId,HeaderText = 0, SilinecekId, DgvUrunId;
         private void Siparis_Load(object sender, EventArgs e)
         {
             ComboboxlariDoldur();
@@ -74,6 +74,7 @@ namespace PL.Bakkal
             dgvSiparisler.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvSiparisler.Columns[5].ReadOnly = true;
             HeaderText++;
+            txtToplamTutar.Text = srepo.ToplamTutarHesapla().ToString();
         }
         private void cbKategoriler_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -104,6 +105,7 @@ namespace PL.Bakkal
         }
         private void dgvSiparisler_DoubleClick(object sender, EventArgs e)
         {
+            DgvUrunId=srepo.UrunIdBul(dgvSiparisler.SelectedRows[0].Cells[2].Value.ToString());
             txtAdet.Text = string.Empty;
             try
             {
@@ -217,18 +219,37 @@ namespace PL.Bakkal
             dgvSiparisler.ClearSelection();
             this.AcceptButton = btnEkle;
         }
-
+        int Adet = 0,RIndex,CIndex;
+        decimal ToplamTutar = 0;
+        bool Etkile = true;
         private void dgvSiparisler_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (HeaderText >= 1)
+            txtToplamTutar.Text = string.Empty;
+            if (HeaderText >= 1 && Etkile)
             {
                 dgvSiparisler.SelectedRows[0].DefaultCellStyle.BackColor = Color.White;
                 dgvSiparisler.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
+                RIndex = e.RowIndex;
+                CIndex = e.ColumnIndex;
                 btnVazgec.Visible = true;
                 btnGuncelle.Enabled = true;
                 this.AcceptButton = btnGuncelle;
                 btnSil.Enabled = false;
+                ToplamTutarGuncelle();
             }
+            if (HeaderText >= 1 && !Etkile)
+            {
+                dgvSiparisler.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
+                Etkile = true;
+            }
+
+        }
+        private void ToplamTutarGuncelle()
+        {
+            Adet = Convert.ToInt32(dgvSiparisler.Rows[RIndex].Cells[CIndex].Value.ToString());
+            ToplamTutar = srepo.YeniToplamTutarHesapla(DgvUrunId, Adet);
+            Etkile = false;
+            dgvSiparisler.Rows[RIndex].Cells[CIndex + 1].Value = ToplamTutar.ToString();
         }
 
         private void txtAdet_TextChanged(object sender, EventArgs e)
