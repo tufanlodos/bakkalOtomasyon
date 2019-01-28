@@ -46,6 +46,12 @@ namespace BLL.Bakkal.Repositories
             }
             return Sonuc;
         }
+        public void ArakatmanGuncelle(int Id, int Miktar, decimal ToplamTutar)
+        {
+            Siparis s = ent.Siparis.Where(si => si.Id == Id).FirstOrDefault();
+            s.Miktar = Miktar;
+            s.Tutar = ToplamTutar;
+        }
         public List<SiparisModel> SiparisleriGetir ()
         {
             List<SiparisModel> liste = ent.Siparis.Select(s=> new SiparisModel {Id = s.Id, UrunAdi = s.Urun.UrunAdi, TedarikciAdi = s.Tedarikci.TedarikciAdi.ToString(), Miktar = s.Miktar, Tutar = s.Tutar, IslemTarihi = s.IslemTarihi}).ToList();

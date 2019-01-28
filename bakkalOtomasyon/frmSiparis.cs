@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -147,6 +148,7 @@ namespace PL.Bakkal
                     dgvSiparisler.ClearSelection();
                     btnSil.Enabled = false;
                     txtAdet.Focus();
+                    btnVazgec.Visible = false;
                     this.AcceptButton = btnEkle;
                 }
                 else
@@ -155,6 +157,7 @@ namespace PL.Bakkal
                     dgvSiparisler.ClearSelection();
                     btnSil.Enabled = false;
                     txtAdet.Focus();
+                    btnVazgec.Visible = false;
                     this.AcceptButton = btnEkle;
                 }
             }
@@ -164,6 +167,7 @@ namespace PL.Bakkal
                 DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
                 dgvSiparisler.ClearSelection();
                 txtAdet.Focus();
+                btnVazgec.Visible = false;
                 this.AcceptButton = btnEkle;
             }
         }
@@ -217,6 +221,7 @@ namespace PL.Bakkal
             btnVazgec.Visible = false;
             DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
             cbSiralama.SelectedIndex = 0;
+            //arakatmanı temizlet
             dgvSiparisler.ClearSelection();
             this.AcceptButton = btnEkle;
         }
@@ -301,6 +306,7 @@ namespace PL.Bakkal
         {
             Adet = Convert.ToInt32(dgvSiparisler.Rows[RIndex].Cells[CIndex].Value.ToString());
             ToplamTutar = srepo.YeniToplamTutarHesapla(DgvUrunId, Adet);
+            srepo.ArakatmanGuncelle(SilinecekId, Adet, ToplamTutar);
             Etkile = false;
             dgvSiparisler.Rows[RIndex].Cells[CIndex + 1].Value = ToplamTutar.ToString();
         }
