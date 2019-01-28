@@ -48,8 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BilancoRepository.cs" />
+    <Compile Include="Repositories\IBilancoRepository.cs" />
     <Compile Include="Repositories\IKategoriRepository.cs" />
+    <Compile Include="Repositories\IStokRepository.cs" />
     <Compile Include="Repositories\KategoriRepository.cs" />
+    <Compile Include="Repositories\StokRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL.Bakkal\DAL.Bakkal.csproj">

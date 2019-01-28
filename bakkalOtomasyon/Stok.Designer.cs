@@ -34,10 +34,11 @@
             this.txtKategoriSec = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbKategori = new System.Windows.Forms.ComboBox();
-            this.lvListe = new System.Windows.Forms.ListView();
             this.lblSiralamaOlcutu = new System.Windows.Forms.Label();
             this.cbSiralama = new System.Windows.Forms.ComboBox();
             this.lblKritik = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUrunSecin
@@ -90,14 +91,6 @@
             this.cbKategori.Size = new System.Drawing.Size(19, 21);
             this.cbKategori.TabIndex = 85;
             // 
-            // lvListe
-            // 
-            this.lvListe.Location = new System.Drawing.Point(11, 125);
-            this.lvListe.Name = "lvListe";
-            this.lvListe.Size = new System.Drawing.Size(386, 128);
-            this.lvListe.TabIndex = 120;
-            this.lvListe.UseCompatibleStateImageBehavior = false;
-            // 
             // lblSiralamaOlcutu
             // 
             this.lblSiralamaOlcutu.AutoSize = true;
@@ -126,13 +119,21 @@
             this.lblKritik.TabIndex = 121;
             this.lblKritik.Text = "Stok miktarı kritik seviyede olan ürünler bulunmaktadır !";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(17, 124);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(377, 150);
+            this.dataGridView1.TabIndex = 122;
+            // 
             // Stok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 370);
+            this.ClientSize = new System.Drawing.Size(423, 370);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblKritik);
-            this.Controls.Add(this.lvListe);
             this.Controls.Add(this.lblSiralamaOlcutu);
             this.Controls.Add(this.cbSiralama);
             this.Controls.Add(this.txtKategoriSec);
@@ -143,6 +144,7 @@
             this.Controls.Add(this.cbUrunSecin);
             this.Name = "Stok";
             this.Text = "Stok";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,9 +157,9 @@
         private System.Windows.Forms.TextBox txtKategoriSec;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbKategori;
-        private System.Windows.Forms.ListView lvListe;
         private System.Windows.Forms.Label lblSiralamaOlcutu;
         private System.Windows.Forms.ComboBox cbSiralama;
         private System.Windows.Forms.Label lblKritik;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
