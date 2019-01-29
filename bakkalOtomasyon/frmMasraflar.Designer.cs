@@ -70,7 +70,7 @@
             this.btnYeni.Location = new System.Drawing.Point(12, 323);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(81, 29);
-            this.btnYeni.TabIndex = 113;
+            this.btnYeni.TabIndex = 0;
             this.btnYeni.Text = "Yeni";
             this.btnYeni.UseVisualStyleBackColor = true;
             this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
