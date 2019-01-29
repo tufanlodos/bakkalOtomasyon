@@ -65,7 +65,8 @@
             this.btnSimge.Location = new System.Drawing.Point(815, 12);
             this.btnSimge.Name = "btnSimge";
             this.btnSimge.Size = new System.Drawing.Size(27, 23);
-            this.btnSimge.TabIndex = 7;
+            this.btnSimge.TabIndex = 51;
+            this.btnSimge.TabStop = false;
             this.btnSimge.Text = "--";
             this.btnSimge.UseVisualStyleBackColor = true;
             this.btnSimge.Click += new System.EventHandler(this.btnSimge_Click_1);
@@ -76,7 +77,8 @@
             this.btnKapat.Location = new System.Drawing.Point(848, 12);
             this.btnKapat.Name = "btnKapat";
             this.btnKapat.Size = new System.Drawing.Size(27, 23);
-            this.btnKapat.TabIndex = 6;
+            this.btnKapat.TabIndex = 50;
+            this.btnKapat.TabStop = false;
             this.btnKapat.Text = "X";
             this.btnKapat.UseVisualStyleBackColor = true;
             this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click_1);
@@ -126,7 +128,7 @@
             this.btnBilanco.Location = new System.Drawing.Point(0, 317);
             this.btnBilanco.Name = "btnBilanco";
             this.btnBilanco.Size = new System.Drawing.Size(235, 31);
-            this.btnBilanco.TabIndex = 15;
+            this.btnBilanco.TabIndex = 7;
             this.btnBilanco.Text = "BİLANÇO";
             this.btnBilanco.UseVisualStyleBackColor = true;
             // 
@@ -137,7 +139,7 @@
             this.btnMasraf.Location = new System.Drawing.Point(0, 286);
             this.btnMasraf.Name = "btnMasraf";
             this.btnMasraf.Size = new System.Drawing.Size(235, 31);
-            this.btnMasraf.TabIndex = 14;
+            this.btnMasraf.TabIndex = 6;
             this.btnMasraf.Text = "MASRAF İŞLEMLERİ";
             this.btnMasraf.UseVisualStyleBackColor = true;
             this.btnMasraf.Click += new System.EventHandler(this.btnMasraf_Click);
@@ -149,7 +151,7 @@
             this.btnSiparis.Location = new System.Drawing.Point(0, 255);
             this.btnSiparis.Name = "btnSiparis";
             this.btnSiparis.Size = new System.Drawing.Size(235, 31);
-            this.btnSiparis.TabIndex = 13;
+            this.btnSiparis.TabIndex = 5;
             this.btnSiparis.Text = "SİPARİŞ İŞLEMLERİ";
             this.btnSiparis.UseVisualStyleBackColor = true;
             this.btnSiparis.Click += new System.EventHandler(this.btnSiparis_Click);
@@ -161,7 +163,7 @@
             this.btnTedarik.Location = new System.Drawing.Point(0, 224);
             this.btnTedarik.Name = "btnTedarik";
             this.btnTedarik.Size = new System.Drawing.Size(235, 31);
-            this.btnTedarik.TabIndex = 12;
+            this.btnTedarik.TabIndex = 4;
             this.btnTedarik.Text = "TEDARİK İŞLEMLERİ";
             this.btnTedarik.UseVisualStyleBackColor = true;
             // 
@@ -172,7 +174,7 @@
             this.btnStok.Location = new System.Drawing.Point(0, 193);
             this.btnStok.Name = "btnStok";
             this.btnStok.Size = new System.Drawing.Size(235, 31);
-            this.btnStok.TabIndex = 11;
+            this.btnStok.TabIndex = 3;
             this.btnStok.Text = "STOK DURUMU";
             this.btnStok.UseVisualStyleBackColor = true;
             // 
@@ -183,7 +185,7 @@
             this.btnUrun.Location = new System.Drawing.Point(0, 162);
             this.btnUrun.Name = "btnUrun";
             this.btnUrun.Size = new System.Drawing.Size(235, 31);
-            this.btnUrun.TabIndex = 10;
+            this.btnUrun.TabIndex = 2;
             this.btnUrun.Text = "ÜRÜN İŞLEMLERİ";
             this.btnUrun.UseVisualStyleBackColor = true;
             // 
@@ -194,7 +196,7 @@
             this.btnKategori.Location = new System.Drawing.Point(0, 131);
             this.btnKategori.Name = "btnKategori";
             this.btnKategori.Size = new System.Drawing.Size(235, 31);
-            this.btnKategori.TabIndex = 9;
+            this.btnKategori.TabIndex = 1;
             this.btnKategori.Text = "KATEGORİ İŞLEMLERİ";
             this.btnKategori.UseVisualStyleBackColor = true;
             this.btnKategori.Click += new System.EventHandler(this.btnKategori_Click);
@@ -206,7 +208,7 @@
             this.btnSatis.Location = new System.Drawing.Point(0, 100);
             this.btnSatis.Name = "btnSatis";
             this.btnSatis.Size = new System.Drawing.Size(235, 31);
-            this.btnSatis.TabIndex = 8;
+            this.btnSatis.TabIndex = 0;
             this.btnSatis.Text = "SATIŞ EKRANI";
             this.btnSatis.UseVisualStyleBackColor = true;
             // 
