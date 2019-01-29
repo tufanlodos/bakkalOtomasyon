@@ -302,7 +302,7 @@ namespace PL.Bakkal
             }
 
         }
-        private void ToplamTutarGuncelle()
+        private void ToplamTutarGuncelle() //miktara göre tutar güncellerken tekrar cellvaluechanged e gideceği için bu durum Etkile değişkeniyle kontrol altına alındı.
         {
             Adet = Convert.ToInt32(dgvSiparisler.Rows[RIndex].Cells[CIndex].Value.ToString());
             ToplamTutar = srepo.YeniToplamTutarHesapla(DgvUrunId, Adet);
