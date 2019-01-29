@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace PL.Bakkal
 {
-    public partial class MasrafKayit : Form
+    public partial class frmMasraflar : Form
     {
-        public MasrafKayit()
+        public frmMasraflar()
         {
             InitializeComponent();
         }
@@ -57,8 +57,6 @@ namespace PL.Bakkal
                 dgvMasraflar.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
                 btnDegistir.Enabled = true;
                 btnSil.Enabled = false;
-                txtMasrafAdi.ReadOnly = false;
-                txtMasrafTutari.ReadOnly = false;
                 btnVazgec.Visible = true;
                 Temizle();
             }
@@ -68,8 +66,6 @@ namespace PL.Bakkal
         {
             try
             {
-            txtMasrafAdi.Text = dgvMasraflar.SelectedRows[0].Cells[1].Value.ToString();
-            txtMasrafTutari.Text = dgvMasraflar.SelectedRows[0].Cells[2].Value.ToString();
             Id = Convert.ToInt32(dgvMasraflar.SelectedRows[0].Cells[0].Value);
             }
             catch(Exception)
@@ -79,10 +75,8 @@ namespace PL.Bakkal
             if(Id>0)
             { 
             btnSil.Enabled = true;
-            txtMasrafAdi.ReadOnly = true;
-            txtMasrafTutari.ReadOnly = true;
             btnVazgec.Visible = true;
-            btnKaydet.Enabled=false;
+            btnYeni.Enabled=false;
             }
         }
         private void btnDegistir_Click(object sender, EventArgs e)
@@ -139,93 +133,19 @@ namespace PL.Bakkal
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtMasrafAdi.Text) && !string.IsNullOrEmpty(txtMasrafTutari.Text))
-            {
-                Masraf m = new Masraf();
-                m.MasrafAdi = txtMasrafAdi.Text;
-                m.Tutar = Convert.ToDecimal(txtMasrafTutari.Text);
-                if (mr.MasrafEkle(m))
-                {
-                    MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    BaslangicHalineDon();
-                }
-                else
-                {
-                    MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    BaslangicHalineDon();
-
-                }
-            }
+            frmMasrafEkle frm = new frmMasrafEkle();
+            frm.ShowDialog();
+            BaslangicHalineDon();
         }
         private void BaslangicHalineDon()
         {
             DgvDoldurDuzenle();
             Temizle();
-            txtMasrafAdi.Focus();
-            txtMasrafAdi.ReadOnly = false;
-            txtMasrafTutari.ReadOnly = false;
             btnSil.Enabled = false;
             btnVazgec.Visible = false;
-            btnKaydet.Enabled = true;
+            btnYeni.Enabled = true;
             btnDegistir.Enabled = false;
             cbSiralama.SelectedIndex = 0;
-        }
-
-        private void txtMasrafAdi_TextChanged(object sender, EventArgs e)
-        {
-            foreach (char harf in txtMasrafAdi.Text)
-            {
-                if (!char.IsLetter(harf))
-                {
-                    if (harf == ' ')
-                    {
-                        return;
-                    }
-                    else
-                    { 
-                    MessageBox.Show("Bu alana sadece harf girişi yapılabilir.");
-                    txtMasrafAdi.Text = txtMasrafAdi.Text.Substring(0, txtMasrafAdi.Text.Length - 1);
-                    txtMasrafAdi.Select(txtMasrafAdi.Text.Length, 0);    
-                    return;
-                    }
-                }
-            }
-        }
-        private void txtMasrafTutari_TextChanged(object sender, EventArgs e)
-        {
-            foreach (char sayi in txtMasrafTutari.Text)
-            {
-                if (!char.IsDigit(sayi))
-                {
-                    if (sayi == ',')
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Bu alana sadece rakam girişi yapılabilir.");
-                        txtMasrafTutari.Text = txtMasrafTutari.Text.Substring(0, txtMasrafTutari.Text.Length - 1);
-                        txtMasrafTutari.Select(txtMasrafTutari.Text.Length, 0);
-                        return;
-                    }
-                }
-            }
-            int Sayac = 0;
-            for (int i = 0; i < txtMasrafTutari.Text.Length; i++)
-            {
-                if (txtMasrafTutari.Text[i] == ',')
-                {
-                    Sayac++;
-                    if (Sayac > 1)
-                    {
-                        MessageBox.Show("Bu alana sadece bir adet virgül girilebilir.");
-                        txtMasrafTutari.Text = txtMasrafTutari.Text.Substring(0, txtMasrafTutari.Text.Length - 1);
-                        txtMasrafTutari.Select(txtMasrafTutari.Text.Length, 0);
-                        return;
-                    }
-                }
-
-            }
         }
 
         private void cbSiralama_SelectedIndexChanged(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace PL.Bakkal
 {
-    partial class MasrafKayit
+    partial class frmMasraflar
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,7 @@
         {
             this.lblSiralamaOlcutu = new System.Windows.Forms.Label();
             this.cbSiralama = new System.Windows.Forms.ComboBox();
-            this.btnKaydet = new System.Windows.Forms.Button();
-            this.txtMasrafTutari = new System.Windows.Forms.TextBox();
-            this.lblMasrafTutari = new System.Windows.Forms.Label();
-            this.txtMasrafAdi = new System.Windows.Forms.TextBox();
-            this.lblMasrafAdi = new System.Windows.Forms.Label();
+            this.btnYeni = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.dgvMasraflar = new System.Windows.Forms.DataGridView();
             this.btnVazgec = new System.Windows.Forms.Button();
@@ -67,49 +63,15 @@
             this.cbSiralama.TabIndex = 114;
             this.cbSiralama.SelectedIndexChanged += new System.EventHandler(this.cbSiralama_SelectedIndexChanged);
             // 
-            // btnKaydet
+            // btnYeni
             // 
-            this.btnKaydet.Location = new System.Drawing.Point(12, 292);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(81, 29);
-            this.btnKaydet.TabIndex = 113;
-            this.btnKaydet.Text = "Ekle";
-            this.btnKaydet.UseVisualStyleBackColor = true;
-            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
-            // 
-            // txtMasrafTutari
-            // 
-            this.txtMasrafTutari.Location = new System.Drawing.Point(146, 258);
-            this.txtMasrafTutari.Name = "txtMasrafTutari";
-            this.txtMasrafTutari.Size = new System.Drawing.Size(216, 20);
-            this.txtMasrafTutari.TabIndex = 112;
-            this.txtMasrafTutari.TextChanged += new System.EventHandler(this.txtMasrafTutari_TextChanged);
-            // 
-            // lblMasrafTutari
-            // 
-            this.lblMasrafTutari.AutoSize = true;
-            this.lblMasrafTutari.Location = new System.Drawing.Point(21, 258);
-            this.lblMasrafTutari.Name = "lblMasrafTutari";
-            this.lblMasrafTutari.Size = new System.Drawing.Size(69, 13);
-            this.lblMasrafTutari.TabIndex = 111;
-            this.lblMasrafTutari.Text = "Masraf Tutarı";
-            // 
-            // txtMasrafAdi
-            // 
-            this.txtMasrafAdi.Location = new System.Drawing.Point(146, 221);
-            this.txtMasrafAdi.Name = "txtMasrafAdi";
-            this.txtMasrafAdi.Size = new System.Drawing.Size(216, 20);
-            this.txtMasrafAdi.TabIndex = 110;
-            this.txtMasrafAdi.TextChanged += new System.EventHandler(this.txtMasrafAdi_TextChanged);
-            // 
-            // lblMasrafAdi
-            // 
-            this.lblMasrafAdi.AutoSize = true;
-            this.lblMasrafAdi.Location = new System.Drawing.Point(21, 221);
-            this.lblMasrafAdi.Name = "lblMasrafAdi";
-            this.lblMasrafAdi.Size = new System.Drawing.Size(57, 13);
-            this.lblMasrafAdi.TabIndex = 109;
-            this.lblMasrafAdi.Text = "Masraf Adı";
+            this.btnYeni.Location = new System.Drawing.Point(12, 292);
+            this.btnYeni.Name = "btnYeni";
+            this.btnYeni.Size = new System.Drawing.Size(81, 29);
+            this.btnYeni.TabIndex = 113;
+            this.btnYeni.Text = "Yeni";
+            this.btnYeni.UseVisualStyleBackColor = true;
+            this.btnYeni.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnSil
             // 
@@ -164,7 +126,7 @@
             this.label1.TabIndex = 121;
             this.label1.Text = "Kayıtlı Masraflar";
             // 
-            // MasrafKayit
+            // frmMasraflar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -176,12 +138,8 @@
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.lblSiralamaOlcutu);
             this.Controls.Add(this.cbSiralama);
-            this.Controls.Add(this.btnKaydet);
-            this.Controls.Add(this.txtMasrafTutari);
-            this.Controls.Add(this.lblMasrafTutari);
-            this.Controls.Add(this.txtMasrafAdi);
-            this.Controls.Add(this.lblMasrafAdi);
-            this.Name = "MasrafKayit";
+            this.Controls.Add(this.btnYeni);
+            this.Name = "frmMasraflar";
             this.Text = "Masraf";
             this.Load += new System.EventHandler(this.Masraf_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasraflar)).EndInit();
@@ -193,11 +151,7 @@
         #endregion
         private System.Windows.Forms.Label lblSiralamaOlcutu;
         private System.Windows.Forms.ComboBox cbSiralama;
-        private System.Windows.Forms.Button btnKaydet;
-        private System.Windows.Forms.TextBox txtMasrafTutari;
-        private System.Windows.Forms.Label lblMasrafTutari;
-        private System.Windows.Forms.TextBox txtMasrafAdi;
-        private System.Windows.Forms.Label lblMasrafAdi;
+        private System.Windows.Forms.Button btnYeni;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.DataGridView dgvMasraflar;
         private System.Windows.Forms.Button btnVazgec;

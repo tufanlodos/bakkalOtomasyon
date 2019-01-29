@@ -65,17 +65,23 @@
     <Compile Include="Bilanco.Designer.cs">
       <DependentUpon>Bilanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMasrafEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMasrafEkle.Designer.cs">
+      <DependentUpon>frmMasrafEkle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kategori.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Kategori.Designer.cs">
       <DependentUpon>Kategori.cs</DependentUpon>
     </Compile>
-    <Compile Include="MasrafKayit.cs">
+    <Compile Include="frmMasraflar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasrafKayit.Designer.cs">
-      <DependentUpon>MasrafKayit.cs</DependentUpon>
+    <Compile Include="frmMasraflar.Designer.cs">
+      <DependentUpon>frmMasraflar.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,11 +115,14 @@
     <EmbeddedResource Include="Bilanco.resx">
       <DependentUpon>Bilanco.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMasrafEkle.resx">
+      <DependentUpon>frmMasrafEkle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Kategori.resx">
       <DependentUpon>Kategori.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasrafKayit.resx">
-      <DependentUpon>MasrafKayit.cs</DependentUpon>
+    <EmbeddedResource Include="frmMasraflar.resx">
+      <DependentUpon>frmMasraflar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
