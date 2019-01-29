@@ -123,6 +123,7 @@ namespace PL.Bakkal
         
         private void btnVazgec_Click(object sender, EventArgs e)
         {
+            mr.ContextteBekleyenleriTemizle();
             BaslangicHalineDon();
         }
         private void Temizle()

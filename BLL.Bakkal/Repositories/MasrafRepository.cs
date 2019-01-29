@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,6 +108,17 @@ namespace BLL.Bakkal.Repositories
                 liste = ent.Masraf.OrderByDescending(m => m.Tutar).ToList();
             }
             return liste;
+        }
+        public void ContextteBekleyenleriTemizle()
+        {
+            var ContextteBekleyenler = ent.ChangeTracker.Entries()
+                .Where(e => e.State == EntityState.Added ||
+                            e.State == EntityState.Modified ||
+                            e.State == EntityState.Deleted)
+                .ToList();
+
+            foreach (var entry in ContextteBekleyenler)
+                entry.State = EntityState.Detached;
         }
     }
 }
