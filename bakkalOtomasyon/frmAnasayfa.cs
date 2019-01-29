@@ -59,5 +59,11 @@ namespace PL.Bakkal
             frmMasraflar frm = new frmMasraflar();
             FormAc(frm);
         }
+
+        private void btnKategori_Click(object sender, EventArgs e)
+        {
+            frmKategoriler frm = new frmKategoriler();
+            FormAc(frm);
+        }
     }
 }

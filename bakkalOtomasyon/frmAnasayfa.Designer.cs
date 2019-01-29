@@ -197,6 +197,7 @@
             this.btnKategori.TabIndex = 9;
             this.btnKategori.Text = "KATEGORİ İŞLEMLERİ";
             this.btnKategori.UseVisualStyleBackColor = true;
+            this.btnKategori.Click += new System.EventHandler(this.btnKategori_Click);
             // 
             // btnSatis
             // 
