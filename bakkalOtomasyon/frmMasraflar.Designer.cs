@@ -36,13 +36,15 @@
             this.btnVazgec = new System.Windows.Forms.Button();
             this.btnDegistir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.formKapatici1 = new PL.Bakkal.FormKapatici();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasraflar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSiralamaOlcutu
             // 
             this.lblSiralamaOlcutu.AutoSize = true;
-            this.lblSiralamaOlcutu.Location = new System.Drawing.Point(64, 22);
+            this.lblSiralamaOlcutu.Location = new System.Drawing.Point(64, 53);
             this.lblSiralamaOlcutu.Name = "lblSiralamaOlcutu";
             this.lblSiralamaOlcutu.Size = new System.Drawing.Size(118, 13);
             this.lblSiralamaOlcutu.TabIndex = 115;
@@ -57,7 +59,7 @@
             "Önce en eskiler",
             "Tutara göre azalan",
             "Tutara göre artan"});
-            this.cbSiralama.Location = new System.Drawing.Point(197, 17);
+            this.cbSiralama.Location = new System.Drawing.Point(197, 48);
             this.cbSiralama.Name = "cbSiralama";
             this.cbSiralama.Size = new System.Drawing.Size(121, 21);
             this.cbSiralama.TabIndex = 114;
@@ -65,7 +67,7 @@
             // 
             // btnYeni
             // 
-            this.btnYeni.Location = new System.Drawing.Point(12, 292);
+            this.btnYeni.Location = new System.Drawing.Point(12, 323);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(81, 29);
             this.btnYeni.TabIndex = 113;
@@ -76,7 +78,7 @@
             // btnSil
             // 
             this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(99, 292);
+            this.btnSil.Location = new System.Drawing.Point(99, 323);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(81, 29);
             this.btnSil.TabIndex = 118;
@@ -89,7 +91,7 @@
             this.dgvMasraflar.AllowUserToAddRows = false;
             this.dgvMasraflar.AllowUserToDeleteRows = false;
             this.dgvMasraflar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMasraflar.Location = new System.Drawing.Point(24, 62);
+            this.dgvMasraflar.Location = new System.Drawing.Point(24, 93);
             this.dgvMasraflar.Name = "dgvMasraflar";
             this.dgvMasraflar.Size = new System.Drawing.Size(339, 224);
             this.dgvMasraflar.TabIndex = 0;
@@ -99,7 +101,7 @@
             // 
             // btnVazgec
             // 
-            this.btnVazgec.Location = new System.Drawing.Point(286, 292);
+            this.btnVazgec.Location = new System.Drawing.Point(286, 323);
             this.btnVazgec.Name = "btnVazgec";
             this.btnVazgec.Size = new System.Drawing.Size(80, 29);
             this.btnVazgec.TabIndex = 119;
@@ -110,7 +112,7 @@
             // 
             // btnDegistir
             // 
-            this.btnDegistir.Location = new System.Drawing.Point(186, 292);
+            this.btnDegistir.Location = new System.Drawing.Point(186, 323);
             this.btnDegistir.Name = "btnDegistir";
             this.btnDegistir.Size = new System.Drawing.Size(92, 38);
             this.btnDegistir.TabIndex = 120;
@@ -121,17 +123,38 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 46);
+            this.label1.Location = new System.Drawing.Point(143, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 121;
             this.label1.Text = "Kayıtlı Masraflar";
             // 
+            // formKapatici1
+            // 
+            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
+            this.formKapatici1.Name = "formKapatici1";
+            this.formKapatici1.Size = new System.Drawing.Size(380, 29);
+            this.formKapatici1.TabIndex = 122;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(0, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(380, 13);
+            this.label2.TabIndex = 123;
+            this.label2.Text = "MASRAF EKRANI";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmMasraflar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 355);
+            this.ClientSize = new System.Drawing.Size(380, 375);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.formKapatici1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDegistir);
             this.Controls.Add(this.btnVazgec);
@@ -140,6 +163,7 @@
             this.Controls.Add(this.lblSiralamaOlcutu);
             this.Controls.Add(this.cbSiralama);
             this.Controls.Add(this.btnYeni);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMasraflar";
             this.Text = "Masraf";
             this.Load += new System.EventHandler(this.Masraf_Load);
@@ -158,5 +182,7 @@
         private System.Windows.Forms.Button btnVazgec;
         private System.Windows.Forms.Button btnDegistir;
         private System.Windows.Forms.Label label1;
+        private FormKapatici formKapatici1;
+        private System.Windows.Forms.Label label2;
     }
 }

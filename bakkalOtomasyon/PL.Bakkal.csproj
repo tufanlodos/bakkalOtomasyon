@@ -65,6 +65,12 @@
     <Compile Include="Bilanco.Designer.cs">
       <DependentUpon>Bilanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKapatici.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormKapatici.Designer.cs">
+      <DependentUpon>FormKapatici.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMasrafEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bilanco.resx">
       <DependentUpon>Bilanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKapatici.resx">
+      <DependentUpon>FormKapatici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMasrafEkle.resx">
       <DependentUpon>frmMasrafEkle.cs</DependentUpon>
