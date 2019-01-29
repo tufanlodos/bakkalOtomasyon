@@ -135,8 +135,9 @@ namespace PL.Bakkal
         private void btnVazgec_Click(object sender, EventArgs e)
         {
             mr.ContextteBekleyenleriTemizle();
-            this.AcceptButton = btnYeni;
             BaslangicHalineDon();
+            this.AcceptButton = btnYeni;
+            btnYeni.Focus();
         }
         private void btnYeni_Click(object sender, EventArgs e)
         {

@@ -94,7 +94,7 @@
             this.dgvMasraflar.Location = new System.Drawing.Point(24, 93);
             this.dgvMasraflar.Name = "dgvMasraflar";
             this.dgvMasraflar.Size = new System.Drawing.Size(339, 224);
-            this.dgvMasraflar.TabIndex = 0;
+            this.dgvMasraflar.TabIndex = 100;
             this.dgvMasraflar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMasraflar_CellDoubleClick);
             this.dgvMasraflar.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMasraflar_CellValueChanged);
             this.dgvMasraflar.DoubleClick += new System.EventHandler(this.dgvMasraflar_DoubleClick);
@@ -135,7 +135,7 @@
             this.formKapatici1.Location = new System.Drawing.Point(0, 0);
             this.formKapatici1.Name = "formKapatici1";
             this.formKapatici1.Size = new System.Drawing.Size(380, 29);
-            this.formKapatici1.TabIndex = 122;
+            this.formKapatici1.TabIndex = 101;
             // 
             // label2
             // 
