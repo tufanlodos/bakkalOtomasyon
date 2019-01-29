@@ -91,6 +91,12 @@
     <Compile Include="frmSiparis.Designer.cs">
       <DependentUpon>frmSiparis.cs</DependentUpon>
     </Compile>
+    <Compile Include="SayfaAdveKapama.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SayfaAdveKapama.Designer.cs">
+      <DependentUpon>SayfaAdveKapama.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </Compile>
     <EmbeddedResource Include="frmSiparis.resx">
       <DependentUpon>frmSiparis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SayfaAdveKapama.resx">
+      <DependentUpon>SayfaAdveKapama.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stok.resx">
       <DependentUpon>Stok.cs</DependentUpon>
