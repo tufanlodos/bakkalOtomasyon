@@ -51,6 +51,7 @@ namespace PL.Bakkal
             else
             {
                 MessageBox.Show("Sipariş kaydı oluşturmak için adet girişi yapmanız gerekmektedir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errorProvider1.SetError(txtAdet, "Bu alan boş geçilemez!");
                 txtAdet.Focus();
             }
         }
@@ -82,6 +83,7 @@ namespace PL.Bakkal
 
         private void txtAdet_TextChanged(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             foreach (char sayi in txtAdet.Text)
             {
                 if (!char.IsDigit(sayi))

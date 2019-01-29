@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.formKapatici1 = new PL.Bakkal.FormKapatici();
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.btnEkle = new System.Windows.Forms.Button();
             this.lblTedarikciSecin = new System.Windows.Forms.Label();
@@ -44,15 +44,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.formKapatici1 = new PL.Bakkal.FormKapatici();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // formKapatici1
-            // 
-            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
-            this.formKapatici1.Name = "formKapatici1";
-            this.formKapatici1.Size = new System.Drawing.Size(551, 29);
-            this.formKapatici1.TabIndex = 100;
             // 
             // label2
             // 
@@ -193,6 +188,18 @@
             this.button3.Text = "Yeni Tedarikçi";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // formKapatici1
+            // 
+            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
+            this.formKapatici1.Name = "formKapatici1";
+            this.formKapatici1.Size = new System.Drawing.Size(551, 29);
+            this.formKapatici1.TabIndex = 100;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmSiparisEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,6 +225,7 @@
             this.Name = "frmSiparisEkle";
             this.Text = "frmSiparisEkle";
             this.Load += new System.EventHandler(this.frmSiparisEkle_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +249,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
