@@ -83,12 +83,6 @@
     <Compile Include="frmSiparisEkle.Designer.cs">
       <DependentUpon>frmSiparisEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kategori.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmKategoriEkle.Designer.cs">
-      <DependentUpon>frmKategoriEkle.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmKategoriler.cs">
       <SubType>Form</SubType>
     </Compile>
