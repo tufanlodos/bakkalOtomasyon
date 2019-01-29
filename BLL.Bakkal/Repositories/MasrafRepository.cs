@@ -11,11 +11,6 @@ namespace BLL.Bakkal.Repositories
     public class MasrafRepository : IMasrafRepository
     {
         BCDContext ent = new BCDContext();
-        public List<Masraf> MasraflariGetir()
-        {
-            return ent.Masraf.ToList();
-        }
-
         public bool MasrafEkle(Masraf masraf)
         {
             bool Sonuc = false;

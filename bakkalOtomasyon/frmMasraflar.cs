@@ -26,9 +26,9 @@ namespace PL.Bakkal
         {
             BaslangicHalineDon();
         }
-        private void DgvDoldurDuzenle()
+        private void DgvDoldurDuzenle(List<Masraf> liste)
         {
-            dgvMasraflar.DataSource=mr.MasraflariGetir();
+            dgvMasraflar.DataSource = liste;
             dgvMasraflar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMasraflar.AllowUserToAddRows = false;
             dgvMasraflar.AllowUserToDeleteRows = false;
@@ -59,21 +59,20 @@ namespace PL.Bakkal
                 this.AcceptButton = btnDegistir;
                 btnSil.Enabled = false;
                 btnVazgec.Visible = true;
-                Temizle();
             }
         }
-        int Id;
+        int MasrafId;
         private void dgvMasraflar_DoubleClick(object sender, EventArgs e)
         {
             try
             {
-            Id = Convert.ToInt32(dgvMasraflar.SelectedRows[0].Cells[0].Value);
+            MasrafId = Convert.ToInt32(dgvMasraflar.SelectedRows[0].Cells[0].Value);
             }
             catch(Exception)
             {
                 return;
             }
-            if(Id>0)
+            if(MasrafId>0)
             { 
             btnSil.Enabled = true;
             this.AcceptButton = btnSil;
@@ -99,7 +98,7 @@ namespace PL.Bakkal
         {
             if (MessageBox.Show("Seçilen masrafın silinmesini istiyor musunuz ?", "Silme işlemini onaylıyor musunuz ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (mr.MasrafSil(Id))
+                if (mr.MasrafSil(MasrafId))
                 {
                     MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     BaslangicHalineDon();
@@ -123,17 +122,6 @@ namespace PL.Bakkal
             mr.ContextteBekleyenleriTemizle();
             BaslangicHalineDon();
         }
-        private void Temizle()
-        {
-            foreach (Control knt in this.Controls)
-            {
-                if (knt is TextBox)
-                {
-                    knt.Text = string.Empty;
-                }
-            }
-        }
-
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             frmMasrafEkle frm = new frmMasrafEkle();
@@ -144,8 +132,8 @@ namespace PL.Bakkal
         private void BaslangicHalineDon()
         {
             this.AcceptButton = btnYeni;
-            DgvDoldurDuzenle();
-            Temizle();
+            DgvDoldurDuzenle(mr.TariheGoreMasrafSirala("desc"));
+            dgvMasraflar.ClearSelection();
             btnSil.Enabled = false;
             btnVazgec.Visible = false;
             btnYeni.Enabled = true;

@@ -9,7 +9,6 @@ namespace BLL.Bakkal.Repositories
 {
     public interface IMasrafRepository
     {
-        List<Masraf> MasraflariGetir();
         bool MasrafEkle(Masraf masraf);
         bool MasrafDegistir();
         bool MasrafSil(int Id);
