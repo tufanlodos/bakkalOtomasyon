@@ -48,13 +48,13 @@ namespace PL.Bakkal
             AF.Show();
         }
 
-        private void btnSiparis_Click_1(object sender, EventArgs e)
+        private void btnSiparis_Click(object sender, EventArgs e)
         {
             frmSiparis frm = new frmSiparis();
             FormAc(frm);
         }
 
-        private void btnMasraf_Click_1(object sender, EventArgs e)
+        private void btnMasraf_Click(object sender, EventArgs e)
         {
             frmMasraflar frm = new frmMasraflar();
             FormAc(frm);
