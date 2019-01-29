@@ -56,6 +56,7 @@ namespace PL.Bakkal
             {
                 dgvMasraflar.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
                 btnDegistir.Enabled = true;
+                this.AcceptButton = btnDegistir;
                 btnSil.Enabled = false;
                 btnVazgec.Visible = true;
                 Temizle();
@@ -75,6 +76,8 @@ namespace PL.Bakkal
             if(Id>0)
             { 
             btnSil.Enabled = true;
+            this.AcceptButton = btnSil;
+            btnDegistir.Enabled = false;
             btnVazgec.Visible = true;
             btnYeni.Enabled=false;
             }
@@ -137,8 +140,10 @@ namespace PL.Bakkal
             frm.ShowDialog();
             BaslangicHalineDon();
         }
+
         private void BaslangicHalineDon()
         {
+            this.AcceptButton = btnYeni;
             DgvDoldurDuzenle();
             Temizle();
             btnSil.Enabled = false;

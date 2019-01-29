@@ -91,7 +91,7 @@
             this.dgvMasraflar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMasraflar.Location = new System.Drawing.Point(24, 62);
             this.dgvMasraflar.Name = "dgvMasraflar";
-            this.dgvMasraflar.Size = new System.Drawing.Size(339, 150);
+            this.dgvMasraflar.Size = new System.Drawing.Size(339, 224);
             this.dgvMasraflar.TabIndex = 0;
             this.dgvMasraflar.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMasraflar_CellValueChanged);
             this.dgvMasraflar.DoubleClick += new System.EventHandler(this.dgvMasraflar_DoubleClick);
