@@ -77,6 +77,12 @@
     <Compile Include="frmMasrafEkle.Designer.cs">
       <DependentUpon>frmMasrafEkle.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSiparisEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSiparisEkle.Designer.cs">
+      <DependentUpon>frmSiparisEkle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kategori.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMasrafEkle.resx">
       <DependentUpon>frmMasrafEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSiparisEkle.resx">
+      <DependentUpon>frmSiparisEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kategori.resx">
       <DependentUpon>Kategori.cs</DependentUpon>
