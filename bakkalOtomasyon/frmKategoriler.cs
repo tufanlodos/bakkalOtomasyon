@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace PL.Bakkal
 {
-    public partial class Kategori : Form
+    public partial class frmKategoriler : Form
     {
-        public Kategori()
+        public frmKategoriler()
         {
             InitializeComponent();
         }
@@ -26,6 +26,8 @@ namespace PL.Bakkal
         private void Kategori_Load(object sender, EventArgs e)
         {
             DgvDoldurDuzenle();
+            txtArama.Focus();
+            this.AcceptButton = btnYeni;
         }
         private void DgvDoldurDuzenle()
         {
@@ -42,14 +44,9 @@ namespace PL.Bakkal
             dgvKategori.BackgroundColor = this.BackColor;
             btnGuncelle.Enabled = false;
             btnSil.Enabled = false;
+            dgvKategori.ClearSelection();
 
         }
-        private void Temizle()
-        {
-            txtKategoriAdi.Clear();
-            txtAciklama.Clear();
-        }
-
         private void btnSil_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Silmek İstiyor musunuz?", "SİLİNSİN Mİ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -60,10 +57,7 @@ namespace PL.Bakkal
                     dgvKategori.DataSource = Kr.KategoriListele();
 
                     btnSil.Enabled = false;
-                    Temizle();
-                    txtKategoriAdi.ReadOnly = false;
-                    txtAciklama.ReadOnly = false;
-                    btnEkle.Enabled = true;
+                    btnYeni.Enabled = true;
                 }
             }
         }
@@ -71,56 +65,46 @@ namespace PL.Bakkal
         private void dgvKategori_DoubleClick(object sender, EventArgs e)
         {
             ID = Convert.ToInt32(dgvKategori.SelectedRows[0].Cells[0].Value);
-            txtKategoriAdi.Text = dgvKategori.SelectedRows[0].Cells[1].Value.ToString();
-            txtAciklama.Text = dgvKategori.SelectedRows[0].Cells[2].Value == null ? "" : dgvKategori.SelectedRows[0].Cells[2].Value.ToString();
-            txtKategoriAdi.ReadOnly = true;
-            txtAciklama.ReadOnly = true;
             btnSil.Enabled = true;
-            btnEkle.Enabled = false;
+            btnYeni.Enabled = false;
             btnGuncelle.Enabled = true;
             btnVazgec.Visible = true;
-
-
-            txtKategoriAdi.Focus();
         }
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtKategoriAdi.Text))
-            {
-                Kategoriler yeni = new Kategoriler();
-                yeni.KategoriAdi = txtKategoriAdi.Text;
-                if (Kr.KategoriKontrol(yeni))
-                {
-                    MessageBox.Show("Bu kategori kayıtlı!", "Aynı kategori zaten var!");
-                }
-                else
-                {
-                    yeni.Aciklama = txtAciklama.Text;
-                    if (Kr.KategoriEkle(yeni))
-                    {
-                        MessageBox.Show("Yeni kategori eklendi.", "Kayıt gerçekleşti.");
-                        dgvKategori.DataSource = Kr.KategoriListele();
+            //if (!string.IsNullOrEmpty(txtKategoriAdi.Text))
+            //{
+            //    Kategoriler yeni = new Kategoriler();
+            //    yeni.KategoriAdi = txtKategoriAdi.Text;
+            //    if (Kr.KategoriKontrol(yeni))
+            //    {
+            //        MessageBox.Show("Bu kategori kayıtlı!", "Aynı kategori zaten var!");
+            //    }
+            //    else
+            //    {
+            //        yeni.Aciklama = txtAciklama.Text;
+            //        if (Kr.KategoriEkle(yeni))
+            //        {
+            //            MessageBox.Show("Yeni kategori eklendi.", "Kayıt gerçekleşti.");
+            //            dgvKategori.DataSource = Kr.KategoriListele();
 
-                        Temizle();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Kategori ismi girilmelidir!", "Dikkat! Eksik Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            Temizle();
-            txtKategoriAdi.Focus();
+            //            Temizle();
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Kategori ismi girilmelidir!", "Dikkat! Eksik Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //Temizle();
+            //txtKategoriAdi.Focus();
         }
 
         private void btnVazgec_Click(object sender, EventArgs e)
         {
-            Temizle();
             btnSil.Enabled = false;
-            txtKategoriAdi.ReadOnly = false;
-            txtAciklama.ReadOnly = false;
-            btnEkle.Enabled = true;
+            btnYeni.Enabled = true;
             btnGuncelle.Enabled = false;
             btnVazgec.Visible = false;
         }
@@ -131,20 +115,17 @@ namespace PL.Bakkal
             {
                 MessageBox.Show("Kategori kayıtları üzerindeki güncellemeler kaydedildi.", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DgvDoldurDuzenle();
-                Temizle();
                 btnGuncelle.Enabled = false;
             }
             else
             {
                 MessageBox.Show("Kategori kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DgvDoldurDuzenle();
-                Temizle();
 
             }
 
 
         }
-
         private void txtArama_TextChanged(object sender, EventArgs e)
         {
             dgvKategori.DataSource = Kr.KategoriGetirByArama(txtArama.Text);

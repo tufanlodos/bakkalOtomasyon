@@ -65,11 +65,17 @@
     <Compile Include="Bilanco.Designer.cs">
       <DependentUpon>Bilanco.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kategori.cs">
+    <Compile Include="frmKategoriEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Kategori.Designer.cs">
-      <DependentUpon>Kategori.cs</DependentUpon>
+    <Compile Include="frmKategoriEkle.Designer.cs">
+      <DependentUpon>frmKategoriEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKategoriler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKategoriler.Designer.cs">
+      <DependentUpon>frmKategoriler.cs</DependentUpon>
     </Compile>
     <Compile Include="Masraf.cs">
       <SubType>Form</SubType>
@@ -109,8 +115,8 @@
     <EmbeddedResource Include="Bilanco.resx">
       <DependentUpon>Bilanco.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Kategori.resx">
-      <DependentUpon>Kategori.cs</DependentUpon>
+    <EmbeddedResource Include="frmKategoriler.resx">
+      <DependentUpon>frmKategoriler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Masraf.resx">
       <DependentUpon>Masraf.cs</DependentUpon>
