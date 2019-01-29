@@ -25,6 +25,7 @@ namespace PL.Bakkal
         private void Masraf_Load(object sender, EventArgs e)
         {
             BaslangicHalineDon();
+            dgvMasraflar.ClearSelection();
         }
         private void DgvDoldurDuzenle(List<Masraf> liste)
         {
