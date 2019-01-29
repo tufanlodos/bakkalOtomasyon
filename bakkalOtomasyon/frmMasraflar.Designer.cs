@@ -71,7 +71,7 @@
             this.btnYeni.TabIndex = 113;
             this.btnYeni.Text = "Yeni";
             this.btnYeni.UseVisualStyleBackColor = true;
-            this.btnYeni.Click += new System.EventHandler(this.btnKaydet_Click);
+            this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
             // 
             // btnSil
             // 
@@ -93,6 +93,7 @@
             this.dgvMasraflar.Name = "dgvMasraflar";
             this.dgvMasraflar.Size = new System.Drawing.Size(339, 224);
             this.dgvMasraflar.TabIndex = 0;
+            this.dgvMasraflar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMasraflar_CellDoubleClick);
             this.dgvMasraflar.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMasraflar_CellValueChanged);
             this.dgvMasraflar.DoubleClick += new System.EventHandler(this.dgvMasraflar_DoubleClick);
             // 

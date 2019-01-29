@@ -51,15 +51,20 @@ namespace PL.Bakkal
         }
         private void dgvMasraflar_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            
             if (HeaderText >= 1)
             {
+                dgvMasraflar.SelectedRows[0].DefaultCellStyle.BackColor = Color.White;
                 dgvMasraflar.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
                 btnDegistir.Enabled = true;
                 this.AcceptButton = btnDegistir;
                 btnSil.Enabled = false;
                 btnVazgec.Visible = true;
             }
+        }
+        int SecilenSatir;
+        private void dgvMasraflar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SecilenSatir = e.RowIndex;
         }
         int MasrafId;
         private void dgvMasraflar_DoubleClick(object sender, EventArgs e)
@@ -80,6 +85,15 @@ namespace PL.Bakkal
             btnVazgec.Visible = true;
             btnYeni.Enabled=false;
             }
+            if (SecilenSatir >= 0)
+            {
+                dgvMasraflar.Rows[SecilenSatir].DefaultCellStyle.BackColor = Color.White;
+            }
+            if (!btnDegistir.Enabled)
+            {
+                dgvMasraflar.SelectedRows[0].DefaultCellStyle.BackColor = Color.Red;
+            }
+
         }
         private void btnDegistir_Click(object sender, EventArgs e)
         {
@@ -122,7 +136,7 @@ namespace PL.Bakkal
             mr.ContextteBekleyenleriTemizle();
             BaslangicHalineDon();
         }
-        private void btnKaydet_Click(object sender, EventArgs e)
+        private void btnYeni_Click(object sender, EventArgs e)
         {
             frmMasrafEkle frm = new frmMasrafEkle();
             frm.ShowDialog();
@@ -160,5 +174,6 @@ namespace PL.Bakkal
                 dgvMasraflar.DataSource = mr.TutaraGoreMasrafSirala("asc");
             }
         }
+        
     }
 }
