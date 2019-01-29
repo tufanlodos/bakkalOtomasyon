@@ -26,7 +26,7 @@ namespace PL.Bakkal
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtMasrafAdi.Text) && !string.IsNullOrEmpty(txtMasrafTutari.Text))
+            if (!string.IsNullOrEmpty(txtMasrafAdi.Text.Trim()) && !string.IsNullOrEmpty(txtMasrafTutari.Text.Trim()))
             {
                 Masraf m = new Masraf();
                 m.MasrafAdi = txtMasrafAdi.Text;
@@ -46,7 +46,7 @@ namespace PL.Bakkal
             }
             else
             {
-                if (string.IsNullOrEmpty(txtMasrafAdi.Text) && string.IsNullOrEmpty(txtMasrafTutari.Text))
+                if (string.IsNullOrEmpty(txtMasrafAdi.Text.Trim()) && string.IsNullOrEmpty(txtMasrafTutari.Text.Trim()))
                 {
                     MessageBox.Show("Masraf adı ve tutarı kolonları boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     errorProvider1.SetError(txtMasrafAdi, "Bu kolon boş geçilemez");
@@ -55,13 +55,13 @@ namespace PL.Bakkal
                 }
                 else
                 { 
-                    if (string.IsNullOrEmpty(txtMasrafAdi.Text))
+                    if (string.IsNullOrEmpty(txtMasrafAdi.Text.Trim()))
                     {
                         MessageBox.Show("Masraf adı kolonu boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtMasrafAdi, "Bu kolon boş geçilemez");
                         txtMasrafAdi.Focus();
                     }
-                    if (string.IsNullOrEmpty(txtMasrafTutari.Text))
+                    if (string.IsNullOrEmpty(txtMasrafTutari.Text.Trim()))
                     {
                         MessageBox.Show("Masraf tutarı kolonu boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider2.SetError(txtMasrafTutari, "Bu kolon boş geçilemez");
