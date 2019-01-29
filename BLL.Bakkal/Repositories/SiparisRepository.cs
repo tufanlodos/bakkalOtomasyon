@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,11 +47,22 @@ namespace BLL.Bakkal.Repositories
             }
             return Sonuc;
         }
-        public void ArakatmanGuncelle(int Id, int Miktar, decimal ToplamTutar)
+        public void DegisiklikleriContexteAl(int Id, int Miktar, decimal ToplamTutar)
         {
             Siparis s = ent.Siparis.Where(si => si.Id == Id).FirstOrDefault();
             s.Miktar = Miktar;
             s.Tutar = ToplamTutar;
+        }
+        public void ContextteBekleyenleriTemizle()
+        {
+            var ContextteBekleyenler = ent.ChangeTracker.Entries()
+                .Where(e => e.State == EntityState.Added ||
+                            e.State == EntityState.Modified ||
+                            e.State == EntityState.Deleted)
+                .ToList();
+
+            foreach (var entry in ContextteBekleyenler)
+                entry.State = EntityState.Detached;
         }
         public List<SiparisModel> SiparisleriGetir ()
         {

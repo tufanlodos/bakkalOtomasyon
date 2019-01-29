@@ -221,7 +221,7 @@ namespace PL.Bakkal
             btnVazgec.Visible = false;
             DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
             cbSiralama.SelectedIndex = 0;
-            //arakatmanı temizlet
+            srepo.ContextteBekleyenleriTemizle();
             dgvSiparisler.ClearSelection();
             this.AcceptButton = btnEkle;
         }
@@ -306,7 +306,7 @@ namespace PL.Bakkal
         {
             Adet = Convert.ToInt32(dgvSiparisler.Rows[RIndex].Cells[CIndex].Value.ToString());
             ToplamTutar = srepo.YeniToplamTutarHesapla(DgvUrunId, Adet);
-            srepo.ArakatmanGuncelle(SilinecekId, Adet, ToplamTutar);
+            srepo.DegisiklikleriContexteAl(SilinecekId, Adet, ToplamTutar);
             Etkile = false;
             dgvSiparisler.Rows[RIndex].Cells[CIndex + 1].Value = ToplamTutar.ToString();
         }
