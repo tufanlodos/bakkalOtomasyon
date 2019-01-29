@@ -47,10 +47,11 @@
             this.dgvKategori.AllowUserToAddRows = false;
             this.dgvKategori.AllowUserToDeleteRows = false;
             this.dgvKategori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKategori.Location = new System.Drawing.Point(12, 50);
+            this.dgvKategori.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvKategori.Location = new System.Drawing.Point(93, 71);
             this.dgvKategori.Name = "dgvKategori";
             this.dgvKategori.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKategori.Size = new System.Drawing.Size(439, 150);
+            this.dgvKategori.Size = new System.Drawing.Size(440, 156);
             this.dgvKategori.TabIndex = 33;
             this.dgvKategori.DoubleClick += new System.EventHandler(this.dgvKategori_DoubleClick);
             // 
@@ -150,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 381);
+            this.ClientSize = new System.Drawing.Size(621, 489);
             this.Controls.Add(this.btnGuncelle);
             this.Controls.Add(this.btnVazgec);
             this.Controls.Add(this.txtArama);

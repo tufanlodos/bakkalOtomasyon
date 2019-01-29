@@ -16,5 +16,10 @@ namespace PL.Bakkal
         {
             InitializeComponent();
         }
+
+        private void Stok_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

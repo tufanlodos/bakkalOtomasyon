@@ -30,6 +30,8 @@ namespace PL.Bakkal
         private void DgvDoldurDuzenle()
         {
             dgvKategori.DataSource = Kr.KategoriListele();
+            dgvKategori.Columns[0].Visible = false;
+            dgvKategori.Columns[3].Visible = false;
             dgvKategori.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvKategori.AllowUserToAddRows = false;
             dgvKategori.AllowUserToDeleteRows = false;
