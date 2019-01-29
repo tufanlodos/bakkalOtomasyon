@@ -37,6 +37,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.formKapatici1 = new PL.Bakkal.FormKapatici();
+            this.formKapatici2 = new PL.Bakkal.FormKapatici();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
@@ -102,6 +103,14 @@
             this.formKapatici1.Size = new System.Drawing.Size(426, 29);
             this.formKapatici1.TabIndex = 118;
             // 
+            // formKapatici2
+            // 
+            this.formKapatici2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formKapatici2.Location = new System.Drawing.Point(0, 0);
+            this.formKapatici2.Name = "formKapatici2";
+            this.formKapatici2.Size = new System.Drawing.Size(426, 29);
+            this.formKapatici2.TabIndex = 120;
+            // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -109,7 +118,7 @@
             this.label1.Location = new System.Drawing.Point(0, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(426, 13);
-            this.label1.TabIndex = 119;
+            this.label1.TabIndex = 121;
             this.label1.Text = "MASRAF EKLEME EKRANI";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -119,7 +128,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 196);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.formKapatici1);
+            this.Controls.Add(this.formKapatici2);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.txtMasrafTutari);
             this.Controls.Add(this.lblMasrafTutari);
@@ -147,5 +156,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private FormKapatici formKapatici1;
         private System.Windows.Forms.Label label1;
+        private FormKapatici formKapatici2;
     }
 }
