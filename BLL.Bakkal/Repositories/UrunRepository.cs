@@ -70,7 +70,7 @@ namespace BLL.Bakkal.Repositories
             bool Sonuc = false;
             Urunler silinen = (from u in ent.Urunlers
                               where u.Id == Id
-                              select m).FirstOrDefault();
+                              select u).FirstOrDefault();
             ent.Urunlers.Remove(silinen);
             try
             {

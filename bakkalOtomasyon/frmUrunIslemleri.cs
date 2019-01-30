@@ -31,7 +31,7 @@ namespace PL.Bakkal
         private void BaslangicHalineDon()
         {
             this.AcceptButton = btnYeni;
-            DgvDoldurDuzenle(ur.("desc"));
+            DgvDoldurDuzenle(ur.UrunSiralaByUrunAdi("desc"));
             dgvUrunler.ClearSelection();
             btnSil.Enabled = false;
             btnVazgec.Visible = false;
