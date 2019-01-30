@@ -65,17 +65,41 @@
     <Compile Include="Bilanco.Designer.cs">
       <DependentUpon>Bilanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKapatici.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormKapatici.Designer.cs">
+      <DependentUpon>FormKapatici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKategoriEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKategoriEkle.Designer.cs">
+      <DependentUpon>frmKategoriEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAnasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnasayfa.Designer.cs">
+      <DependentUpon>frmAnasayfa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMasrafEkle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMasrafEkle.Designer.cs">
       <DependentUpon>frmMasrafEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kategori.cs">
+    <Compile Include="frmSiparisEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Kategori.Designer.cs">
-      <DependentUpon>Kategori.cs</DependentUpon>
+    <Compile Include="frmSiparisEkle.Designer.cs">
+      <DependentUpon>frmSiparisEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKategoriler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKategoriler.Designer.cs">
+      <DependentUpon>frmKategoriler.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMasraflar.cs">
       <SubType>Form</SubType>
@@ -115,11 +139,23 @@
     <EmbeddedResource Include="Bilanco.resx">
       <DependentUpon>Bilanco.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormKapatici.resx">
+      <DependentUpon>FormKapatici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKategoriEkle.resx">
+      <DependentUpon>frmKategoriEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAnasayfa.resx">
+      <DependentUpon>frmAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMasrafEkle.resx">
       <DependentUpon>frmMasrafEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Kategori.resx">
-      <DependentUpon>Kategori.cs</DependentUpon>
+    <EmbeddedResource Include="frmSiparisEkle.resx">
+      <DependentUpon>frmSiparisEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKategoriler.resx">
+      <DependentUpon>frmKategoriler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMasraflar.resx">
       <DependentUpon>frmMasraflar.cs</DependentUpon>

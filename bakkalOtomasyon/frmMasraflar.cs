@@ -25,6 +25,7 @@ namespace PL.Bakkal
         private void Masraf_Load(object sender, EventArgs e)
         {
             BaslangicHalineDon();
+            dgvMasraflar.ClearSelection();
         }
         private void DgvDoldurDuzenle(List<Masraf> liste)
         {
@@ -135,10 +136,13 @@ namespace PL.Bakkal
         {
             mr.ContextteBekleyenleriTemizle();
             BaslangicHalineDon();
+            this.AcceptButton = btnYeni;
+            btnYeni.Focus();
         }
         private void btnYeni_Click(object sender, EventArgs e)
         {
             frmMasrafEkle frm = new frmMasrafEkle();
+            frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
             BaslangicHalineDon();
         }

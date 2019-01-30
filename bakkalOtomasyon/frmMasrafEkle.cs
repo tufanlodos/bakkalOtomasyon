@@ -26,11 +26,36 @@ namespace PL.Bakkal
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtMasrafAdi.Text) && !string.IsNullOrEmpty(txtMasrafTutari.Text))
+            if (!string.IsNullOrEmpty(txtMasrafAdi.Text.Trim()) && !string.IsNullOrEmpty(txtMasrafTutari.Text.Trim()))
             {
                 Masraf m = new Masraf();
                 m.MasrafAdi = txtMasrafAdi.Text;
                 m.Tutar = Convert.ToDecimal(txtMasrafTutari.Text);
+                if (mr.MasrafKontrol(m))
+                {
+                    if(MessageBox.Show("Aynı masraf adı ve aynı tutara sahip bir kayıt bulundu. Yine de yeni kayıt olarak eklemek istiyor musunuz?", "Aynı kayıt şüphesi",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (mr.MasrafEkle(m))
+                        {
+                            MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtMasrafAdi.Text = string.Empty;
+                            txtMasrafTutari.Text = string.Empty;
+                            txtMasrafAdi.Focus();
+                        }
+                    }
+                    else
+                    { 
+                    txtMasrafAdi.SelectAll();
+                    errorProvider1.SetError(btnEkle, "Bu adda ve tutarda bir kayıt mevcut");
+                    }
+                }
+                else
+                { 
                 if (mr.MasrafEkle(m))
                 {
                     MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -43,10 +68,11 @@ namespace PL.Bakkal
                     txtMasrafTutari.Text = string.Empty;
                     txtMasrafAdi.Focus();
                 }
+                }
             }
             else
             {
-                if (string.IsNullOrEmpty(txtMasrafAdi.Text) && string.IsNullOrEmpty(txtMasrafTutari.Text))
+                if (string.IsNullOrEmpty(txtMasrafAdi.Text.Trim()) && string.IsNullOrEmpty(txtMasrafTutari.Text.Trim()))
                 {
                     MessageBox.Show("Masraf adı ve tutarı kolonları boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     errorProvider1.SetError(txtMasrafAdi, "Bu kolon boş geçilemez");
@@ -55,13 +81,13 @@ namespace PL.Bakkal
                 }
                 else
                 { 
-                    if (string.IsNullOrEmpty(txtMasrafAdi.Text))
+                    if (string.IsNullOrEmpty(txtMasrafAdi.Text.Trim()))
                     {
                         MessageBox.Show("Masraf adı kolonu boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtMasrafAdi, "Bu kolon boş geçilemez");
                         txtMasrafAdi.Focus();
                     }
-                    if (string.IsNullOrEmpty(txtMasrafTutari.Text))
+                    if (string.IsNullOrEmpty(txtMasrafTutari.Text.Trim()))
                     {
                         MessageBox.Show("Masraf tutarı kolonu boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider2.SetError(txtMasrafTutari, "Bu kolon boş geçilemez");

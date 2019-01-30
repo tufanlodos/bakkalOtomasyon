@@ -21,29 +21,11 @@ namespace PL.Bakkal
             InitializeComponent();
         }
         SiparisRepository srepo = new SiparisRepository();
-        int KatId, UrId,TedId,HeaderText = 0, SilinecekId, DgvUrunId;
+        int HeaderText = 0, SilinecekId, DgvUrunId;
         private void Siparis_Load(object sender, EventArgs e)
         {
-            ComboboxlariDoldur();
             DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
-        }
-        private void ComboboxlariDoldur()
-        {
-            cbKategoriler.DisplayMember = "KategoriAdi";
-            cbKategoriler.ValueMember = "Id";
-            cbKategoriler.DataSource = srepo.KategorileriGetir();
-            cbKategoriler.SelectedIndex = 0;
-            Kategoriler secilen = cbKategoriler.SelectedItem as Kategoriler;
-            KatId = secilen.Id;
-            cbUrunler.DisplayMember = "UrunAdi";
-            cbUrunler.ValueMember = "Id";
-            cbUrunler.DataSource = srepo.UrunleriGetirByKategoriId(KatId);
-            cbUrunler.SelectedIndex = 0;
-            cbTedarikciler.DisplayMember = "TedarikciAdi";
-            cbTedarikciler.ValueMember = "Id";
-            cbTedarikciler.DataSource = srepo.TedarikcileriGetir();
-            cbTedarikciler.SelectedIndex = 0;
-            cbSiralama.SelectedIndex = 0;
+            cbSiralama.Focus();
         }
         private void DgvDoldurDuzenle(List<SiparisModel> liste)
         {
@@ -77,28 +59,9 @@ namespace PL.Bakkal
             dgvSiparisler.Columns[5].ReadOnly = true;
             HeaderText++;
             txtToplamTutar.Text = srepo.ToplamTutarHesapla().ToString();
-        }
-        private void cbKategoriler_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Kategoriler secilen = cbKategoriler.SelectedItem as Kategoriler;
-            KatId = secilen.Id;
-            cbUrunler.DataSource = srepo.UrunleriGetirByKategoriId(KatId);
-            cbUrunler.DisplayMember = "UrunAdi";
-            cbUrunler.ValueMember = "Id";
-            txtAdet.Focus();
-        }
-        private void cbUrunler_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Urunler secilen = cbUrunler.SelectedItem as Urunler;
-            UrId = secilen.Id;
-            txtBirimAlisFiyati.Text = srepo.UrunFiyatiGetirById(UrId).ToString();
-            txtAdet.Focus();
-        }
-        private void cbTedarikciler_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtAdet.Focus();
-            Tedarikci secilen = cbTedarikciler.SelectedItem as Tedarikci;
-            TedId = secilen.Id;
+            this.AcceptButton = btnYeni;
+            cbSiralama.SelectedIndex = 0;
+            dgvSiparisler.ClearSelection();
         }
         int SecilenSatir;
         private void dgvSiparisler_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -108,7 +71,6 @@ namespace PL.Bakkal
         private void dgvSiparisler_DoubleClick(object sender, EventArgs e)
         {
             DgvUrunId=srepo.UrunIdBul(dgvSiparisler.SelectedRows[0].Cells[2].Value.ToString());
-            txtAdet.Text = string.Empty;
             try
             {
                 SilinecekId = Convert.ToInt32(dgvSiparisler.SelectedRows[0].Cells[0].Value);
@@ -147,18 +109,16 @@ namespace PL.Bakkal
                     DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
                     dgvSiparisler.ClearSelection();
                     btnSil.Enabled = false;
-                    txtAdet.Focus();
                     btnVazgec.Visible = false;
-                    this.AcceptButton = btnEkle;
+                    this.AcceptButton = btnYeni;
                 }
                 else
                 {
                     MessageBox.Show("Siparis kayıtları üzerindeki silme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     dgvSiparisler.ClearSelection();
                     btnSil.Enabled = false;
-                    txtAdet.Focus();
                     btnVazgec.Visible = false;
-                    this.AcceptButton = btnEkle;
+                    this.AcceptButton = btnYeni;
                 }
             }
             else
@@ -166,51 +126,8 @@ namespace PL.Bakkal
                 btnSil.Enabled = false;
                 DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
                 dgvSiparisler.ClearSelection();
-                txtAdet.Focus();
                 btnVazgec.Visible = false;
-                this.AcceptButton = btnEkle;
-            }
-        }
-
-        private void btnEkle_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtAdet.Text))
-            {
-                Siparis s = new Siparis();
-                s.UrunId = UrId;
-                s.TedarikciId = TedId;
-                int Miktar = Convert.ToInt32(txtAdet.Text);
-                decimal AlisFiyat = Convert.ToDecimal(txtBirimAlisFiyati.Text);
-                s.Miktar = Miktar;
-                s.Tutar = Convert.ToDecimal(Miktar*AlisFiyat);
-                if (srepo.SiparisEkle(s))
-                {
-                    MessageBox.Show("Sipariş kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
-                    txtAdet.Text = string.Empty;
-                    btnSil.Enabled = false;
-                    btnGuncelle.Enabled = false;
-                    btnVazgec.Visible = false;
-                }
-                else
-                {
-                    MessageBox.Show("Sipariş kayıtlarına yeni kayıt ekleme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
-                    txtAdet.Text = string.Empty;
-                    btnSil.Enabled = false;
-                    btnGuncelle.Enabled = false;
-                    btnVazgec.Visible = false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Sipariş kaydı oluşturmak için adet girişi yapmanız gerekmektedir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtAdet.Focus();
-                DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
-                txtAdet.Text = string.Empty;
-                btnSil.Enabled = false;
-                btnGuncelle.Enabled = false;
-                btnVazgec.Visible = false;
+                this.AcceptButton = btnYeni;
             }
         }
 
@@ -223,7 +140,7 @@ namespace PL.Bakkal
             cbSiralama.SelectedIndex = 0;
             srepo.ContextteBekleyenleriTemizle();
             dgvSiparisler.ClearSelection();
-            this.AcceptButton = btnEkle;
+            this.AcceptButton = btnYeni;
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
@@ -231,9 +148,7 @@ namespace PL.Bakkal
             if (srepo.SiparisGuncelle())
             {
                 MessageBox.Show("Sipariş kayıtları üzerindeki güncellemeler kaydedildi.", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtAdet.Focus();
                 DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
-                txtAdet.Text = string.Empty;
                 btnSil.Enabled = false;
                 btnGuncelle.Enabled = false;
                 btnVazgec.Visible = false;
@@ -241,9 +156,7 @@ namespace PL.Bakkal
             else
             {
                 MessageBox.Show("Sipariş kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtAdet.Focus();
                 DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
-                txtAdet.Text = string.Empty;
                 btnSil.Enabled = false;
                 btnGuncelle.Enabled = false;
                 btnVazgec.Visible = false;
@@ -255,28 +168,44 @@ namespace PL.Bakkal
             if (cbSiralama.SelectedIndex == 0)
             {
                 dgvSiparisler.DataSource = srepo.TariheGoreSiparisSirala("desc");
+                dgvSiparisler.ClearSelection();
             }
             if (cbSiralama.SelectedIndex == 1)
             {
                 dgvSiparisler.DataSource = srepo.TariheGoreSiparisSirala("asc");
+                dgvSiparisler.ClearSelection();
             }
             if (cbSiralama.SelectedIndex == 2)
             {
                 dgvSiparisler.DataSource = srepo.TutaraGoreSiparisSirala("desc");
+                dgvSiparisler.ClearSelection();
             }
             if (cbSiralama.SelectedIndex == 3)
             {
                 dgvSiparisler.DataSource = srepo.TutaraGoreSiparisSirala("asc");
+                dgvSiparisler.ClearSelection();
             }
             if (cbSiralama.SelectedIndex == 4)
             {
                 dgvSiparisler.DataSource = srepo.MiktaraGoreSiparisSirala("desc");
+                dgvSiparisler.ClearSelection();
             }
             if (cbSiralama.SelectedIndex == 5)
             {
                 dgvSiparisler.DataSource = srepo.MiktaraGoreSiparisSirala("asc");
+                dgvSiparisler.ClearSelection();
             }
         }
+
+        private void btnYeni_Click(object sender, EventArgs e)
+        {
+            frmSiparisEkle frm = new frmSiparisEkle();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+            DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
+            cbSiralama.SelectedIndex = 0;
+        }
+
         int Adet = 0, RIndex, CIndex;
         decimal ToplamTutar = 0;
         bool Etkile = true;
@@ -311,20 +240,6 @@ namespace PL.Bakkal
             dgvSiparisler.Rows[RIndex].Cells[CIndex + 1].Value = ToplamTutar.ToString();
         }
 
-        private void txtAdet_TextChanged(object sender, EventArgs e)
-        {
-            this.AcceptButton = btnEkle;
-            foreach (char sayi in txtAdet.Text)
-            {
-                if (!char.IsDigit(sayi))
-                {
-                        MessageBox.Show("Bu alana sadece rakam girişi yapılabilir.");
-                        txtAdet.Text = txtAdet.Text.Substring(0, txtAdet.Text.Length - 1);
-                        txtAdet.Select(txtAdet.Text.Length, 0);
-                        return;
-                }
-            }
-        }
         
     }
 }
