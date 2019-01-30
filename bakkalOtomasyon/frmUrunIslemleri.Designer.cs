@@ -1,6 +1,6 @@
 ﻿namespace PL.Bakkal
 {
-    partial class UrunIslemleri
+    partial class frmUrunIslemleri
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.btnYeni = new System.Windows.Forms.Button();
-            this.btnSil = new System.Windows.Forms.Button();
-            this.btnDegistir = new System.Windows.Forms.Button();
-            this.btnKaydet = new System.Windows.Forms.Button();
             this.txtAciklama = new System.Windows.Forms.TextBox();
             this.lblAciklama = new System.Windows.Forms.Label();
             this.txtUrunAdi = new System.Windows.Forms.TextBox();
@@ -41,12 +38,17 @@
             this.cbUrunSecin = new System.Windows.Forms.ComboBox();
             this.txtArama = new System.Windows.Forms.TextBox();
             this.lblUrunAdiGiriniz = new System.Windows.Forms.Label();
+            this.btnDegistir = new System.Windows.Forms.Button();
+            this.btnVazgec = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
+            this.lblSiralamaOlcutu = new System.Windows.Forms.Label();
+            this.cbSiralama = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
             this.SuspendLayout();
             // 
             // btnYeni
             // 
-            this.btnYeni.Location = new System.Drawing.Point(83, 346);
+            this.btnYeni.Location = new System.Drawing.Point(83, 366);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(81, 29);
             this.btnYeni.TabIndex = 52;
@@ -54,39 +56,9 @@
             this.btnYeni.UseVisualStyleBackColor = true;
             this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
             // 
-            // btnSil
-            // 
-            this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(344, 346);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(81, 29);
-            this.btnSil.TabIndex = 51;
-            this.btnSil.Text = "Sil";
-            this.btnSil.UseVisualStyleBackColor = true;
-            // 
-            // btnDegistir
-            // 
-            this.btnDegistir.Enabled = false;
-            this.btnDegistir.Location = new System.Drawing.Point(257, 346);
-            this.btnDegistir.Name = "btnDegistir";
-            this.btnDegistir.Size = new System.Drawing.Size(81, 29);
-            this.btnDegistir.TabIndex = 50;
-            this.btnDegistir.Text = "Değiştir";
-            this.btnDegistir.UseVisualStyleBackColor = true;
-            // 
-            // btnKaydet
-            // 
-            this.btnKaydet.Enabled = false;
-            this.btnKaydet.Location = new System.Drawing.Point(170, 346);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(81, 29);
-            this.btnKaydet.TabIndex = 49;
-            this.btnKaydet.Text = "Kaydet";
-            this.btnKaydet.UseVisualStyleBackColor = true;
-            // 
             // txtAciklama
             // 
-            this.txtAciklama.Location = new System.Drawing.Point(203, 257);
+            this.txtAciklama.Location = new System.Drawing.Point(203, 277);
             this.txtAciklama.Multiline = true;
             this.txtAciklama.Name = "txtAciklama";
             this.txtAciklama.Size = new System.Drawing.Size(202, 72);
@@ -95,7 +67,7 @@
             // lblAciklama
             // 
             this.lblAciklama.AutoSize = true;
-            this.lblAciklama.Location = new System.Drawing.Point(78, 260);
+            this.lblAciklama.Location = new System.Drawing.Point(78, 280);
             this.lblAciklama.Name = "lblAciklama";
             this.lblAciklama.Size = new System.Drawing.Size(50, 13);
             this.lblAciklama.TabIndex = 47;
@@ -103,7 +75,7 @@
             // 
             // txtUrunAdi
             // 
-            this.txtUrunAdi.Location = new System.Drawing.Point(203, 228);
+            this.txtUrunAdi.Location = new System.Drawing.Point(203, 248);
             this.txtUrunAdi.Name = "txtUrunAdi";
             this.txtUrunAdi.Size = new System.Drawing.Size(202, 20);
             this.txtUrunAdi.TabIndex = 46;
@@ -111,7 +83,7 @@
             // lblUrunAdi
             // 
             this.lblUrunAdi.AutoSize = true;
-            this.lblUrunAdi.Location = new System.Drawing.Point(78, 228);
+            this.lblUrunAdi.Location = new System.Drawing.Point(78, 248);
             this.lblUrunAdi.Name = "lblUrunAdi";
             this.lblUrunAdi.Size = new System.Drawing.Size(51, 13);
             this.lblUrunAdi.TabIndex = 45;
@@ -120,7 +92,7 @@
             // dgvUrunler
             // 
             this.dgvUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUrunler.Location = new System.Drawing.Point(23, 85);
+            this.dgvUrunler.Location = new System.Drawing.Point(23, 104);
             this.dgvUrunler.Name = "dgvUrunler";
             this.dgvUrunler.Size = new System.Drawing.Size(502, 125);
             this.dgvUrunler.TabIndex = 44;
@@ -138,7 +110,7 @@
             // 
             this.cbUrunSecin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUrunSecin.FormattingEnabled = true;
-            this.cbUrunSecin.Location = new System.Drawing.Point(102, 45);
+            this.cbUrunSecin.Location = new System.Drawing.Point(150, 45);
             this.cbUrunSecin.Name = "cbUrunSecin";
             this.cbUrunSecin.Size = new System.Drawing.Size(122, 21);
             this.cbUrunSecin.TabIndex = 42;
@@ -159,17 +131,73 @@
             this.lblUrunAdiGiriniz.TabIndex = 53;
             this.lblUrunAdiGiriniz.Text = "Ürün Adı Giriniz";
             // 
-            // UrunIslemleri
+            // btnDegistir
+            // 
+            this.btnDegistir.Location = new System.Drawing.Point(257, 365);
+            this.btnDegistir.Name = "btnDegistir";
+            this.btnDegistir.Size = new System.Drawing.Size(92, 38);
+            this.btnDegistir.TabIndex = 123;
+            this.btnDegistir.Text = "Değişiklikleri Kaydet";
+            this.btnDegistir.UseVisualStyleBackColor = true;
+         
+            // 
+            // btnVazgec
+            // 
+            this.btnVazgec.Location = new System.Drawing.Point(357, 365);
+            this.btnVazgec.Name = "btnVazgec";
+            this.btnVazgec.Size = new System.Drawing.Size(80, 29);
+            this.btnVazgec.TabIndex = 122;
+            this.btnVazgec.Text = "Vazgeç";
+            this.btnVazgec.UseVisualStyleBackColor = true;
+            this.btnVazgec.Visible = false;
+            // 
+            // btnSil
+            // 
+            this.btnSil.Enabled = false;
+            this.btnSil.Location = new System.Drawing.Point(170, 365);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(81, 29);
+            this.btnSil.TabIndex = 121;
+            this.btnSil.Text = "Sil";
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            // 
+            // lblSiralamaOlcutu
+            // 
+            this.lblSiralamaOlcutu.AutoSize = true;
+            this.lblSiralamaOlcutu.Location = new System.Drawing.Point(18, 84);
+            this.lblSiralamaOlcutu.Name = "lblSiralamaOlcutu";
+            this.lblSiralamaOlcutu.Size = new System.Drawing.Size(118, 13);
+            this.lblSiralamaOlcutu.TabIndex = 125;
+            this.lblSiralamaOlcutu.Text = "Sıralama Ölçütü Seçiniz";
+            // 
+            // cbSiralama
+            // 
+            this.cbSiralama.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSiralama.FormattingEnabled = true;
+            this.cbSiralama.Items.AddRange(new object[] {
+            "Önce en yeniler",
+            "Önce en eskiler",
+            "Tutara göre azalan",
+            "Tutara göre artan"});
+            this.cbSiralama.Location = new System.Drawing.Point(151, 79);
+            this.cbSiralama.Name = "cbSiralama";
+            this.cbSiralama.Size = new System.Drawing.Size(121, 21);
+            this.cbSiralama.TabIndex = 124;
+            // 
+            // frmUrunIslemleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 431);
+            this.Controls.Add(this.lblSiralamaOlcutu);
+            this.Controls.Add(this.cbSiralama);
+            this.Controls.Add(this.btnDegistir);
+            this.Controls.Add(this.btnVazgec);
+            this.Controls.Add(this.btnSil);
             this.Controls.Add(this.txtArama);
             this.Controls.Add(this.lblUrunAdiGiriniz);
             this.Controls.Add(this.btnYeni);
-            this.Controls.Add(this.btnSil);
-            this.Controls.Add(this.btnDegistir);
-            this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.txtAciklama);
             this.Controls.Add(this.lblAciklama);
             this.Controls.Add(this.txtUrunAdi);
@@ -177,8 +205,9 @@
             this.Controls.Add(this.dgvUrunler);
             this.Controls.Add(this.lblUrunSecin);
             this.Controls.Add(this.cbUrunSecin);
-            this.Name = "UrunIslemleri";
+            this.Name = "frmUrunIslemleri";
             this.Text = "UrunIslemleri";
+            this.Load += new System.EventHandler(this.frmUrunIslemleri_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -188,9 +217,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnYeni;
-        private System.Windows.Forms.Button btnSil;
-        private System.Windows.Forms.Button btnDegistir;
-        private System.Windows.Forms.Button btnKaydet;
         private System.Windows.Forms.TextBox txtAciklama;
         private System.Windows.Forms.Label lblAciklama;
         private System.Windows.Forms.TextBox txtUrunAdi;
@@ -200,5 +226,10 @@
         private System.Windows.Forms.ComboBox cbUrunSecin;
         private System.Windows.Forms.TextBox txtArama;
         private System.Windows.Forms.Label lblUrunAdiGiriniz;
+        private System.Windows.Forms.Button btnDegistir;
+        private System.Windows.Forms.Button btnVazgec;
+        private System.Windows.Forms.Button btnSil;
+        private System.Windows.Forms.Label lblSiralamaOlcutu;
+        private System.Windows.Forms.ComboBox cbSiralama;
     }
 }

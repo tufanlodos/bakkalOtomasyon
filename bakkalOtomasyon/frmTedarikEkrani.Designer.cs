@@ -1,6 +1,6 @@
 ﻿namespace PL.Bakkal
 {
-    partial class TedarikEkrani
+    partial class frmTedarikEkrani
     {
         /// <summary>
         /// Required designer variable.
@@ -61,6 +61,7 @@
             this.btnGuncelle.TabIndex = 112;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // txtToplamTutar
             // 
@@ -242,7 +243,7 @@
             this.cbTedarikciSecin.Size = new System.Drawing.Size(162, 21);
             this.cbTedarikciSecin.TabIndex = 91;
             // 
-            // TedarikEkrani
+            // frmTedarikEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -269,7 +270,7 @@
             this.Controls.Add(this.lblTelefonNumarasi);
             this.Controls.Add(this.lblTedarikciSecin);
             this.Controls.Add(this.cbTedarikciSecin);
-            this.Name = "TedarikEkrani";
+            this.Name = "frmTedarikEkrani";
             this.Text = "TedarikEkrani";
             this.ResumeLayout(false);
             this.PerformLayout();

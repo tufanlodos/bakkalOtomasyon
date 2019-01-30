@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Bakkal.Repositories;
+using DAL.Bakkal.DataModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +18,43 @@ namespace PL.Bakkal
         {
             InitializeComponent();
         }
-        //UrunRepository ur = new UrunRepository();
+        KategoriRepository kr = new KategoriRepository();
+        UrunRepository ur = new UrunRepository();
+
+        private void frmUrunEkle_Load(object sender, EventArgs e)
+        {
+            cbKategoriAdi.DisplayMember = "KategoriAdi";
+            cbKategoriAdi.ValueMember = "Id";
+            cbKategoriAdi.DataSource = kr.KategoriListele();
+            
+            cbUrunMarkasi.DisplayMember = "UrunMarka";
+            cbUrunMarkasi.ValueMember = "Id";
+               
+        }
+        int KategoriID, UrunId;
+        string KategoriAdi, UrunMarkasi,UrunAdi;
+        private void cbKategoriAdi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Kategoriler secilenK = (Kategoriler)cbKategoriAdi.SelectedItem;
+            KategoriAdi = secilenK.KategoriAdi;
+            KategoriID=secilenK.Id;
+            txtKategoriAdi.Text = KategoriAdi;          
+        }
+        
+
+        private void cbUrunMarkasi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbUrunMarkasi.Items.Count != 0)
+            {
+                Urunler secilenU = (Urunler)cbUrunMarkasi.SelectedItem;
+                UrunId = secilenU.Id;
+                UrunMarkasi = secilenU.UrunMarka;
+                txtUrunMarkasi.Text = UrunMarkasi;
+            }
+        }
+       
+                
+        // Eror Provider ile Kontrol
         private void txtKategoriAdi_TextChanged(object sender, EventArgs e)
         {
             errorProvider1.Clear();
@@ -37,8 +75,16 @@ namespace PL.Bakkal
                     }
                 }
             }
-        }
-
+            //KAtegoriAdi listede yoksa
+            if (!string.IsNullOrEmpty(txtKategoriAdi.Text.Trim()) &&!kr.KategoriKontrolByKAdi(txtKategoriAdi.Text.Trim()))
+            {
+                frmKategoriEkle frm = new frmKategoriEkle();
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.ShowDialog();
+                cbKategoriAdi.DataSource = kr.KategoriListele();
+            }
+            cbUrunMarkasi.DataSource = ur.UrunGetirByKategoriAdi(txtKategoriAdi.Text);
+        }     
         private void txtUrunMarkasi_TextChanged(object sender, EventArgs e)
         {
             errorProvider1.Clear();
@@ -60,7 +106,6 @@ namespace PL.Bakkal
                 }
             }
         }
-
         private void txtUrunAdi_TextChanged(object sender, EventArgs e)
         {
             errorProvider1.Clear();
@@ -82,11 +127,10 @@ namespace PL.Bakkal
                 }
             }
         }
-
-        private void txtAlisFiyati_TextChanged(object sender, EventArgs e)
+        private void txtBirimAlisFiyati_TextChanged(object sender, EventArgs e)
         {
             errorProvider1.Clear();
-            foreach (char sayi in txtAlisFiyati.Text)
+            foreach (char sayi in txtBirimAlisFiyati.Text)
             {
                 if (!char.IsDigit(sayi))
                 {
@@ -97,64 +141,157 @@ namespace PL.Bakkal
                     else
                     {
                         MessageBox.Show("Bu alana sadece rakam girişi yapılabilir.");
-                        txtAlisFiyati.Text = txtAlisFiyati.Text.Substring(0, txtAlisFiyati.Text.Length - 1);
-                        txtAlisFiyati.Select(txtAlisFiyati.Text.Length, 0);
+                        txtBirimAlisFiyati.Text = txtBirimAlisFiyati.Text.Substring(0, txtBirimAlisFiyati.Text.Length - 1);
+                        txtBirimAlisFiyati.Select(txtBirimAlisFiyati.Text.Length, 0);
                         return;
                     }
                 }
             }
             int Sayac = 0;
-            for (int i = 0; i < txtAlisFiyati.Text.Length; i++)
+            for (int i = 0; i < txtBirimAlisFiyati.Text.Length; i++)
             {
-                if (txtAlisFiyati.Text[i] == ',')
+                if (txtBirimAlisFiyati.Text[i] == ',')
                 {
                     Sayac++;
                     if (Sayac > 1)
                     {
                         MessageBox.Show("Bu alana sadece bir adet virgül girilebilir.");
-                        txtAlisFiyati.Text = txtAlisFiyati.Text.Substring(0, txtAlisFiyati.Text.Length - 1);
-                        txtAlisFiyati.Select(txtAlisFiyati.Text.Length, 0);
+                        txtBirimAlisFiyati.Text = txtBirimAlisFiyati.Text.Substring(0, txtBirimAlisFiyati.Text.Length - 1);
+                        txtBirimAlisFiyati.Select(txtBirimAlisFiyati.Text.Length, 0);
+                        return;
+                    }
+                }
+            }
+        }
+        private void txtBirimSatisFiyati_TextChanged(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+            foreach (char sayi in txtBirimSatisFiyati.Text)
+            {
+                if (!char.IsDigit(sayi))
+                {
+                    if (sayi == ',')
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bu alana sadece rakam girişi yapılabilir.");
+                        txtBirimSatisFiyati.Text = txtBirimSatisFiyati.Text.Substring(0, txtBirimSatisFiyati.Text.Length - 1);
+                        txtBirimSatisFiyati.Select(txtBirimSatisFiyati.Text.Length, 0);
+                        return;
+                    }
+                }
+            }
+            int Sayac = 0;
+            for (int i = 0; i < txtBirimSatisFiyati.Text.Length; i++)
+            {
+                if (txtBirimSatisFiyati.Text[i] == ',')
+                {
+                    Sayac++;
+                    if (Sayac > 1)
+                    {
+                        MessageBox.Show("Bu alana sadece bir adet virgül girilebilir.");
+                        txtBirimSatisFiyati.Text = txtBirimSatisFiyati.Text.Substring(0, txtBirimSatisFiyati.Text.Length - 1);
+                        txtBirimSatisFiyati.Select(txtBirimSatisFiyati.Text.Length, 0);
                         return;
                     }
                 }
             }
         }
 
-        private void txtSatisFiyati_TextChanged(object sender, EventArgs e)
+        private void btnEkle_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
-            foreach (char sayi in txtSatisFiyati.Text)
+            if (!string.IsNullOrEmpty(txtKategoriAdi.Text.Trim()) && !string.IsNullOrEmpty(txtUrunMarkasi.Text.Trim()) && !string.IsNullOrEmpty(txtUrunAdi.Text.Trim()))
             {
-                if (!char.IsDigit(sayi))
+                Urunler u = new Urunler();
+                u.KategoriId = KategoriID;
+                u.UrunMarka = txtUrunMarkasi.Text;
+                u.UrunAdi = txtUrunAdi.Text;
+                u.AlisFiyat = Convert.ToDecimal(txtBirimAlisFiyati.Text);
+                u.SatisFiyat = Convert.ToDecimal(txtBirimSatisFiyati.Text);
+
+                if (ur.UrunKontrol(u))
                 {
-                    if (sayi == ',')
+                    if (MessageBox.Show("Aynı özelliklere sahip sahip bir kayıt bulundu. Yine de yeni kayıt olarak eklemek istiyor musunuz?", "Aynı kayıt şüphesi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        break;
+                        if (ur.UrunEkle(u))
+                        {
+                            MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Temizle();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Bu alana sadece rakam girişi yapılabilir.");
-                        txtSatisFiyati.Text = txtSatisFiyati.Text.Substring(0, txtSatisFiyati.Text.Length - 1);
-                        txtSatisFiyati.Select(txtSatisFiyati.Text.Length, 0);
-                        return;
+                        txtUrunAdi.SelectAll();
+                        errorProvider1.SetError(btnEkle, "Bu isimde kayıt mevcut");
                     }
                 }
-            }
-            int Sayac = 0;
-            for (int i = 0; i < txtAlisFiyati.Text.Length; i++)
-            {
-                if (txtSatisFiyati.Text[i] == ',')
+                else
                 {
-                    Sayac++;
-                    if (Sayac > 1)
+                    if (ur.UrunEkle(u))
                     {
-                        MessageBox.Show("Bu alana sadece bir adet virgül girilebilir.");
-                        txtSatisFiyati.Text = txtSatisFiyati.Text.Substring(0, txtSatisFiyati.Text.Length - 1);
-                        txtSatisFiyati.Select(txtSatisFiyati.Text.Length, 0);
-                        return;
+                        MessageBox.Show("Ürün kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ürün kayıtlarına yeni kayıt ekleme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Temizle();
                     }
                 }
             }
+            else
+            {
+                if (string.IsNullOrEmpty(txtKategoriAdi.Text.Trim()) && string.IsNullOrEmpty(txtUrunMarkasi.Text.Trim()) && string.IsNullOrEmpty(txtUrunAdi.Text.Trim()))
+                {
+                    MessageBox.Show("Masraf adı ve tutarı kolonları boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorProvider1.SetError(txtKategoriAdi, "Bu kolon boş geçilemez");
+                    errorProvider1.Clear();
+                    errorProvider1.SetError(txtUrunMarkasi, "Bu kolon boş geçilemez");
+                    errorProvider1.Clear();
+                    errorProvider1.SetError(txtUrunAdi, "Bu kolon boş geçilemez");
+
+                    txtKategoriAdi.Focus();
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(txtKategoriAdi.Text.Trim()))
+                    {
+                        MessageBox.Show("Masraf adı kolonu boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorProvider1.SetError(txtKategoriAdi, "Bu kolon boş geçilemez");
+                        txtKategoriAdi.Focus();
+                        errorProvider1.Clear();
+                    }
+                    if (string.IsNullOrEmpty(txtUrunMarkasi.Text.Trim()))
+                    {
+                        MessageBox.Show("Masraf tutarı kolonu boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorProvider1.SetError(txtUrunMarkasi, "Bu kolon boş geçilemez");
+                        txtUrunMarkasi.Focus();
+                        errorProvider1.Clear();
+                    }
+                    if (string.IsNullOrEmpty(txtUrunAdi.Text.Trim()))
+                    {
+                        MessageBox.Show("Masraf tutarı kolonu boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorProvider1.SetError(txtUrunAdi, "Bu kolon boş geçilemez");
+                        txtUrunAdi.Focus();
+                        errorProvider1.Clear();
+                    }
+                }
+            }
+        }
+        private void Temizle()
+        {
+            txtKategoriAdi.Clear();
+            txtUrunMarkasi.Clear();
+            txtUrunAdi.Clear();
+            txtBirimAlisFiyati.Clear();
+            txtBirimSatisFiyati.Clear();
         }
     }
 }

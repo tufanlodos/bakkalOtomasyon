@@ -17,5 +17,10 @@ namespace DAL.Bakkal.DataModel
         public bool Silindi { get; set; }
         //Relations
         public virtual List<Urunler> Urunler { get; set; }
+
+        public override string ToString()
+        {
+            return KategoriAdi;
+        }
     }
 }

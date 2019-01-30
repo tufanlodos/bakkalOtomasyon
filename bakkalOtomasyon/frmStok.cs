@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace PL.Bakkal
 {
-    public partial class Stok : Form
+    public partial class frmStok : Form
     {
-        public Stok()
+        public frmStok()
         {
             InitializeComponent();
         }

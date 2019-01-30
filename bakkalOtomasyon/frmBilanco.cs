@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace PL.Bakkal
 {
-    public partial class Bilanco : Form
+    public partial class frmBilanco : Form
     {
-        public Bilanco()
+        public frmBilanco()
         {
             InitializeComponent();
+        }
+
+        private void btnGoruntule_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

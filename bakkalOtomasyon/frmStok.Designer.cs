@@ -1,6 +1,6 @@
 ﻿namespace PL.Bakkal
 {
-    partial class Stok
+    partial class frmStok
     {
         /// <summary>
         /// Required designer variable.

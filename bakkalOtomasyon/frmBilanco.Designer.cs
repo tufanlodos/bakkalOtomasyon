@@ -1,6 +1,6 @@
 ﻿namespace PL.Bakkal
 {
-    partial class Bilanco
+    partial class frmBilanco
     {
         /// <summary>
         /// Required designer variable.
@@ -51,6 +51,7 @@
             this.btnGoruntule.TabIndex = 115;
             this.btnGoruntule.Text = "Görüntüle";
             this.btnGoruntule.UseVisualStyleBackColor = true;
+            this.btnGoruntule.Click += new System.EventHandler(this.btnGoruntule_Click);
             // 
             // lblSiralamaOlcutu
             // 
@@ -69,7 +70,7 @@
             this.cbSiralama.Size = new System.Drawing.Size(121, 21);
             this.cbSiralama.TabIndex = 113;
             // 
-            // Bilanco
+            // frmBilanco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -78,7 +79,7 @@
             this.Controls.Add(this.btnGoruntule);
             this.Controls.Add(this.lblSiralamaOlcutu);
             this.Controls.Add(this.cbSiralama);
-            this.Name = "Bilanco";
+            this.Name = "frmBilanco";
             this.Text = "Bilanco";
             this.ResumeLayout(false);
             this.PerformLayout();

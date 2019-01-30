@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace PL.Bakkal
 {
-    public partial class UrunIslemleri : Form
+    public partial class frmTedarikEkrani : Form
     {
-        public UrunIslemleri()
+        public frmTedarikEkrani()
         {
             InitializeComponent();
         }
 
-        private void btnYeni_Click(object sender, EventArgs e)
+        private void btnGuncelle_Click(object sender, EventArgs e)
         {
 
         }
