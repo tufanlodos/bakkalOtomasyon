@@ -31,6 +31,31 @@ namespace PL.Bakkal
                 Masraf m = new Masraf();
                 m.MasrafAdi = txtMasrafAdi.Text;
                 m.Tutar = Convert.ToDecimal(txtMasrafTutari.Text);
+                if (mr.MasrafKontrol(m))
+                {
+                    if(MessageBox.Show("Aynı masraf adı ve aynı tutara sahip bir kayıt bulundu. Yine de yeni kayıt olarak eklemek istiyor musunuz?", "Aynı kayıt şüphesi",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (mr.MasrafEkle(m))
+                        {
+                            MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtMasrafAdi.Text = string.Empty;
+                            txtMasrafTutari.Text = string.Empty;
+                            txtMasrafAdi.Focus();
+                        }
+                    }
+                    else
+                    { 
+                    txtMasrafAdi.SelectAll();
+                    errorProvider1.SetError(btnEkle, "Bu adda ve tutarda bir kayıt mevcut");
+                    }
+                }
+                else
+                { 
                 if (mr.MasrafEkle(m))
                 {
                     MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -42,6 +67,7 @@ namespace PL.Bakkal
                     txtMasrafAdi.Text = string.Empty;
                     txtMasrafTutari.Text = string.Empty;
                     txtMasrafAdi.Focus();
+                }
                 }
             }
             else

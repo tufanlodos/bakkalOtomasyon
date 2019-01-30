@@ -78,6 +78,10 @@ namespace BLL.Bakkal.Repositories
             }
             return Sonuc;
         }
+        public bool MasrafKontrol(Masraf yeni)
+        {
+            return Convert.ToBoolean(ent.Masraf.Where(m => m.MasrafAdi.ToLower() == yeni.MasrafAdi.ToLower() && m.Tutar == yeni.Tutar).ToList().Count);
+        }
         public List<Masraf> TariheGoreMasrafSirala(string nece)
         {
             List<Masraf> liste = new List<Masraf>();
