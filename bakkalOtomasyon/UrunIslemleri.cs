@@ -16,5 +16,10 @@ namespace PL.Bakkal
         {
             InitializeComponent();
         }
+
+        private void btnYeni_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
