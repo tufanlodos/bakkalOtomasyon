@@ -13,6 +13,8 @@ namespace BLL.Bakkal.Repositories
         bool KategoriGuncelle();
         bool KategoriSil(Kategoriler k);
         bool KategoriSil(int ID);
+      
+
         List<Kategoriler> KategoriListele();
         List<Kategoriler> KategoriGetirByArama(string Arama);
 

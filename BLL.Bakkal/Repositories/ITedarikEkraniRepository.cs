@@ -12,9 +12,11 @@ namespace BLL.Bakkal.Repositories
         bool Guncelle();
         bool Sil(int Id);
         bool Kaydet();
-
+        Tedarikci TedarikciGetirbByID(int ID);
+        List<string> UrunleriGetirByTedarikciId(int Id);
         List<Tedarikci> TedarikciSecin(string tedarikci);
         List<Urunler> UrunSecin(string urun);
+        List<Tedarikci> TedarikciListele();
 
 
     }
