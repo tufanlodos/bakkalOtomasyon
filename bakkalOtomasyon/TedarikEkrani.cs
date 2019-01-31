@@ -16,5 +16,10 @@ namespace PL.Bakkal
         {
             InitializeComponent();
         }
+
+        private void TedarikEkrani_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

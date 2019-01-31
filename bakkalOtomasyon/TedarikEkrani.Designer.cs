@@ -271,6 +271,7 @@
             this.Controls.Add(this.cbTedarikciSecin);
             this.Name = "TedarikEkrani";
             this.Text = "TedarikEkrani";
+            this.Load += new System.EventHandler(this.TedarikEkrani_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,0 +1,21 @@
+﻿using DAL.Bakkal.DataModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BLL.Bakkal.Repositories
+{
+    public interface ITedarikEkraniRepository
+    {
+        bool Guncelle();
+        bool Sil(int Id);
+        bool Kaydet();
+
+        List<Tedarikci> TedarikciSecin(string tedarikci);
+        List<Urunler> UrunSecin(string urun);
+
+
+    }
+}
