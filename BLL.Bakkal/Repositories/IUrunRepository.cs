@@ -19,13 +19,12 @@ namespace BLL.Bakkal.Repositories
         bool UrunEkle(Urunler p);
         bool UrunGuncelle();
         bool UrunSil(Urunler silinen);
-        List<Urunler> UrunSiralaByUrunAdi(string nece);
-        List<Urunler> UrunSiralaByKategoriAdi(string nece);
-        List<Urunler> UrunSiralaByMarka(string nece);
-        List<Urunler> UrunSiralaBySatisFiyati(string nece);
-        List<Urunler> UrunSiralaByAlisFiyati(string nece);
-        List<Urunler> UrunSiralaByStok(string nece);
-       
-
+        List<Urunler> UrunSiralaByUrunAdi(string nece, int KategoriID);
+        List<Urunler> UrunSiralaByKategoriAdi(string nece, int KategoriID);
+        List<Urunler> UrunSiralaByStok(string nece, int KategoriID);
+        //List<Urunler> UrunSiralaByMarka(string nece);
+        //List<Urunler> UrunSiralaBySatisFiyati(string nece);
+        //List<Urunler> UrunSiralaByAlisFiyati(string nece);
+        void ContextteBekleyenleriTemizle();
     }
 }

@@ -43,13 +43,15 @@
             this.txtUrunAdi = new System.Windows.Forms.TextBox();
             this.txtKategoriAdi = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAdet = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEkle
             // 
             this.btnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEkle.Location = new System.Drawing.Point(160, 278);
+            this.btnEkle.Location = new System.Drawing.Point(161, 296);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(204, 29);
             this.btnEkle.TabIndex = 139;
@@ -166,6 +168,23 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 267);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.TabIndex = 143;
+            this.label2.Text = "Adet";
+            // 
+            // txtAdet
+            // 
+            this.txtAdet.Location = new System.Drawing.Point(161, 260);
+            this.txtAdet.Name = "txtAdet";
+            this.txtAdet.Size = new System.Drawing.Size(204, 20);
+            this.txtAdet.TabIndex = 144;
+            this.txtAdet.TextChanged += new System.EventHandler(this.txtAdet_TextChanged);
+            // 
             // frmUrunEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,6 +194,8 @@
             this.Controls.Add(this.lblTedarikciSecin);
             this.Controls.Add(this.lblTedarikIcinUrunSecin);
             this.Controls.Add(this.cbUrunMarkasi);
+            this.Controls.Add(this.txtAdet);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBirimSatisFiyati);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblBirimAlisFiyati);
@@ -209,5 +230,7 @@
         private System.Windows.Forms.TextBox txtUrunAdi;
         private System.Windows.Forms.TextBox txtKategoriAdi;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox txtAdet;
+        private System.Windows.Forms.Label label2;
     }
 }

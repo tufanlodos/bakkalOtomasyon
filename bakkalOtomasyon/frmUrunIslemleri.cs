@@ -19,19 +19,29 @@ namespace PL.Bakkal
             InitializeComponent();
         }
 
-        
+        KategoriRepository kr = new KategoriRepository();
+        UrunRepository ur = new UrunRepository();
 
         private void frmUrunIslemleri_Load(object sender, EventArgs e)
         {
             BaslangicHalineDon();
             dgvUrunler.ClearSelection();
+
+            Kategoriler tumu = new Kategoriler();
+            tumu.Id = 0;
+            tumu.KategoriAdi = "Tümü";
+            tumu.Aciklama = "";
+            List<Kategoriler> liste=kr.KategoriListele();
+            liste.Add(tumu);
+            cbKategoriSec.DisplayMember = "KategoriAdi";
+            cbKategoriSec.ValueMember = "Id";
+            cbKategoriSec.DataSource = liste;
         }
-        KategoriRepository kr = new KategoriRepository();
-        UrunRepository ur = new UrunRepository();
+       
         private void BaslangicHalineDon()
         {
             this.AcceptButton = btnYeni;
-            DgvDoldurDuzenle(ur.UrunSiralaByUrunAdi("desc"));
+            DgvDoldurDuzenle(ur.UrunSiralaByUrunAdi("desc",kID));
             dgvUrunler.ClearSelection();
             btnSil.Enabled = false;
             btnVazgec.Visible = false;
@@ -53,17 +63,26 @@ namespace PL.Bakkal
             dgvUrunler.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dgvUrunler.MultiSelect = false;
             dgvUrunler.Columns[0].Visible = false;
-            dgvUrunler.Columns[1].HeaderText = "Kategori Adı";
+            dgvUrunler.Columns[1].HeaderText = "Ürün Kodu";
             dgvUrunler.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvUrunler.Columns[2].HeaderText = "Ürün Markası";
             dgvUrunler.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvUrunler.Columns[3].HeaderText = "Ürün Adı";
             dgvUrunler.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dgvUrunler.Columns[4].HeaderText = "Tutar";
+            dgvUrunler.Columns[4].HeaderText = "Satış Fiyatı";
             dgvUrunler.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvUrunler.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvUrunler.Columns[5].HeaderText = "Kayıt Tarihi";
+            dgvUrunler.Columns[5].HeaderText = "Alış Fiyatı";
             dgvUrunler.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvUrunler.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvUrunler.Columns[6].Visible = false;
+            dgvUrunler.Columns[7].HeaderText = "Stok Miktarı";
+            dgvUrunler.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvUrunler.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvUrunler.Columns[8].Visible = false;
+            dgvUrunler.Columns[9].HeaderText = "Kategori Adı";
+            dgvUrunler.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
             HeaderText++;
         }
         private void btnYeni_Click(object sender, EventArgs e)
@@ -73,7 +92,7 @@ namespace PL.Bakkal
             frm.ShowDialog();
             BaslangicHalineDon();
         }
-        int UrunId;
+        int UrunId,kID;
         int SecilenSatir;
         int HeaderText = 0;
         private void dgvUrunler_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -167,22 +186,39 @@ namespace PL.Bakkal
 
         private void cbSiralama_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbSiralama.SelectedIndex == 0)
-            {
-                dgvUrunler.DataSource = ur.UrunSiralaByUrunAdi("desc");
-            }
-            if (cbSiralama.SelectedIndex == 1)
-            {
-                dgvUrunler.DataSource = ur.UrunSiralaByUrunAdi("asc");
-            }
-            //if (cbSiralama.SelectedIndex == 2)
-            //{
-            //    dgvMasraflar.DataSource = mr.TutaraGoreMasrafSirala("desc");
-            //}
-            //if (cbSiralama.SelectedIndex == 3)
-            //{
-            //    dgvMasraflar.DataSource = mr.TutaraGoreMasrafSirala("asc");
-            //}
+           if (cbSiralama.SelectedIndex == 0)
+                dgvUrunler.DataSource = ur.UrunSiralaByUrunAdi("asc",kID);
+               
+           if (cbSiralama.SelectedIndex == 1)
+                dgvUrunler.DataSource = ur.UrunSiralaByUrunAdi("desc", kID);
+                
+           if (cbSiralama.SelectedIndex == 2)
+                dgvUrunler.DataSource = ur.UrunSiralaByKategoriAdi("asc", kID);
+           
+           if (cbSiralama.SelectedIndex == 3)
+                dgvUrunler.DataSource = ur.UrunSiralaByKategoriAdi("desc", kID);
+
+           if (cbSiralama.SelectedIndex == 4)
+                dgvUrunler.DataSource = ur.UrunSiralaByStok("asc", kID);
+
+            if (cbSiralama.SelectedIndex == 5)
+                dgvUrunler.DataSource = ur.UrunSiralaByStok("desc", kID);
+        }
+
+        private void txtArama_TextChanged(object sender, EventArgs e)
+        {
+            dgvUrunler.DataSource = ur.UrunGetirByUrunAdi(txtArama.Text);
+        }
+
+        private void cbKategoriSec_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Kategoriler secilenK = (Kategoriler)cbKategoriSec.SelectedItem;
+            kID = secilenK.Id;
+            if (kID == 0)
+                dgvUrunler.DataSource = ur.UrunleriGetir();
+            else
+                dgvUrunler.DataSource = ur.UrunGetirByKategoriID(kID);
+
         }
     }
 }

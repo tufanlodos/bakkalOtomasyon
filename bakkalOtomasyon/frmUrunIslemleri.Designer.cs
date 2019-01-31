@@ -35,7 +35,7 @@
             this.lblUrunAdi = new System.Windows.Forms.Label();
             this.dgvUrunler = new System.Windows.Forms.DataGridView();
             this.lblUrunSecin = new System.Windows.Forms.Label();
-            this.cbUrunSecin = new System.Windows.Forms.ComboBox();
+            this.cbKategoriSec = new System.Windows.Forms.ComboBox();
             this.txtArama = new System.Windows.Forms.TextBox();
             this.lblUrunAdiGiriniz = new System.Windows.Forms.Label();
             this.btnDegistir = new System.Windows.Forms.Button();
@@ -92,9 +92,9 @@
             // dgvUrunler
             // 
             this.dgvUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUrunler.Location = new System.Drawing.Point(23, 104);
+            this.dgvUrunler.Location = new System.Drawing.Point(21, 104);
             this.dgvUrunler.Name = "dgvUrunler";
-            this.dgvUrunler.Size = new System.Drawing.Size(502, 125);
+            this.dgvUrunler.Size = new System.Drawing.Size(823, 125);
             this.dgvUrunler.TabIndex = 44;
             // 
             // lblUrunSecin
@@ -106,26 +106,28 @@
             this.lblUrunSecin.TabIndex = 43;
             this.lblUrunSecin.Text = "Kategori Seçin";
             // 
-            // cbUrunSecin
+            // cbKategoriSec
             // 
-            this.cbUrunSecin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUrunSecin.FormattingEnabled = true;
-            this.cbUrunSecin.Location = new System.Drawing.Point(150, 45);
-            this.cbUrunSecin.Name = "cbUrunSecin";
-            this.cbUrunSecin.Size = new System.Drawing.Size(122, 21);
-            this.cbUrunSecin.TabIndex = 42;
+            this.cbKategoriSec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKategoriSec.FormattingEnabled = true;
+            this.cbKategoriSec.Location = new System.Drawing.Point(150, 45);
+            this.cbKategoriSec.Name = "cbKategoriSec";
+            this.cbKategoriSec.Size = new System.Drawing.Size(172, 21);
+            this.cbKategoriSec.TabIndex = 42;
+            this.cbKategoriSec.SelectedIndexChanged += new System.EventHandler(this.cbKategoriSec_SelectedIndexChanged);
             // 
             // txtArama
             // 
-            this.txtArama.Location = new System.Drawing.Point(413, 46);
+            this.txtArama.Location = new System.Drawing.Point(443, 42);
             this.txtArama.Name = "txtArama";
-            this.txtArama.Size = new System.Drawing.Size(112, 20);
+            this.txtArama.Size = new System.Drawing.Size(130, 20);
             this.txtArama.TabIndex = 54;
+            this.txtArama.TextChanged += new System.EventHandler(this.txtArama_TextChanged);
             // 
             // lblUrunAdiGiriniz
             // 
             this.lblUrunAdiGiriniz.AutoSize = true;
-            this.lblUrunAdiGiriniz.Location = new System.Drawing.Point(328, 49);
+            this.lblUrunAdiGiriniz.Location = new System.Drawing.Point(358, 45);
             this.lblUrunAdiGiriniz.Name = "lblUrunAdiGiriniz";
             this.lblUrunAdiGiriniz.Size = new System.Drawing.Size(79, 13);
             this.lblUrunAdiGiriniz.TabIndex = 53;
@@ -139,7 +141,6 @@
             this.btnDegistir.TabIndex = 123;
             this.btnDegistir.Text = "Değişiklikleri Kaydet";
             this.btnDegistir.UseVisualStyleBackColor = true;
-         
             // 
             // btnVazgec
             // 
@@ -176,20 +177,23 @@
             this.cbSiralama.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSiralama.FormattingEnabled = true;
             this.cbSiralama.Items.AddRange(new object[] {
-            "Önce en yeniler",
-            "Önce en eskiler",
-            "Tutara göre azalan",
-            "Tutara göre artan"});
+            "Ürün İsmine Göre : A->Z",
+            "Ürün İsmine Göre : Z->A",
+            "Kategori İsmine Göre : A->Z",
+            "Kategori İsmine Göre : Z->A",
+            "Stok Miktarına Göre : Önce En Düşük",
+            "Stok Miktarına Göre : Önce En Yüksek"});
             this.cbSiralama.Location = new System.Drawing.Point(151, 79);
             this.cbSiralama.Name = "cbSiralama";
-            this.cbSiralama.Size = new System.Drawing.Size(121, 21);
+            this.cbSiralama.Size = new System.Drawing.Size(171, 21);
             this.cbSiralama.TabIndex = 124;
+            this.cbSiralama.SelectedIndexChanged += new System.EventHandler(this.cbSiralama_SelectedIndexChanged);
             // 
             // frmUrunIslemleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 431);
+            this.ClientSize = new System.Drawing.Size(856, 431);
             this.Controls.Add(this.lblSiralamaOlcutu);
             this.Controls.Add(this.cbSiralama);
             this.Controls.Add(this.btnDegistir);
@@ -204,7 +208,7 @@
             this.Controls.Add(this.lblUrunAdi);
             this.Controls.Add(this.dgvUrunler);
             this.Controls.Add(this.lblUrunSecin);
-            this.Controls.Add(this.cbUrunSecin);
+            this.Controls.Add(this.cbKategoriSec);
             this.Name = "frmUrunIslemleri";
             this.Text = "UrunIslemleri";
             this.Load += new System.EventHandler(this.frmUrunIslemleri_Load);
@@ -223,7 +227,7 @@
         private System.Windows.Forms.Label lblUrunAdi;
         private System.Windows.Forms.DataGridView dgvUrunler;
         private System.Windows.Forms.Label lblUrunSecin;
-        private System.Windows.Forms.ComboBox cbUrunSecin;
+        private System.Windows.Forms.ComboBox cbKategoriSec;
         private System.Windows.Forms.TextBox txtArama;
         private System.Windows.Forms.Label lblUrunAdiGiriniz;
         private System.Windows.Forms.Button btnDegistir;

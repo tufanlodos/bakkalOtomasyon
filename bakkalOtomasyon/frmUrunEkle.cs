@@ -163,6 +163,44 @@ namespace PL.Bakkal
                 }
             }
         }
+
+        private void txtAdet_TextChanged(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+            foreach (char sayi in txtAdet.Text)
+            {
+                if (!char.IsDigit(sayi))
+                {
+                    if (sayi == ',')
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bu alana sadece rakam girişi yapılabilir.");
+                        txtAdet.Text = txtAdet.Text.Substring(0, txtAdet.Text.Length - 1);
+                        txtAdet.Select(txtAdet.Text.Length, 0);
+                        return;
+                    }
+                }
+            }
+            int Sayac = 0;
+            for (int i = 0; i < txtAdet.Text.Length; i++)
+            {
+                if (txtAdet.Text[i] == ',')
+                {
+                    Sayac++;
+                    if (Sayac > 1)
+                    {
+                        MessageBox.Show("Bu alana sadece bir adet virgül girilebilir.");
+                        txtAdet.Text = txtAdet.Text.Substring(0, txtAdet.Text.Length - 1);
+                        txtAdet.Select(txtAdet.Text.Length, 0);
+                        return;
+                    }
+                }
+            }
+        }
+
         private void txtBirimSatisFiyati_TextChanged(object sender, EventArgs e)
         {
             errorProvider1.Clear();
@@ -210,19 +248,19 @@ namespace PL.Bakkal
                 u.UrunAdi = txtUrunAdi.Text;
                 u.AlisFiyat = Convert.ToDecimal(txtBirimAlisFiyati.Text);
                 u.SatisFiyat = Convert.ToDecimal(txtBirimSatisFiyati.Text);
-
+                u.StokMiktari = Convert.ToInt32(txtAdet.Text);
                 if (ur.UrunKontrol(u))
                 {
                     if (MessageBox.Show("Aynı özelliklere sahip sahip bir kayıt bulundu. Yine de yeni kayıt olarak eklemek istiyor musunuz?", "Aynı kayıt şüphesi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         if (ur.UrunEkle(u))
                         {
-                            MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Ürün kayıtlarına yeni kayıt ekleme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
                         else
                         {
-                            MessageBox.Show("Masraf kayıtlarına yeni kayıt ekleme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Ürün kayıtlarına yeni kayıt ekleme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Temizle();
                         }
                     }
@@ -250,7 +288,7 @@ namespace PL.Bakkal
             {
                 if (string.IsNullOrEmpty(txtKategoriAdi.Text.Trim()) && string.IsNullOrEmpty(txtUrunMarkasi.Text.Trim()) && string.IsNullOrEmpty(txtUrunAdi.Text.Trim()))
                 {
-                    MessageBox.Show("Masraf adı ve tutarı kolonları boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ürün bilgilerini giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     errorProvider1.SetError(txtKategoriAdi, "Bu kolon boş geçilemez");
                     errorProvider1.Clear();
                     errorProvider1.SetError(txtUrunMarkasi, "Bu kolon boş geçilemez");
@@ -263,21 +301,35 @@ namespace PL.Bakkal
                 {
                     if (string.IsNullOrEmpty(txtKategoriAdi.Text.Trim()))
                     {
-                        MessageBox.Show("Masraf adı kolonu boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Kategori Adını Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtKategoriAdi, "Bu kolon boş geçilemez");
                         txtKategoriAdi.Focus();
                         errorProvider1.Clear();
                     }
                     if (string.IsNullOrEmpty(txtUrunMarkasi.Text.Trim()))
                     {
-                        MessageBox.Show("Masraf tutarı kolonu boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ürün Markasını Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtUrunMarkasi, "Bu kolon boş geçilemez");
                         txtUrunMarkasi.Focus();
                         errorProvider1.Clear();
                     }
                     if (string.IsNullOrEmpty(txtUrunAdi.Text.Trim()))
                     {
-                        MessageBox.Show("Masraf tutarı kolonu boş geçilemez", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ürün Adını Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorProvider1.SetError(txtUrunAdi, "Bu kolon boş geçilemez");
+                        txtUrunAdi.Focus();
+                        errorProvider1.Clear();
+                    }
+                    if (string.IsNullOrEmpty(txtBirimAlisFiyati.Text.Trim()))
+                    {
+                        MessageBox.Show("Birim Alış Fiyatını Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorProvider1.SetError(txtUrunAdi, "Bu kolon boş geçilemez");
+                        txtUrunAdi.Focus();
+                        errorProvider1.Clear();
+                    }
+                    if (string.IsNullOrEmpty(txtBirimSatisFiyati.Text.Trim()))
+                    {
+                        MessageBox.Show("Birim Satış Fiyatını Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtUrunAdi, "Bu kolon boş geçilemez");
                         txtUrunAdi.Focus();
                         errorProvider1.Clear();
@@ -292,6 +344,7 @@ namespace PL.Bakkal
             txtUrunAdi.Clear();
             txtBirimAlisFiyati.Clear();
             txtBirimSatisFiyati.Clear();
+            txtAdet.Clear();
         }
     }
 }

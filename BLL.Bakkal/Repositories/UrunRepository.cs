@@ -79,7 +79,7 @@ namespace BLL.Bakkal.Repositories
             }
             catch (Exception ex)
             {
-                string hata = ex.Message;
+                ////string hata = ex.Message;
             }
             return Sonuc;
         }
@@ -114,84 +114,71 @@ namespace BLL.Bakkal.Repositories
         {
             return ent.Urunlers.Where(u => u.Kategori.KategoriAdi.StartsWith(kAdi) && u.Silindi == false).ToList();
         }
-        public List<Urunler> UrunSiralaByUrunAdi(string nece)
+
+        public List<Urunler> UrunGetirByUrunAdi(string urunAdi)
+        {
+            return ent.Urunlers.Where(u => u.UrunAdi.Contains(urunAdi)).ToList();
+        }
+
+        public List<Urunler> UrunSiralaByUrunAdi(string nece, int KategoriID)
         {
             List<Urunler> liste = new List<Urunler>();
             if (nece == "asc")
             {
-                liste = ent.Urunlers.OrderBy(u => u.UrunAdi).ToList();
+                if(KategoriID==0)
+                    liste = ent.Urunlers.Where(u => u.Silindi == false).OrderBy(u => u.UrunAdi).ToList();
+                else
+                    liste = ent.Urunlers.Where(u => u.Silindi == false &&u.KategoriId==KategoriID).OrderBy(u => u.UrunAdi).ToList();
+
             }
             if (nece == "desc")
             {
-                liste = ent.Urunlers.OrderByDescending(u => u.UrunAdi).ToList();
+                if (KategoriID == 0)
+                    liste = ent.Urunlers.Where(u => u.Silindi == false).OrderByDescending(u => u.UrunAdi).ToList();
+                else
+                    liste = ent.Urunlers.Where(u => u.Silindi == false && u.KategoriId == KategoriID).OrderByDescending(u => u.UrunAdi).ToList();
             }
             return liste;
         }
-        public List<Urunler> UrunSiralaByKategoriAdi(string nece)
+        public List<Urunler> UrunSiralaByKategoriAdi(string nece, int KategoriID)
         {
             List<Urunler> liste = new List<Urunler>();
             if (nece == "asc")
             {
-                liste = ent.Urunlers.OrderBy(u => u.Kategori.KategoriAdi).ToList();
+                if(KategoriID==0)
+                liste = ent.Urunlers.Where(u => u.Silindi == false).OrderBy(u => u.Kategori.KategoriAdi).ToList();
+                else
+                liste = ent.Urunlers.Where(u => u.Silindi == false && u.KategoriId == KategoriID).OrderBy(u => u.Kategori.KategoriAdi).ToList();
             }
             if (nece == "desc")
             {
-                liste = ent.Urunlers.OrderByDescending(u => u.Kategori.KategoriAdi).ToList();
+                if(KategoriID==0)
+                liste = ent.Urunlers.Where(u => u.Silindi == false).OrderByDescending(u => u.Kategori.KategoriAdi).ToList();
+                else
+                liste = ent.Urunlers.Where(u => u.Silindi == false && u.KategoriId == KategoriID).OrderByDescending(u => u.Kategori.KategoriAdi).ToList();
             }
             return liste;
         }
-        public List<Urunler> UrunSiralaByMarka(string nece)
+        public List<Urunler> UrunSiralaByStok(string nece, int KategoriID)
         {
             List<Urunler> liste = new List<Urunler>();
             if (nece == "asc")
             {
-                liste = ent.Urunlers.OrderBy(u => u.UrunMarka).ToList();
+                if(KategoriID==0)
+                    liste = ent.Urunlers.Where(u => u.Silindi == false).OrderBy(u => u.StokMiktari).ToList();
+                else 
+                    liste = ent.Urunlers.Where(u => u.Silindi == false && u.KategoriId == KategoriID).OrderBy(u => u.StokMiktari).ToList();
             }
             if (nece == "desc")
             {
-                liste = ent.Urunlers.OrderByDescending(u => u.UrunMarka).ToList();
+                if(KategoriID==0)
+                liste = ent.Urunlers.Where(u => u.Silindi == false).OrderByDescending(u => u.StokMiktari).ToList();
+                else
+                    liste = ent.Urunlers.Where(u => u.Silindi == false && u.KategoriId == KategoriID).OrderByDescending(u => u.StokMiktari).ToList();
             }
             return liste;
         }
-        public List<Urunler> UrunSiralaBySatisFiyati(string nece)
-        {
-            List<Urunler> liste = new List<Urunler>();
-            if (nece == "asc")
-            {
-                liste = ent.Urunlers.OrderBy(u => u.SatisFiyat).ToList();
-            }
-            if (nece == "desc")
-            {
-                liste = ent.Urunlers.OrderByDescending(u => u.SatisFiyat).ToList();
-            }
-            return liste;
-        }
-        public List<Urunler> UrunSiralaByAlisFiyati(string nece)
-        {
-            List<Urunler> liste = new List<Urunler>();
-            if (nece == "asc")
-            {
-                liste = ent.Urunlers.OrderBy(u => u.AlisFiyat).ToList();
-            }
-            if (nece == "desc")
-            {
-                liste = ent.Urunlers.OrderByDescending(u => u.AlisFiyat).ToList();
-            }
-            return liste;
-        }
-        public List<Urunler> UrunSiralaByStok(string nece)
-        {
-            List<Urunler> liste = new List<Urunler>();
-            if (nece == "asc")
-            {
-                liste = ent.Urunlers.OrderBy(u => u.StokMiktari).ToList();
-            }
-            if (nece == "desc")
-            {
-                liste = ent.Urunlers.OrderByDescending(u => u.StokMiktari).ToList();
-            }
-            return liste;
-        }
+
         public void ContextteBekleyenleriTemizle()
         {
             var ContextteBekleyenler = ent.ChangeTracker.Entries()
@@ -202,6 +189,55 @@ namespace BLL.Bakkal.Repositories
 
             foreach (var entry in ContextteBekleyenler)
                 entry.State = EntityState.Detached;
+        }
+        
+        //public List<Urunler> UrunSiralaByMarka(string nece)
+        //{
+        //    List<Urunler> liste = new List<Urunler>();
+        //    if (nece == "asc")
+        //    {
+        //        liste = ent.Urunlers.OrderBy(u => u.UrunMarka).ToList();
+        //    }
+        //    if (nece == "desc")
+        //    {
+        //        liste = ent.Urunlers.OrderByDescending(u => u.UrunMarka).ToList();
+        //    }
+        //    return liste;
+        //}
+        //public List<Urunler> UrunSiralaBySatisFiyati(string nece)
+        //{
+        //    List<Urunler> liste = new List<Urunler>();
+        //    if (nece == "asc")
+        //    {
+        //        liste = ent.Urunlers.OrderBy(u => u.SatisFiyat).ToList();
+        //    }
+        //    if (nece == "desc")
+        //    {
+        //        liste = ent.Urunlers.OrderByDescending(u => u.SatisFiyat).ToList();
+        //    }
+        //    return liste;
+        //}
+        //public List<Urunler> UrunSiralaByAlisFiyati(string nece)
+        //{
+        //    List<Urunler> liste = new List<Urunler>();
+        //    if (nece == "asc")
+        //    {
+        //        liste = ent.Urunlers.OrderBy(u => u.AlisFiyat).ToList();
+        //    }
+        //    if (nece == "desc")
+        //    {
+        //        liste = ent.Urunlers.OrderByDescending(u => u.AlisFiyat).ToList();
+        //    }
+        //    return liste;
+        //}
+        public List<string> UrunIdGetirByTeraikciID(int id)
+        {
+            TedarikDetay tedd= ent.TedarikDetay.Where(td => td.TedarikciId == id).FirstOrDefault();
+            int uid = tedd.UrunId;
+            List<string> liste = (from u in ent.Urunlers
+                                  where u.Id == uid
+                                  select u.UrunAdi).ToList();
+            return liste;
         }
     }
 }
