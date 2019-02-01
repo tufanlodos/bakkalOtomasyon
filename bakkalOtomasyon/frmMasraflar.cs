@@ -63,10 +63,7 @@ namespace PL.Bakkal
             }
         }
         int SecilenSatir;
-        private void dgvMasraflar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            SecilenSatir = e.RowIndex;
-        }
+       
         int MasrafId;
         private void dgvMasraflar_DoubleClick(object sender, EventArgs e)
         {
@@ -95,6 +92,10 @@ namespace PL.Bakkal
                 dgvMasraflar.SelectedRows[0].DefaultCellStyle.BackColor = Color.Red;
             }
 
+        }
+        private void dgvMasraflar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SecilenSatir = e.RowIndex;
         }
         private void btnDegistir_Click(object sender, EventArgs e)
         {

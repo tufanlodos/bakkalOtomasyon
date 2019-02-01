@@ -45,6 +45,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.txtAdet = new System.Windows.Forms.TextBox();
+            this.formKapatici1 = new PL.Bakkal.FormKapatici();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             this.btnEkle.Location = new System.Drawing.Point(161, 296);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(204, 29);
-            this.btnEkle.TabIndex = 139;
+            this.btnEkle.TabIndex = 7;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
             this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
@@ -93,7 +95,7 @@
             this.txtBirimSatisFiyati.Location = new System.Drawing.Point(160, 224);
             this.txtBirimSatisFiyati.Name = "txtBirimSatisFiyati";
             this.txtBirimSatisFiyati.Size = new System.Drawing.Size(204, 20);
-            this.txtBirimSatisFiyati.TabIndex = 144;
+            this.txtBirimSatisFiyati.TabIndex = 5;
             this.txtBirimSatisFiyati.TextChanged += new System.EventHandler(this.txtBirimSatisFiyati_TextChanged);
             // 
             // lblBirimAlisFiyati
@@ -110,7 +112,7 @@
             this.txtBirimAlisFiyati.Location = new System.Drawing.Point(160, 189);
             this.txtBirimAlisFiyati.Name = "txtBirimAlisFiyati";
             this.txtBirimAlisFiyati.Size = new System.Drawing.Size(204, 20);
-            this.txtBirimAlisFiyati.TabIndex = 138;
+            this.txtBirimAlisFiyati.TabIndex = 4;
             this.txtBirimAlisFiyati.TextChanged += new System.EventHandler(this.txtBirimAlisFiyati_TextChanged);
             // 
             // lblKategoriSecin
@@ -147,21 +149,21 @@
             this.txtUrunMarkasi.Location = new System.Drawing.Point(161, 109);
             this.txtUrunMarkasi.Name = "txtUrunMarkasi";
             this.txtUrunMarkasi.Size = new System.Drawing.Size(183, 20);
-            this.txtUrunMarkasi.TabIndex = 138;
+            this.txtUrunMarkasi.TabIndex = 2;
             // 
             // txtUrunAdi
             // 
             this.txtUrunAdi.Location = new System.Drawing.Point(161, 150);
             this.txtUrunAdi.Name = "txtUrunAdi";
             this.txtUrunAdi.Size = new System.Drawing.Size(203, 20);
-            this.txtUrunAdi.TabIndex = 138;
+            this.txtUrunAdi.TabIndex = 3;
             // 
             // txtKategoriAdi
             // 
             this.txtKategoriAdi.Location = new System.Drawing.Point(161, 71);
             this.txtKategoriAdi.Name = "txtKategoriAdi";
             this.txtKategoriAdi.Size = new System.Drawing.Size(183, 20);
-            this.txtKategoriAdi.TabIndex = 138;
+            this.txtKategoriAdi.TabIndex = 1;
             this.txtKategoriAdi.TextChanged += new System.EventHandler(this.txtKategoriAdi_TextChanged);
             // 
             // errorProvider1
@@ -182,14 +184,35 @@
             this.txtAdet.Location = new System.Drawing.Point(161, 260);
             this.txtAdet.Name = "txtAdet";
             this.txtAdet.Size = new System.Drawing.Size(204, 20);
-            this.txtAdet.TabIndex = 144;
+            this.txtAdet.TabIndex = 6;
             this.txtAdet.TextChanged += new System.EventHandler(this.txtAdet_TextChanged);
+            // 
+            // formKapatici1
+            // 
+            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
+            this.formKapatici1.Name = "formKapatici1";
+            this.formKapatici1.Size = new System.Drawing.Size(391, 29);
+            this.formKapatici1.TabIndex = 149;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(0, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(391, 13);
+            this.label3.TabIndex = 150;
+            this.label3.Text = "ÜRÜN EKLEME EKRANI";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmUrunEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 337);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.formKapatici1);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.lblTedarikciSecin);
             this.Controls.Add(this.lblTedarikIcinUrunSecin);
@@ -205,6 +228,7 @@
             this.Controls.Add(this.txtBirimAlisFiyati);
             this.Controls.Add(this.lblKategoriSecin);
             this.Controls.Add(this.cbKategoriAdi);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUrunEkle";
             this.Text = "frmUrunEkle";
             this.Load += new System.EventHandler(this.frmUrunEkle_Load);
@@ -232,5 +256,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.TextBox txtAdet;
         private System.Windows.Forms.Label label2;
+        private FormKapatici formKapatici1;
+        private System.Windows.Forms.Label label3;
     }
 }

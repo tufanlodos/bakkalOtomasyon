@@ -14,7 +14,7 @@ namespace BLL.Bakkal.Repositories
 
         public List<Urunler> UrunleriGetir()
         {
-            return ent.Urunlers.ToList();
+            return ent.Urunlers.Where(u=>u.Silindi==false).ToList();
         }
         public bool UrunKontrol(Urunler yeni)
         {

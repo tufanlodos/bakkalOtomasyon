@@ -32,7 +32,7 @@ namespace PL.Bakkal
                
         }
         int KategoriID, UrunId;
-        string KategoriAdi, UrunMarkasi,UrunAdi;
+        string KategoriAdi, UrunMarkasi;
         private void cbKategoriAdi_SelectedIndexChanged(object sender, EventArgs e)
         {
             Kategoriler secilenK = (Kategoriler)cbKategoriAdi.SelectedItem;

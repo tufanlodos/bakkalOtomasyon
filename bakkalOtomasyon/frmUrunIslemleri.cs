@@ -37,7 +37,7 @@ namespace PL.Bakkal
             cbKategoriSec.ValueMember = "Id";
             cbKategoriSec.DataSource = liste;
         }
-       
+
         private void BaslangicHalineDon()
         {
             this.AcceptButton = btnYeni;
@@ -49,6 +49,10 @@ namespace PL.Bakkal
             btnDegistir.Enabled = false;
             cbSiralama.SelectedIndex = 0;
         }
+        int UrunId,kID;
+        int SecilenSatir;
+
+        int HeaderText = 0;
         private void DgvDoldurDuzenle(List<Urunler> liste)
         {
             dgvUrunler.DataSource = liste;
@@ -60,7 +64,7 @@ namespace PL.Bakkal
             dgvUrunler.RowHeadersVisible = false;
             dgvUrunler.BorderStyle = BorderStyle.None;
             dgvUrunler.BackgroundColor = this.BackColor;
-            dgvUrunler.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+            dgvUrunler.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.7F, FontStyle.Bold);
             dgvUrunler.MultiSelect = false;
             dgvUrunler.Columns[0].Visible = false;
             dgvUrunler.Columns[1].HeaderText = "Ürün Kodu";
@@ -92,9 +96,7 @@ namespace PL.Bakkal
             frm.ShowDialog();
             BaslangicHalineDon();
         }
-        int UrunId,kID;
-        int SecilenSatir;
-        int HeaderText = 0;
+        
         private void dgvUrunler_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (HeaderText >= 1)
@@ -107,10 +109,7 @@ namespace PL.Bakkal
                 btnVazgec.Visible = true;
             }
         }
-        private void dgvUrunler_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            SecilenSatir = e.RowIndex;
-        }
+
         private void dgvUrunler_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -137,52 +136,29 @@ namespace PL.Bakkal
             {
                 dgvUrunler.SelectedRows[0].DefaultCellStyle.BackColor = Color.Red;
             }
-
         }
+
+        private void dgvUrunler_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SecilenSatir = e.RowIndex;
+        }
+
         private void btnDegistir_Click(object sender, EventArgs e)
         {
             if (ur.UrunGuncelle())
             {
-                MessageBox.Show("Masraf kayıtları üzerindeki güncellemeler kaydedildi.", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ürün kayıtları üzerindeki güncellemeler kaydedildi.", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BaslangicHalineDon();
             }
             else
             {
-                MessageBox.Show("Masraf kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ürün kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BaslangicHalineDon();
             }
         }
 
-        private void btnSil_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Seçilen ürünün silinmesini istiyor musunuz ?", "Silme işlemini onaylıyor musunuz ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (ur.UrunSil(UrunId))
-                {
-                    MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    BaslangicHalineDon();
 
-                }
-                else
-                {
-                    MessageBox.Show("Masraf kayıtları üzerindeki silme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    BaslangicHalineDon();
 
-                }
-            }
-            else
-            {
-                BaslangicHalineDon();
-            }
-        }
-
-        private void btnVazgec_Click(object sender, EventArgs e)
-        {
-            ur.ContextteBekleyenleriTemizle();
-            BaslangicHalineDon();
-            this.AcceptButton = btnYeni;
-            btnYeni.Focus();
-        }
 
         private void cbSiralama_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -209,6 +185,40 @@ namespace PL.Bakkal
         {
             dgvUrunler.DataSource = ur.UrunGetirByUrunAdi(txtArama.Text);
         }
+
+        private void btnVazgec_Click(object sender, EventArgs e)
+        {
+            ur.ContextteBekleyenleriTemizle();
+            BaslangicHalineDon();
+            this.AcceptButton = btnYeni;
+            btnYeni.Focus();
+        }
+
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seçilen ürünün silinmesini istiyor musunuz ?", "Silme işlemini onaylıyor musunuz ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (ur.UrunSil(UrunId))
+                {
+                    MessageBox.Show("Ürün kayıtları üzerindeki silme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BaslangicHalineDon();
+
+                }
+                else
+                {
+                    MessageBox.Show("Ürün kayıtları üzerindeki silme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    BaslangicHalineDon();
+
+                }
+            }
+            else
+            {
+                BaslangicHalineDon();
+            }
+        }
+
+        
 
         private void cbKategoriSec_SelectedIndexChanged(object sender, EventArgs e)
         {
