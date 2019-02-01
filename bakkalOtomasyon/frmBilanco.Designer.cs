@@ -1,6 +1,6 @@
 ﻿namespace PL.Bakkal
 {
-    partial class Bilanco
+    partial class frmBilanco
     {
         /// <summary>
         /// Required designer variable.
@@ -47,6 +47,17 @@
             this.lvGoruntulenenListe.UseCompatibleStateImageBehavior = false;
             this.lvGoruntulenenListe.View = System.Windows.Forms.View.Details;
             // 
+            // btnGoruntule
+            // 
+            this.btnGoruntule.Enabled = false;
+            this.btnGoruntule.Location = new System.Drawing.Point(151, 79);
+            this.btnGoruntule.Name = "btnGoruntule";
+            this.btnGoruntule.Size = new System.Drawing.Size(81, 29);
+            this.btnGoruntule.TabIndex = 115;
+            this.btnGoruntule.Text = "Görüntüle";
+            this.btnGoruntule.UseVisualStyleBackColor = true;
+            this.btnGoruntule.Click += new System.EventHandler(this.btnGoruntule_Click);
+            // 
             // lblSiralamaOlcutu
             // 
             this.lblSiralamaOlcutu.AutoSize = true;
@@ -81,7 +92,7 @@
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader2.Width = 115;
             // 
-            // Bilanco
+            // frmBilanco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -89,7 +100,7 @@
             this.Controls.Add(this.lvGoruntulenenListe);
             this.Controls.Add(this.lblSiralamaOlcutu);
             this.Controls.Add(this.cbSiralama);
-            this.Name = "Bilanco";
+            this.Name = "frmBilanco";
             this.Text = "Bilanco";
             this.Load += new System.EventHandler(this.Bilanco_Load);
             this.ResumeLayout(false);

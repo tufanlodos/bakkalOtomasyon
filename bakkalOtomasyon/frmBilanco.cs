@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace PL.Bakkal
 {
-    public partial class Stok : Form
+    public partial class frmBilanco : Form
     {
-        public Stok()
+        public frmBilanco()
         {
             InitializeComponent();
         }
 
-        private void Stok_Load(object sender, EventArgs e)
+        private void btnGoruntule_Click(object sender, EventArgs e)
         {
 
         }

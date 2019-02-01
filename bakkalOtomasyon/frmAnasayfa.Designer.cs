@@ -166,6 +166,7 @@
             this.btnTedarik.TabIndex = 4;
             this.btnTedarik.Text = "TEDARİK İŞLEMLERİ";
             this.btnTedarik.UseVisualStyleBackColor = true;
+
             // 
             // btnStok
             // 
@@ -177,6 +178,7 @@
             this.btnStok.TabIndex = 3;
             this.btnStok.Text = "STOK DURUMU";
             this.btnStok.UseVisualStyleBackColor = true;
+            this.btnStok.Click += new System.EventHandler(this.btnStok_Click);
             // 
             // btnUrun
             // 
@@ -188,6 +190,7 @@
             this.btnUrun.TabIndex = 2;
             this.btnUrun.Text = "ÜRÜN İŞLEMLERİ";
             this.btnUrun.UseVisualStyleBackColor = true;
+            this.btnUrun.Click += new System.EventHandler(this.btnUrun_Click);
             // 
             // btnKategori
             // 

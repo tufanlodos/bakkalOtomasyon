@@ -59,11 +59,11 @@
     <Compile Include="Anasayfa.Designer.cs">
       <DependentUpon>Anasayfa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bilanco.cs">
+    <Compile Include="frmBilanco.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bilanco.Designer.cs">
-      <DependentUpon>Bilanco.cs</DependentUpon>
+    <Compile Include="frmBilanco.Designer.cs">
+      <DependentUpon>frmBilanco.cs</DependentUpon>
     </Compile>
     <Compile Include="FormKapatici.cs">
       <SubType>UserControl</SubType>
@@ -107,6 +107,12 @@
     <Compile Include="frmMasraflar.Designer.cs">
       <DependentUpon>frmMasraflar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUrunEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUrunEkle.Designer.cs">
+      <DependentUpon>frmUrunEkle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="frmSiparis.cs">
@@ -115,29 +121,29 @@
     <Compile Include="frmSiparis.Designer.cs">
       <DependentUpon>frmSiparis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stok.cs">
+    <Compile Include="frmStok.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stok.Designer.cs">
-      <DependentUpon>Stok.cs</DependentUpon>
+    <Compile Include="frmStok.Designer.cs">
+      <DependentUpon>frmStok.cs</DependentUpon>
     </Compile>
-    <Compile Include="TedarikEkrani.cs">
+    <Compile Include="frmTedarikEkrani.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TedarikEkrani.Designer.cs">
-      <DependentUpon>TedarikEkrani.cs</DependentUpon>
+    <Compile Include="frmTedarikEkrani.Designer.cs">
+      <DependentUpon>frmTedarikEkrani.cs</DependentUpon>
     </Compile>
-    <Compile Include="UrunIslemleri.cs">
+    <Compile Include="frmUrunIslemleri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UrunIslemleri.Designer.cs">
-      <DependentUpon>UrunIslemleri.cs</DependentUpon>
+    <Compile Include="frmUrunIslemleri.Designer.cs">
+      <DependentUpon>frmUrunIslemleri.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Anasayfa.resx">
       <DependentUpon>Anasayfa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bilanco.resx">
-      <DependentUpon>Bilanco.cs</DependentUpon>
+    <EmbeddedResource Include="frmBilanco.resx">
+      <DependentUpon>frmBilanco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKapatici.resx">
       <DependentUpon>FormKapatici.cs</DependentUpon>
@@ -160,6 +166,9 @@
     <EmbeddedResource Include="frmMasraflar.resx">
       <DependentUpon>frmMasraflar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmUrunEkle.resx">
+      <DependentUpon>frmUrunEkle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -173,14 +182,14 @@
     <EmbeddedResource Include="frmSiparis.resx">
       <DependentUpon>frmSiparis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stok.resx">
-      <DependentUpon>Stok.cs</DependentUpon>
+    <EmbeddedResource Include="frmStok.resx">
+      <DependentUpon>frmStok.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TedarikEkrani.resx">
-      <DependentUpon>TedarikEkrani.cs</DependentUpon>
+    <EmbeddedResource Include="frmTedarikEkrani.resx">
+      <DependentUpon>frmTedarikEkrani.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UrunIslemleri.resx">
-      <DependentUpon>UrunIslemleri.cs</DependentUpon>
+    <EmbeddedResource Include="frmUrunIslemleri.resx">
+      <DependentUpon>frmUrunIslemleri.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

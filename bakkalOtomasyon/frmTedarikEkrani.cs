@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace PL.Bakkal
 {
-    public partial class Bilanco : Form
+    public partial class frmTedarikEkrani : Form
     {
-        public Bilanco()
+        public frmTedarikEkrani()
         {
             InitializeComponent();
         }
@@ -43,6 +43,11 @@ namespace PL.Bakkal
         private void Bilanco_Load(object sender, EventArgs e)  
         {
             cbSiralama.SelectedIndex = 0;
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

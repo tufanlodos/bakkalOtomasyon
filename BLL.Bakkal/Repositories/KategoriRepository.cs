@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Bakkal.Repositories
 {
-   public class KategoriRepository : IKategoriRepository
+    public class KategoriRepository : IKategoriRepository
     {
         BCDContext ent = new BCDContext();
 
@@ -39,6 +39,10 @@ namespace BLL.Bakkal.Repositories
         {
             return Convert.ToBoolean(ent.Kategorilers.Where(k => k.KategoriAdi.ToLower() == yeni.KategoriAdi.ToLower()).ToList().Count);
         }
+        public bool KategoriKontrolByKAdi(string yeni)
+        {
+            return Convert.ToBoolean(ent.Kategorilers.Where(k => k.KategoriAdi.ToLower().StartsWith(yeni.ToLower())).ToList().Count);
+        }
         public bool KategoriKontrolFromDegistir(Kategoriler yeni)
         {
             return Convert.ToBoolean(ent.Kategorilers.Where(k => k.KategoriAdi == yeni.KategoriAdi && k.Id != yeni.Id).ToList().Count);
@@ -58,10 +62,7 @@ namespace BLL.Bakkal.Repositories
             return Sonuc;
         }
 
-        //public List<Kategoriler> KategoriListele()
-        //{
-        //    //return ent.Kategorilers.Where(k => k.Silindi == false).ToList();
-        //}
+       
 
         public bool KategoriSil(Kategoriler k)
         {
@@ -102,6 +103,7 @@ namespace BLL.Bakkal.Repositories
         {
             return ent.Kategorilers.Where(k => k.Silindi == false).ToList();
         }
+
         public List<Kategoriler> KategoriGetirByArama(string Arama)
         {
             List<Kategoriler> liste = (from k in ent.Kategorilers
