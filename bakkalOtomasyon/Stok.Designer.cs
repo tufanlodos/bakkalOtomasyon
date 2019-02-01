@@ -145,6 +145,7 @@
             this.Name = "Stok";
             this.Text = "Stok";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Stok_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
