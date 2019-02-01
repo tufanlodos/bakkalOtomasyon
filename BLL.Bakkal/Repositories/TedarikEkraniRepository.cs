@@ -60,6 +60,10 @@ namespace BLL.Bakkal.Repositories
            
             return liste;
         }
+        public decimal BirimFiyatGetirByUrunAd(string uAdi, int tId)
+        {
+            return ent.TedarikDetay.Where(td => td.Urun.UrunAdi==uAdi&&td.TedarikciId==tId).Select(td=>td.BirimTutar).FirstOrDefault();
+        }
 
 
         public List<Tedarikci> TedarikciSecin(string tedarikci)
@@ -76,5 +80,7 @@ namespace BLL.Bakkal.Repositories
         {
             return ent.Urunlers.Where(k => k.Silindi == false).ToList();
         }
+
+       
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace PL.Bakkal
 {
-    partial class TedarikEkrani
+    partial class frmTedarikEkrani
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGuncelle = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.btnEkle = new System.Windows.Forms.Button();
             this.txtToplamTutar = new System.Windows.Forms.TextBox();
             this.lblToplamTutar = new System.Windows.Forms.Label();
             this.lvUrunler = new System.Windows.Forms.ListView();
@@ -50,17 +51,23 @@
             this.lblTedarikciSecin = new System.Windows.Forms.Label();
             this.cbTedarikciSecin = new System.Windows.Forms.ComboBox();
             this.lbTedarikEdilmisUrunler = new System.Windows.Forms.ListBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnGuncelle
+            // btnEkle
             // 
-            this.btnGuncelle.Enabled = false;
-            this.btnGuncelle.Location = new System.Drawing.Point(446, 367);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(81, 29);
-            this.btnGuncelle.TabIndex = 112;
-            this.btnGuncelle.Text = "Güncelle";
-            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnEkle.Location = new System.Drawing.Point(446, 367);
+            this.btnEkle.Name = "btnEkle";
+            this.btnEkle.Size = new System.Drawing.Size(81, 29);
+            this.btnEkle.TabIndex = 112;
+            this.btnEkle.Text = "Ekle";
+            this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // txtToplamTutar
             // 
@@ -81,16 +88,24 @@
             // 
             // lvUrunler
             // 
+            this.lvUrunler.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvUrunler.Location = new System.Drawing.Point(438, 194);
             this.lvUrunler.Name = "lvUrunler";
             this.lvUrunler.Size = new System.Drawing.Size(324, 97);
             this.lvUrunler.TabIndex = 109;
             this.lvUrunler.UseCompatibleStateImageBehavior = false;
+            this.lvUrunler.View = System.Windows.Forms.View.Details;
+            this.lvUrunler.SelectedIndexChanged += new System.EventHandler(this.lvUrunler_SelectedIndexChanged);
             // 
             // txtBirimFiyat
             // 
             this.txtBirimFiyat.Location = new System.Drawing.Point(560, 159);
             this.txtBirimFiyat.Name = "txtBirimFiyat";
+            this.txtBirimFiyat.ReadOnly = true;
             this.txtBirimFiyat.Size = new System.Drawing.Size(202, 20);
             this.txtBirimFiyat.TabIndex = 108;
             // 
@@ -109,6 +124,7 @@
             this.txtAdet.Name = "txtAdet";
             this.txtAdet.Size = new System.Drawing.Size(202, 20);
             this.txtAdet.TabIndex = 106;
+            this.txtAdet.TextChanged += new System.EventHandler(this.txtAdet_TextChanged);
             // 
             // lblAdet
             // 
@@ -245,13 +261,17 @@
             this.lbTedarikEdilmisUrunler.Size = new System.Drawing.Size(202, 108);
             this.lbTedarikEdilmisUrunler.TabIndex = 113;
             // 
-            // TedarikEkrani
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // frmTedarikEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(771, 451);
             this.Controls.Add(this.lbTedarikEdilmisUrunler);
-            this.Controls.Add(this.btnGuncelle);
+            this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.txtToplamTutar);
             this.Controls.Add(this.lblToplamTutar);
             this.Controls.Add(this.lvUrunler);
@@ -272,9 +292,10 @@
             this.Controls.Add(this.lblTelefonNumarasi);
             this.Controls.Add(this.lblTedarikciSecin);
             this.Controls.Add(this.cbTedarikciSecin);
-            this.Name = "TedarikEkrani";
+            this.Name = "frmTedarikEkrani";
             this.Text = "TedarikEkrani";
             this.Load += new System.EventHandler(this.TedarikEkrani_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,7 +303,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnGuncelle;
+        private System.Windows.Forms.Button btnEkle;
         private System.Windows.Forms.TextBox txtToplamTutar;
         private System.Windows.Forms.Label lblToplamTutar;
         private System.Windows.Forms.ListView lvUrunler;
@@ -304,5 +325,10 @@
         private System.Windows.Forms.Label lblTedarikciSecin;
         private System.Windows.Forms.ComboBox cbTedarikciSecin;
         private System.Windows.Forms.ListBox lbTedarikEdilmisUrunler;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
