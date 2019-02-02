@@ -54,6 +54,7 @@
     <Compile Include="Repositories\ITedarikEkraniRepository.cs" />
     <Compile Include="Repositories\KategoriRepository.cs" />
     <Compile Include="Repositories\MasrafRepository.cs" />
+    <Compile Include="Repositories\SatisRepo.cs" />
     <Compile Include="Repositories\SiparisRepository.cs" />
     <Compile Include="Repositories\TedarikEkraniRepository.cs" />
   </ItemGroup>
