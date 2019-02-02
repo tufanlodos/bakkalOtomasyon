@@ -87,6 +87,7 @@ namespace PL.Bakkal
                 }
                 btnVazgec.Visible = true;
                 this.AcceptButton = btnSil;
+                btnYeni.Enabled = false;
             }
             if (SecilenSatir >= 0)
             {
@@ -108,6 +109,7 @@ namespace PL.Bakkal
                     MessageBox.Show("Sipariş kayıtları üzerindeki silme işlemi gerçekleştirildi", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
                     dgvSiparisler.ClearSelection();
+                    btnYeni.Enabled = true;
                     btnSil.Enabled = false;
                     btnVazgec.Visible = false;
                     this.AcceptButton = btnYeni;
@@ -116,6 +118,7 @@ namespace PL.Bakkal
                 {
                     MessageBox.Show("Siparis kayıtları üzerindeki silme işlemi gerçekleştirilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     dgvSiparisler.ClearSelection();
+                    btnYeni.Enabled = true;
                     btnSil.Enabled = false;
                     btnVazgec.Visible = false;
                     this.AcceptButton = btnYeni;
@@ -126,6 +129,7 @@ namespace PL.Bakkal
                 btnSil.Enabled = false;
                 DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
                 dgvSiparisler.ClearSelection();
+                btnYeni.Enabled = true;
                 btnVazgec.Visible = false;
                 this.AcceptButton = btnYeni;
             }
@@ -140,6 +144,7 @@ namespace PL.Bakkal
             cbSiralama.SelectedIndex = 0;
             srepo.ContextteBekleyenleriTemizle();
             dgvSiparisler.ClearSelection();
+            btnYeni.Enabled = true;
             this.AcceptButton = btnYeni;
         }
 
@@ -149,6 +154,8 @@ namespace PL.Bakkal
             {
                 MessageBox.Show("Sipariş kayıtları üzerindeki güncellemeler kaydedildi.", "İşlem tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
+                btnYeni.Enabled = true;
+                this.AcceptButton = btnYeni;
                 btnSil.Enabled = false;
                 btnGuncelle.Enabled = false;
                 btnVazgec.Visible = false;
@@ -157,6 +164,8 @@ namespace PL.Bakkal
             {
                 MessageBox.Show("Sipariş kayıtları üzerindeki güncellemeler kaydedilemedi", "İşlem tamamlanamadı", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DgvDoldurDuzenle(srepo.TariheGoreSiparisSirala("desc"));
+                btnYeni.Enabled = true;
+                this.AcceptButton = btnYeni;
                 btnSil.Enabled = false;
                 btnGuncelle.Enabled = false;
                 btnVazgec.Visible = false;
