@@ -61,6 +61,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUrunBul";
             this.Text = "frmUrunBul";
+            this.Load += new System.EventHandler(this.frmUrunBul_Load);
             this.ResumeLayout(false);
 
         }

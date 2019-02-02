@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Bakkal.Models
 {
-    public class Genel
+    public static class Genel
     {
-          
+        public static string UrunAdi; 
     }
 }
