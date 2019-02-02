@@ -31,6 +31,7 @@ namespace PL.Bakkal
             btnArttır.Enabled = false;
             btnEksilt.Enabled = false;
             txtMiktar.ReadOnly = true;
+            btnSKaldir.Enabled = false;
             IlkAcilis++;
         }
 
@@ -44,7 +45,7 @@ namespace PL.Bakkal
                     txtUrunAdi.Text = u.UrunAdi;
                     txtFiyat.Text = u.SatisFiyat.ToString();
                     decimal TopTutar = Miktar * u.SatisFiyat;
-                    txtTutar.Text = TopTutar.ToString("c");
+                    txtTutar.Text = TopTutar.ToString();
                     btnArttır.Enabled = true;
                     btnEksilt.Enabled = true;
                     txtMiktar.ReadOnly = false;
@@ -71,7 +72,8 @@ namespace PL.Bakkal
             txtMiktar.Text = Miktar.ToString();
             decimal Fiyat = Convert.ToDecimal(txtFiyat.Text);
             decimal TopTutar = Miktar * Fiyat;
-            txtTutar.Text = TopTutar.ToString("c");
+            txtTutar.Text = TopTutar.ToString();
+            this.AcceptButton = btnSepeteEkle;
         }
 
         private void btnEksilt_Click(object sender, EventArgs e)
@@ -82,23 +84,47 @@ namespace PL.Bakkal
                 txtMiktar.Text = Miktar.ToString();
                 decimal Fiyat = Convert.ToDecimal(txtFiyat.Text);
                 decimal TopTutar = Miktar * Fiyat;
-                txtTutar.Text = TopTutar.ToString("c");
+                txtTutar.Text = TopTutar.ToString();
+                this.AcceptButton = btnSepeteEkle;
             }
         }
-
+        int r = 0;
         private void btnSepeteEkle_Click(object sender, EventArgs e)
         {
             int Miktar = Convert.ToInt32(txtMiktar.Text);
-            if (Miktar>=1)
+            if (Miktar>=1 && txtUrunAdi.Text != "")
             {
-
+                lvAlisverisSepeti.Items.Add(txtUrunAdi.Text);
+                lvAlisverisSepeti.Items[r].SubItems.Add(txtMiktar.Text);
+                lvAlisverisSepeti.Items[r].SubItems.Add(txtFiyat.Text);
+                lvAlisverisSepeti.Items[r].SubItems.Add(txtTutar.Text);
+                ToplamTutarHesaplat();
+                r++;
+                btnTemizle.PerformClick();
             }
             else
             {
-                MessageBox.Show("Miktar girdisi 1' den büyük olmalıdır", "Miktar girilmemiş", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtMiktar.Focus();
-            }
+                if (Miktar < 1)
+                {
+                    MessageBox.Show("Miktar girdisi 1' den büyük olmalıdır", "Miktar girdisi sıkıntılı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMiktar.Focus();
+                }
+                else
+                { 
+                    MessageBox.Show("Sepete eklenecek ürün bulunmamaktadır", "Ürün girdisi sıkıntılı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtBarkod.Focus();
+                }
 
+            }
+        }
+        private void ToplamTutarHesaplat()
+        {
+            decimal ToplamTutar = 0;
+            for (int i = 0; i < lvAlisverisSepeti.Items.Count; i++)
+            {
+                ToplamTutar += Convert.ToDecimal(lvAlisverisSepeti.Items[i].SubItems[3].Text);
+            }
+            txtToplamTutar.Text = ToplamTutar.ToString();
         }
 
         private void txtMiktar_MouseClick(object sender, MouseEventArgs e)
@@ -111,8 +137,8 @@ namespace PL.Bakkal
             txtBarkod.Text = string.Empty;
             txtBarkod.ReadOnly = false;
             txtUrunAdi.Text = string.Empty;
-            txtFiyat.Text = string.Empty;
-            txtTutar.Text = string.Empty;
+            txtFiyat.Text = "0";
+            txtTutar.Text = "0";
             this.AcceptButton = btnBul;
             Miktar = 1;
             txtMiktar.Text = Miktar.ToString();
@@ -139,12 +165,107 @@ namespace PL.Bakkal
                 txtUrunAdi.Text = u.UrunAdi;
                 txtFiyat.Text = u.SatisFiyat.ToString();
                 decimal TopTutar = Miktar * u.SatisFiyat;
-                txtTutar.Text = TopTutar.ToString("c");
+                txtTutar.Text = TopTutar.ToString();
                 btnArttır.Enabled = true;
                 btnEksilt.Enabled = true;
                 txtMiktar.ReadOnly = false;
                 this.AcceptButton = btnSepeteEkle;
+                btnSepeteEkle.Focus();
             }
+        }
+
+        private void btnSTemizle_Click(object sender, EventArgs e)
+        {
+            lvAlisverisSepeti.Items.Clear();
+            r = 0;
+            txtToplamTutar.Text = 0.ToString();
+            txtBarkod.Focus();
+            btnSKaldir.Enabled = false;
+            rbtnNakit.Checked = true;
+            txtNakit.Text = "";
+            txtParaUstu.Text = "";
+            this.AcceptButton = btnBul;
+        }
+
+        private void btnSKaldir_Click(object sender, EventArgs e)
+        {
+            if (lvAlisverisSepeti.Items.Count > 0)
+            {
+                lvAlisverisSepeti.SelectedItems[0].Remove();
+                ToplamTutarHesaplat();
+                r--;
+                btnSKaldir.Enabled = false;
+                btnParaUstuHesapla.PerformClick();
+            }
+            else
+            { 
+                txtToplamTutar.Text = 0.ToString();
+                btnSKaldir.Enabled = false;
+            }
+        }
+
+        private void lvAlisverisSepeti_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnSKaldir.Enabled = true;
+        }
+
+        private void rbtnKrediKarti_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnKrediKarti.Checked)
+            {
+                txtNakit.Text = "";
+                txtParaUstu.Text = "";
+                txtNakit.Enabled = false;
+                txtParaUstu.Enabled = false;
+                btnParaUstuHesapla.Enabled = false;
+            }
+        }
+
+        private void rbtnNakit_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnNakit.Checked)
+            {
+                txtNakit.Text = "";
+                txtParaUstu.Text = "";
+                txtNakit.Enabled = true;
+                txtParaUstu.Enabled = true;
+                btnParaUstuHesapla.Enabled = true;
+                txtNakit.Focus();
+            }
+        }
+
+        private void btnParaUstuHesapla_Click(object sender, EventArgs e)
+        {
+            decimal Tutar = Convert.ToDecimal(txtToplamTutar.Text);
+            decimal Nakit = Convert.ToDecimal(txtNakit.Text);
+            decimal PUstu = Nakit - Tutar;
+            if (PUstu >= 0)
+            {
+                txtParaUstu.Text = PUstu.ToString();
+                this.AcceptButton = btnIslemKaydet;
+            }
+            else
+            {
+                txtNakit.Text = "";
+                txtParaUstu.Text = "";
+                txtNakit.Focus();
+                this.AcceptButton = btnParaUstuHesapla;
+            }
+        }
+
+        private void txtNakit_TextChanged(object sender, EventArgs e)
+        {
+            foreach (char sayi in txtNakit.Text)
+            {
+                if (!char.IsDigit(sayi))
+                {
+                    MessageBox.Show("Bu alana sadece rakam girişi yapılabilir.", "Yanlış girdi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNakit.Text = txtNakit.Text.Substring(0, txtNakit.Text.Length - 1);
+                    txtNakit.Select(txtNakit.Text.Length, 0);
+                    return;
+                }
+            }
+            this.AcceptButton = btnParaUstuHesapla;
         }
 
         private void txtMiktar_TextChanged(object sender, EventArgs e)
@@ -166,7 +287,7 @@ namespace PL.Bakkal
                             {
                                 decimal Fiyat = Convert.ToDecimal(txtFiyat.Text);
                                 decimal TopTutar = Miktar * Fiyat;
-                                txtTutar.Text = TopTutar.ToString("c");
+                                txtTutar.Text = TopTutar.ToString();
                             }
                             else
                             {

@@ -35,6 +35,10 @@
             this.btnSepeteEkle = new System.Windows.Forms.Button();
             this.btnUrunSec = new System.Windows.Forms.Button();
             this.lvAlisverisSepeti = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtTutar = new System.Windows.Forms.TextBox();
             this.txtFiyat = new System.Windows.Forms.TextBox();
             this.txtMiktar = new System.Windows.Forms.TextBox();
@@ -53,12 +57,18 @@
             this.lblParaUstu = new System.Windows.Forms.Label();
             this.rbtnKrediKarti = new System.Windows.Forms.RadioButton();
             this.rbtnNakit = new System.Windows.Forms.RadioButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNakit = new System.Windows.Forms.TextBox();
             this.lblNakitGiris = new System.Windows.Forms.Label();
             this.txtToplamTutar = new System.Windows.Forms.TextBox();
             this.lblToplamTutar = new System.Windows.Forms.Label();
             this.btnBul = new System.Windows.Forms.Button();
             this.btnSTemizle = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnParaUstuHesapla = new System.Windows.Forms.Button();
             this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.SuspendLayout();
             // 
@@ -88,7 +98,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(269, 57);
+            this.label1.Location = new System.Drawing.Point(348, 56);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
@@ -97,12 +107,13 @@
             // 
             // btnSKaldir
             // 
-            this.btnSKaldir.Location = new System.Drawing.Point(507, 260);
+            this.btnSKaldir.Location = new System.Drawing.Point(557, 260);
             this.btnSKaldir.Name = "btnSKaldir";
             this.btnSKaldir.Size = new System.Drawing.Size(105, 23);
             this.btnSKaldir.TabIndex = 140;
             this.btnSKaldir.Text = "Sepetten Çıkar";
             this.btnSKaldir.UseVisualStyleBackColor = true;
+            this.btnSKaldir.Click += new System.EventHandler(this.btnSKaldir_Click);
             // 
             // btnSepeteEkle
             // 
@@ -127,13 +138,41 @@
             // 
             // lvAlisverisSepeti
             // 
-            this.lvAlisverisSepeti.Location = new System.Drawing.Point(272, 72);
+            this.lvAlisverisSepeti.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.lvAlisverisSepeti.FullRowSelect = true;
+            this.lvAlisverisSepeti.Location = new System.Drawing.Point(351, 71);
             this.lvAlisverisSepeti.Margin = new System.Windows.Forms.Padding(2);
+            this.lvAlisverisSepeti.MultiSelect = false;
             this.lvAlisverisSepeti.Name = "lvAlisverisSepeti";
-            this.lvAlisverisSepeti.Size = new System.Drawing.Size(450, 180);
+            this.lvAlisverisSepeti.Size = new System.Drawing.Size(311, 180);
             this.lvAlisverisSepeti.TabIndex = 137;
             this.lvAlisverisSepeti.UseCompatibleStateImageBehavior = false;
             this.lvAlisverisSepeti.View = System.Windows.Forms.View.Details;
+            this.lvAlisverisSepeti.SelectedIndexChanged += new System.EventHandler(this.lvAlisverisSepeti_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Ürün Adı";
+            this.columnHeader1.Width = 120;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Adet";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Br. Fiyatı";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Tutar";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtTutar
             // 
@@ -176,6 +215,7 @@
             this.btnArttır.Size = new System.Drawing.Size(22, 18);
             this.btnArttır.TabIndex = 133;
             this.btnArttır.Text = "+";
+            this.btnArttır.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnArttır.UseVisualStyleBackColor = true;
             this.btnArttır.Click += new System.EventHandler(this.btnArttır_Click);
             // 
@@ -187,6 +227,7 @@
             this.btnEksilt.Size = new System.Drawing.Size(21, 18);
             this.btnEksilt.TabIndex = 132;
             this.btnEksilt.Text = "-";
+            this.btnEksilt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEksilt.UseVisualStyleBackColor = true;
             this.btnEksilt.Click += new System.EventHandler(this.btnEksilt_Click);
             // 
@@ -260,7 +301,7 @@
             // 
             // btnIslemKaydet
             // 
-            this.btnIslemKaydet.Location = new System.Drawing.Point(392, 436);
+            this.btnIslemKaydet.Location = new System.Drawing.Point(342, 433);
             this.btnIslemKaydet.Margin = new System.Windows.Forms.Padding(2);
             this.btnIslemKaydet.Name = "btnIslemKaydet";
             this.btnIslemKaydet.Size = new System.Drawing.Size(106, 24);
@@ -270,10 +311,10 @@
             // 
             // btnIade
             // 
-            this.btnIade.Location = new System.Drawing.Point(307, 436);
+            this.btnIade.Location = new System.Drawing.Point(557, 377);
             this.btnIade.Margin = new System.Windows.Forms.Padding(2);
             this.btnIade.Name = "btnIade";
-            this.btnIade.Size = new System.Drawing.Size(81, 24);
+            this.btnIade.Size = new System.Drawing.Size(105, 80);
             this.btnIade.TabIndex = 151;
             this.btnIade.Text = "İade İşlemleri";
             this.btnIade.UseVisualStyleBackColor = true;
@@ -303,11 +344,12 @@
             this.rbtnKrediKarti.Location = new System.Drawing.Point(407, 341);
             this.rbtnKrediKarti.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnKrediKarti.Name = "rbtnKrediKarti";
-            this.rbtnKrediKarti.Size = new System.Drawing.Size(73, 17);
+            this.rbtnKrediKarti.Size = new System.Drawing.Size(89, 17);
             this.rbtnKrediKarti.TabIndex = 148;
             this.rbtnKrediKarti.TabStop = true;
-            this.rbtnKrediKarti.Text = "Kredi Kartı";
+            this.rbtnKrediKarti.Text = "Kartla Ödeme";
             this.rbtnKrediKarti.UseVisualStyleBackColor = true;
+            this.rbtnKrediKarti.CheckedChanged += new System.EventHandler(this.rbtnKrediKarti_CheckedChanged);
             // 
             // rbtnNakit
             // 
@@ -320,14 +362,16 @@
             this.rbtnNakit.TabStop = true;
             this.rbtnNakit.Text = "Nakit";
             this.rbtnNakit.UseVisualStyleBackColor = true;
+            this.rbtnNakit.CheckedChanged += new System.EventHandler(this.rbtnNakit_CheckedChanged);
             // 
-            // textBox2
+            // txtNakit
             // 
-            this.textBox2.Location = new System.Drawing.Point(377, 372);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 146;
+            this.txtNakit.Location = new System.Drawing.Point(377, 372);
+            this.txtNakit.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNakit.Name = "txtNakit";
+            this.txtNakit.Size = new System.Drawing.Size(121, 20);
+            this.txtNakit.TabIndex = 146;
+            this.txtNakit.TextChanged += new System.EventHandler(this.txtNakit_TextChanged);
             // 
             // lblNakitGiris
             // 
@@ -341,13 +385,15 @@
             // 
             // txtToplamTutar
             // 
+            this.txtToplamTutar.Font = new System.Drawing.Font("Microsoft Sans Serif", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtToplamTutar.Location = new System.Drawing.Point(377, 280);
             this.txtToplamTutar.Margin = new System.Windows.Forms.Padding(2);
             this.txtToplamTutar.Multiline = true;
             this.txtToplamTutar.Name = "txtToplamTutar";
             this.txtToplamTutar.ReadOnly = true;
             this.txtToplamTutar.Size = new System.Drawing.Size(122, 46);
-            this.txtToplamTutar.TabIndex = 144;
+            this.txtToplamTutar.TabIndex = 154;
+            this.txtToplamTutar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblToplamTutar
             // 
@@ -371,12 +417,70 @@
             // 
             // btnSTemizle
             // 
-            this.btnSTemizle.Location = new System.Drawing.Point(618, 260);
+            this.btnSTemizle.Location = new System.Drawing.Point(557, 289);
             this.btnSTemizle.Name = "btnSTemizle";
             this.btnSTemizle.Size = new System.Drawing.Size(105, 23);
-            this.btnSTemizle.TabIndex = 154;
+            this.btnSTemizle.TabIndex = 144;
             this.btnSTemizle.Text = "Sepeti Temizle";
             this.btnSTemizle.UseVisualStyleBackColor = true;
+            this.btnSTemizle.Click += new System.EventHandler(this.btnSTemizle_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(261, 203);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(13, 13);
+            this.label3.TabIndex = 155;
+            this.label3.Text = "₺";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(261, 150);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 13);
+            this.label4.TabIndex = 156;
+            this.label4.Text = "₺";
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(504, 280);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 46);
+            this.label5.TabIndex = 157;
+            this.label5.Text = "₺";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(498, 375);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(13, 13);
+            this.label6.TabIndex = 158;
+            this.label6.Text = "₺";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(499, 403);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.TabIndex = 159;
+            this.label7.Text = "₺";
+            // 
+            // btnParaUstuHesapla
+            // 
+            this.btnParaUstuHesapla.Location = new System.Drawing.Point(511, 370);
+            this.btnParaUstuHesapla.Margin = new System.Windows.Forms.Padding(2);
+            this.btnParaUstuHesapla.Name = "btnParaUstuHesapla";
+            this.btnParaUstuHesapla.Size = new System.Drawing.Size(15, 24);
+            this.btnParaUstuHesapla.TabIndex = 160;
+            this.btnParaUstuHesapla.Text = "H";
+            this.btnParaUstuHesapla.UseVisualStyleBackColor = true;
+            this.btnParaUstuHesapla.Click += new System.EventHandler(this.btnParaUstuHesapla_Click);
             // 
             // formKapatici1
             // 
@@ -392,6 +496,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 502);
+            this.Controls.Add(this.btnParaUstuHesapla);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSTemizle);
             this.Controls.Add(this.btnBul);
             this.Controls.Add(this.btnIslemKaydet);
@@ -400,7 +510,7 @@
             this.Controls.Add(this.lblParaUstu);
             this.Controls.Add(this.rbtnKrediKarti);
             this.Controls.Add(this.rbtnNakit);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNakit);
             this.Controls.Add(this.lblNakitGiris);
             this.Controls.Add(this.txtToplamTutar);
             this.Controls.Add(this.lblToplamTutar);
@@ -461,11 +571,21 @@
         private System.Windows.Forms.Label lblParaUstu;
         private System.Windows.Forms.RadioButton rbtnKrediKarti;
         private System.Windows.Forms.RadioButton rbtnNakit;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNakit;
         private System.Windows.Forms.Label lblNakitGiris;
         private System.Windows.Forms.TextBox txtToplamTutar;
         private System.Windows.Forms.Label lblToplamTutar;
         private System.Windows.Forms.Button btnBul;
         private System.Windows.Forms.Button btnSTemizle;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnParaUstuHesapla;
     }
 }
