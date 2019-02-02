@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnTemizle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSKaldir = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSepeteEkle = new System.Windows.Forms.Button();
             this.btnUrunSec = new System.Windows.Forms.Button();
             this.lvAlisverisSepeti = new System.Windows.Forms.ListView();
             this.txtTutar = new System.Windows.Forms.TextBox();
@@ -44,7 +43,7 @@
             this.lblMiktar = new System.Windows.Forms.Label();
             this.lblFiyat = new System.Windows.Forms.Label();
             this.lblTutar = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUrunAdi = new System.Windows.Forms.TextBox();
             this.lblUrun = new System.Windows.Forms.Label();
             this.txtBarkod = new System.Windows.Forms.TextBox();
             this.lblBarkot = new System.Windows.Forms.Label();
@@ -58,15 +57,10 @@
             this.lblNakitGiris = new System.Windows.Forms.Label();
             this.txtToplamTutar = new System.Windows.Forms.TextBox();
             this.lblToplamTutar = new System.Windows.Forms.Label();
+            this.btnBul = new System.Windows.Forms.Button();
+            this.btnSTemizle = new System.Windows.Forms.Button();
+            this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.SuspendLayout();
-            // 
-            // formKapatici1
-            // 
-            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
-            this.formKapatici1.Name = "formKapatici1";
-            this.formKapatici1.Size = new System.Drawing.Size(800, 29);
-            this.formKapatici1.TabIndex = 0;
             // 
             // label2
             // 
@@ -79,15 +73,17 @@
             this.label2.Text = "SATIŞ EKRANI";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // btnTemizle
             // 
-            this.button2.Location = new System.Drawing.Point(67, 233);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 24);
-            this.button2.TabIndex = 142;
-            this.button2.Text = "Temizle";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTemizle.Location = new System.Drawing.Point(67, 233);
+            this.btnTemizle.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(85, 24);
+            this.btnTemizle.TabIndex = 4;
+            this.btnTemizle.TabStop = false;
+            this.btnTemizle.Text = "Temizle";
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // label1
             // 
@@ -101,29 +97,30 @@
             // 
             // btnSKaldir
             // 
-            this.btnSKaldir.Location = new System.Drawing.Point(617, 261);
+            this.btnSKaldir.Location = new System.Drawing.Point(507, 260);
             this.btnSKaldir.Name = "btnSKaldir";
             this.btnSKaldir.Size = new System.Drawing.Size(105, 23);
             this.btnSKaldir.TabIndex = 140;
             this.btnSKaldir.Text = "Sepetten Çıkar";
             this.btnSKaldir.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnSepeteEkle
             // 
-            this.button1.Location = new System.Drawing.Point(174, 233);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 24);
-            this.button1.TabIndex = 139;
-            this.button1.Text = "Sepete Ekle";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSepeteEkle.Location = new System.Drawing.Point(174, 233);
+            this.btnSepeteEkle.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSepeteEkle.Name = "btnSepeteEkle";
+            this.btnSepeteEkle.Size = new System.Drawing.Size(87, 24);
+            this.btnSepeteEkle.TabIndex = 4;
+            this.btnSepeteEkle.Text = "Sepete Ekle";
+            this.btnSepeteEkle.UseVisualStyleBackColor = true;
+            this.btnSepeteEkle.Click += new System.EventHandler(this.btnSepeteEkle_Click);
             // 
             // btnUrunSec
             // 
-            this.btnUrunSec.Location = new System.Drawing.Point(153, 94);
+            this.btnUrunSec.Location = new System.Drawing.Point(129, 95);
             this.btnUrunSec.Name = "btnUrunSec";
             this.btnUrunSec.Size = new System.Drawing.Size(92, 23);
-            this.btnUrunSec.TabIndex = 138;
+            this.btnUrunSec.TabIndex = 2;
             this.btnUrunSec.Text = "Ürün Bul";
             this.btnUrunSec.UseVisualStyleBackColor = true;
             // 
@@ -139,55 +136,63 @@
             // 
             // txtTutar
             // 
-            this.txtTutar.Location = new System.Drawing.Point(166, 199);
+            this.txtTutar.Location = new System.Drawing.Point(129, 199);
             this.txtTutar.Margin = new System.Windows.Forms.Padding(2);
             this.txtTutar.Name = "txtTutar";
             this.txtTutar.ReadOnly = true;
-            this.txtTutar.Size = new System.Drawing.Size(72, 20);
+            this.txtTutar.Size = new System.Drawing.Size(132, 20);
             this.txtTutar.TabIndex = 136;
+            this.txtTutar.TabStop = false;
+            this.txtTutar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtFiyat
             // 
-            this.txtFiyat.Location = new System.Drawing.Point(153, 146);
+            this.txtFiyat.Location = new System.Drawing.Point(129, 146);
             this.txtFiyat.Margin = new System.Windows.Forms.Padding(2);
             this.txtFiyat.Name = "txtFiyat";
             this.txtFiyat.ReadOnly = true;
-            this.txtFiyat.Size = new System.Drawing.Size(96, 20);
+            this.txtFiyat.Size = new System.Drawing.Size(132, 20);
             this.txtFiyat.TabIndex = 135;
+            this.txtFiyat.TabStop = false;
+            this.txtFiyat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtMiktar
             // 
-            this.txtMiktar.Location = new System.Drawing.Point(166, 174);
+            this.txtMiktar.Location = new System.Drawing.Point(154, 174);
             this.txtMiktar.Margin = new System.Windows.Forms.Padding(2);
             this.txtMiktar.Name = "txtMiktar";
-            this.txtMiktar.Size = new System.Drawing.Size(72, 20);
-            this.txtMiktar.TabIndex = 134;
+            this.txtMiktar.Size = new System.Drawing.Size(81, 20);
+            this.txtMiktar.TabIndex = 3;
             this.txtMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMiktar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtMiktar_MouseClick);
+            this.txtMiktar.TextChanged += new System.EventHandler(this.txtMiktar_TextChanged);
             // 
             // btnArttır
             // 
-            this.btnArttır.Location = new System.Drawing.Point(246, 174);
+            this.btnArttır.Location = new System.Drawing.Point(239, 174);
             this.btnArttır.Margin = new System.Windows.Forms.Padding(2);
             this.btnArttır.Name = "btnArttır";
             this.btnArttır.Size = new System.Drawing.Size(22, 18);
             this.btnArttır.TabIndex = 133;
             this.btnArttır.Text = "+";
             this.btnArttır.UseVisualStyleBackColor = true;
+            this.btnArttır.Click += new System.EventHandler(this.btnArttır_Click);
             // 
             // btnEksilt
             // 
-            this.btnEksilt.Location = new System.Drawing.Point(140, 174);
+            this.btnEksilt.Location = new System.Drawing.Point(129, 174);
             this.btnEksilt.Margin = new System.Windows.Forms.Padding(2);
             this.btnEksilt.Name = "btnEksilt";
             this.btnEksilt.Size = new System.Drawing.Size(21, 18);
             this.btnEksilt.TabIndex = 132;
             this.btnEksilt.Text = "-";
             this.btnEksilt.UseVisualStyleBackColor = true;
+            this.btnEksilt.Click += new System.EventHandler(this.btnEksilt_Click);
             // 
             // lblMiktar
             // 
             this.lblMiktar.AutoSize = true;
-            this.lblMiktar.Location = new System.Drawing.Point(92, 174);
+            this.lblMiktar.Location = new System.Drawing.Point(68, 174);
             this.lblMiktar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMiktar.Name = "lblMiktar";
             this.lblMiktar.Size = new System.Drawing.Size(36, 13);
@@ -197,7 +202,7 @@
             // lblFiyat
             // 
             this.lblFiyat.AutoSize = true;
-            this.lblFiyat.Location = new System.Drawing.Point(92, 146);
+            this.lblFiyat.Location = new System.Drawing.Point(68, 146);
             this.lblFiyat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFiyat.Name = "lblFiyat";
             this.lblFiyat.Size = new System.Drawing.Size(29, 13);
@@ -207,26 +212,27 @@
             // lblTutar
             // 
             this.lblTutar.AutoSize = true;
-            this.lblTutar.Location = new System.Drawing.Point(92, 199);
+            this.lblTutar.Location = new System.Drawing.Point(68, 199);
             this.lblTutar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTutar.Name = "lblTutar";
             this.lblTutar.Size = new System.Drawing.Size(32, 13);
             this.lblTutar.TabIndex = 129;
             this.lblTutar.Text = "Tutar";
             // 
-            // textBox1
+            // txtUrunAdi
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 122);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(96, 20);
-            this.textBox1.TabIndex = 128;
+            this.txtUrunAdi.Location = new System.Drawing.Point(129, 122);
+            this.txtUrunAdi.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUrunAdi.Name = "txtUrunAdi";
+            this.txtUrunAdi.ReadOnly = true;
+            this.txtUrunAdi.Size = new System.Drawing.Size(132, 20);
+            this.txtUrunAdi.TabIndex = 128;
+            this.txtUrunAdi.TabStop = false;
             // 
             // lblUrun
             // 
             this.lblUrun.AutoSize = true;
-            this.lblUrun.Location = new System.Drawing.Point(92, 126);
+            this.lblUrun.Location = new System.Drawing.Point(68, 126);
             this.lblUrun.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUrun.Name = "lblUrun";
             this.lblUrun.Size = new System.Drawing.Size(48, 13);
@@ -235,16 +241,16 @@
             // 
             // txtBarkod
             // 
-            this.txtBarkod.Location = new System.Drawing.Point(153, 72);
+            this.txtBarkod.Location = new System.Drawing.Point(129, 72);
             this.txtBarkod.Margin = new System.Windows.Forms.Padding(2);
             this.txtBarkod.Name = "txtBarkod";
             this.txtBarkod.Size = new System.Drawing.Size(96, 20);
-            this.txtBarkod.TabIndex = 126;
+            this.txtBarkod.TabIndex = 0;
             // 
             // lblBarkot
             // 
             this.lblBarkot.AutoSize = true;
-            this.lblBarkot.Location = new System.Drawing.Point(92, 75);
+            this.lblBarkot.Location = new System.Drawing.Point(68, 75);
             this.lblBarkot.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBarkot.Name = "lblBarkot";
             this.lblBarkot.Size = new System.Drawing.Size(58, 13);
@@ -253,7 +259,7 @@
             // 
             // btnIslemKaydet
             // 
-            this.btnIslemKaydet.Location = new System.Drawing.Point(392, 457);
+            this.btnIslemKaydet.Location = new System.Drawing.Point(392, 436);
             this.btnIslemKaydet.Margin = new System.Windows.Forms.Padding(2);
             this.btnIslemKaydet.Name = "btnIslemKaydet";
             this.btnIslemKaydet.Size = new System.Drawing.Size(106, 24);
@@ -263,17 +269,17 @@
             // 
             // btnIade
             // 
-            this.btnIade.Location = new System.Drawing.Point(449, 360);
+            this.btnIade.Location = new System.Drawing.Point(307, 436);
             this.btnIade.Margin = new System.Windows.Forms.Padding(2);
             this.btnIade.Name = "btnIade";
-            this.btnIade.Size = new System.Drawing.Size(50, 24);
+            this.btnIade.Size = new System.Drawing.Size(81, 24);
             this.btnIade.TabIndex = 151;
-            this.btnIade.Text = "İade";
+            this.btnIade.Text = "İade İşlemleri";
             this.btnIade.UseVisualStyleBackColor = true;
             // 
             // txtParaUstu
             // 
-            this.txtParaUstu.Location = new System.Drawing.Point(377, 421);
+            this.txtParaUstu.Location = new System.Drawing.Point(377, 400);
             this.txtParaUstu.Margin = new System.Windows.Forms.Padding(2);
             this.txtParaUstu.Name = "txtParaUstu";
             this.txtParaUstu.ReadOnly = true;
@@ -283,7 +289,7 @@
             // lblParaUstu
             // 
             this.lblParaUstu.AutoSize = true;
-            this.lblParaUstu.Location = new System.Drawing.Point(305, 426);
+            this.lblParaUstu.Location = new System.Drawing.Point(305, 405);
             this.lblParaUstu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblParaUstu.Name = "lblParaUstu";
             this.lblParaUstu.Size = new System.Drawing.Size(54, 13);
@@ -293,7 +299,7 @@
             // rbtnKrediKarti
             // 
             this.rbtnKrediKarti.AutoSize = true;
-            this.rbtnKrediKarti.Location = new System.Drawing.Point(372, 362);
+            this.rbtnKrediKarti.Location = new System.Drawing.Point(407, 341);
             this.rbtnKrediKarti.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnKrediKarti.Name = "rbtnKrediKarti";
             this.rbtnKrediKarti.Size = new System.Drawing.Size(73, 17);
@@ -305,7 +311,7 @@
             // rbtnNakit
             // 
             this.rbtnNakit.AutoSize = true;
-            this.rbtnNakit.Location = new System.Drawing.Point(307, 362);
+            this.rbtnNakit.Location = new System.Drawing.Point(342, 341);
             this.rbtnNakit.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnNakit.Name = "rbtnNakit";
             this.rbtnNakit.Size = new System.Drawing.Size(50, 17);
@@ -316,7 +322,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(377, 393);
+            this.textBox2.Location = new System.Drawing.Point(377, 372);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(121, 20);
@@ -325,7 +331,7 @@
             // lblNakitGiris
             // 
             this.lblNakitGiris.AutoSize = true;
-            this.lblNakitGiris.Location = new System.Drawing.Point(305, 398);
+            this.lblNakitGiris.Location = new System.Drawing.Point(305, 377);
             this.lblNakitGiris.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNakitGiris.Name = "lblNakitGiris";
             this.lblNakitGiris.Size = new System.Drawing.Size(55, 13);
@@ -352,11 +358,41 @@
             this.lblToplamTutar.TabIndex = 143;
             this.lblToplamTutar.Text = "Toplam Tutar";
             // 
+            // btnBul
+            // 
+            this.btnBul.Location = new System.Drawing.Point(229, 71);
+            this.btnBul.Name = "btnBul";
+            this.btnBul.Size = new System.Drawing.Size(40, 22);
+            this.btnBul.TabIndex = 1;
+            this.btnBul.Text = "Bul";
+            this.btnBul.UseVisualStyleBackColor = true;
+            this.btnBul.Click += new System.EventHandler(this.btnBul_Click);
+            // 
+            // btnSTemizle
+            // 
+            this.btnSTemizle.Location = new System.Drawing.Point(618, 260);
+            this.btnSTemizle.Name = "btnSTemizle";
+            this.btnSTemizle.Size = new System.Drawing.Size(105, 23);
+            this.btnSTemizle.TabIndex = 154;
+            this.btnSTemizle.Text = "Sepeti Temizle";
+            this.btnSTemizle.UseVisualStyleBackColor = true;
+            // 
+            // formKapatici1
+            // 
+            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
+            this.formKapatici1.Name = "formKapatici1";
+            this.formKapatici1.Size = new System.Drawing.Size(800, 29);
+            this.formKapatici1.TabIndex = 0;
+            this.formKapatici1.TabStop = false;
+            // 
             // frmSatisEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 502);
+            this.Controls.Add(this.btnSTemizle);
+            this.Controls.Add(this.btnBul);
             this.Controls.Add(this.btnIslemKaydet);
             this.Controls.Add(this.btnIade);
             this.Controls.Add(this.txtParaUstu);
@@ -367,10 +403,10 @@
             this.Controls.Add(this.lblNakitGiris);
             this.Controls.Add(this.txtToplamTutar);
             this.Controls.Add(this.lblToplamTutar);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnTemizle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSKaldir);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSepeteEkle);
             this.Controls.Add(this.btnUrunSec);
             this.Controls.Add(this.lvAlisverisSepeti);
             this.Controls.Add(this.txtTutar);
@@ -381,7 +417,7 @@
             this.Controls.Add(this.lblMiktar);
             this.Controls.Add(this.lblFiyat);
             this.Controls.Add(this.lblTutar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtUrunAdi);
             this.Controls.Add(this.lblUrun);
             this.Controls.Add(this.txtBarkod);
             this.Controls.Add(this.lblBarkot);
@@ -390,6 +426,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSatisEkrani";
             this.Text = "frmSatisEkrani";
+            this.Load += new System.EventHandler(this.frmSatisEkrani_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,10 +436,10 @@
 
         private FormKapatici formKapatici1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTemizle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSKaldir;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSepeteEkle;
         private System.Windows.Forms.Button btnUrunSec;
         private System.Windows.Forms.ListView lvAlisverisSepeti;
         private System.Windows.Forms.TextBox txtTutar;
@@ -413,7 +450,7 @@
         private System.Windows.Forms.Label lblMiktar;
         private System.Windows.Forms.Label lblFiyat;
         private System.Windows.Forms.Label lblTutar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUrunAdi;
         private System.Windows.Forms.Label lblUrun;
         private System.Windows.Forms.TextBox txtBarkod;
         private System.Windows.Forms.Label lblBarkot;
@@ -427,5 +464,7 @@
         private System.Windows.Forms.Label lblNakitGiris;
         private System.Windows.Forms.TextBox txtToplamTutar;
         private System.Windows.Forms.Label lblToplamTutar;
+        private System.Windows.Forms.Button btnBul;
+        private System.Windows.Forms.Button btnSTemizle;
     }
 }
