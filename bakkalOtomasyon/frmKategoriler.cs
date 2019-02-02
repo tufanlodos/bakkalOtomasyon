@@ -86,11 +86,13 @@ namespace PL.Bakkal
             }
             if (ID > 0)
             {
-                this.AcceptButton = btnSil;
-                btnSil.Enabled = true;
-                btnYeni.Enabled = false;
-                btnGuncelle.Enabled = false;
+                if (!btnGuncelle.Enabled)
+                {
+                    btnSil.Enabled = true;
+                }
                 btnVazgec.Visible = true;
+                btnYeni.Enabled = false;
+                this.AcceptButton = btnSil;
             }
             if (SecilenSatir >= 0)
             {
