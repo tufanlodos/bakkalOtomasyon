@@ -65,5 +65,11 @@ namespace PL.Bakkal
             frmKategoriler frm = new frmKategoriler();
             FormAc(frm);
         }
+
+        private void btnSatis_Click(object sender, EventArgs e)
+        {
+            frmSatisEkrani frm = new frmSatisEkrani();
+            FormAc(frm);
+        }
     }
 }
