@@ -71,6 +71,12 @@
     <Compile Include="FormKapatici.Designer.cs">
       <DependentUpon>FormKapatici.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIade.Designer.cs">
+      <DependentUpon>frmIade.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmKategoriEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKapatici.resx">
       <DependentUpon>FormKapatici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIade.resx">
+      <DependentUpon>frmIade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKategoriEkle.resx">
       <DependentUpon>frmKategoriEkle.cs</DependentUpon>
