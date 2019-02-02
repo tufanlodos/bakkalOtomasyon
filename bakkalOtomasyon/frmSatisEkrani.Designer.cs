@@ -123,6 +123,7 @@
             this.btnUrunSec.TabIndex = 2;
             this.btnUrunSec.Text = "Ürün Bul";
             this.btnUrunSec.UseVisualStyleBackColor = true;
+            this.btnUrunSec.Click += new System.EventHandler(this.btnUrunSec_Click);
             // 
             // lvAlisverisSepeti
             // 

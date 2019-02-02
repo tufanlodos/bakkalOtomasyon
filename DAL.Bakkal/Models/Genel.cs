@@ -8,6 +8,7 @@ namespace DAL.Bakkal.Models
 {
     public static class Genel
     {
-        public static string UrunAdi; 
+        public static string UrunAdi;
+        public static bool SecimYapildi;
     }
 }

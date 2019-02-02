@@ -1,5 +1,6 @@
 ﻿using BLL.Bakkal.Repositories;
 using DAL.Bakkal.DataModel;
+using DAL.Bakkal.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,6 +48,7 @@ namespace PL.Bakkal
                     btnArttır.Enabled = true;
                     btnEksilt.Enabled = true;
                     txtMiktar.ReadOnly = false;
+                    btnUrunSec.Enabled = false;
                     this.AcceptButton = btnSepeteEkle;
 
                 }
@@ -107,6 +109,7 @@ namespace PL.Bakkal
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             txtBarkod.Text = string.Empty;
+            txtBarkod.ReadOnly = false;
             txtUrunAdi.Text = string.Empty;
             txtFiyat.Text = string.Empty;
             txtTutar.Text = string.Empty;
@@ -116,7 +119,32 @@ namespace PL.Bakkal
             btnArttır.Enabled = false;
             btnEksilt.Enabled = false;
             txtMiktar.ReadOnly = true;
+            btnUrunSec.Enabled = true;
+            Genel.UrunAdi = "";
+            Genel.SecimYapildi = false;
             txtBarkod.Focus();
+            
+        }
+
+        private void btnUrunSec_Click(object sender, EventArgs e)
+        {
+            frmUrunBul frm = new frmUrunBul();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+            if (Genel.SecimYapildi)
+            {
+                Urunler u = sr.AdaGoreUrunBul(Genel.UrunAdi);
+                txtBarkod.Text = "";
+                txtBarkod.ReadOnly = true;
+                txtUrunAdi.Text = u.UrunAdi;
+                txtFiyat.Text = u.SatisFiyat.ToString();
+                decimal TopTutar = Miktar * u.SatisFiyat;
+                txtTutar.Text = TopTutar.ToString("c");
+                btnArttır.Enabled = true;
+                btnEksilt.Enabled = true;
+                txtMiktar.ReadOnly = false;
+                this.AcceptButton = btnSepeteEkle;
+            }
         }
 
         private void txtMiktar_TextChanged(object sender, EventArgs e)

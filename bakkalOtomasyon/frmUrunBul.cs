@@ -55,6 +55,7 @@ namespace PL.Bakkal
         {
             Button button = sender as Button;
             Genel.UrunAdi = button.Text;
+            Genel.SecimYapildi = true;
             this.Close();
         }
     }

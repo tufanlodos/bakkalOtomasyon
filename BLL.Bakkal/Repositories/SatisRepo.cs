@@ -14,6 +14,10 @@ namespace BLL.Bakkal.Repositories
         {
             return ent.Urunlers.Where(u => u.UrunKodu == UrunKod).FirstOrDefault();
         }
+        public Urunler AdaGoreUrunBul(string UrunAd)
+        {
+            return ent.Urunlers.Where(u => u.UrunAdi == UrunAd).FirstOrDefault();
+        }
         public List<Urunler> UrunleriGetir()
         {
             return ent.Urunlers.ToList();
