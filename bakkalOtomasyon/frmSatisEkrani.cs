@@ -218,6 +218,7 @@ namespace PL.Bakkal
                 txtNakit.Enabled = false;
                 txtParaUstu.Enabled = false;
                 btnParaUstuHesapla.Enabled = false;
+                this.AcceptButton = btnIslemKaydet;
             }
         }
 
@@ -266,6 +267,46 @@ namespace PL.Bakkal
                 }
             }
             this.AcceptButton = btnParaUstuHesapla;
+        }
+
+        private void btnIslemKaydet_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToDecimal(txtToplamTutar.Text) > 0)
+            {
+                Satis sat = new Satis();
+                sat.ToplamTutar = Convert.ToDecimal(txtToplamTutar.Text);
+                if (rbtnNakit.Checked)
+                {
+                    sat.OdemeTipi = "Nakit";
+                }
+                if (rbtnKrediKarti.Checked)
+                {
+                    sat.OdemeTipi = "Kart";
+                }
+                if (sr.SatislaraEkle(sat))
+                {
+                    for (int i = 0; i < lvAlisverisSepeti.Items.Count; i++)
+                    {
+                        SatisDetay sd = new SatisDetay();
+                        sd.IslemId = sr.SonSatisIdBul();
+                        sd.UrunId = sr.UrunIdBul(lvAlisverisSepeti.Items[i].Text);
+                        sd.Adet = Convert.ToInt32(lvAlisverisSepeti.Items[i].SubItems[1].Text);
+                        sd.BirimFiyat = Convert.ToDecimal(lvAlisverisSepeti.Items[i].SubItems[2].Text);
+                        sd.ToplamTutar = Convert.ToDecimal(lvAlisverisSepeti.Items[i].SubItems[3].Text);
+                        sr.SatisDetayaEkle(sd);
+                    }
+                    MessageBox.Show("İşlemler başarıyla kaydedildi","Başarılı işlem",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    btnSTemizle.PerformClick();
+                    btnTemizle.PerformClick();
+                }
+                else
+                    MessageBox.Show("Bazı sıkıntılar var..");
+            }
+            else
+            { 
+                MessageBox.Show("Kaydedilecek işlem bulunamadı", "Boş sepet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnTemizle.PerformClick();
+            }
         }
 
         private void txtMiktar_TextChanged(object sender, EventArgs e)

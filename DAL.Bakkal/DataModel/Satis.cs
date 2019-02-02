@@ -26,6 +26,11 @@ namespace DAL.Bakkal.DataModel
         //Relation
         public virtual List<SatisDetay> SatisDetay { get; set; }
 
+        public Satis()
+        {
+            Silindi = false;
+            IslemTarihi = DateTime.Now;
+        }
 
 
     }

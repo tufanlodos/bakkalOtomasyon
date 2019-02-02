@@ -308,6 +308,7 @@
             this.btnIslemKaydet.TabIndex = 152;
             this.btnIslemKaydet.Text = "İşlem Kaydet";
             this.btnIslemKaydet.UseVisualStyleBackColor = true;
+            this.btnIslemKaydet.Click += new System.EventHandler(this.btnIslemKaydet_Click);
             // 
             // btnIade
             // 
