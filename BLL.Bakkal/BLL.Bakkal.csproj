@@ -51,9 +51,11 @@
     <Compile Include="Repositories\IKategoriRepository.cs" />
     <Compile Include="Repositories\IMasrafRepository.cs" />
     <Compile Include="Repositories\ISiparisRepository.cs" />
+    <Compile Include="Repositories\ITedarikEkraniRepository.cs" />
     <Compile Include="Repositories\KategoriRepository.cs" />
     <Compile Include="Repositories\MasrafRepository.cs" />
     <Compile Include="Repositories\SiparisRepository.cs" />
+    <Compile Include="Repositories\TedarikEkraniRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL.Bakkal\DAL.Bakkal.csproj">
