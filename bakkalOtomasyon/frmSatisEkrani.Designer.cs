@@ -152,12 +152,13 @@
             this.lvAlisverisSepeti.TabIndex = 137;
             this.lvAlisverisSepeti.UseCompatibleStateImageBehavior = false;
             this.lvAlisverisSepeti.View = System.Windows.Forms.View.Details;
+            this.lvAlisverisSepeti.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvAlisverisSepeti_ColumnWidthChanging);
             this.lvAlisverisSepeti.SelectedIndexChanged += new System.EventHandler(this.lvAlisverisSepeti_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Ürün Adı";
-            this.columnHeader1.Width = 120;
+            this.columnHeader1.Width = 126;
             // 
             // columnHeader2
             // 

@@ -309,6 +309,12 @@ namespace PL.Bakkal
             }
         }
 
+        private void lvAlisverisSepeti_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.Cancel = true;
+            e.NewWidth = lvAlisverisSepeti.Columns[e.ColumnIndex].Width;
+        }
+
         private void txtMiktar_TextChanged(object sender, EventArgs e)
         {
             if (IlkAcilis >= 1)
