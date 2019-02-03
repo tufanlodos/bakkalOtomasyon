@@ -23,13 +23,7 @@ namespace BLL.Bakkal.Repositories
                           select p).Count();
             return Convert.ToBoolean(Sayisi);
         }
-        public bool GuncellemeUrunKontrol(Urunler degisen)
-        {
-            var Urun = ent.Urunlers.Where(p => p.UrunAdi == degisen.UrunAdi && p.KategoriId == degisen.KategoriId && p.Id != degisen.Id).FirstOrDefault();
-            if (Urun != null)
-                return true;
-            return false;
-        }
+
         public Urunler UrunGetirByID(int ID)
         {
             Urunler degisen = ent.Urunlers.Where(p => p.Id == ID && p.Silindi == false).FirstOrDefault();
@@ -243,6 +237,10 @@ namespace BLL.Bakkal.Repositories
         public bool KritikVarMi()
         {
             return Convert.ToBoolean(ent.Urunlers.Where(u => u.StokMiktari < 20).Count());
+        }
+        public List<Urunler> KritikUrunleriGetir()
+        {
+            return ent.Urunlers.Where(u => u.StokMiktari < 20 && u.Silindi == false).ToList();
         }
     }
 }

@@ -14,7 +14,6 @@ namespace BLL.Bakkal.Repositories
         List<Urunler> UrunGetirByKategoriAdi(string kAdi);
         List<Urunler> UrunGetirByMarka(string UrunMarkasi);
         bool UrunKontrol(Urunler yeni);
-        bool GuncellemeUrunKontrol(Urunler degisen);
         Urunler UrunGetirByID(int ID);
         bool UrunEkle(Urunler p);
         bool UrunGuncelle();
@@ -27,6 +26,7 @@ namespace BLL.Bakkal.Repositories
         //List<Urunler> UrunSiralaByAlisFiyati(string nece);
         void ContextteBekleyenleriTemizle();
         bool KritikVarMi();
+        List<Urunler> KritikUrunleriGetir();
 
     }
 }

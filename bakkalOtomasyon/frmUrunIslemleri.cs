@@ -220,7 +220,12 @@ namespace PL.Bakkal
             }
         }
 
-        
+        private void btnKritikGoruntule_Click(object sender, EventArgs e)
+        {
+            frmKritikStok frm = new frmKritikStok();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+        }
 
         private void cbKategoriSec_SelectedIndexChanged(object sender, EventArgs e)
         {

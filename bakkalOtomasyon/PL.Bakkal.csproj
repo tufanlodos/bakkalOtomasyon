@@ -83,6 +83,12 @@
     <Compile Include="frmAnasayfa.Designer.cs">
       <DependentUpon>frmAnasayfa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKritikStok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKritikStok.Designer.cs">
+      <DependentUpon>frmKritikStok.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMasrafEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAnasayfa.resx">
       <DependentUpon>frmAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKritikStok.resx">
+      <DependentUpon>frmKritikStok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMasrafEkle.resx">
       <DependentUpon>frmMasrafEkle.cs</DependentUpon>

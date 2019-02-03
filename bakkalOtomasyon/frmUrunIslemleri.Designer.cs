@@ -40,9 +40,9 @@
             this.cbSiralama = new System.Windows.Forms.ComboBox();
             this.dgvUrunler = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.lblKritik = new System.Windows.Forms.Label();
             this.btnKritikGoruntule = new System.Windows.Forms.Button();
+            this.formKapatici1 = new PL.Bakkal.FormKapatici();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,14 +174,6 @@
             this.label2.Text = "ÜRÜN İŞLEMLERİ EKRANI";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // formKapatici1
-            // 
-            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
-            this.formKapatici1.Name = "formKapatici1";
-            this.formKapatici1.Size = new System.Drawing.Size(748, 29);
-            this.formKapatici1.TabIndex = 127;
-            // 
             // lblKritik
             // 
             this.lblKritik.AutoSize = true;
@@ -203,6 +195,15 @@
             this.btnKritikGoruntule.Text = "Görüntüle";
             this.btnKritikGoruntule.UseVisualStyleBackColor = true;
             this.btnKritikGoruntule.Visible = false;
+            this.btnKritikGoruntule.Click += new System.EventHandler(this.btnKritikGoruntule_Click);
+            // 
+            // formKapatici1
+            // 
+            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
+            this.formKapatici1.Name = "formKapatici1";
+            this.formKapatici1.Size = new System.Drawing.Size(748, 29);
+            this.formKapatici1.TabIndex = 127;
             // 
             // frmUrunIslemleri
             // 
