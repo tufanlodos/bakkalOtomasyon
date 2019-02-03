@@ -59,6 +59,12 @@
     <Compile Include="FormKapatici.Designer.cs">
       <DependentUpon>FormKapatici.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBilancho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBilancho.Designer.cs">
+      <DependentUpon>frmBilancho.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </Compile>
     <EmbeddedResource Include="FormKapatici.resx">
       <DependentUpon>FormKapatici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBilancho.resx">
+      <DependentUpon>frmBilancho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIade.resx">
       <DependentUpon>frmIade.cs</DependentUpon>
