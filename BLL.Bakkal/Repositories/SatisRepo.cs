@@ -22,6 +22,16 @@ namespace BLL.Bakkal.Repositories
         {
             return ent.Urunlers.ToList();
         }
+        public void UrunSatisStokDusur(int UrunId,int Adet)
+        {
+            Urunler urn = ent.Urunlers.Where(u => u.Id == UrunId).FirstOrDefault();
+            urn.StokMiktari -= Adet;
+        }
+        public void UrunIadeStokArtir(int UrunId, int Adet)
+        {
+            Urunler urn = ent.Urunlers.Where(u => u.Id == UrunId).FirstOrDefault();
+            urn.StokMiktari += Adet;
+        }
         public bool SatislaraEkle(Satis s)
         {
             bool Sonuc = false;

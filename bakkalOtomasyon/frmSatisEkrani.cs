@@ -291,6 +291,7 @@ namespace PL.Bakkal
                         sd.IslemId = sr.SonSatisIdBul();
                         sd.UrunId = sr.UrunIdBul(lvAlisverisSepeti.Items[i].Text);
                         sd.Adet = Convert.ToInt32(lvAlisverisSepeti.Items[i].SubItems[1].Text);
+                        sr.UrunSatisStokDusur(sr.UrunIdBul(lvAlisverisSepeti.Items[i].Text), Convert.ToInt32(lvAlisverisSepeti.Items[i].SubItems[1].Text));
                         sd.BirimFiyat = Convert.ToDecimal(lvAlisverisSepeti.Items[i].SubItems[2].Text);
                         sd.ToplamTutar = Convert.ToDecimal(lvAlisverisSepeti.Items[i].SubItems[3].Text);
                         sr.SatisDetayaEkle(sd);
