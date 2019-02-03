@@ -41,9 +41,9 @@
             this.lblAdet = new System.Windows.Forms.Label();
             this.lblKategoriSecin = new System.Windows.Forms.Label();
             this.cbKategoriler = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnYeniKategori = new System.Windows.Forms.Button();
+            this.btnYeniUrun = new System.Windows.Forms.Button();
+            this.btnYeniTedarikci = new System.Windows.Forms.Button();
             this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -161,32 +161,34 @@
             this.cbKategoriler.TabIndex = 129;
             this.cbKategoriler.SelectedIndexChanged += new System.EventHandler(this.cbKategoriler_SelectedIndexChanged);
             // 
-            // button1
+            // btnYeniKategori
             // 
-            this.button1.Location = new System.Drawing.Point(413, 68);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 21);
-            this.button1.TabIndex = 138;
-            this.button1.Text = "Yeni Kategori";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnYeniKategori.Location = new System.Drawing.Point(413, 68);
+            this.btnYeniKategori.Name = "btnYeniKategori";
+            this.btnYeniKategori.Size = new System.Drawing.Size(107, 21);
+            this.btnYeniKategori.TabIndex = 138;
+            this.btnYeniKategori.Text = "Yeni Kategori";
+            this.btnYeniKategori.UseVisualStyleBackColor = true;
+            this.btnYeniKategori.Click += new System.EventHandler(this.btnYeniKategori_Click);
             // 
-            // button2
+            // btnYeniUrun
             // 
-            this.button2.Location = new System.Drawing.Point(413, 106);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 21);
-            this.button2.TabIndex = 139;
-            this.button2.Text = "Yeni Ürün";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnYeniUrun.Location = new System.Drawing.Point(413, 106);
+            this.btnYeniUrun.Name = "btnYeniUrun";
+            this.btnYeniUrun.Size = new System.Drawing.Size(107, 21);
+            this.btnYeniUrun.TabIndex = 139;
+            this.btnYeniUrun.Text = "Yeni Ürün";
+            this.btnYeniUrun.UseVisualStyleBackColor = true;
+            this.btnYeniUrun.Click += new System.EventHandler(this.btnYeniUrun_Click);
             // 
-            // button3
+            // btnYeniTedarikci
             // 
-            this.button3.Location = new System.Drawing.Point(413, 147);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 21);
-            this.button3.TabIndex = 140;
-            this.button3.Text = "Yeni Tedarikçi";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnYeniTedarikci.Location = new System.Drawing.Point(413, 147);
+            this.btnYeniTedarikci.Name = "btnYeniTedarikci";
+            this.btnYeniTedarikci.Size = new System.Drawing.Size(107, 21);
+            this.btnYeniTedarikci.TabIndex = 140;
+            this.btnYeniTedarikci.Text = "Yeni Tedarikçi";
+            this.btnYeniTedarikci.UseVisualStyleBackColor = true;
             // 
             // formKapatici1
             // 
@@ -205,9 +207,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 307);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnYeniTedarikci);
+            this.Controls.Add(this.btnYeniUrun);
+            this.Controls.Add(this.btnYeniKategori);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.lblTedarikciSecin);
             this.Controls.Add(this.cbTedarikciler);
@@ -246,9 +248,9 @@
         private System.Windows.Forms.Label lblAdet;
         private System.Windows.Forms.Label lblKategoriSecin;
         private System.Windows.Forms.ComboBox cbKategoriler;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnYeniKategori;
+        private System.Windows.Forms.Button btnYeniUrun;
+        private System.Windows.Forms.Button btnYeniTedarikci;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

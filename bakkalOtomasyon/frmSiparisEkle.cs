@@ -81,6 +81,21 @@ namespace PL.Bakkal
             TedId = secilen.Id;
         }
 
+        private void btnYeniKategori_Click(object sender, EventArgs e)
+        {
+            frmKategoriEkle frm = new frmKategoriEkle();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+            cbKategoriler.SelectedIndex = cbKategoriler.Items.Count - 1;
+        }
+
+        private void btnYeniUrun_Click(object sender, EventArgs e)
+        {
+            frmUrunEkle frm = new frmUrunEkle();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+        }
+
         private void txtAdet_TextChanged(object sender, EventArgs e)
         {
             errorProvider1.Clear();
