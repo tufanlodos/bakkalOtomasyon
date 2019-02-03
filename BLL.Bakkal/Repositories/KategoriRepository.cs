@@ -37,7 +37,7 @@ namespace BLL.Bakkal.Repositories
         }
         public bool KategoriKontrol(Kategoriler yeni)
         {
-            return Convert.ToBoolean(ent.Kategorilers.Where(k => k.KategoriAdi.ToLower() == yeni.KategoriAdi.ToLower()).ToList().Count);
+            return Convert.ToBoolean(ent.Kategorilers.Where(k => k.KategoriAdi.ToLower() == yeni.KategoriAdi.ToLower() && k.Silindi == false).ToList().Count);
         }
         public bool KategoriKontrolByKAdi(string yeni)
         {

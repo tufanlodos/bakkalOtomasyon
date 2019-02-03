@@ -32,7 +32,6 @@
             this.btnEkle = new System.Windows.Forms.Button();
             this.lblTedarikciSecin = new System.Windows.Forms.Label();
             this.lblTedarikIcinUrunSecin = new System.Windows.Forms.Label();
-            this.cbUrunMarkasi = new System.Windows.Forms.ComboBox();
             this.txtBirimSatisFiyati = new System.Windows.Forms.TextBox();
             this.lblBirimAlisFiyati = new System.Windows.Forms.Label();
             this.txtBirimAlisFiyati = new System.Windows.Forms.TextBox();
@@ -45,15 +44,16 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.txtAdet = new System.Windows.Forms.TextBox();
-            this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnYeniKategori = new System.Windows.Forms.Button();
+            this.formKapatici1 = new PL.Bakkal.FormKapatici();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEkle
             // 
             this.btnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEkle.Location = new System.Drawing.Point(161, 296);
+            this.btnEkle.Location = new System.Drawing.Point(127, 296);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(204, 29);
             this.btnEkle.TabIndex = 7;
@@ -68,31 +68,20 @@
             this.lblTedarikciSecin.Name = "lblTedarikciSecin";
             this.lblTedarikciSecin.Size = new System.Drawing.Size(48, 13);
             this.lblTedarikciSecin.TabIndex = 148;
-            this.lblTedarikciSecin.Text = "Ürün Adi";
+            this.lblTedarikciSecin.Text = "Ürün Adı";
             // 
             // lblTedarikIcinUrunSecin
             // 
             this.lblTedarikIcinUrunSecin.AutoSize = true;
             this.lblTedarikIcinUrunSecin.Location = new System.Drawing.Point(22, 116);
             this.lblTedarikIcinUrunSecin.Name = "lblTedarikIcinUrunSecin";
-            this.lblTedarikIcinUrunSecin.Size = new System.Drawing.Size(67, 13);
+            this.lblTedarikIcinUrunSecin.Size = new System.Drawing.Size(70, 13);
             this.lblTedarikIcinUrunSecin.TabIndex = 146;
-            this.lblTedarikIcinUrunSecin.Text = "ÜrünMarkası";
-            // 
-            // cbUrunMarkasi
-            // 
-            this.cbUrunMarkasi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUrunMarkasi.DropDownWidth = 120;
-            this.cbUrunMarkasi.FormattingEnabled = true;
-            this.cbUrunMarkasi.Location = new System.Drawing.Point(344, 108);
-            this.cbUrunMarkasi.Name = "cbUrunMarkasi";
-            this.cbUrunMarkasi.Size = new System.Drawing.Size(21, 21);
-            this.cbUrunMarkasi.TabIndex = 145;
-            this.cbUrunMarkasi.SelectedIndexChanged += new System.EventHandler(this.cbUrunMarkasi_SelectedIndexChanged);
+            this.lblTedarikIcinUrunSecin.Text = "Ürün Markası";
             // 
             // txtBirimSatisFiyati
             // 
-            this.txtBirimSatisFiyati.Location = new System.Drawing.Point(160, 224);
+            this.txtBirimSatisFiyati.Location = new System.Drawing.Point(126, 224);
             this.txtBirimSatisFiyati.Name = "txtBirimSatisFiyati";
             this.txtBirimSatisFiyati.Size = new System.Drawing.Size(204, 20);
             this.txtBirimSatisFiyati.TabIndex = 5;
@@ -109,7 +98,7 @@
             // 
             // txtBirimAlisFiyati
             // 
-            this.txtBirimAlisFiyati.Location = new System.Drawing.Point(160, 189);
+            this.txtBirimAlisFiyati.Location = new System.Drawing.Point(126, 189);
             this.txtBirimAlisFiyati.Name = "txtBirimAlisFiyati";
             this.txtBirimAlisFiyati.Size = new System.Drawing.Size(204, 20);
             this.txtBirimAlisFiyati.TabIndex = 4;
@@ -129,7 +118,7 @@
             this.cbKategoriAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKategoriAdi.DropDownWidth = 120;
             this.cbKategoriAdi.FormattingEnabled = true;
-            this.cbKategoriAdi.Location = new System.Drawing.Point(344, 70);
+            this.cbKategoriAdi.Location = new System.Drawing.Point(310, 70);
             this.cbKategoriAdi.Name = "cbKategoriAdi";
             this.cbKategoriAdi.Size = new System.Drawing.Size(21, 21);
             this.cbKategoriAdi.TabIndex = 140;
@@ -146,25 +135,27 @@
             // 
             // txtUrunMarkasi
             // 
-            this.txtUrunMarkasi.Location = new System.Drawing.Point(161, 109);
+            this.txtUrunMarkasi.Location = new System.Drawing.Point(127, 109);
             this.txtUrunMarkasi.Name = "txtUrunMarkasi";
-            this.txtUrunMarkasi.Size = new System.Drawing.Size(183, 20);
+            this.txtUrunMarkasi.Size = new System.Drawing.Size(203, 20);
             this.txtUrunMarkasi.TabIndex = 2;
+            this.txtUrunMarkasi.TextChanged += new System.EventHandler(this.txtUrunMarkasi_TextChanged);
             // 
             // txtUrunAdi
             // 
-            this.txtUrunAdi.Location = new System.Drawing.Point(161, 150);
+            this.txtUrunAdi.Location = new System.Drawing.Point(127, 150);
             this.txtUrunAdi.Name = "txtUrunAdi";
             this.txtUrunAdi.Size = new System.Drawing.Size(203, 20);
             this.txtUrunAdi.TabIndex = 3;
+            this.txtUrunAdi.TextChanged += new System.EventHandler(this.txtUrunAdi_TextChanged);
             // 
             // txtKategoriAdi
             // 
-            this.txtKategoriAdi.Location = new System.Drawing.Point(161, 71);
+            this.txtKategoriAdi.Location = new System.Drawing.Point(127, 71);
             this.txtKategoriAdi.Name = "txtKategoriAdi";
+            this.txtKategoriAdi.ReadOnly = true;
             this.txtKategoriAdi.Size = new System.Drawing.Size(183, 20);
             this.txtKategoriAdi.TabIndex = 1;
-            this.txtKategoriAdi.TextChanged += new System.EventHandler(this.txtKategoriAdi_TextChanged);
             // 
             // errorProvider1
             // 
@@ -181,19 +172,11 @@
             // 
             // txtAdet
             // 
-            this.txtAdet.Location = new System.Drawing.Point(161, 260);
+            this.txtAdet.Location = new System.Drawing.Point(127, 260);
             this.txtAdet.Name = "txtAdet";
             this.txtAdet.Size = new System.Drawing.Size(204, 20);
             this.txtAdet.TabIndex = 6;
             this.txtAdet.TextChanged += new System.EventHandler(this.txtAdet_TextChanged);
-            // 
-            // formKapatici1
-            // 
-            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
-            this.formKapatici1.Name = "formKapatici1";
-            this.formKapatici1.Size = new System.Drawing.Size(391, 29);
-            this.formKapatici1.TabIndex = 149;
             // 
             // label3
             // 
@@ -201,22 +184,41 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.Location = new System.Drawing.Point(0, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(391, 13);
+            this.label3.Size = new System.Drawing.Size(443, 13);
             this.label3.TabIndex = 150;
             this.label3.Text = "ÜRÜN EKLEME EKRANI";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnYeniKategori
+            // 
+            this.btnYeniKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnYeniKategori.Location = new System.Drawing.Point(337, 67);
+            this.btnYeniKategori.Name = "btnYeniKategori";
+            this.btnYeniKategori.Size = new System.Drawing.Size(94, 26);
+            this.btnYeniKategori.TabIndex = 151;
+            this.btnYeniKategori.Text = "Yeni Kategori";
+            this.btnYeniKategori.UseVisualStyleBackColor = true;
+            this.btnYeniKategori.Click += new System.EventHandler(this.btnYeniKategori_Click);
+            // 
+            // formKapatici1
+            // 
+            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
+            this.formKapatici1.Name = "formKapatici1";
+            this.formKapatici1.Size = new System.Drawing.Size(443, 29);
+            this.formKapatici1.TabIndex = 149;
             // 
             // frmUrunEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 337);
+            this.ClientSize = new System.Drawing.Size(443, 337);
+            this.Controls.Add(this.btnYeniKategori);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.formKapatici1);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.lblTedarikciSecin);
             this.Controls.Add(this.lblTedarikIcinUrunSecin);
-            this.Controls.Add(this.cbUrunMarkasi);
             this.Controls.Add(this.txtAdet);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBirimSatisFiyati);
@@ -243,7 +245,6 @@
         private System.Windows.Forms.Button btnEkle;
         private System.Windows.Forms.Label lblTedarikciSecin;
         private System.Windows.Forms.Label lblTedarikIcinUrunSecin;
-        private System.Windows.Forms.ComboBox cbUrunMarkasi;
         private System.Windows.Forms.TextBox txtBirimSatisFiyati;
         private System.Windows.Forms.Label lblBirimAlisFiyati;
         private System.Windows.Forms.TextBox txtBirimAlisFiyati;
@@ -258,5 +259,6 @@
         private System.Windows.Forms.Label label2;
         private FormKapatici formKapatici1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnYeniKategori;
     }
 }

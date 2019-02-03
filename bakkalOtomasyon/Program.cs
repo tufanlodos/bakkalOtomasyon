@@ -21,7 +21,7 @@ namespace PL.Bakkal
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmUrunIslemleri());
+            Application.Run(new frmUrunEkle());
         }
     }
 }

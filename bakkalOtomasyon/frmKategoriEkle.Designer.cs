@@ -74,7 +74,7 @@
             this.txtAciklama.Location = new System.Drawing.Point(169, 108);
             this.txtAciklama.Name = "txtAciklama";
             this.txtAciklama.Size = new System.Drawing.Size(216, 20);
-            this.txtAciklama.TabIndex = 126;
+            this.txtAciklama.TabIndex = 1;
             this.txtAciklama.TextChanged += new System.EventHandler(this.txtAciklama_TextChanged);
             // 
             // lblMasrafTutari

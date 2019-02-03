@@ -26,10 +26,6 @@ namespace PL.Bakkal
             cbKategoriAdi.DisplayMember = "KategoriAdi";
             cbKategoriAdi.ValueMember = "Id";
             cbKategoriAdi.DataSource = kr.KategoriListele();
-            
-            cbUrunMarkasi.DisplayMember = "UrunMarka";
-            cbUrunMarkasi.ValueMember = "Id";
-               
         }
         int KategoriID, UrunId;
         string KategoriAdi, UrunMarkasi;
@@ -40,51 +36,17 @@ namespace PL.Bakkal
             KategoriID=secilenK.Id;
             txtKategoriAdi.Text = KategoriAdi;          
         }
-        
-
-        private void cbUrunMarkasi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbUrunMarkasi.Items.Count != 0)
-            {
-                Urunler secilenU = (Urunler)cbUrunMarkasi.SelectedItem;
-                UrunId = secilenU.Id;
-                UrunMarkasi = secilenU.UrunMarka;
-                txtUrunMarkasi.Text = UrunMarkasi;
-            }
-        }
        
-                
-        // Eror Provider ile Kontrol
-        private void txtKategoriAdi_TextChanged(object sender, EventArgs e)
+        private void btnYeniKategori_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
-            foreach (char harf in txtKategoriAdi.Text)
-            {
-                if (!char.IsLetter(harf))
-                {
-                    if (harf == ' ')
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Bu alana sadece harf girişi yapılabilir.");
-                        txtKategoriAdi.Text = txtKategoriAdi.Text.Substring(0, txtKategoriAdi.Text.Length - 1);
-                        txtKategoriAdi.Select(txtKategoriAdi.Text.Length, 0);
-                        return;
-                    }
-                }
-            }
             //KAtegoriAdi listede yoksa
-            if (!string.IsNullOrEmpty(txtKategoriAdi.Text.Trim()) &&!kr.KategoriKontrolByKAdi(txtKategoriAdi.Text.Trim()))
-            {
                 frmKategoriEkle frm = new frmKategoriEkle();
                 frm.StartPosition = FormStartPosition.CenterScreen;
                 frm.ShowDialog();
                 cbKategoriAdi.DataSource = kr.KategoriListele();
-            }
-            cbUrunMarkasi.DataSource = ur.UrunGetirByKategoriAdi(txtKategoriAdi.Text);
-        }     
+                cbKategoriAdi.SelectedIndex = cbKategoriAdi.Items.Count - 1;
+        }
+
         private void txtUrunMarkasi_TextChanged(object sender, EventArgs e)
         {
             errorProvider1.Clear();
@@ -240,7 +202,7 @@ namespace PL.Bakkal
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtKategoriAdi.Text.Trim()) && !string.IsNullOrEmpty(txtUrunMarkasi.Text.Trim()) && !string.IsNullOrEmpty(txtUrunAdi.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtUrunAdi.Text.Trim()) && !string.IsNullOrEmpty(txtUrunMarkasi.Text.Trim()))
             {
                 Urunler u = new Urunler();
                 u.KategoriId = KategoriID;
@@ -248,7 +210,12 @@ namespace PL.Bakkal
                 u.UrunAdi = txtUrunAdi.Text;
                 u.AlisFiyat = Convert.ToDecimal(txtBirimAlisFiyati.Text);
                 u.SatisFiyat = Convert.ToDecimal(txtBirimSatisFiyati.Text);
-                u.StokMiktari = Convert.ToInt32(txtAdet.Text);
+                if (txtAdet.Text != "")
+                {
+                    u.StokMiktari = Convert.ToInt32(txtAdet.Text);
+                }
+                else
+                    u.StokMiktari = 0;
                 if (ur.UrunKontrol(u))
                 {
                     if (MessageBox.Show("Aynı özelliklere sahip sahip bir kayıt bulundu. Yine de yeni kayıt olarak eklemek istiyor musunuz?", "Aynı kayıt şüphesi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -286,53 +253,38 @@ namespace PL.Bakkal
             }
             else
             {
-                if (string.IsNullOrEmpty(txtKategoriAdi.Text.Trim()) && string.IsNullOrEmpty(txtUrunMarkasi.Text.Trim()) && string.IsNullOrEmpty(txtUrunAdi.Text.Trim()))
+                if (string.IsNullOrEmpty(txtUrunMarkasi.Text.Trim()) && string.IsNullOrEmpty(txtUrunAdi.Text.Trim()))
                 {
                     MessageBox.Show("Ürün bilgilerini giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    errorProvider1.SetError(txtKategoriAdi, "Bu kolon boş geçilemez");
-                    errorProvider1.Clear();
                     errorProvider1.SetError(txtUrunMarkasi, "Bu kolon boş geçilemez");
-                    errorProvider1.Clear();
                     errorProvider1.SetError(txtUrunAdi, "Bu kolon boş geçilemez");
-
                     txtKategoriAdi.Focus();
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(txtKategoriAdi.Text.Trim()))
-                    {
-                        MessageBox.Show("Kategori Adını Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        errorProvider1.SetError(txtKategoriAdi, "Bu kolon boş geçilemez");
-                        txtKategoriAdi.Focus();
-                        errorProvider1.Clear();
-                    }
                     if (string.IsNullOrEmpty(txtUrunMarkasi.Text.Trim()))
                     {
                         MessageBox.Show("Ürün Markasını Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtUrunMarkasi, "Bu kolon boş geçilemez");
                         txtUrunMarkasi.Focus();
-                        errorProvider1.Clear();
                     }
                     if (string.IsNullOrEmpty(txtUrunAdi.Text.Trim()))
                     {
                         MessageBox.Show("Ürün Adını Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtUrunAdi, "Bu kolon boş geçilemez");
                         txtUrunAdi.Focus();
-                        errorProvider1.Clear();
                     }
                     if (string.IsNullOrEmpty(txtBirimAlisFiyati.Text.Trim()))
                     {
                         MessageBox.Show("Birim Alış Fiyatını Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtUrunAdi, "Bu kolon boş geçilemez");
                         txtUrunAdi.Focus();
-                        errorProvider1.Clear();
                     }
                     if (string.IsNullOrEmpty(txtBirimSatisFiyati.Text.Trim()))
                     {
                         MessageBox.Show("Birim Satış Fiyatını Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtUrunAdi, "Bu kolon boş geçilemez");
                         txtUrunAdi.Focus();
-                        errorProvider1.Clear();
                     }
                 }
             }
