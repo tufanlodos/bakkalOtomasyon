@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Bakkal.Repositories;
+using DAL.Bakkal.DataModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,25 @@ namespace PL.Bakkal
         public TedarikEkrani()
         {
             InitializeComponent();
+        }
+        TedarikciEkraniRepository Ter = new TedarikciEkraniRepository();
+        BCDContext ent = new BCDContext();
+        int ID;
+
+        private void cbTedarikciSecin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbTedarikciSecin_Click(object sender, EventArgs e)
+        {
+
+            txtAdSoyad.Text 
+        }
+
+        private void TedarikEkrani_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

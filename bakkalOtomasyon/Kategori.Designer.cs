@@ -47,19 +47,21 @@
             this.dgvKategori.AllowUserToAddRows = false;
             this.dgvKategori.AllowUserToDeleteRows = false;
             this.dgvKategori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKategori.Location = new System.Drawing.Point(12, 50);
+            this.dgvKategori.Location = new System.Drawing.Point(16, 62);
+            this.dgvKategori.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvKategori.Name = "dgvKategori";
             this.dgvKategori.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKategori.Size = new System.Drawing.Size(439, 150);
+            this.dgvKategori.Size = new System.Drawing.Size(585, 185);
             this.dgvKategori.TabIndex = 33;
             this.dgvKategori.DoubleClick += new System.EventHandler(this.dgvKategori_DoubleClick);
             // 
             // btnSil
             // 
             this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(243, 351);
+            this.btnSil.Location = new System.Drawing.Point(324, 432);
+            this.btnSil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(81, 29);
+            this.btnSil.Size = new System.Drawing.Size(108, 36);
             this.btnSil.TabIndex = 32;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
@@ -67,9 +69,10 @@
             // 
             // btnEkle
             // 
-            this.btnEkle.Location = new System.Drawing.Point(156, 351);
+            this.btnEkle.Location = new System.Drawing.Point(208, 432);
+            this.btnEkle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(81, 29);
+            this.btnEkle.Size = new System.Drawing.Size(108, 36);
             this.btnEkle.TabIndex = 30;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
@@ -77,59 +80,67 @@
             // 
             // txtAciklama
             // 
-            this.txtAciklama.Location = new System.Drawing.Point(189, 262);
+            this.txtAciklama.Location = new System.Drawing.Point(252, 322);
+            this.txtAciklama.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAciklama.Multiline = true;
             this.txtAciklama.Name = "txtAciklama";
-            this.txtAciklama.Size = new System.Drawing.Size(202, 72);
+            this.txtAciklama.Size = new System.Drawing.Size(268, 88);
             this.txtAciklama.TabIndex = 29;
             // 
             // lblAciklama
             // 
             this.lblAciklama.AutoSize = true;
-            this.lblAciklama.Location = new System.Drawing.Point(64, 265);
+            this.lblAciklama.Location = new System.Drawing.Point(85, 326);
+            this.lblAciklama.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAciklama.Name = "lblAciklama";
-            this.lblAciklama.Size = new System.Drawing.Size(50, 13);
+            this.lblAciklama.Size = new System.Drawing.Size(64, 17);
             this.lblAciklama.TabIndex = 28;
             this.lblAciklama.Text = "Açıklama";
             // 
             // txtKategoriAdi
             // 
-            this.txtKategoriAdi.Location = new System.Drawing.Point(189, 233);
+            this.txtKategoriAdi.Location = new System.Drawing.Point(252, 287);
+            this.txtKategoriAdi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtKategoriAdi.Name = "txtKategoriAdi";
-            this.txtKategoriAdi.Size = new System.Drawing.Size(202, 20);
+            this.txtKategoriAdi.Size = new System.Drawing.Size(268, 22);
             this.txtKategoriAdi.TabIndex = 27;
+            this.txtKategoriAdi.TextChanged += new System.EventHandler(this.txtKategoriAdi_TextChanged);
             // 
             // lblKategoriAdi
             // 
             this.lblKategoriAdi.AutoSize = true;
-            this.lblKategoriAdi.Location = new System.Drawing.Point(64, 233);
+            this.lblKategoriAdi.Location = new System.Drawing.Point(85, 287);
+            this.lblKategoriAdi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKategoriAdi.Name = "lblKategoriAdi";
-            this.lblKategoriAdi.Size = new System.Drawing.Size(67, 13);
+            this.lblKategoriAdi.Size = new System.Drawing.Size(89, 17);
             this.lblKategoriAdi.TabIndex = 26;
             this.lblKategoriAdi.Text = "Kategori Adı ";
             // 
             // txtArama
             // 
-            this.txtArama.Location = new System.Drawing.Point(126, 12);
+            this.txtArama.Location = new System.Drawing.Point(168, 15);
+            this.txtArama.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtArama.Name = "txtArama";
-            this.txtArama.Size = new System.Drawing.Size(112, 20);
+            this.txtArama.Size = new System.Drawing.Size(148, 22);
             this.txtArama.TabIndex = 56;
             this.txtArama.TextChanged += new System.EventHandler(this.txtArama_TextChanged);
             // 
             // lblKategoriAdiGiriniz
             // 
             this.lblKategoriAdiGiriniz.AutoSize = true;
-            this.lblKategoriAdiGiriniz.Location = new System.Drawing.Point(18, 15);
+            this.lblKategoriAdiGiriniz.Location = new System.Drawing.Point(24, 18);
+            this.lblKategoriAdiGiriniz.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKategoriAdiGiriniz.Name = "lblKategoriAdiGiriniz";
-            this.lblKategoriAdiGiriniz.Size = new System.Drawing.Size(95, 13);
+            this.lblKategoriAdiGiriniz.Size = new System.Drawing.Size(129, 17);
             this.lblKategoriAdiGiriniz.TabIndex = 55;
             this.lblKategoriAdiGiriniz.Text = "Kategori Adı Giriniz";
             // 
             // btnVazgec
             // 
-            this.btnVazgec.Location = new System.Drawing.Point(330, 354);
+            this.btnVazgec.Location = new System.Drawing.Point(440, 436);
+            this.btnVazgec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVazgec.Name = "btnVazgec";
-            this.btnVazgec.Size = new System.Drawing.Size(75, 23);
+            this.btnVazgec.Size = new System.Drawing.Size(100, 28);
             this.btnVazgec.TabIndex = 57;
             this.btnVazgec.Text = "Vazgeç";
             this.btnVazgec.UseVisualStyleBackColor = true;
@@ -138,9 +149,10 @@
             // 
             // btnGuncelle
             // 
-            this.btnGuncelle.Location = new System.Drawing.Point(75, 354);
+            this.btnGuncelle.Location = new System.Drawing.Point(100, 436);
+            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(75, 23);
+            this.btnGuncelle.Size = new System.Drawing.Size(100, 28);
             this.btnGuncelle.TabIndex = 58;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
@@ -148,9 +160,9 @@
             // 
             // Kategori
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 381);
+            this.ClientSize = new System.Drawing.Size(619, 469);
             this.Controls.Add(this.btnGuncelle);
             this.Controls.Add(this.btnVazgec);
             this.Controls.Add(this.txtArama);
@@ -162,6 +174,7 @@
             this.Controls.Add(this.lblAciklama);
             this.Controls.Add(this.txtKategoriAdi);
             this.Controls.Add(this.lblKategoriAdi);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Kategori";
             this.Text = "Kategori";
             this.Load += new System.EventHandler(this.Kategori_Load);

@@ -147,6 +147,11 @@ namespace PL.Bakkal
         {
             dgvKategori.DataSource = Kr.KategoriGetirByArama(txtArama.Text);
         }
+
+        private void txtKategoriAdi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
