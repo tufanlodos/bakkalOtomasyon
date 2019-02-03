@@ -139,12 +139,6 @@
     <Compile Include="frmStok.Designer.cs">
       <DependentUpon>frmStok.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTedarikEkrani.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTedarikEkrani.Designer.cs">
-      <DependentUpon>frmTedarikEkrani.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmUrunIslemleri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,9 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStok.resx">
       <DependentUpon>frmStok.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTedarikEkrani.resx">
-      <DependentUpon>frmTedarikEkrani.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUrunIslemleri.resx">
       <DependentUpon>frmUrunIslemleri.cs</DependentUpon>
