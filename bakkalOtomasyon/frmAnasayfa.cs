@@ -20,6 +20,7 @@ namespace PL.Bakkal
         private void frmAnasayfa_Load(object sender, EventArgs e)
         {
             this.AcceptButton = btnSatis;
+            btnSatis.PerformClick();
         }
 
         private void btnKapat_Click_1(object sender, EventArgs e)
@@ -66,18 +67,16 @@ namespace PL.Bakkal
             FormAc(frm);
         }
 
-        private void btnUrun_Click(object sender, EventArgs e)
+        private void btnSatis_Click(object sender, EventArgs e)
         {
-            frmUrunIslemleri frm = new frmUrunIslemleri();
+            frmSatisEkrani frm = new frmSatisEkrani();
             FormAc(frm);
         }
 
-        private void btnStok_Click(object sender, EventArgs e)
+        private void btnBilanco_Click(object sender, EventArgs e)
         {
-            frmStok frm = new frmStok();
+            frmBilancho frm = new frmBilancho();
             FormAc(frm);
         }
-
-        
     }
 }

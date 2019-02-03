@@ -41,7 +41,6 @@
             this.lblTedarikIcinUrunSecin = new System.Windows.Forms.Label();
             this.cbTedarikIcinUrunSecin = new System.Windows.Forms.ComboBox();
             this.lblTedarikEdilmisUrunler = new System.Windows.Forms.Label();
-            this.lvTedarikEdilmisUrunler = new System.Windows.Forms.ListView();
             this.txtAdres = new System.Windows.Forms.TextBox();
             this.lblAdres = new System.Windows.Forms.Label();
             this.txtAdSoyad = new System.Windows.Forms.TextBox();
@@ -50,6 +49,7 @@
             this.lblTelefonNumarasi = new System.Windows.Forms.Label();
             this.lblTedarikciSecin = new System.Windows.Forms.Label();
             this.cbTedarikciSecin = new System.Windows.Forms.ComboBox();
+            this.lbTedarikEdilmisUrunler = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnGuncelle
@@ -156,6 +156,7 @@
             this.cbTedarikIcinUrunSecin.Name = "cbTedarikIcinUrunSecin";
             this.cbTedarikIcinUrunSecin.Size = new System.Drawing.Size(162, 21);
             this.cbTedarikIcinUrunSecin.TabIndex = 101;
+            this.cbTedarikIcinUrunSecin.SelectedIndexChanged += new System.EventHandler(this.cbTedarikIcinUrunSecin_SelectedIndexChanged);
             // 
             // lblTedarikEdilmisUrunler
             // 
@@ -165,14 +166,6 @@
             this.lblTedarikEdilmisUrunler.Size = new System.Drawing.Size(115, 13);
             this.lblTedarikEdilmisUrunler.TabIndex = 100;
             this.lblTedarikEdilmisUrunler.Text = "Tedarik Edilmiş Ürünler";
-            // 
-            // lvTedarikEdilmisUrunler
-            // 
-            this.lvTedarikEdilmisUrunler.Location = new System.Drawing.Point(163, 242);
-            this.lvTedarikEdilmisUrunler.Name = "lvTedarikEdilmisUrunler";
-            this.lvTedarikEdilmisUrunler.Size = new System.Drawing.Size(202, 97);
-            this.lvTedarikEdilmisUrunler.TabIndex = 99;
-            this.lvTedarikEdilmisUrunler.UseCompatibleStateImageBehavior = false;
             // 
             // txtAdres
             // 
@@ -198,6 +191,7 @@
             this.txtAdSoyad.ReadOnly = true;
             this.txtAdSoyad.Size = new System.Drawing.Size(202, 20);
             this.txtAdSoyad.TabIndex = 96;
+            this.txtAdSoyad.TextChanged += new System.EventHandler(this.txtAdSoyad_TextChanged);
             // 
             // lblAdSoyad
             // 
@@ -242,12 +236,22 @@
             this.cbTedarikciSecin.Name = "cbTedarikciSecin";
             this.cbTedarikciSecin.Size = new System.Drawing.Size(162, 21);
             this.cbTedarikciSecin.TabIndex = 91;
+            this.cbTedarikciSecin.SelectedIndexChanged += new System.EventHandler(this.cbTedarikciSecin_SelectedIndexChanged);
+            // 
+            // lbTedarikEdilmisUrunler
+            // 
+            this.lbTedarikEdilmisUrunler.FormattingEnabled = true;
+            this.lbTedarikEdilmisUrunler.Location = new System.Drawing.Point(163, 244);
+            this.lbTedarikEdilmisUrunler.Name = "lbTedarikEdilmisUrunler";
+            this.lbTedarikEdilmisUrunler.Size = new System.Drawing.Size(202, 108);
+            this.lbTedarikEdilmisUrunler.TabIndex = 113;
             // 
             // frmTedarikEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbTedarikEdilmisUrunler);
             this.Controls.Add(this.btnGuncelle);
             this.Controls.Add(this.txtToplamTutar);
             this.Controls.Add(this.lblToplamTutar);
@@ -261,7 +265,6 @@
             this.Controls.Add(this.lblTedarikIcinUrunSecin);
             this.Controls.Add(this.cbTedarikIcinUrunSecin);
             this.Controls.Add(this.lblTedarikEdilmisUrunler);
-            this.Controls.Add(this.lvTedarikEdilmisUrunler);
             this.Controls.Add(this.txtAdres);
             this.Controls.Add(this.lblAdres);
             this.Controls.Add(this.txtAdSoyad);
@@ -272,6 +275,7 @@
             this.Controls.Add(this.cbTedarikciSecin);
             this.Name = "frmTedarikEkrani";
             this.Text = "TedarikEkrani";
+            this.Load += new System.EventHandler(this.TedarikEkrani_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,7 +296,6 @@
         private System.Windows.Forms.Label lblTedarikIcinUrunSecin;
         private System.Windows.Forms.ComboBox cbTedarikIcinUrunSecin;
         private System.Windows.Forms.Label lblTedarikEdilmisUrunler;
-        private System.Windows.Forms.ListView lvTedarikEdilmisUrunler;
         private System.Windows.Forms.TextBox txtAdres;
         private System.Windows.Forms.Label lblAdres;
         private System.Windows.Forms.TextBox txtAdSoyad;
@@ -301,5 +304,6 @@
         private System.Windows.Forms.Label lblTelefonNumarasi;
         private System.Windows.Forms.Label lblTedarikciSecin;
         private System.Windows.Forms.ComboBox cbTedarikciSecin;
+        private System.Windows.Forms.ListBox lbTedarikEdilmisUrunler;
     }
 }

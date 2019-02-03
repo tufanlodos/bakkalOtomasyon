@@ -53,23 +53,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Anasayfa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Anasayfa.Designer.cs">
-      <DependentUpon>Anasayfa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBilanco.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBilanco.Designer.cs">
-      <DependentUpon>frmBilanco.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormKapatici.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FormKapatici.Designer.cs">
       <DependentUpon>FormKapatici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBilancho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBilancho.Designer.cs">
+      <DependentUpon>frmBilancho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIade.Designer.cs">
+      <DependentUpon>frmIade.cs</DependentUpon>
     </Compile>
     <Compile Include="frmKategoriEkle.cs">
       <SubType>Form</SubType>
@@ -89,6 +89,12 @@
     <Compile Include="frmMasrafEkle.Designer.cs">
       <DependentUpon>frmMasrafEkle.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSatisEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSatisEkrani.Designer.cs">
+      <DependentUpon>frmSatisEkrani.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSiparisEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     </Compile>
     <Compile Include="frmMasraflar.Designer.cs">
       <DependentUpon>frmMasraflar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUrunBul.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUrunBul.Designer.cs">
+      <DependentUpon>frmUrunBul.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUrunEkle.cs">
       <SubType>Form</SubType>
@@ -139,14 +151,14 @@
     <Compile Include="frmUrunIslemleri.Designer.cs">
       <DependentUpon>frmUrunIslemleri.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Anasayfa.resx">
-      <DependentUpon>Anasayfa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBilanco.resx">
-      <DependentUpon>frmBilanco.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormKapatici.resx">
       <DependentUpon>FormKapatici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBilancho.resx">
+      <DependentUpon>frmBilancho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIade.resx">
+      <DependentUpon>frmIade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKategoriEkle.resx">
       <DependentUpon>frmKategoriEkle.cs</DependentUpon>
@@ -157,6 +169,9 @@
     <EmbeddedResource Include="frmMasrafEkle.resx">
       <DependentUpon>frmMasrafEkle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSatisEkrani.resx">
+      <DependentUpon>frmSatisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSiparisEkle.resx">
       <DependentUpon>frmSiparisEkle.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMasraflar.resx">
       <DependentUpon>frmMasraflar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUrunBul.resx">
+      <DependentUpon>frmUrunBul.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUrunEkle.resx">
       <DependentUpon>frmUrunEkle.cs</DependentUpon>

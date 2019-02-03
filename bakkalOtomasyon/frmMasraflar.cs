@@ -76,12 +76,14 @@ namespace PL.Bakkal
                 return;
             }
             if(MasrafId>0)
-            { 
-            btnSil.Enabled = true;
-            this.AcceptButton = btnSil;
-            btnDegistir.Enabled = false;
-            btnVazgec.Visible = true;
-            btnYeni.Enabled=false;
+            {
+                if (!btnDegistir.Enabled)
+                {
+                    btnSil.Enabled = true;
+                }
+                btnVazgec.Visible = true;
+                this.AcceptButton = btnSil;
+                btnYeni.Enabled = false;
             }
             if (SecilenSatir >= 0)
             {

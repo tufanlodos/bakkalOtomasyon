@@ -1,5 +1,4 @@
-﻿using bakkalOtomasyon;
-using DAL.Bakkal.DataModel;
+﻿using DAL.Bakkal.DataModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

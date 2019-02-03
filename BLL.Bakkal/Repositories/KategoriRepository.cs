@@ -122,5 +122,7 @@ namespace BLL.Bakkal.Repositories
             foreach (var entry in ContextteBekleyenler)
                 entry.State = EntityState.Detached;
         }
+
+      
     }
 }
