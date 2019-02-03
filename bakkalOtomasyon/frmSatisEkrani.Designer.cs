@@ -320,6 +320,7 @@
             this.btnIade.TabIndex = 151;
             this.btnIade.Text = "İade İşlemleri";
             this.btnIade.UseVisualStyleBackColor = true;
+            this.btnIade.Click += new System.EventHandler(this.btnIade_Click);
             // 
             // txtParaUstu
             // 

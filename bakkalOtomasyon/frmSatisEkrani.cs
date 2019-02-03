@@ -315,6 +315,15 @@ namespace PL.Bakkal
             e.NewWidth = lvAlisverisSepeti.Columns[e.ColumnIndex].Width;
         }
 
+        private void btnIade_Click(object sender, EventArgs e)
+        {
+            frmIade frm = new frmIade();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+            btnSTemizle.PerformClick();
+            btnTemizle.PerformClick();
+        }
+
         private void txtMiktar_TextChanged(object sender, EventArgs e)
         {
             if (IlkAcilis >= 1)
