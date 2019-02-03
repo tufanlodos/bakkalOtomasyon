@@ -60,6 +60,18 @@ namespace BLL.Bakkal.Repositories
            
             return liste;
         }
+        public List<string> DistinctUrunleriGetir()
+        {
+            List<string> liste = ent.Urunlers.Select(td => td.UrunAdi).Distinct().ToList();
+
+            return liste;
+        }
+        public decimal BirimFiyatGetirByUrunAd(string uAdi)
+        {
+            return ent.Urunlers.Where(td => td.UrunAdi==uAdi).Select(td=>td.AlisFiyat).FirstOrDefault();
+        }
+
+      
 
 
         public List<Tedarikci> TedarikciSecin(string tedarikci)
@@ -76,5 +88,73 @@ namespace BLL.Bakkal.Repositories
         {
             return ent.Urunlers.Where(k => k.Silindi == false).ToList();
         }
+        public List<Urunler> UrunGetir()
+        {
+            return ent.Urunlers.Where(k => k.Silindi == false).ToList();
+        }
+
+        public int TedarikciIdGetirByTedarikciAdi(string tedarikciAdi)
+        {
+            Tedarikci td = ent.Tedarikci.Where(t => t.TedarikciAdi == tedarikciAdi).FirstOrDefault();
+            return td.Id;
+        }
+
+        public int UrunIdGetirByUrunAdi(string urunAdi)
+        {
+            Urunler ur = ent.Urunlers.Where(u => u.UrunAdi == urunAdi).FirstOrDefault();
+            return ur.Id;
+        }
+        public void UrunStokMiktariniArttir(int urunId,int adet)
+        {
+            Urunler ur = ent.Urunlers.Where(u => u.Id == urunId).FirstOrDefault();
+            ur.StokMiktari += adet;
+            try
+            {
+                ent.SaveChanges();
+                
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
+
+        }
+
+        public bool TedarikDetayEkle(TedarikDetay t)
+        {
+            bool Sonuc = false;
+            ent.TedarikDetay.Add(t);
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
+            return Sonuc;
+        }
+        public bool YeniTedarikciEkle(Tedarikci t)
+        {
+            bool Sonuc = false;
+            ent.Tedarikci.Add(t);
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
+            return Sonuc;
+        }
+
+
+
+
+
+
     }
 }

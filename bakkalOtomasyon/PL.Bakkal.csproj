@@ -119,6 +119,12 @@
     <Compile Include="frmMasraflar.Designer.cs">
       <DependentUpon>frmMasraflar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTedarikEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTedarikEkrani.Designer.cs">
+      <DependentUpon>frmTedarikEkrani.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUrunBul.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     </Compile>
     <Compile Include="frmUrunEkle.Designer.cs">
       <DependentUpon>frmUrunEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYeniTedarikciEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYeniTedarikciEkle.Designer.cs">
+      <DependentUpon>frmYeniTedarikciEkle.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -184,11 +196,17 @@
     <EmbeddedResource Include="frmMasraflar.resx">
       <DependentUpon>frmMasraflar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTedarikEkrani.resx">
+      <DependentUpon>frmTedarikEkrani.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUrunBul.resx">
       <DependentUpon>frmUrunBul.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUrunEkle.resx">
       <DependentUpon>frmUrunEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYeniTedarikciEkle.resx">
+      <DependentUpon>frmYeniTedarikciEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
