@@ -90,7 +90,6 @@ namespace PL.Bakkal
             dgvUrunler.Columns[8].Visible = false;
             dgvUrunler.Columns[9].HeaderText = "Kategori Adı";
             dgvUrunler.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-
             HeaderText++;
         }
         private void btnYeni_Click(object sender, EventArgs e)
@@ -161,11 +160,9 @@ namespace PL.Bakkal
             }
         }
 
-
-
-
         private void cbSiralama_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtArama.Text = "";
            if (cbSiralama.SelectedIndex == 0)
                 dgvUrunler.DataSource = ur.UrunSiralaByUrunAdi("asc",kID);
                
@@ -188,6 +185,7 @@ namespace PL.Bakkal
         private void txtArama_TextChanged(object sender, EventArgs e)
         {
             dgvUrunler.DataSource = ur.UrunGetirByUrunAdi(txtArama.Text);
+            cbKategoriSec.SelectedIndex = cbKategoriSec.Items.Count-1;
         }
 
         private void btnVazgec_Click(object sender, EventArgs e)
@@ -226,6 +224,7 @@ namespace PL.Bakkal
 
         private void cbKategoriSec_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtArama.Text = "";
             Kategoriler secilenK = (Kategoriler)cbKategoriSec.SelectedItem;
             kID = secilenK.Id;
             if (kID == 0)
