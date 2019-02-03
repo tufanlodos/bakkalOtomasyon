@@ -131,6 +131,7 @@
             this.btnBilanco.TabIndex = 7;
             this.btnBilanco.Text = "BİLANÇO";
             this.btnBilanco.UseVisualStyleBackColor = true;
+            this.btnBilanco.Click += new System.EventHandler(this.btnBilanco_Click);
             // 
             // btnMasraf
             // 

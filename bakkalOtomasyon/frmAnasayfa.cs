@@ -72,5 +72,11 @@ namespace PL.Bakkal
             frmSatisEkrani frm = new frmSatisEkrani();
             FormAc(frm);
         }
+
+        private void btnBilanco_Click(object sender, EventArgs e)
+        {
+            frmBilancho frm = new frmBilancho();
+            FormAc(frm);
+        }
     }
 }
