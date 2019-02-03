@@ -15,12 +15,12 @@ namespace BLL.Bakkal.Repositories
 
         public List<Kategoriler> KategorileriGetir()
         {
-            return ent.Kategorilers.ToList();
+            return ent.Kategorilers.Where(k=> k.Silindi == false).ToList();
         }
         public List<Urunler> UrunleriGetirByKategoriId(int KatId)
         {
             List<Urunler> liste = (from u in ent.Urunlers
-                                   where u.KategoriId == KatId
+                                   where u.KategoriId == KatId && u.Silindi == false
                                    select u).ToList();
             return liste;
         }
@@ -30,7 +30,7 @@ namespace BLL.Bakkal.Repositories
         }
         public decimal UrunFiyatiGetirById(int UrunId)
         {
-            return Convert.ToDecimal(ent.Urunlers.Where(u => u.Id == UrunId).Select(u => u.AlisFiyat).FirstOrDefault());
+            return Convert.ToDecimal(ent.Urunlers.Where(u => u.Id == UrunId && u.Silindi == false).Select(u => u.AlisFiyat).FirstOrDefault());
         }
         public bool SiparisEkle(Siparis s)
         {
@@ -115,7 +115,7 @@ namespace BLL.Bakkal.Repositories
         }
         public int UrunIdBul(string UrunAdi)
         {
-            return Convert.ToInt32(ent.Urunlers.Where(u => u.UrunAdi == UrunAdi).Select(u => u.Id).FirstOrDefault());
+            return Convert.ToInt32(ent.Urunlers.Where(u => u.UrunAdi == UrunAdi && u.Silindi == false).Select(u => u.Id).FirstOrDefault());
         }
         public List<SiparisModel> TariheGoreSiparisSirala(string nece)
         {
