@@ -47,6 +47,11 @@ namespace BLL.Bakkal.Repositories
             Urunler urn = ent.Urunlers.Where(u => u.UrunAdi == UrunAd).FirstOrDefault();
             return urn.Id;
         }
+        public string UrunAdBul(int UrunId)
+        {
+            Urunler urn = ent.Urunlers.Where(u => u.Id == UrunId).FirstOrDefault();
+            return urn.UrunAdi;
+        }
         public bool SatisDetayaEkle(SatisDetay sd)
         {
             bool Sonuc = false;
@@ -61,6 +66,14 @@ namespace BLL.Bakkal.Repositories
                 string hata = ex.Message;
             }
             return Sonuc;
+        }
+        public List<Satis> SatislariGetir()
+        {
+            return ent.Satislar.Where(s=>s.Silindi == false).OrderByDescending(sa=>sa.IslemTarihi).ToList();
+        }
+        public List<SatisDetay> IdyeGoreSatisDetaylariGetir(int SatisId)
+        {
+            return ent.SatisDetay.Where(s => s.IslemId == SatisId).ToList();
         }
         
     }
