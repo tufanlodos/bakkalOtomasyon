@@ -26,11 +26,27 @@ namespace BLL.Bakkal.Repositories
         {
             Urunler urn = ent.Urunlers.Where(u => u.Id == UrunId).FirstOrDefault();
             urn.StokMiktari -= Adet;
+            try
+            {
+                ent.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
         }
         public void UrunIadeStokArtir(int UrunId, int Adet)
         {
             Urunler urn = ent.Urunlers.Where(u => u.Id == UrunId).FirstOrDefault();
             urn.StokMiktari += Adet;
+            try
+            {
+                ent.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
         }
         public bool SatislaraEkle(Satis s)
         {
