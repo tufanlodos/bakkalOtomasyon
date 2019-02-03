@@ -84,5 +84,11 @@ namespace PL.Bakkal
             frmUrunIslemleri frm = new frmUrunIslemleri();
             FormAc(frm);
         }
+
+        private void btnTedarik_Click(object sender, EventArgs e)
+        {
+            frmTedarikEkrani frm = new frmTedarikEkrani();
+            FormAc(frm);
+        }
     }
 }

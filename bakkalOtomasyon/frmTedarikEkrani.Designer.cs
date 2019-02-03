@@ -58,15 +58,16 @@
             this.lbTedarikEdilmisUrunler = new System.Windows.Forms.ListBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnYeniTedarikci = new System.Windows.Forms.Button();
+            this.formKapatici1 = new PL.Bakkal.FormKapatici();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEkle
             // 
-            this.btnEkle.Location = new System.Drawing.Point(595, 452);
-            this.btnEkle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEkle.Location = new System.Drawing.Point(402, 367);
             this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(108, 36);
+            this.btnEkle.Size = new System.Drawing.Size(81, 29);
             this.btnEkle.TabIndex = 112;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
@@ -74,20 +75,18 @@
             // 
             // txtToplamTutar
             // 
-            this.txtToplamTutar.Location = new System.Drawing.Point(729, 393);
-            this.txtToplamTutar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtToplamTutar.Location = new System.Drawing.Point(503, 319);
             this.txtToplamTutar.Name = "txtToplamTutar";
             this.txtToplamTutar.ReadOnly = true;
-            this.txtToplamTutar.Size = new System.Drawing.Size(268, 22);
+            this.txtToplamTutar.Size = new System.Drawing.Size(202, 20);
             this.txtToplamTutar.TabIndex = 111;
             // 
             // lblToplamTutar
             // 
             this.lblToplamTutar.AutoSize = true;
-            this.lblToplamTutar.Location = new System.Drawing.Point(579, 401);
-            this.lblToplamTutar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblToplamTutar.Location = new System.Drawing.Point(390, 326);
             this.lblToplamTutar.Name = "lblToplamTutar";
-            this.lblToplamTutar.Size = new System.Drawing.Size(93, 17);
+            this.lblToplamTutar.Size = new System.Drawing.Size(70, 13);
             this.lblToplamTutar.TabIndex = 110;
             this.lblToplamTutar.Text = "Toplam Tutar";
             // 
@@ -100,11 +99,10 @@
             this.columnHeader4,
             this.columnHeader5});
             this.lvUrunler.FullRowSelect = true;
-            this.lvUrunler.Location = new System.Drawing.Point(584, 239);
-            this.lvUrunler.Margin = new System.Windows.Forms.Padding(4);
+            this.lvUrunler.Location = new System.Drawing.Point(394, 194);
             this.lvUrunler.MultiSelect = false;
             this.lvUrunler.Name = "lvUrunler";
-            this.lvUrunler.Size = new System.Drawing.Size(431, 118);
+            this.lvUrunler.Size = new System.Drawing.Size(324, 97);
             this.lvUrunler.TabIndex = 109;
             this.lvUrunler.UseCompatibleStateImageBehavior = false;
             this.lvUrunler.View = System.Windows.Forms.View.Details;
@@ -137,47 +135,42 @@
             // 
             // txtBirimFiyat
             // 
-            this.txtBirimFiyat.Location = new System.Drawing.Point(747, 196);
-            this.txtBirimFiyat.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBirimFiyat.Location = new System.Drawing.Point(516, 159);
             this.txtBirimFiyat.Name = "txtBirimFiyat";
-            this.txtBirimFiyat.Size = new System.Drawing.Size(268, 22);
+            this.txtBirimFiyat.Size = new System.Drawing.Size(202, 20);
             this.txtBirimFiyat.TabIndex = 108;
             // 
             // lblBirimFiyat
             // 
             this.lblBirimFiyat.AutoSize = true;
-            this.lblBirimFiyat.Location = new System.Drawing.Point(580, 196);
-            this.lblBirimFiyat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBirimFiyat.Location = new System.Drawing.Point(391, 159);
             this.lblBirimFiyat.Name = "lblBirimFiyat";
-            this.lblBirimFiyat.Size = new System.Drawing.Size(102, 17);
+            this.lblBirimFiyat.Size = new System.Drawing.Size(75, 13);
             this.lblBirimFiyat.TabIndex = 107;
             this.lblBirimFiyat.Text = "Birim Alış Fiyatı";
             // 
             // txtAdet
             // 
-            this.txtAdet.Location = new System.Drawing.Point(747, 151);
-            this.txtAdet.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAdet.Location = new System.Drawing.Point(516, 123);
             this.txtAdet.Name = "txtAdet";
-            this.txtAdet.Size = new System.Drawing.Size(268, 22);
+            this.txtAdet.Size = new System.Drawing.Size(202, 20);
             this.txtAdet.TabIndex = 106;
             this.txtAdet.TextChanged += new System.EventHandler(this.txtAdet_TextChanged);
             // 
             // lblAdet
             // 
             this.lblAdet.AutoSize = true;
-            this.lblAdet.Location = new System.Drawing.Point(580, 151);
-            this.lblAdet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAdet.Location = new System.Drawing.Point(391, 123);
             this.lblAdet.Name = "lblAdet";
-            this.lblAdet.Size = new System.Drawing.Size(37, 17);
+            this.lblAdet.Size = new System.Drawing.Size(29, 13);
             this.lblAdet.TabIndex = 105;
             this.lblAdet.Text = "Adet";
             // 
             // btnSil
             // 
-            this.btnSil.Location = new System.Drawing.Point(711, 452);
-            this.btnSil.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSil.Location = new System.Drawing.Point(489, 367);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(108, 36);
+            this.btnSil.Size = new System.Drawing.Size(81, 29);
             this.btnSil.TabIndex = 104;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
@@ -186,10 +179,9 @@
             // btnIslemiKaydet
             // 
             this.btnIslemiKaydet.Enabled = false;
-            this.btnIslemiKaydet.Location = new System.Drawing.Point(827, 452);
-            this.btnIslemiKaydet.Margin = new System.Windows.Forms.Padding(4);
+            this.btnIslemiKaydet.Location = new System.Drawing.Point(576, 367);
             this.btnIslemiKaydet.Name = "btnIslemiKaydet";
-            this.btnIslemiKaydet.Size = new System.Drawing.Size(108, 36);
+            this.btnIslemiKaydet.Size = new System.Drawing.Size(81, 29);
             this.btnIslemiKaydet.TabIndex = 103;
             this.btnIslemiKaydet.Text = "İşlemi Kaydet";
             this.btnIslemiKaydet.UseVisualStyleBackColor = true;
@@ -198,10 +190,9 @@
             // lblTedarikIcinUrunSecin
             // 
             this.lblTedarikIcinUrunSecin.AutoSize = true;
-            this.lblTedarikIcinUrunSecin.Location = new System.Drawing.Point(580, 68);
-            this.lblTedarikIcinUrunSecin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTedarikIcinUrunSecin.Location = new System.Drawing.Point(391, 55);
             this.lblTedarikIcinUrunSecin.Name = "lblTedarikIcinUrunSecin";
-            this.lblTedarikIcinUrunSecin.Size = new System.Drawing.Size(155, 17);
+            this.lblTedarikIcinUrunSecin.Size = new System.Drawing.Size(119, 13);
             this.lblTedarikIcinUrunSecin.TabIndex = 102;
             this.lblTedarikIcinUrunSecin.Text = "Tedarik İçin Ürün Seçin";
             // 
@@ -209,88 +200,79 @@
             // 
             this.cbTedarikIcinUrunSecin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTedarikIcinUrunSecin.FormattingEnabled = true;
-            this.cbTedarikIcinUrunSecin.Location = new System.Drawing.Point(584, 98);
-            this.cbTedarikIcinUrunSecin.Margin = new System.Windows.Forms.Padding(4);
+            this.cbTedarikIcinUrunSecin.Location = new System.Drawing.Point(394, 80);
             this.cbTedarikIcinUrunSecin.Name = "cbTedarikIcinUrunSecin";
-            this.cbTedarikIcinUrunSecin.Size = new System.Drawing.Size(215, 24);
+            this.cbTedarikIcinUrunSecin.Size = new System.Drawing.Size(162, 21);
             this.cbTedarikIcinUrunSecin.TabIndex = 101;
             this.cbTedarikIcinUrunSecin.SelectedIndexChanged += new System.EventHandler(this.cbTedarikIcinUrunSecin_SelectedIndexChanged);
             // 
             // lblTedarikEdilmisUrunler
             // 
             this.lblTedarikEdilmisUrunler.AutoSize = true;
-            this.lblTedarikEdilmisUrunler.Location = new System.Drawing.Point(52, 309);
-            this.lblTedarikEdilmisUrunler.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTedarikEdilmisUrunler.Location = new System.Drawing.Point(39, 251);
             this.lblTedarikEdilmisUrunler.Name = "lblTedarikEdilmisUrunler";
-            this.lblTedarikEdilmisUrunler.Size = new System.Drawing.Size(155, 17);
+            this.lblTedarikEdilmisUrunler.Size = new System.Drawing.Size(115, 13);
             this.lblTedarikEdilmisUrunler.TabIndex = 100;
             this.lblTedarikEdilmisUrunler.Text = "Tedarik Edilmiş Ürünler";
             // 
             // txtAdres
             // 
-            this.txtAdres.Location = new System.Drawing.Point(217, 246);
-            this.txtAdres.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAdres.Location = new System.Drawing.Point(163, 200);
             this.txtAdres.Name = "txtAdres";
             this.txtAdres.ReadOnly = true;
-            this.txtAdres.Size = new System.Drawing.Size(268, 22);
+            this.txtAdres.Size = new System.Drawing.Size(202, 20);
             this.txtAdres.TabIndex = 98;
             // 
             // lblAdres
             // 
             this.lblAdres.AutoSize = true;
-            this.lblAdres.Location = new System.Drawing.Point(51, 246);
-            this.lblAdres.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAdres.Location = new System.Drawing.Point(38, 200);
             this.lblAdres.Name = "lblAdres";
-            this.lblAdres.Size = new System.Drawing.Size(45, 17);
+            this.lblAdres.Size = new System.Drawing.Size(34, 13);
             this.lblAdres.TabIndex = 97;
             this.lblAdres.Text = "Adres";
             // 
             // txtAdSoyad
             // 
-            this.txtAdSoyad.Location = new System.Drawing.Point(217, 151);
-            this.txtAdSoyad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAdSoyad.Location = new System.Drawing.Point(163, 123);
             this.txtAdSoyad.Name = "txtAdSoyad";
             this.txtAdSoyad.ReadOnly = true;
-            this.txtAdSoyad.Size = new System.Drawing.Size(268, 22);
+            this.txtAdSoyad.Size = new System.Drawing.Size(202, 20);
             this.txtAdSoyad.TabIndex = 96;
             this.txtAdSoyad.TextChanged += new System.EventHandler(this.txtAdSoyad_TextChanged);
             // 
             // lblAdSoyad
             // 
             this.lblAdSoyad.AutoSize = true;
-            this.lblAdSoyad.Location = new System.Drawing.Point(51, 151);
-            this.lblAdSoyad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAdSoyad.Location = new System.Drawing.Point(38, 123);
             this.lblAdSoyad.Name = "lblAdSoyad";
-            this.lblAdSoyad.Size = new System.Drawing.Size(69, 17);
+            this.lblAdSoyad.Size = new System.Drawing.Size(53, 13);
             this.lblAdSoyad.TabIndex = 95;
             this.lblAdSoyad.Text = "Ad Soyad";
             // 
             // txtTelefonNumarasi
             // 
-            this.txtTelefonNumarasi.Location = new System.Drawing.Point(217, 199);
-            this.txtTelefonNumarasi.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefonNumarasi.Location = new System.Drawing.Point(163, 162);
             this.txtTelefonNumarasi.Name = "txtTelefonNumarasi";
             this.txtTelefonNumarasi.ReadOnly = true;
-            this.txtTelefonNumarasi.Size = new System.Drawing.Size(268, 22);
+            this.txtTelefonNumarasi.Size = new System.Drawing.Size(202, 20);
             this.txtTelefonNumarasi.TabIndex = 94;
             // 
             // lblTelefonNumarasi
             // 
             this.lblTelefonNumarasi.AutoSize = true;
-            this.lblTelefonNumarasi.Location = new System.Drawing.Point(51, 199);
-            this.lblTelefonNumarasi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTelefonNumarasi.Location = new System.Drawing.Point(38, 162);
             this.lblTelefonNumarasi.Name = "lblTelefonNumarasi";
-            this.lblTelefonNumarasi.Size = new System.Drawing.Size(120, 17);
+            this.lblTelefonNumarasi.Size = new System.Drawing.Size(90, 13);
             this.lblTelefonNumarasi.TabIndex = 93;
             this.lblTelefonNumarasi.Text = "Telefon Numarası";
             // 
             // lblTedarikciSecin
             // 
             this.lblTedarikciSecin.AutoSize = true;
-            this.lblTedarikciSecin.Location = new System.Drawing.Point(51, 69);
-            this.lblTedarikciSecin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTedarikciSecin.Location = new System.Drawing.Point(38, 56);
             this.lblTedarikciSecin.Name = "lblTedarikciSecin";
-            this.lblTedarikciSecin.Size = new System.Drawing.Size(105, 17);
+            this.lblTedarikciSecin.Size = new System.Drawing.Size(81, 13);
             this.lblTedarikciSecin.TabIndex = 92;
             this.lblTedarikciSecin.Text = "Tedarikçi Seçin";
             // 
@@ -298,21 +280,18 @@
             // 
             this.cbTedarikciSecin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTedarikciSecin.FormattingEnabled = true;
-            this.cbTedarikciSecin.Location = new System.Drawing.Point(56, 98);
-            this.cbTedarikciSecin.Margin = new System.Windows.Forms.Padding(4);
+            this.cbTedarikciSecin.Location = new System.Drawing.Point(42, 80);
             this.cbTedarikciSecin.Name = "cbTedarikciSecin";
-            this.cbTedarikciSecin.Size = new System.Drawing.Size(215, 24);
+            this.cbTedarikciSecin.Size = new System.Drawing.Size(162, 21);
             this.cbTedarikciSecin.TabIndex = 91;
             this.cbTedarikciSecin.SelectedIndexChanged += new System.EventHandler(this.cbTedarikciSecin_SelectedIndexChanged);
             // 
             // lbTedarikEdilmisUrunler
             // 
             this.lbTedarikEdilmisUrunler.FormattingEnabled = true;
-            this.lbTedarikEdilmisUrunler.ItemHeight = 16;
-            this.lbTedarikEdilmisUrunler.Location = new System.Drawing.Point(217, 300);
-            this.lbTedarikEdilmisUrunler.Margin = new System.Windows.Forms.Padding(4);
+            this.lbTedarikEdilmisUrunler.Location = new System.Drawing.Point(163, 244);
             this.lbTedarikEdilmisUrunler.Name = "lbTedarikEdilmisUrunler";
-            this.lbTedarikEdilmisUrunler.Size = new System.Drawing.Size(268, 132);
+            this.lbTedarikEdilmisUrunler.Size = new System.Drawing.Size(202, 108);
             this.lbTedarikEdilmisUrunler.TabIndex = 113;
             // 
             // errorProvider1
@@ -321,19 +300,41 @@
             // 
             // btnYeniTedarikci
             // 
-            this.btnYeniTedarikci.Location = new System.Drawing.Point(312, 88);
+            this.btnYeniTedarikci.Location = new System.Drawing.Point(234, 72);
+            this.btnYeniTedarikci.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnYeniTedarikci.Name = "btnYeniTedarikci";
-            this.btnYeniTedarikci.Size = new System.Drawing.Size(151, 34);
+            this.btnYeniTedarikci.Size = new System.Drawing.Size(113, 28);
             this.btnYeniTedarikci.TabIndex = 114;
             this.btnYeniTedarikci.Text = "Yeni Tedarikçi Ekle";
             this.btnYeniTedarikci.UseVisualStyleBackColor = true;
             this.btnYeniTedarikci.Click += new System.EventHandler(this.btnYeniTedarikci_Click);
             // 
+            // formKapatici1
+            // 
+            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
+            this.formKapatici1.Name = "formKapatici1";
+            this.formKapatici1.Size = new System.Drawing.Size(741, 29);
+            this.formKapatici1.TabIndex = 115;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(0, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(741, 13);
+            this.label2.TabIndex = 127;
+            this.label2.Text = "TEDARİK EKRANI";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmTedarikEkrani
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 555);
+            this.ClientSize = new System.Drawing.Size(741, 451);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.formKapatici1);
             this.Controls.Add(this.btnYeniTedarikci);
             this.Controls.Add(this.lbTedarikEdilmisUrunler);
             this.Controls.Add(this.btnEkle);
@@ -357,7 +358,7 @@
             this.Controls.Add(this.lblTelefonNumarasi);
             this.Controls.Add(this.lblTedarikciSecin);
             this.Controls.Add(this.cbTedarikciSecin);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTedarikEkrani";
             this.Text = "TedarikEkrani";
             this.Load += new System.EventHandler(this.TedarikEkrani_Load);
@@ -398,5 +399,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button btnYeniTedarikci;
+        private FormKapatici formKapatici1;
+        private System.Windows.Forms.Label label2;
     }
 }

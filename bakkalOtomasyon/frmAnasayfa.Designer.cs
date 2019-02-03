@@ -165,6 +165,7 @@
             this.btnTedarik.TabIndex = 4;
             this.btnTedarik.Text = "TEDARİK İŞLEMLERİ";
             this.btnTedarik.UseVisualStyleBackColor = true;
+            this.btnTedarik.Click += new System.EventHandler(this.btnTedarik_Click);
             // 
             // btnUrun
             // 
