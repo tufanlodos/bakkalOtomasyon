@@ -20,6 +20,7 @@ namespace PL.Bakkal
         private void frmAnasayfa_Load(object sender, EventArgs e)
         {
             this.AcceptButton = btnSatis;
+            btnSatis.PerformClick();
         }
 
         private void btnKapat_Click_1(object sender, EventArgs e)
