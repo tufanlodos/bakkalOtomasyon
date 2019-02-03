@@ -1,6 +1,7 @@
 ﻿using DAL.Bakkal.DataModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace BLL.Bakkal.Repositories
         }
         public bool KategoriKontrol(Kategoriler yeni)
         {
-            return Convert.ToBoolean(ent.Kategorilers.Where(k => k.KategoriAdi == yeni.KategoriAdi).ToList().Count);
+            return Convert.ToBoolean(ent.Kategorilers.Where(k => k.KategoriAdi.ToLower() == yeni.KategoriAdi.ToLower()).ToList().Count);
         }
         public bool KategoriKontrolFromDegistir(Kategoriler yeni)
         {
@@ -108,5 +109,18 @@ namespace BLL.Bakkal.Repositories
                                        select k).ToList();
             return liste;
         }
+        public void ContextteBekleyenleriTemizle()
+        {
+            var ContextteBekleyenler = ent.ChangeTracker.Entries()
+                .Where(e => e.State == EntityState.Added ||
+                            e.State == EntityState.Modified ||
+                            e.State == EntityState.Deleted)
+                .ToList();
+
+            foreach (var entry in ContextteBekleyenler)
+                entry.State = EntityState.Detached;
+        }
+
+      
     }
 }

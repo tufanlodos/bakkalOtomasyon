@@ -23,11 +23,14 @@ namespace DAL.Bakkal.DataModel
 
         //relation
         [ForeignKey("TedarikciId")]
-
         public virtual Tedarikci Tedarikci { get; set; }
         [ForeignKey("UrunId")]
         public virtual Urunler Urun { get; set; }
-
+        public Siparis()
+        {
+            Silindi = false;
+            IslemTarihi = DateTime.Now;
+        }
 
     }
 }

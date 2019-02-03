@@ -143,6 +143,7 @@
             this.Controls.Add(this.cbUrunSecin);
             this.Name = "Stok";
             this.Text = "Stok";
+            this.Load += new System.EventHandler(this.Stok_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
