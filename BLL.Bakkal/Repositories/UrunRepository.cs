@@ -32,7 +32,7 @@ namespace BLL.Bakkal.Repositories
         }
         public Urunler UrunGetirByID(int ID)
         {
-            Urunler degisen = ent.Urunlers.Where(p => p.Id == ID).FirstOrDefault();
+            Urunler degisen = ent.Urunlers.Where(p => p.Id == ID && p.Silindi == false).FirstOrDefault();
             return degisen;
         }
         public bool UrunEkle(Urunler p)
@@ -71,7 +71,7 @@ namespace BLL.Bakkal.Repositories
             Urunler silinen = (from u in ent.Urunlers
                               where u.Id == Id
                               select u).FirstOrDefault();
-            ent.Urunlers.Remove(silinen);
+            silinen.Silindi = true;
             try
             {
                 ent.SaveChanges();
@@ -117,7 +117,7 @@ namespace BLL.Bakkal.Repositories
 
         public List<Urunler> UrunGetirByUrunAdi(string urunAdi)
         {
-            return ent.Urunlers.Where(u => u.UrunAdi.Contains(urunAdi)).ToList();
+            return ent.Urunlers.Where(u => u.UrunAdi.Contains(urunAdi) && u.Silindi == true).ToList();
         }
 
         public List<Urunler> UrunSiralaByUrunAdi(string nece, int KategoriID)
