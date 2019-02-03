@@ -78,5 +78,17 @@ namespace PL.Bakkal
             frmBilancho frm = new frmBilancho();
             FormAc(frm);
         }
+
+        private void btnUrun_Click(object sender, EventArgs e)
+        {
+            frmUrunIslemleri frm = new frmUrunIslemleri();
+            FormAc(frm);
+        }
+
+        private void btnStok_Click(object sender, EventArgs e)
+        {
+            frmStok frm = new frmStok();
+            FormAc(frm);
+        }
     }
 }

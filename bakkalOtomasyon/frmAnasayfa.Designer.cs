@@ -167,7 +167,6 @@
             this.btnTedarik.TabIndex = 4;
             this.btnTedarik.Text = "TEDARİK İŞLEMLERİ";
             this.btnTedarik.UseVisualStyleBackColor = true;
-
             // 
             // btnStok
             // 
