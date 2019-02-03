@@ -22,6 +22,7 @@ namespace PL.Bakkal
         private void frmIade_Load(object sender, EventArgs e)
         {
             SatislariDoldur();
+            btnSDSil.Enabled = false;
         }
 
         private void SatislariDoldur()
@@ -63,6 +64,43 @@ namespace PL.Bakkal
                 lvSatisDetaylar.Items[i].SubItems.Add(sd.Adet.ToString());
                 lvSatisDetaylar.Items[i].SubItems.Add(sd.ToplamTutar.ToString());
                 i++;
+            }
+        }
+        int SilinecekSDId, SecileninSatisId;
+        private void lvSatisDetaylar_DoubleClick(object sender, EventArgs e)
+        {
+            btnSDSil.Enabled = true;
+            SilinecekSDId = Convert.ToInt32(lvSatisDetaylar.SelectedItems[0].SubItems[0].Text);
+            SecileninSatisId = Convert.ToInt32(lvSatisDetaylar.SelectedItems[0].SubItems[1].Text);
+        }
+
+        private void lvSatisDetaylar_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            btnSDSil.Enabled = false;
+        }
+
+        private void btnSDSil_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bu hareketi silmek istiyor musunuz?", "Silme Uyarısı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (sr.SatisDetaySil(SilinecekSDId))
+                {
+                    MessageBox.Show("Seçilen silme işlemi gerçekleşti.", "Silme gerçekleşti.",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    lvSatisDetaylar.Items.Clear();
+                    btnSDSil.Enabled = false;
+                    if (!sr.SatisKaldiMi(SecileninSatisId))
+                    {
+                        sr.SatisSil(SecileninSatisId);
+                    }
+                    else
+                    {
+                        sr.SatisToplamTutarGuncelle(SecileninSatisId, sr.SatisToplamTutarHesaplat(SecileninSatisId));
+                    }
+                    lvSatislar.Items.Clear();
+                    SatislariDoldur();
+                }
+                else
+                    MessageBox.Show("Var bi' terslikler..", "..", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

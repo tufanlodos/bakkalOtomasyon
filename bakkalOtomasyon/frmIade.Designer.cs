@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.label2 = new System.Windows.Forms.Label();
             this.lvSatislar = new System.Windows.Forms.ListView();
-            this.lvSatisDetaylar = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvSatisDetaylar = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,15 +43,8 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSDSil = new System.Windows.Forms.Button();
+            this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.SuspendLayout();
-            // 
-            // formKapatici1
-            // 
-            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
-            this.formKapatici1.Name = "formKapatici1";
-            this.formKapatici1.Size = new System.Drawing.Size(685, 29);
-            this.formKapatici1.TabIndex = 0;
             // 
             // label2
             // 
@@ -83,26 +75,6 @@
             this.lvSatislar.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvSatislar_ColumnWidthChanging);
             this.lvSatislar.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvSatislar_ItemSelectionChanged);
             // 
-            // lvSatisDetaylar
-            // 
-            this.lvSatisDetaylar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11});
-            this.lvSatisDetaylar.FullRowSelect = true;
-            this.lvSatisDetaylar.Location = new System.Drawing.Point(342, 112);
-            this.lvSatisDetaylar.MultiSelect = false;
-            this.lvSatisDetaylar.Name = "lvSatisDetaylar";
-            this.lvSatisDetaylar.Size = new System.Drawing.Size(328, 110);
-            this.lvSatisDetaylar.TabIndex = 127;
-            this.lvSatisDetaylar.UseCompatibleStateImageBehavior = false;
-            this.lvSatisDetaylar.View = System.Windows.Forms.View.Details;
-            this.lvSatisDetaylar.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvSatisDetaylar_ColumnWidthChanging);
-            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Satış Id";
@@ -123,6 +95,28 @@
             // 
             this.columnHeader4.Text = "İşlem Tarihi";
             this.columnHeader4.Width = 110;
+            // 
+            // lvSatisDetaylar
+            // 
+            this.lvSatisDetaylar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11});
+            this.lvSatisDetaylar.FullRowSelect = true;
+            this.lvSatisDetaylar.Location = new System.Drawing.Point(342, 112);
+            this.lvSatisDetaylar.MultiSelect = false;
+            this.lvSatisDetaylar.Name = "lvSatisDetaylar";
+            this.lvSatisDetaylar.Size = new System.Drawing.Size(328, 110);
+            this.lvSatisDetaylar.TabIndex = 127;
+            this.lvSatisDetaylar.UseCompatibleStateImageBehavior = false;
+            this.lvSatisDetaylar.View = System.Windows.Forms.View.Details;
+            this.lvSatisDetaylar.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvSatisDetaylar_ColumnWidthChanging);
+            this.lvSatisDetaylar.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvSatisDetaylar_ItemSelectionChanged);
+            this.lvSatisDetaylar.DoubleClick += new System.EventHandler(this.lvSatisDetaylar_DoubleClick);
             // 
             // columnHeader5
             // 
@@ -163,6 +157,15 @@
             this.btnSDSil.TabIndex = 129;
             this.btnSDSil.Text = "Sil";
             this.btnSDSil.UseVisualStyleBackColor = true;
+            this.btnSDSil.Click += new System.EventHandler(this.btnSDSil_Click);
+            // 
+            // formKapatici1
+            // 
+            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
+            this.formKapatici1.Name = "formKapatici1";
+            this.formKapatici1.Size = new System.Drawing.Size(685, 29);
+            this.formKapatici1.TabIndex = 0;
             // 
             // frmIade
             // 

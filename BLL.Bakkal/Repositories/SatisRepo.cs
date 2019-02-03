@@ -75,6 +75,56 @@ namespace BLL.Bakkal.Repositories
         {
             return ent.SatisDetay.Where(s => s.IslemId == SatisId).ToList();
         }
-        
+        public bool SatisDetaySil(int Id)
+        {
+            bool Sonuc = false;
+            SatisDetay silinen = ent.SatisDetay.Where(s => s.Id == Id).FirstOrDefault();
+            ent.SatisDetay.Remove(silinen);
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
+            return Sonuc;
+        }
+        public bool SatisKaldiMi(int SatisId)
+        {
+            bool Sonuc = true;
+            bool Var = Convert.ToBoolean(ent.SatisDetay.Count(sd => sd.IslemId == SatisId));
+            if (Var == false)
+            {
+                Sonuc = false;
+            }
+            return Sonuc;
+        }
+        public bool SatisSil(int Id)
+        {
+            bool Sonuc = false;
+            Satis silinen = ent.Satislar.Where(s => s.Id == Id).FirstOrDefault();
+            silinen.Silindi = true;
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
+            return Sonuc;
+        }
+        public decimal SatisToplamTutarHesaplat(int SatisId)
+        {
+            return ent.SatisDetay.Where(sd => sd.IslemId == SatisId).Sum(sde => sde.ToplamTutar);
+        }
+        public void SatisToplamTutarGuncelle(int SatisId,decimal YeniTutar)
+        {
+            Satis s = ent.Satislar.Where(sa => sa.Id == SatisId).FirstOrDefault();
+            s.ToplamTutar = YeniTutar;
+        }
     }
 }
