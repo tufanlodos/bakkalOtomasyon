@@ -21,7 +21,7 @@ namespace PL.Bakkal
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAnasayfa());
+            Application.Run(new frmStok());
         }
     }
 }

@@ -21,11 +21,14 @@ namespace PL.Bakkal
         StokRepository sr = new StokRepository();
         private void Stok_Load(object sender, EventArgs e)
         {
+            if (sr.KritikVarMi())
+            {
+                lblKritik.Visible = true;
+            }
             DgvDoldurDuzenle();
             cbKategori.DisplayMember = "KategoriAdi";
             cbKategori.ValueMember = "Id";
             cbKategori.DataSource = sr.KategoriGetir();
-            dgvStok.DataSource = sr.UrunleriGetir();
         }
         private void DgvDoldurDuzenle()
         {

@@ -36,6 +36,9 @@ namespace BLL.Bakkal.Repositories
             return liste;
         }
 
-        
+        public bool KritikVarMi()
+        {
+            return Convert.ToBoolean(ent.Urunlers.Where(u => u.StokMiktari < 20).Count());
+        }
     }
 }
