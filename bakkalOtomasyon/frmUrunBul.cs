@@ -23,7 +23,7 @@ namespace PL.Bakkal
         //autosize true olacak
         //location 
         SatisRepo sr = new SatisRepo();
-        int x = 40, y=45, xler = 0, yler = 0;
+        int x = 40, y = 45, xler = 0;
         private void frmUrunBul_Load(object sender, EventArgs e)
         {
             List<Urunler> liste = sr.UrunleriGetir();

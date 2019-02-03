@@ -79,7 +79,7 @@ namespace BLL.Bakkal.Repositories
             }
             catch (Exception ex)
             {
-                ////string hata = ex.Message;
+                string hata = ex.Message;
             }
             return Sonuc;
         }
