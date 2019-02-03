@@ -18,6 +18,9 @@ namespace BLL.Bakkal.Repositories
         List<Urunler> UrunSecin(string urun);
         List<Tedarikci> TedarikciListele();
         decimal BirimFiyatGetirByUrunAd(string uAdi,int tId);
+        int TedarikciIdGetirByTedarikciAdi(string tedarikciAdi);
+        int UrunIdGetirByUrunAdi(string urunAdi);
+        bool TedarikDetayEkle(TedarikDetay t);
 
 
     }

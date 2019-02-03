@@ -81,6 +81,38 @@ namespace BLL.Bakkal.Repositories
             return ent.Urunlers.Where(k => k.Silindi == false).ToList();
         }
 
-       
+        public int TedarikciIdGetirByTedarikciAdi(string tedarikciAdi)
+        {
+            Tedarikci td = ent.Tedarikci.Where(t => t.TedarikciAdi == tedarikciAdi).FirstOrDefault();
+            return td.Id;
+        }
+
+        public int UrunIdGetirByUrunAdi(string urunAdi)
+        {
+            Urunler ur = ent.Urunlers.Where(u => u.UrunAdi == urunAdi).FirstOrDefault();
+            return ur.Id;
+        }
+        public bool TedarikDetayEkle(TedarikDetay t)
+        {
+            bool Sonuc = false;
+            ent.TedarikDetay.Add(t);
+            try
+            {
+                ent.SaveChanges();
+                Sonuc = true;
+            }
+            catch (Exception ex)
+            {
+                string hata = ex.Message;
+            }
+            return Sonuc;
+        }
+
+
+
+
+
+
+
     }
 }

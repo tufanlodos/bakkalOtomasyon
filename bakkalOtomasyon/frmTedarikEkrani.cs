@@ -20,6 +20,7 @@ namespace PL.Bakkal
         }
         TedarikEkraniRepository ter = new TedarikEkraniRepository();
         int tedarikciId;
+        decimal toplamTutar;
         private void TedarikEkrani_Load(object sender, EventArgs e)
         {
             cbTedarikciSecin.DisplayMember = "TedarikciAdi";
@@ -99,8 +100,50 @@ namespace PL.Bakkal
         {
 
             lvUrunler.Items.Add(txtAdSoyad.Text) ;
+            lvUrunler.Items[lvUrunler.Items.Count - 1].SubItems.Add(cbTedarikIcinUrunSecin.SelectedItem.ToString());
+            lvUrunler.Items[lvUrunler.Items.Count - 1].SubItems.Add(txtBirimFiyat.Text);
             lvUrunler.Items[lvUrunler.Items.Count - 1].SubItems.Add(txtAdet.Text);
-            lvUrunler.Items[lvUrunler.Items.Count - 1].SubItems.Add(txtAdet.Text);
+            lvUrunler.Items[lvUrunler.Items.Count - 1].SubItems.Add((Convert.ToDecimal(txtBirimFiyat.Text) * Convert.ToInt32(txtAdet.Text)).ToString());
+            ToplamTutarHesapla();
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            lvUrunler.SelectedItems[0].Remove();
+            ToplamTutarHesapla();
+        }
+
+        private void ToplamTutarHesapla()
+        {
+            toplamTutar = 0;
+            for (int i = 0; i < lvUrunler.Items.Count; i++)
+            {
+                toplamTutar += Convert.ToDecimal(lvUrunler.Items[i].SubItems[4].Text);
+
+            }
+            txtToplamTutar.Text = toplamTutar.ToString();
+            if (toplamTutar != 0)
+                btnIslemiKaydet.Enabled = true;
+            if (txtToplamTutar.Text == "0")
+                btnIslemiKaydet.Enabled = false;
+        }
+
+        private void btnIslemiKaydet_Click(object sender, EventArgs e)
+        {
+
+            for (int i = 0; i < lvUrunler.Items.Count; i++)
+            {
+                TedarikDetay td = new TedarikDetay();
+
+                td.TedarikciId = ter.TedarikciIdGetirByTedarikciAdi(lvUrunler.Items[i].Text);
+                td.UrunId = ter.UrunIdGetirByUrunAdi(lvUrunler.Items[i].SubItems[1].Text);
+                td.BirimTutar = Convert.ToDecimal(lvUrunler.Items[i].SubItems[2].Text);
+                td.Adet = Convert.ToInt32(lvUrunler.Items[i].SubItems[3].Text);
+                td.ToplamTutar = Convert.ToDecimal(lvUrunler.Items[i].SubItems[4].Text);
+                td.IslemTarihi = DateTime.Now;
+                ter.TedarikDetayEkle(td);
+            }
+            
         }
     }
 }
