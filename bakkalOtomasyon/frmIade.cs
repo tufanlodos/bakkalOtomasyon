@@ -66,12 +66,14 @@ namespace PL.Bakkal
                 i++;
             }
         }
-        int SilinecekSDId, SecileninSatisId;
+        int SilinecekSDId, SecileninSatisId,SecileninUrunId,SecileninAdedi;
         private void lvSatisDetaylar_DoubleClick(object sender, EventArgs e)
         {
             btnSDSil.Enabled = true;
             SilinecekSDId = Convert.ToInt32(lvSatisDetaylar.SelectedItems[0].SubItems[0].Text);
             SecileninSatisId = Convert.ToInt32(lvSatisDetaylar.SelectedItems[0].SubItems[1].Text);
+            SecileninUrunId = Convert.ToInt32(lvSatisDetaylar.SelectedItems[0].SubItems[2].Text);
+            SecileninAdedi = Convert.ToInt32(lvSatisDetaylar.SelectedItems[0].SubItems[5].Text);
         }
 
         private void lvSatisDetaylar_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -81,11 +83,12 @@ namespace PL.Bakkal
 
         private void btnSDSil_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bu hareketi silmek istiyor musunuz?", "Silme Uyarısı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bu hareketteki ürünleri iade etmek istiyor musunuz?", "İade Uyarısı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                sr.UrunIadeStokArtir(SecileninUrunId, SecileninAdedi);
                 if (sr.SatisDetaySil(SilinecekSDId))
                 {
-                    MessageBox.Show("Seçilen silme işlemi gerçekleşti.", "Silme gerçekleşti.",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Seçilen hareketin iadesi gerçekleştirildi.", "İade gerçekleşti.",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     lvSatisDetaylar.Items.Clear();
                     btnSDSil.Enabled = false;
                     if (!sr.SatisKaldiMi(SecileninSatisId))
