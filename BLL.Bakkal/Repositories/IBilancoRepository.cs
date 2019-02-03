@@ -12,7 +12,5 @@ namespace BLL.Bakkal.Repositories
         decimal MasrafTutar(int x);
         decimal TedarikTutar(int x);
         decimal SatisTutar(int x);
-
-        
     }
 }
