@@ -47,7 +47,7 @@ namespace PL.Bakkal
             lbTedarikEdilmisUrunler.DataSource = ter.UrunleriGetirByTedarikciId(tedarikciId);
 
            
-            cbTedarikIcinUrunSecin.DataSource = ter.UrunleriGetirByTedarikciId(tedarikciId);
+            cbTedarikIcinUrunSecin.DataSource = ter.DistinctUrunleriGetir();
            
            
 
@@ -73,7 +73,7 @@ namespace PL.Bakkal
 
         private void cbTedarikIcinUrunSecin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            decimal birimF = ter.BirimFiyatGetirByUrunAd(cbTedarikIcinUrunSecin.Text,tedarikciId);
+            decimal birimF = ter.BirimFiyatGetirByUrunAd(cbTedarikIcinUrunSecin.Text);
             txtBirimFiyat.Text = birimF.ToString();
         }
 
@@ -105,13 +105,20 @@ namespace PL.Bakkal
             lvUrunler.Items[lvUrunler.Items.Count - 1].SubItems.Add(txtAdet.Text);
             lvUrunler.Items[lvUrunler.Items.Count - 1].SubItems.Add((Convert.ToDecimal(txtBirimFiyat.Text) * Convert.ToInt32(txtAdet.Text)).ToString());
             ToplamTutarHesapla();
+            txtAdet.Clear();
+            txtAdet.Focus();
+            txtBirimFiyat.Clear();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
         {
             lvUrunler.SelectedItems[0].Remove();
             ToplamTutarHesapla();
+            txtAdet.Clear();
+            txtAdet.Focus();
+            txtBirimFiyat.Clear();
         }
+    
 
         private void ToplamTutarHesapla()
         {
@@ -142,8 +149,16 @@ namespace PL.Bakkal
                 td.ToplamTutar = Convert.ToDecimal(lvUrunler.Items[i].SubItems[4].Text);
                 td.IslemTarihi = DateTime.Now;
                 ter.TedarikDetayEkle(td);
+                ter.UrunStokMiktariniArttir(td.UrunId, td.Adet);
             }
-            
+            MessageBox.Show("Yeni Tedarikler Eklendi");
+        }
+
+        private void btnYeniTedarikci_Click(object sender, EventArgs e)
+        {
+            frmYeniTedarikciEkle frm = new frmYeniTedarikciEkle();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
         }
     }
 }
