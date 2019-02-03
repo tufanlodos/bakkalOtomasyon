@@ -41,6 +41,8 @@
             this.dgvUrunler = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.formKapatici1 = new PL.Bakkal.FormKapatici();
+            this.lblKritik = new System.Windows.Forms.Label();
+            this.btnKritikGoruntule = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,9 +157,10 @@
             this.dgvUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUrunler.Location = new System.Drawing.Point(12, 111);
             this.dgvUrunler.Name = "dgvUrunler";
-            this.dgvUrunler.Size = new System.Drawing.Size(600, 139);
+            this.dgvUrunler.Size = new System.Drawing.Size(680, 139);
             this.dgvUrunler.TabIndex = 126;
             this.dgvUrunler.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellDoubleClick);
+            this.dgvUrunler.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellValueChanged);
             this.dgvUrunler.DoubleClick += new System.EventHandler(this.dgvUrunler_DoubleClick);
             // 
             // label2
@@ -166,7 +169,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(0, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(752, 13);
+            this.label2.Size = new System.Drawing.Size(748, 13);
             this.label2.TabIndex = 128;
             this.label2.Text = "ÜRÜN İŞLEMLERİ EKRANI";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -176,14 +179,38 @@
             this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
             this.formKapatici1.Location = new System.Drawing.Point(0, 0);
             this.formKapatici1.Name = "formKapatici1";
-            this.formKapatici1.Size = new System.Drawing.Size(752, 29);
+            this.formKapatici1.Size = new System.Drawing.Size(748, 29);
             this.formKapatici1.TabIndex = 127;
+            // 
+            // lblKritik
+            // 
+            this.lblKritik.AutoSize = true;
+            this.lblKritik.BackColor = System.Drawing.Color.Red;
+            this.lblKritik.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblKritik.Location = new System.Drawing.Point(26, 327);
+            this.lblKritik.Name = "lblKritik";
+            this.lblKritik.Size = new System.Drawing.Size(411, 17);
+            this.lblKritik.TabIndex = 129;
+            this.lblKritik.Text = "Stok miktarı kritik seviyede olan ürünler bulunmaktadır !";
+            this.lblKritik.Visible = false;
+            // 
+            // btnKritikGoruntule
+            // 
+            this.btnKritikGoruntule.Location = new System.Drawing.Point(443, 318);
+            this.btnKritikGoruntule.Name = "btnKritikGoruntule";
+            this.btnKritikGoruntule.Size = new System.Drawing.Size(101, 36);
+            this.btnKritikGoruntule.TabIndex = 130;
+            this.btnKritikGoruntule.Text = "Görüntüle";
+            this.btnKritikGoruntule.UseVisualStyleBackColor = true;
+            this.btnKritikGoruntule.Visible = false;
             // 
             // frmUrunIslemleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 322);
+            this.ClientSize = new System.Drawing.Size(748, 375);
+            this.Controls.Add(this.btnKritikGoruntule);
+            this.Controls.Add(this.lblKritik);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.formKapatici1);
             this.Controls.Add(this.dgvUrunler);
@@ -222,5 +249,7 @@
         private System.Windows.Forms.DataGridView dgvUrunler;
         private FormKapatici formKapatici1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblKritik;
+        private System.Windows.Forms.Button btnKritikGoruntule;
     }
 }

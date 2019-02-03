@@ -84,11 +84,5 @@ namespace PL.Bakkal
             frmUrunIslemleri frm = new frmUrunIslemleri();
             FormAc(frm);
         }
-
-        private void btnStok_Click(object sender, EventArgs e)
-        {
-            frmStok frm = new frmStok();
-            FormAc(frm);
-        }
     }
 }

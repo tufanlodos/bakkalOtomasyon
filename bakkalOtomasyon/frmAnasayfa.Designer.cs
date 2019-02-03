@@ -38,7 +38,6 @@
             this.btnMasraf = new System.Windows.Forms.Button();
             this.btnSiparis = new System.Windows.Forms.Button();
             this.btnTedarik = new System.Windows.Forms.Button();
-            this.btnStok = new System.Windows.Forms.Button();
             this.btnUrun = new System.Windows.Forms.Button();
             this.btnKategori = new System.Windows.Forms.Button();
             this.btnSatis = new System.Windows.Forms.Button();
@@ -109,7 +108,6 @@
             this.pnlNav.Controls.Add(this.btnMasraf);
             this.pnlNav.Controls.Add(this.btnSiparis);
             this.pnlNav.Controls.Add(this.btnTedarik);
-            this.pnlNav.Controls.Add(this.btnStok);
             this.pnlNav.Controls.Add(this.btnUrun);
             this.pnlNav.Controls.Add(this.btnKategori);
             this.pnlNav.Controls.Add(this.btnSatis);
@@ -125,9 +123,9 @@
             // 
             this.btnBilanco.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBilanco.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBilanco.Location = new System.Drawing.Point(0, 345);
+            this.btnBilanco.Location = new System.Drawing.Point(0, 358);
             this.btnBilanco.Name = "btnBilanco";
-            this.btnBilanco.Size = new System.Drawing.Size(235, 35);
+            this.btnBilanco.Size = new System.Drawing.Size(235, 43);
             this.btnBilanco.TabIndex = 7;
             this.btnBilanco.Text = "BİLANÇO";
             this.btnBilanco.UseVisualStyleBackColor = true;
@@ -137,9 +135,9 @@
             // 
             this.btnMasraf.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMasraf.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMasraf.Location = new System.Drawing.Point(0, 310);
+            this.btnMasraf.Location = new System.Drawing.Point(0, 315);
             this.btnMasraf.Name = "btnMasraf";
-            this.btnMasraf.Size = new System.Drawing.Size(235, 35);
+            this.btnMasraf.Size = new System.Drawing.Size(235, 43);
             this.btnMasraf.TabIndex = 6;
             this.btnMasraf.Text = "MASRAF İŞLEMLERİ";
             this.btnMasraf.UseVisualStyleBackColor = true;
@@ -149,9 +147,9 @@
             // 
             this.btnSiparis.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSiparis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSiparis.Location = new System.Drawing.Point(0, 275);
+            this.btnSiparis.Location = new System.Drawing.Point(0, 272);
             this.btnSiparis.Name = "btnSiparis";
-            this.btnSiparis.Size = new System.Drawing.Size(235, 35);
+            this.btnSiparis.Size = new System.Drawing.Size(235, 43);
             this.btnSiparis.TabIndex = 5;
             this.btnSiparis.Text = "SİPARİŞ İŞLEMLERİ";
             this.btnSiparis.UseVisualStyleBackColor = true;
@@ -161,32 +159,20 @@
             // 
             this.btnTedarik.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnTedarik.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTedarik.Location = new System.Drawing.Point(0, 240);
+            this.btnTedarik.Location = new System.Drawing.Point(0, 229);
             this.btnTedarik.Name = "btnTedarik";
-            this.btnTedarik.Size = new System.Drawing.Size(235, 35);
+            this.btnTedarik.Size = new System.Drawing.Size(235, 43);
             this.btnTedarik.TabIndex = 4;
             this.btnTedarik.Text = "TEDARİK İŞLEMLERİ";
             this.btnTedarik.UseVisualStyleBackColor = true;
-            // 
-            // btnStok
-            // 
-            this.btnStok.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnStok.Location = new System.Drawing.Point(0, 205);
-            this.btnStok.Name = "btnStok";
-            this.btnStok.Size = new System.Drawing.Size(235, 35);
-            this.btnStok.TabIndex = 3;
-            this.btnStok.Text = "STOK DURUMU";
-            this.btnStok.UseVisualStyleBackColor = true;
-            this.btnStok.Click += new System.EventHandler(this.btnStok_Click);
             // 
             // btnUrun
             // 
             this.btnUrun.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnUrun.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUrun.Location = new System.Drawing.Point(0, 170);
+            this.btnUrun.Location = new System.Drawing.Point(0, 186);
             this.btnUrun.Name = "btnUrun";
-            this.btnUrun.Size = new System.Drawing.Size(235, 35);
+            this.btnUrun.Size = new System.Drawing.Size(235, 43);
             this.btnUrun.TabIndex = 2;
             this.btnUrun.Text = "ÜRÜN İŞLEMLERİ";
             this.btnUrun.UseVisualStyleBackColor = true;
@@ -196,9 +182,9 @@
             // 
             this.btnKategori.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnKategori.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnKategori.Location = new System.Drawing.Point(0, 135);
+            this.btnKategori.Location = new System.Drawing.Point(0, 143);
             this.btnKategori.Name = "btnKategori";
-            this.btnKategori.Size = new System.Drawing.Size(235, 35);
+            this.btnKategori.Size = new System.Drawing.Size(235, 43);
             this.btnKategori.TabIndex = 1;
             this.btnKategori.Text = "KATEGORİ İŞLEMLERİ";
             this.btnKategori.UseVisualStyleBackColor = true;
@@ -210,7 +196,7 @@
             this.btnSatis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSatis.Location = new System.Drawing.Point(0, 100);
             this.btnSatis.Name = "btnSatis";
-            this.btnSatis.Size = new System.Drawing.Size(235, 35);
+            this.btnSatis.Size = new System.Drawing.Size(235, 43);
             this.btnSatis.TabIndex = 0;
             this.btnSatis.Text = "SATIŞ EKRANI";
             this.btnSatis.UseVisualStyleBackColor = true;
@@ -265,7 +251,6 @@
         private System.Windows.Forms.Button btnMasraf;
         private System.Windows.Forms.Button btnSiparis;
         private System.Windows.Forms.Button btnTedarik;
-        private System.Windows.Forms.Button btnStok;
         private System.Windows.Forms.Button btnUrun;
         private System.Windows.Forms.Button btnKategori;
         private System.Windows.Forms.Button btnSatis;

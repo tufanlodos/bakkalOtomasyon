@@ -26,5 +26,7 @@ namespace BLL.Bakkal.Repositories
         //List<Urunler> UrunSiralaBySatisFiyati(string nece);
         //List<Urunler> UrunSiralaByAlisFiyati(string nece);
         void ContextteBekleyenleriTemizle();
+        bool KritikVarMi();
+
     }
 }

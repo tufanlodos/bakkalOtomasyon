@@ -24,9 +24,13 @@ namespace PL.Bakkal
 
         private void frmUrunIslemleri_Load(object sender, EventArgs e)
         {
+            if (ur.KritikVarMi())
+            {
+                lblKritik.Visible = true;
+                btnKritikGoruntule.Visible = true;
+            }
             BaslangicHalineDon();
             dgvUrunler.ClearSelection();
-
             Kategoriler tumu = new Kategoriler();
             tumu.Id = 0;
             tumu.KategoriAdi = "Tümü";
