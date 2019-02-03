@@ -48,9 +48,18 @@ namespace PL.Bakkal
             dgvKritikUrunler.Columns[7].HeaderText = "Stok Miktarı";
             dgvKritikUrunler.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvKritikUrunler.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvKritikUrunler.Columns[7].DefaultCellStyle.BackColor = Color.Red;
             dgvKritikUrunler.Columns[8].Visible = false;
             dgvKritikUrunler.Columns[9].HeaderText = "Kategori Adı";
             dgvKritikUrunler.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+        }
+
+        private void btnSiparisKaydi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmSiparisEkle frm = new frmSiparisEkle();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
         }
     }
 }

@@ -31,6 +31,7 @@
             this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvKritikUrunler = new System.Windows.Forms.DataGridView();
+            this.btnSiparisKaydi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKritikUrunler)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,11 +62,22 @@
             this.dgvKritikUrunler.Size = new System.Drawing.Size(666, 211);
             this.dgvKritikUrunler.TabIndex = 124;
             // 
+            // btnSiparisKaydi
+            // 
+            this.btnSiparisKaydi.Location = new System.Drawing.Point(270, 282);
+            this.btnSiparisKaydi.Name = "btnSiparisKaydi";
+            this.btnSiparisKaydi.Size = new System.Drawing.Size(129, 23);
+            this.btnSiparisKaydi.TabIndex = 125;
+            this.btnSiparisKaydi.Text = "Sipariş Kaydı Oluştur";
+            this.btnSiparisKaydi.UseVisualStyleBackColor = true;
+            this.btnSiparisKaydi.Click += new System.EventHandler(this.btnSiparisKaydi_Click);
+            // 
             // frmKritikStok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 329);
+            this.Controls.Add(this.btnSiparisKaydi);
             this.Controls.Add(this.dgvKritikUrunler);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.formKapatici1);
@@ -83,5 +95,6 @@
         private FormKapatici formKapatici1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvKritikUrunler;
+        private System.Windows.Forms.Button btnSiparisKaydi;
     }
 }
