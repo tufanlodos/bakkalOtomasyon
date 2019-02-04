@@ -23,7 +23,7 @@ namespace PL.Bakkal
         SatisRepo sr = new SatisRepo();
         private void frmSatisEkrani_Load(object sender, EventArgs e)
         {
-            this.AcceptButton = btnBul;
+            this.AcceptButton = btnUrunSec;
             txtBarkod.Focus();
             Miktar = 1;
             txtMiktar.Text = Miktar.ToString();
@@ -323,6 +323,11 @@ namespace PL.Bakkal
             frm.ShowDialog();
             btnSTemizle.PerformClick();
             btnTemizle.PerformClick();
+        }
+
+        private void txtBarkod_TextChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnBul;
         }
 
         private void txtMiktar_TextChanged(object sender, EventArgs e)

@@ -289,6 +289,7 @@
             this.txtBarkod.Name = "txtBarkod";
             this.txtBarkod.Size = new System.Drawing.Size(96, 20);
             this.txtBarkod.TabIndex = 0;
+            this.txtBarkod.TextChanged += new System.EventHandler(this.txtBarkod_TextChanged);
             // 
             // lblBarkot
             // 
