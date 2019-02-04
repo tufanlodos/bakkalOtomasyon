@@ -150,6 +150,10 @@ namespace BLL.Bakkal.Repositories
             }
             return Sonuc;
         }
+        public bool TedarikciKontrolByKAdi(string yeni)
+        {
+            return Convert.ToBoolean(ent.Tedarikci.Where(k => k.TedarikciAdi.ToLower() == yeni.ToLower()).ToList().Count);
+        }
 
 
 

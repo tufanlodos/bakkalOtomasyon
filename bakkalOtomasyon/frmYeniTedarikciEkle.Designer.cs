@@ -79,6 +79,7 @@
             this.txtTedarikciAdi.Name = "txtTedarikciAdi";
             this.txtTedarikciAdi.Size = new System.Drawing.Size(76, 20);
             this.txtTedarikciAdi.TabIndex = 4;
+            this.txtTedarikciAdi.TextChanged += new System.EventHandler(this.txtTedarikciAdi_TextChanged);
             // 
             // txtIletisimNo
             // 
@@ -119,7 +120,7 @@
             this.formKapatici1.Location = new System.Drawing.Point(0, 0);
             this.formKapatici1.Name = "formKapatici1";
             this.formKapatici1.Size = new System.Drawing.Size(282, 29);
-            this.formKapatici1.TabIndex = 9;
+            this.formKapatici1.TabIndex = 128;
             // 
             // label2
             // 
@@ -128,7 +129,7 @@
             this.label2.Location = new System.Drawing.Point(0, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(282, 13);
-            this.label2.TabIndex = 127;
+            this.label2.TabIndex = 129;
             this.label2.Text = "TEDARİKÇİ EKLEME EKRANI";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -166,7 +167,7 @@
         private System.Windows.Forms.TextBox txtAdres;
         private System.Windows.Forms.Button btnKaydet;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private FormKapatici formKapatici1;
         private System.Windows.Forms.Label label2;
+        private FormKapatici formKapatici1;
     }
 }

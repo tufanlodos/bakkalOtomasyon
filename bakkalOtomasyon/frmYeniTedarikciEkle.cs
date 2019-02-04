@@ -25,22 +25,29 @@ namespace PL.Bakkal
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             //ekleme yaparken aynı var mı kontrolü
-            //kolonlar boşsa kayıt eklenmemeli
+         
             Tedarikci td = new Tedarikci();
             td.TedarikciAdi = txtTedarikciAdi.Text;
             td.IletisimNo = txtIletisimNo.Text;
             td.Adres = txtAdres.Text;
-            ter.YeniTedarikciEkle(td);
-            MessageBox.Show("Yeni Tedarikci Eklendi");
-            txtTedarikciAdi.Clear();
-            txtIletisimNo.Clear();
-            txtAdres.Clear();
-            
-
-
-
-
-
+            if( txtAdres.Text.Trim() != "" && txtIletisimNo.Text.Trim() != "" && txtTedarikciAdi.Text.Trim() != "" && ter.TedarikciKontrolByKAdi(txtTedarikciAdi.Text) == false)
+            {
+                ter.YeniTedarikciEkle(td);
+                MessageBox.Show("Yeni Tedarikci Eklendi");
+                txtTedarikciAdi.Clear();
+                txtIletisimNo.Clear();
+                txtAdres.Clear();
+            }else if(ter.TedarikciKontrolByKAdi(txtTedarikciAdi.Text) == true)
+            {
+                MessageBox.Show("Var olan bir tedarikçi eklemeye çalıştınız");
+                txtTedarikciAdi.Clear();
+                txtTedarikciAdi.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Eksik bilgi girdiniz");
+            }
+        
         }
 
         private void txtIletisimNo_TextChanged(object sender, EventArgs e)
@@ -58,5 +65,31 @@ namespace PL.Bakkal
                 }
             }
         }
+
+        private void txtTedarikciAdi_TextChanged(object sender, EventArgs e)
+        {
+            
+            foreach (char harf in txtTedarikciAdi.Text)
+            {
+                if (!char.IsLetter(harf))
+                {
+                    if (harf == ' ')
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bu alana sadece harf girişi yapılabilir.");
+                        txtTedarikciAdi.Text = txtTedarikciAdi.Text.Substring(0, txtTedarikciAdi.Text.Length - 1);
+                        txtTedarikciAdi.Select(txtTedarikciAdi.Text.Length, 0);
+
+                        return;
+                    }
+                }
+            }
+
+        }
+
+        
     }
 }
