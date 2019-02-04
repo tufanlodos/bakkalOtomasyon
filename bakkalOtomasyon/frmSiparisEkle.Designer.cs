@@ -189,6 +189,7 @@
             this.btnYeniTedarikci.TabIndex = 140;
             this.btnYeniTedarikci.Text = "Yeni Tedarikçi";
             this.btnYeniTedarikci.UseVisualStyleBackColor = true;
+            this.btnYeniTedarikci.Click += new System.EventHandler(this.btnYeniTedarikci_Click);
             // 
             // formKapatici1
             // 

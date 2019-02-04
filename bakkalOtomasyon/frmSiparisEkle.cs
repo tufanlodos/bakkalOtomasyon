@@ -96,6 +96,13 @@ namespace PL.Bakkal
             frm.ShowDialog();
         }
 
+        private void btnYeniTedarikci_Click(object sender, EventArgs e)
+        {
+            frmYeniTedarikciEkle frm = new frmYeniTedarikciEkle();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+        }
+
         private void txtAdet_TextChanged(object sender, EventArgs e)
         {
             errorProvider1.Clear();
