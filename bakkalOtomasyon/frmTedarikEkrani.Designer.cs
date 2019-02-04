@@ -61,6 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.formKapatici1 = new PL.Bakkal.FormKapatici();
+            this.btnYeniUrun = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -301,7 +302,7 @@
             // 
             // btnYeniTedarikci
             // 
-            this.btnYeniTedarikci.Location = new System.Drawing.Point(234, 72);
+            this.btnYeniTedarikci.Location = new System.Drawing.Point(229, 75);
             this.btnYeniTedarikci.Margin = new System.Windows.Forms.Padding(2);
             this.btnYeniTedarikci.Name = "btnYeniTedarikci";
             this.btnYeniTedarikci.Size = new System.Drawing.Size(113, 28);
@@ -338,11 +339,23 @@
             this.formKapatici1.Size = new System.Drawing.Size(730, 29);
             this.formKapatici1.TabIndex = 115;
             // 
+            // btnYeniUrun
+            // 
+            this.btnYeniUrun.Location = new System.Drawing.Point(576, 75);
+            this.btnYeniUrun.Margin = new System.Windows.Forms.Padding(2);
+            this.btnYeniUrun.Name = "btnYeniUrun";
+            this.btnYeniUrun.Size = new System.Drawing.Size(113, 28);
+            this.btnYeniUrun.TabIndex = 129;
+            this.btnYeniUrun.Text = "Yeni Ürün Ekle";
+            this.btnYeniUrun.UseVisualStyleBackColor = true;
+            this.btnYeniUrun.Click += new System.EventHandler(this.btnYeniUrun_Click);
+            // 
             // frmTedarikEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 451);
+            this.Controls.Add(this.btnYeniUrun);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.formKapatici1);
@@ -413,5 +426,6 @@
         private FormKapatici formKapatici1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnYeniUrun;
     }
 }

@@ -162,6 +162,14 @@ namespace PL.Bakkal
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
         }
+
+        private void btnYeniUrun_Click(object sender, EventArgs e)
+        {
+            frmUrunEkle frm = new frmUrunEkle();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
+        }
+
         private void Temizle()
         {
             foreach (Control knt in this.Controls)
@@ -172,5 +180,7 @@ namespace PL.Bakkal
                 }
             }
         }
+
+        
     }
 }
