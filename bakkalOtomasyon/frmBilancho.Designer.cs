@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBilancho));
             this.label2 = new System.Windows.Forms.Label();
             this.cbSiralama = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -35,6 +36,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.formKapatici1 = new PL.Bakkal.FormKapatici();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -56,7 +59,7 @@
             "Günlük Bilanço",
             "Haftalık Bilanço (Son 7 gün)",
             "Aylık Bilanço (Son 30 gün)"});
-            this.cbSiralama.Location = new System.Drawing.Point(258, 170);
+            this.cbSiralama.Location = new System.Drawing.Point(93, 162);
             this.cbSiralama.Name = "cbSiralama";
             this.cbSiralama.Size = new System.Drawing.Size(227, 21);
             this.cbSiralama.TabIndex = 127;
@@ -65,7 +68,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(315, 146);
+            this.label1.Location = new System.Drawing.Point(150, 138);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 128;
@@ -76,7 +79,7 @@
             this.lvGoruntulenenListe.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.lvGoruntulenenListe.Location = new System.Drawing.Point(258, 197);
+            this.lvGoruntulenenListe.Location = new System.Drawing.Point(93, 189);
             this.lvGoruntulenenListe.Name = "lvGoruntulenenListe";
             this.lvGoruntulenenListe.Size = new System.Drawing.Size(227, 153);
             this.lvGoruntulenenListe.TabIndex = 129;
@@ -102,11 +105,21 @@
             this.formKapatici1.Size = new System.Drawing.Size(748, 29);
             this.formKapatici1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(393, 129);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 225);
+            this.pictureBox1.TabIndex = 130;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmBilancho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 485);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lvGoruntulenenListe);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbSiralama);
@@ -116,6 +129,7 @@
             this.Name = "frmBilancho";
             this.Text = "frmBilancho";
             this.Load += new System.EventHandler(this.frmBilancho_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +144,6 @@
         private System.Windows.Forms.ListView lvGoruntulenenListe;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

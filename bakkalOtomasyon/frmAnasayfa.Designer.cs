@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnasayfa));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.btnSimge = new System.Windows.Forms.Button();
             this.btnKapat = new System.Windows.Forms.Button();
@@ -43,8 +44,14 @@
             this.btnSatis = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
             this.pnlNav.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -123,9 +130,9 @@
             // 
             this.btnBilanco.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBilanco.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBilanco.Location = new System.Drawing.Point(0, 358);
+            this.btnBilanco.Location = new System.Drawing.Point(0, 340);
             this.btnBilanco.Name = "btnBilanco";
-            this.btnBilanco.Size = new System.Drawing.Size(235, 43);
+            this.btnBilanco.Size = new System.Drawing.Size(235, 40);
             this.btnBilanco.TabIndex = 7;
             this.btnBilanco.Text = "BİLANÇO";
             this.btnBilanco.UseVisualStyleBackColor = true;
@@ -135,9 +142,9 @@
             // 
             this.btnMasraf.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMasraf.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMasraf.Location = new System.Drawing.Point(0, 315);
+            this.btnMasraf.Location = new System.Drawing.Point(0, 300);
             this.btnMasraf.Name = "btnMasraf";
-            this.btnMasraf.Size = new System.Drawing.Size(235, 43);
+            this.btnMasraf.Size = new System.Drawing.Size(235, 40);
             this.btnMasraf.TabIndex = 6;
             this.btnMasraf.Text = "MASRAF İŞLEMLERİ";
             this.btnMasraf.UseVisualStyleBackColor = true;
@@ -147,9 +154,9 @@
             // 
             this.btnSiparis.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSiparis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSiparis.Location = new System.Drawing.Point(0, 272);
+            this.btnSiparis.Location = new System.Drawing.Point(0, 260);
             this.btnSiparis.Name = "btnSiparis";
-            this.btnSiparis.Size = new System.Drawing.Size(235, 43);
+            this.btnSiparis.Size = new System.Drawing.Size(235, 40);
             this.btnSiparis.TabIndex = 5;
             this.btnSiparis.Text = "SİPARİŞ İŞLEMLERİ";
             this.btnSiparis.UseVisualStyleBackColor = true;
@@ -159,9 +166,9 @@
             // 
             this.btnTedarik.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnTedarik.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTedarik.Location = new System.Drawing.Point(0, 229);
+            this.btnTedarik.Location = new System.Drawing.Point(0, 220);
             this.btnTedarik.Name = "btnTedarik";
-            this.btnTedarik.Size = new System.Drawing.Size(235, 43);
+            this.btnTedarik.Size = new System.Drawing.Size(235, 40);
             this.btnTedarik.TabIndex = 4;
             this.btnTedarik.Text = "TEDARİK İŞLEMLERİ";
             this.btnTedarik.UseVisualStyleBackColor = true;
@@ -171,9 +178,9 @@
             // 
             this.btnUrun.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnUrun.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUrun.Location = new System.Drawing.Point(0, 186);
+            this.btnUrun.Location = new System.Drawing.Point(0, 180);
             this.btnUrun.Name = "btnUrun";
-            this.btnUrun.Size = new System.Drawing.Size(235, 43);
+            this.btnUrun.Size = new System.Drawing.Size(235, 40);
             this.btnUrun.TabIndex = 2;
             this.btnUrun.Text = "ÜRÜN İŞLEMLERİ";
             this.btnUrun.UseVisualStyleBackColor = true;
@@ -183,9 +190,9 @@
             // 
             this.btnKategori.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnKategori.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnKategori.Location = new System.Drawing.Point(0, 143);
+            this.btnKategori.Location = new System.Drawing.Point(0, 140);
             this.btnKategori.Name = "btnKategori";
-            this.btnKategori.Size = new System.Drawing.Size(235, 43);
+            this.btnKategori.Size = new System.Drawing.Size(235, 40);
             this.btnKategori.TabIndex = 1;
             this.btnKategori.Text = "KATEGORİ İŞLEMLERİ";
             this.btnKategori.UseVisualStyleBackColor = true;
@@ -197,7 +204,7 @@
             this.btnSatis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSatis.Location = new System.Drawing.Point(0, 100);
             this.btnSatis.Name = "btnSatis";
-            this.btnSatis.Size = new System.Drawing.Size(235, 43);
+            this.btnSatis.Size = new System.Drawing.Size(235, 40);
             this.btnSatis.TabIndex = 0;
             this.btnSatis.Text = "SATIŞ EKRANI";
             this.btnSatis.UseVisualStyleBackColor = true;
@@ -206,20 +213,42 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 404);
+            this.panel3.Location = new System.Drawing.Point(0, 385);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(235, 81);
+            this.panel3.Size = new System.Drawing.Size(235, 100);
             this.panel3.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(235, 100);
             this.panel2.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(235, 100);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(235, 100);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // frmAnasayfa
             // 
@@ -236,6 +265,10 @@
             this.Load += new System.EventHandler(this.frmAnasayfa_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlNav.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,5 +290,7 @@
         private System.Windows.Forms.Button btnSatis;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKategoriler));
             this.dgvKategori = new System.Windows.Forms.DataGridView();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnYeni = new System.Windows.Forms.Button();
@@ -37,7 +38,9 @@
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.formKapatici1 = new PL.Bakkal.FormKapatici();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKategori)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvKategori
@@ -46,10 +49,10 @@
             this.dgvKategori.AllowUserToDeleteRows = false;
             this.dgvKategori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKategori.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvKategori.Location = new System.Drawing.Point(187, 165);
+            this.dgvKategori.Location = new System.Drawing.Point(78, 147);
             this.dgvKategori.Name = "dgvKategori";
             this.dgvKategori.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKategori.Size = new System.Drawing.Size(440, 156);
+            this.dgvKategori.Size = new System.Drawing.Size(309, 156);
             this.dgvKategori.TabIndex = 33;
             this.dgvKategori.TabStop = false;
             this.dgvKategori.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategori_CellDoubleClick);
@@ -59,7 +62,7 @@
             // btnSil
             // 
             this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(396, 338);
+            this.btnSil.Location = new System.Drawing.Point(287, 320);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(81, 29);
             this.btnSil.TabIndex = 32;
@@ -69,7 +72,7 @@
             // 
             // btnYeni
             // 
-            this.btnYeni.Location = new System.Drawing.Point(187, 338);
+            this.btnYeni.Location = new System.Drawing.Point(78, 320);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(81, 29);
             this.btnYeni.TabIndex = 1;
@@ -79,7 +82,7 @@
             // 
             // txtArama
             // 
-            this.txtArama.Location = new System.Drawing.Point(292, 134);
+            this.txtArama.Location = new System.Drawing.Point(183, 116);
             this.txtArama.Name = "txtArama";
             this.txtArama.Size = new System.Drawing.Size(112, 20);
             this.txtArama.TabIndex = 1;
@@ -88,7 +91,7 @@
             // lblKategoriAdiGiriniz
             // 
             this.lblKategoriAdiGiriniz.AutoSize = true;
-            this.lblKategoriAdiGiriniz.Location = new System.Drawing.Point(184, 137);
+            this.lblKategoriAdiGiriniz.Location = new System.Drawing.Point(75, 119);
             this.lblKategoriAdiGiriniz.Name = "lblKategoriAdiGiriniz";
             this.lblKategoriAdiGiriniz.Size = new System.Drawing.Size(95, 13);
             this.lblKategoriAdiGiriniz.TabIndex = 55;
@@ -96,7 +99,7 @@
             // 
             // btnVazgec
             // 
-            this.btnVazgec.Location = new System.Drawing.Point(292, 373);
+            this.btnVazgec.Location = new System.Drawing.Point(183, 355);
             this.btnVazgec.Name = "btnVazgec";
             this.btnVazgec.Size = new System.Drawing.Size(86, 29);
             this.btnVazgec.TabIndex = 57;
@@ -107,7 +110,7 @@
             // 
             // btnGuncelle
             // 
-            this.btnGuncelle.Location = new System.Drawing.Point(274, 339);
+            this.btnGuncelle.Location = new System.Drawing.Point(165, 321);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(116, 28);
             this.btnGuncelle.TabIndex = 58;
@@ -134,11 +137,21 @@
             this.formKapatici1.Size = new System.Drawing.Size(748, 29);
             this.formKapatici1.TabIndex = 59;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(498, 100);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(220, 277);
+            this.pictureBox1.TabIndex = 124;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmKategoriler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 485);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.formKapatici1);
             this.Controls.Add(this.btnGuncelle);
@@ -153,6 +166,7 @@
             this.Text = "Kategori";
             this.Load += new System.EventHandler(this.Kategori_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKategori)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +182,6 @@
         private System.Windows.Forms.Button btnGuncelle;
         private FormKapatici formKapatici1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

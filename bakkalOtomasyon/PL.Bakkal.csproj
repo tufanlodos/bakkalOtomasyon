@@ -253,5 +253,16 @@
       <Name>DAL.Bakkal</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="KaynakDosyalar\157645.grocery-cart.jpg" />
+    <Content Include="KaynakDosyalar\207093-200.png" />
+    <Content Include="KaynakDosyalar\92-924387_grocery-bag-comments-grocery-icon.png" />
+    <Content Include="KaynakDosyalar\92-924387_grocery-bag-comments-grocery-iconwsize.jpg" />
+    <Content Include="KaynakDosyalar\elisıkı.png" />
+    <Content Include="KaynakDosyalar\grocerycarwithsize.jpg" />
+    <Content Include="KaynakDosyalar\grocerycarwithsize235.jpg" />
+    <Content Include="KaynakDosyalar\Modern_Business_grocery_products-512.png" />
+    <Content Include="KaynakDosyalar\money-bribery-balance-icon-simple-style-vector-22606928.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

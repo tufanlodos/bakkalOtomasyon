@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMasraflar));
             this.lblSiralamaOlcutu = new System.Windows.Forms.Label();
             this.cbSiralama = new System.Windows.Forms.ComboBox();
             this.btnYeni = new System.Windows.Forms.Button();
@@ -38,13 +39,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasraflar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSiralamaOlcutu
             // 
             this.lblSiralamaOlcutu.AutoSize = true;
-            this.lblSiralamaOlcutu.Location = new System.Drawing.Point(259, 99);
+            this.lblSiralamaOlcutu.Location = new System.Drawing.Point(101, 94);
             this.lblSiralamaOlcutu.Name = "lblSiralamaOlcutu";
             this.lblSiralamaOlcutu.Size = new System.Drawing.Size(118, 13);
             this.lblSiralamaOlcutu.TabIndex = 115;
@@ -59,7 +62,7 @@
             "Önce en eskiler",
             "Tutara göre azalan",
             "Tutara göre artan"});
-            this.cbSiralama.Location = new System.Drawing.Point(392, 94);
+            this.cbSiralama.Location = new System.Drawing.Point(234, 89);
             this.cbSiralama.Name = "cbSiralama";
             this.cbSiralama.Size = new System.Drawing.Size(121, 21);
             this.cbSiralama.TabIndex = 114;
@@ -67,7 +70,7 @@
             // 
             // btnYeni
             // 
-            this.btnYeni.Location = new System.Drawing.Point(242, 374);
+            this.btnYeni.Location = new System.Drawing.Point(84, 369);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(81, 29);
             this.btnYeni.TabIndex = 0;
@@ -78,7 +81,7 @@
             // btnSil
             // 
             this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(329, 374);
+            this.btnSil.Location = new System.Drawing.Point(171, 369);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(81, 29);
             this.btnSil.TabIndex = 118;
@@ -91,7 +94,7 @@
             this.dgvMasraflar.AllowUserToAddRows = false;
             this.dgvMasraflar.AllowUserToDeleteRows = false;
             this.dgvMasraflar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMasraflar.Location = new System.Drawing.Point(219, 139);
+            this.dgvMasraflar.Location = new System.Drawing.Point(61, 134);
             this.dgvMasraflar.Name = "dgvMasraflar";
             this.dgvMasraflar.Size = new System.Drawing.Size(339, 224);
             this.dgvMasraflar.TabIndex = 100;
@@ -101,7 +104,7 @@
             // 
             // btnVazgec
             // 
-            this.btnVazgec.Location = new System.Drawing.Point(329, 427);
+            this.btnVazgec.Location = new System.Drawing.Point(171, 422);
             this.btnVazgec.Name = "btnVazgec";
             this.btnVazgec.Size = new System.Drawing.Size(81, 29);
             this.btnVazgec.TabIndex = 119;
@@ -112,7 +115,7 @@
             // 
             // btnDegistir
             // 
-            this.btnDegistir.Location = new System.Drawing.Point(416, 374);
+            this.btnDegistir.Location = new System.Drawing.Point(258, 369);
             this.btnDegistir.Name = "btnDegistir";
             this.btnDegistir.Size = new System.Drawing.Size(92, 38);
             this.btnDegistir.TabIndex = 120;
@@ -123,7 +126,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(338, 123);
+            this.label1.Location = new System.Drawing.Point(180, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 121;
@@ -148,11 +151,21 @@
             this.label2.Text = "MASRAF EKRANI";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(472, 118);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(209, 252);
+            this.pictureBox1.TabIndex = 124;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmMasraflar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 485);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.formKapatici1);
             this.Controls.Add(this.label1);
@@ -168,6 +181,7 @@
             this.Text = "Masraf";
             this.Load += new System.EventHandler(this.Masraf_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasraflar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +198,6 @@
         private System.Windows.Forms.Label label1;
         private FormKapatici formKapatici1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -314,10 +314,10 @@
             // 
             // btnIade
             // 
-            this.btnIade.Location = new System.Drawing.Point(557, 377);
+            this.btnIade.Location = new System.Drawing.Point(557, 322);
             this.btnIade.Margin = new System.Windows.Forms.Padding(2);
             this.btnIade.Name = "btnIade";
-            this.btnIade.Size = new System.Drawing.Size(105, 80);
+            this.btnIade.Size = new System.Drawing.Size(105, 36);
             this.btnIade.TabIndex = 151;
             this.btnIade.Text = "İade İşlemleri";
             this.btnIade.UseVisualStyleBackColor = true;
