@@ -9,6 +9,7 @@ namespace BLL.Bakkal.Repositories
 {
   public  class TedarikciEkraniRepository
     {
+        //hiç kullanılmamış
         BCDContext ent = new BCDContext();
         public Tedarikci TedarikciGetirByID(int ID)
         {

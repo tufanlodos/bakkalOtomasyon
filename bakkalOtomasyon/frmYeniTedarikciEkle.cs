@@ -19,10 +19,13 @@ namespace PL.Bakkal
             InitializeComponent();
         }
         TedarikEkraniRepository ter = new TedarikEkraniRepository();
-       
+
+        //harf kolonlarına yalnızca harf girilebilir kontrolleri
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
+            //ekleme yaparken aynı var mı kontrolü
+            //kolonlar boşsa kayıt eklenmemeli
             Tedarikci td = new Tedarikci();
             td.TedarikciAdi = txtTedarikciAdi.Text;
             td.IletisimNo = txtIletisimNo.Text;

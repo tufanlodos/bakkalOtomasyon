@@ -58,8 +58,9 @@
             this.lbTedarikEdilmisUrunler = new System.Windows.Forms.ListBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnYeniTedarikci = new System.Windows.Forms.Button();
-            this.formKapatici1 = new PL.Bakkal.FormKapatici();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.formKapatici1 = new PL.Bakkal.FormKapatici();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +70,7 @@
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(81, 29);
             this.btnEkle.TabIndex = 112;
-            this.btnEkle.Text = "Ekle";
+            this.btnEkle.Text = "Sepete Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
             this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
@@ -99,10 +100,10 @@
             this.columnHeader4,
             this.columnHeader5});
             this.lvUrunler.FullRowSelect = true;
-            this.lvUrunler.Location = new System.Drawing.Point(394, 194);
+            this.lvUrunler.Location = new System.Drawing.Point(384, 205);
             this.lvUrunler.MultiSelect = false;
             this.lvUrunler.Name = "lvUrunler";
-            this.lvUrunler.Size = new System.Drawing.Size(324, 97);
+            this.lvUrunler.Size = new System.Drawing.Size(334, 97);
             this.lvUrunler.TabIndex = 109;
             this.lvUrunler.UseCompatibleStateImageBehavior = false;
             this.lvUrunler.View = System.Windows.Forms.View.Details;
@@ -111,12 +112,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Tedarikçi Adı";
-            this.columnHeader1.Width = 99;
+            this.columnHeader1.Width = 103;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Ürün Adı";
-            this.columnHeader2.Width = 71;
+            this.columnHeader2.Width = 98;
             // 
             // columnHeader3
             // 
@@ -131,7 +132,7 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Toplam Fiyat";
-            this.columnHeader5.Width = 95;
+            this.columnHeader5.Width = 78;
             // 
             // txtBirimFiyat
             // 
@@ -172,7 +173,7 @@
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(81, 29);
             this.btnSil.TabIndex = 104;
-            this.btnSil.Text = "Sil";
+            this.btnSil.Text = "Sepetten Sil";
             this.btnSil.UseVisualStyleBackColor = true;
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
@@ -301,7 +302,7 @@
             // btnYeniTedarikci
             // 
             this.btnYeniTedarikci.Location = new System.Drawing.Point(234, 72);
-            this.btnYeniTedarikci.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnYeniTedarikci.Margin = new System.Windows.Forms.Padding(2);
             this.btnYeniTedarikci.Name = "btnYeniTedarikci";
             this.btnYeniTedarikci.Size = new System.Drawing.Size(113, 28);
             this.btnYeniTedarikci.TabIndex = 114;
@@ -309,30 +310,40 @@
             this.btnYeniTedarikci.UseVisualStyleBackColor = true;
             this.btnYeniTedarikci.Click += new System.EventHandler(this.btnYeniTedarikci_Click);
             // 
-            // formKapatici1
-            // 
-            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
-            this.formKapatici1.Name = "formKapatici1";
-            this.formKapatici1.Size = new System.Drawing.Size(741, 29);
-            this.formKapatici1.TabIndex = 115;
-            // 
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(0, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(741, 13);
+            this.label2.Size = new System.Drawing.Size(730, 13);
             this.label2.TabIndex = 127;
             this.label2.Text = "TEDARİK EKRANI";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(381, 189);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 128;
+            this.label1.Text = "Tedarik Sepeti";
+            // 
+            // formKapatici1
+            // 
+            this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formKapatici1.Location = new System.Drawing.Point(0, 0);
+            this.formKapatici1.Name = "formKapatici1";
+            this.formKapatici1.Size = new System.Drawing.Size(730, 29);
+            this.formKapatici1.TabIndex = 115;
             // 
             // frmTedarikEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 451);
+            this.ClientSize = new System.Drawing.Size(730, 451);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.formKapatici1);
             this.Controls.Add(this.btnYeniTedarikci);
@@ -401,5 +412,6 @@
         private System.Windows.Forms.Button btnYeniTedarikci;
         private FormKapatici formKapatici1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

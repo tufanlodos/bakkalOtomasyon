@@ -141,7 +141,6 @@ namespace PL.Bakkal
             for (int i = 0; i < lvUrunler.Items.Count; i++)
             {
                 TedarikDetay td = new TedarikDetay();
-
                 td.TedarikciId = ter.TedarikciIdGetirByTedarikciAdi(lvUrunler.Items[i].Text);
                 td.UrunId = ter.UrunIdGetirByUrunAdi(lvUrunler.Items[i].SubItems[1].Text);
                 td.BirimTutar = Convert.ToDecimal(lvUrunler.Items[i].SubItems[2].Text);
@@ -152,6 +151,9 @@ namespace PL.Bakkal
                 ter.UrunStokMiktariniArttir(td.UrunId, td.Adet);
             }
             MessageBox.Show("Yeni Tedarikler Eklendi");
+            Temizle();
+            lvUrunler.Items.Clear();
+            lbTedarikEdilmisUrunler.Items.Clear();
         }
 
         private void btnYeniTedarikci_Click(object sender, EventArgs e)
@@ -159,6 +161,16 @@ namespace PL.Bakkal
             frmYeniTedarikciEkle frm = new frmYeniTedarikciEkle();
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.ShowDialog();
+        }
+        private void Temizle()
+        {
+            foreach (Control knt in this.Controls)
+            {
+                if (knt is TextBox)
+                {
+                    knt.Text = "";
+                }
+            }
         }
     }
 }
