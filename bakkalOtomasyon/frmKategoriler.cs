@@ -28,6 +28,7 @@ namespace PL.Bakkal
             DgvDoldurDuzenle();
             txtArama.Focus();
             this.AcceptButton = btnYeni;
+            dgvKategori.ClearSelection();
         }
         private void DgvDoldurDuzenle()
         {
@@ -48,11 +49,11 @@ namespace PL.Bakkal
             dgvKategori.Columns[2].HeaderText = "Açıklama";
             dgvKategori.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvKategori.Columns[3].Visible = false;
-            dgvKategori.ClearSelection();
             txtArama.Text = "";
             btnGuncelle.Enabled = false;
             btnSil.Enabled = false;
             HeaderText++;
+            dgvKategori.ClearSelection();
         }
         private void btnSil_Click(object sender, EventArgs e)
         {

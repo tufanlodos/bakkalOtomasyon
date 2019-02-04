@@ -46,11 +46,12 @@
             this.dgvKategori.AllowUserToDeleteRows = false;
             this.dgvKategori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKategori.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvKategori.Location = new System.Drawing.Point(21, 81);
+            this.dgvKategori.Location = new System.Drawing.Point(187, 165);
             this.dgvKategori.Name = "dgvKategori";
             this.dgvKategori.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKategori.Size = new System.Drawing.Size(440, 156);
             this.dgvKategori.TabIndex = 33;
+            this.dgvKategori.TabStop = false;
             this.dgvKategori.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategori_CellDoubleClick);
             this.dgvKategori.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategori_CellValueChanged);
             this.dgvKategori.DoubleClick += new System.EventHandler(this.dgvKategori_DoubleClick);
@@ -58,7 +59,7 @@
             // btnSil
             // 
             this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(230, 254);
+            this.btnSil.Location = new System.Drawing.Point(396, 338);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(81, 29);
             this.btnSil.TabIndex = 32;
@@ -68,7 +69,7 @@
             // 
             // btnYeni
             // 
-            this.btnYeni.Location = new System.Drawing.Point(21, 254);
+            this.btnYeni.Location = new System.Drawing.Point(187, 338);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(81, 29);
             this.btnYeni.TabIndex = 1;
@@ -78,7 +79,7 @@
             // 
             // txtArama
             // 
-            this.txtArama.Location = new System.Drawing.Point(126, 50);
+            this.txtArama.Location = new System.Drawing.Point(292, 134);
             this.txtArama.Name = "txtArama";
             this.txtArama.Size = new System.Drawing.Size(112, 20);
             this.txtArama.TabIndex = 1;
@@ -87,7 +88,7 @@
             // lblKategoriAdiGiriniz
             // 
             this.lblKategoriAdiGiriniz.AutoSize = true;
-            this.lblKategoriAdiGiriniz.Location = new System.Drawing.Point(18, 53);
+            this.lblKategoriAdiGiriniz.Location = new System.Drawing.Point(184, 137);
             this.lblKategoriAdiGiriniz.Name = "lblKategoriAdiGiriniz";
             this.lblKategoriAdiGiriniz.Size = new System.Drawing.Size(95, 13);
             this.lblKategoriAdiGiriniz.TabIndex = 55;
@@ -95,7 +96,7 @@
             // 
             // btnVazgec
             // 
-            this.btnVazgec.Location = new System.Drawing.Point(317, 254);
+            this.btnVazgec.Location = new System.Drawing.Point(483, 338);
             this.btnVazgec.Name = "btnVazgec";
             this.btnVazgec.Size = new System.Drawing.Size(86, 29);
             this.btnVazgec.TabIndex = 57;
@@ -106,7 +107,7 @@
             // 
             // btnGuncelle
             // 
-            this.btnGuncelle.Location = new System.Drawing.Point(108, 255);
+            this.btnGuncelle.Location = new System.Drawing.Point(274, 339);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(116, 28);
             this.btnGuncelle.TabIndex = 58;
@@ -120,7 +121,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(0, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(473, 13);
+            this.label1.Size = new System.Drawing.Size(748, 13);
             this.label1.TabIndex = 123;
             this.label1.Text = "KATEGORİLER";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,14 +131,14 @@
             this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
             this.formKapatici1.Location = new System.Drawing.Point(0, 0);
             this.formKapatici1.Name = "formKapatici1";
-            this.formKapatici1.Size = new System.Drawing.Size(473, 29);
+            this.formKapatici1.Size = new System.Drawing.Size(748, 29);
             this.formKapatici1.TabIndex = 59;
             // 
             // frmKategoriler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 296);
+            this.ClientSize = new System.Drawing.Size(748, 485);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.formKapatici1);
             this.Controls.Add(this.btnGuncelle);

@@ -157,7 +157,7 @@
             this.dgvUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUrunler.Location = new System.Drawing.Point(12, 111);
             this.dgvUrunler.Name = "dgvUrunler";
-            this.dgvUrunler.Size = new System.Drawing.Size(680, 139);
+            this.dgvUrunler.Size = new System.Drawing.Size(736, 139);
             this.dgvUrunler.TabIndex = 126;
             this.dgvUrunler.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellDoubleClick);
             this.dgvUrunler.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellValueChanged);
@@ -179,7 +179,7 @@
             this.lblKritik.AutoSize = true;
             this.lblKritik.BackColor = System.Drawing.Color.Red;
             this.lblKritik.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblKritik.Location = new System.Drawing.Point(26, 327);
+            this.lblKritik.Location = new System.Drawing.Point(89, 325);
             this.lblKritik.Name = "lblKritik";
             this.lblKritik.Size = new System.Drawing.Size(411, 17);
             this.lblKritik.TabIndex = 129;
@@ -188,7 +188,7 @@
             // 
             // btnKritikGoruntule
             // 
-            this.btnKritikGoruntule.Location = new System.Drawing.Point(443, 318);
+            this.btnKritikGoruntule.Location = new System.Drawing.Point(506, 316);
             this.btnKritikGoruntule.Name = "btnKritikGoruntule";
             this.btnKritikGoruntule.Size = new System.Drawing.Size(101, 36);
             this.btnKritikGoruntule.TabIndex = 130;

@@ -44,7 +44,7 @@
             // lblSiralamaOlcutu
             // 
             this.lblSiralamaOlcutu.AutoSize = true;
-            this.lblSiralamaOlcutu.Location = new System.Drawing.Point(64, 53);
+            this.lblSiralamaOlcutu.Location = new System.Drawing.Point(259, 99);
             this.lblSiralamaOlcutu.Name = "lblSiralamaOlcutu";
             this.lblSiralamaOlcutu.Size = new System.Drawing.Size(118, 13);
             this.lblSiralamaOlcutu.TabIndex = 115;
@@ -59,7 +59,7 @@
             "Önce en eskiler",
             "Tutara göre azalan",
             "Tutara göre artan"});
-            this.cbSiralama.Location = new System.Drawing.Point(197, 48);
+            this.cbSiralama.Location = new System.Drawing.Point(392, 94);
             this.cbSiralama.Name = "cbSiralama";
             this.cbSiralama.Size = new System.Drawing.Size(121, 21);
             this.cbSiralama.TabIndex = 114;
@@ -67,7 +67,7 @@
             // 
             // btnYeni
             // 
-            this.btnYeni.Location = new System.Drawing.Point(12, 323);
+            this.btnYeni.Location = new System.Drawing.Point(242, 374);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(81, 29);
             this.btnYeni.TabIndex = 0;
@@ -78,7 +78,7 @@
             // btnSil
             // 
             this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(99, 323);
+            this.btnSil.Location = new System.Drawing.Point(329, 374);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(81, 29);
             this.btnSil.TabIndex = 118;
@@ -91,7 +91,7 @@
             this.dgvMasraflar.AllowUserToAddRows = false;
             this.dgvMasraflar.AllowUserToDeleteRows = false;
             this.dgvMasraflar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMasraflar.Location = new System.Drawing.Point(24, 93);
+            this.dgvMasraflar.Location = new System.Drawing.Point(219, 139);
             this.dgvMasraflar.Name = "dgvMasraflar";
             this.dgvMasraflar.Size = new System.Drawing.Size(339, 224);
             this.dgvMasraflar.TabIndex = 100;
@@ -101,9 +101,9 @@
             // 
             // btnVazgec
             // 
-            this.btnVazgec.Location = new System.Drawing.Point(286, 323);
+            this.btnVazgec.Location = new System.Drawing.Point(329, 427);
             this.btnVazgec.Name = "btnVazgec";
-            this.btnVazgec.Size = new System.Drawing.Size(80, 29);
+            this.btnVazgec.Size = new System.Drawing.Size(81, 29);
             this.btnVazgec.TabIndex = 119;
             this.btnVazgec.Text = "Vazgeç";
             this.btnVazgec.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             // 
             // btnDegistir
             // 
-            this.btnDegistir.Location = new System.Drawing.Point(186, 323);
+            this.btnDegistir.Location = new System.Drawing.Point(416, 374);
             this.btnDegistir.Name = "btnDegistir";
             this.btnDegistir.Size = new System.Drawing.Size(92, 38);
             this.btnDegistir.TabIndex = 120;
@@ -123,7 +123,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 77);
+            this.label1.Location = new System.Drawing.Point(338, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 121;
@@ -134,7 +134,7 @@
             this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
             this.formKapatici1.Location = new System.Drawing.Point(0, 0);
             this.formKapatici1.Name = "formKapatici1";
-            this.formKapatici1.Size = new System.Drawing.Size(380, 29);
+            this.formKapatici1.Size = new System.Drawing.Size(748, 29);
             this.formKapatici1.TabIndex = 101;
             // 
             // label2
@@ -143,7 +143,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(0, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(380, 13);
+            this.label2.Size = new System.Drawing.Size(748, 13);
             this.label2.TabIndex = 123;
             this.label2.Text = "MASRAF EKRANI";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 375);
+            this.ClientSize = new System.Drawing.Size(748, 485);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.formKapatici1);
             this.Controls.Add(this.label1);

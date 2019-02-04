@@ -111,7 +111,7 @@ namespace BLL.Bakkal.Repositories
 
         public List<Urunler> UrunGetirByUrunAdi(string urunAdi)
         {
-            return ent.Urunlers.Where(u => u.UrunAdi.Contains(urunAdi) && u.Silindi == true).ToList();
+            return ent.Urunlers.Where(u => u.UrunAdi.Contains(urunAdi) && u.Silindi == false).ToList();
         }
 
         public List<Urunler> UrunSiralaByUrunAdi(string nece, int KategoriID)

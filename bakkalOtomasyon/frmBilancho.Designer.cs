@@ -43,7 +43,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(0, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(271, 13);
+            this.label2.Size = new System.Drawing.Size(748, 13);
             this.label2.TabIndex = 126;
             this.label2.Text = "BİLANÇO EKRANI";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -56,7 +56,7 @@
             "Günlük Bilanço",
             "Haftalık Bilanço (Son 7 gün)",
             "Aylık Bilanço (Son 30 gün)"});
-            this.cbSiralama.Location = new System.Drawing.Point(22, 103);
+            this.cbSiralama.Location = new System.Drawing.Point(258, 170);
             this.cbSiralama.Name = "cbSiralama";
             this.cbSiralama.Size = new System.Drawing.Size(227, 21);
             this.cbSiralama.TabIndex = 127;
@@ -65,7 +65,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 79);
+            this.label1.Location = new System.Drawing.Point(315, 146);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 128;
@@ -76,7 +76,7 @@
             this.lvGoruntulenenListe.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.lvGoruntulenenListe.Location = new System.Drawing.Point(22, 130);
+            this.lvGoruntulenenListe.Location = new System.Drawing.Point(258, 197);
             this.lvGoruntulenenListe.Name = "lvGoruntulenenListe";
             this.lvGoruntulenenListe.Size = new System.Drawing.Size(227, 153);
             this.lvGoruntulenenListe.TabIndex = 129;
@@ -99,14 +99,14 @@
             this.formKapatici1.Dock = System.Windows.Forms.DockStyle.Top;
             this.formKapatici1.Location = new System.Drawing.Point(0, 0);
             this.formKapatici1.Name = "formKapatici1";
-            this.formKapatici1.Size = new System.Drawing.Size(271, 29);
+            this.formKapatici1.Size = new System.Drawing.Size(748, 29);
             this.formKapatici1.TabIndex = 0;
             // 
             // frmBilancho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 324);
+            this.ClientSize = new System.Drawing.Size(748, 485);
             this.Controls.Add(this.lvGoruntulenenListe);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbSiralama);
