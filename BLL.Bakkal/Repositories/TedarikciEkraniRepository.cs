@@ -20,9 +20,9 @@ namespace BLL.Bakkal.Repositories
          public Tedarikci TedarikciGetirByAdSoyad(string tedarikciAdiSoyadi)
         {
            Tedarikci adiSoyadi = (from t in ent.Tedarikci
-                                   where c.Ad == ID
-                                   select c).FirstOrDefault();
-            return degisen;
+                                   where t.TedarikciAdi == tedarikciAdiSoyadi
+                                   select t).FirstOrDefault();
+            return adiSoyadi;
         }
     }
 }

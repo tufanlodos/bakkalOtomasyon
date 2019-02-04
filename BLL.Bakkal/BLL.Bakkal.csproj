@@ -60,6 +60,7 @@
     <Compile Include="Repositories\MasrafRepository.cs" />
     <Compile Include="Repositories\SatisRepo.cs" />
     <Compile Include="Repositories\StokRepository.cs" />
+    <Compile Include="Repositories\TedarikciEkraniRepository.cs" />
     <Compile Include="Repositories\UrunRepository.cs" />
     <Compile Include="Repositories\SiparisRepository.cs" />
     <Compile Include="Repositories\TedarikEkraniRepository.cs" />
