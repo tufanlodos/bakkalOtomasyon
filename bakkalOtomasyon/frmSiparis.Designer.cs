@@ -46,7 +46,7 @@
             // btnGuncelle
             // 
             this.btnGuncelle.Enabled = false;
-            this.btnGuncelle.Location = new System.Drawing.Point(420, 301);
+            this.btnGuncelle.Location = new System.Drawing.Point(384, 301);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(119, 29);
             this.btnGuncelle.TabIndex = 125;
@@ -57,7 +57,7 @@
             // btnSil
             // 
             this.btnSil.Enabled = false;
-            this.btnSil.Location = new System.Drawing.Point(302, 301);
+            this.btnSil.Location = new System.Drawing.Point(266, 301);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(112, 29);
             this.btnSil.TabIndex = 122;
@@ -132,7 +132,7 @@
             // 
             // btnVazgec
             // 
-            this.btnVazgec.Location = new System.Drawing.Point(545, 301);
+            this.btnVazgec.Location = new System.Drawing.Point(509, 301);
             this.btnVazgec.Name = "btnVazgec";
             this.btnVazgec.Size = new System.Drawing.Size(100, 29);
             this.btnVazgec.TabIndex = 132;
@@ -143,7 +143,7 @@
             // 
             // btnYeni
             // 
-            this.btnYeni.Location = new System.Drawing.Point(216, 301);
+            this.btnYeni.Location = new System.Drawing.Point(180, 301);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(81, 29);
             this.btnYeni.TabIndex = 0;

@@ -96,7 +96,7 @@
             // 
             // btnVazgec
             // 
-            this.btnVazgec.Location = new System.Drawing.Point(483, 338);
+            this.btnVazgec.Location = new System.Drawing.Point(292, 373);
             this.btnVazgec.Name = "btnVazgec";
             this.btnVazgec.Size = new System.Drawing.Size(86, 29);
             this.btnVazgec.TabIndex = 57;
